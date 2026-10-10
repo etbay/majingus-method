@@ -1,3 +1,12 @@
-class_name PlacedDice extends Node
+class_name Die extends Node
 
-var value: int = 1
+var _value: int = 1
+var _faces: Array = [0, 1, 2, 3, 4, 5, 6]
+var position: Array = [0, 0]
+
+func get_value() -> int:
+	return _value
+
+func roll_die() -> int:
+	_value = _faces[randi_range(0, _faces.size())]
+	return _value

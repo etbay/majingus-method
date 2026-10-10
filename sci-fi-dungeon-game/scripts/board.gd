@@ -9,7 +9,7 @@ func _ready() -> void:
 	for array in _board_array:
 		array.resize(HEIGHT)
 		
-func place_dice(column: int, roll: PlacedDice) -> bool:
+func place_dice(column: int, roll: Die) -> bool:
 	var placed: bool = false
 	for i in range(0, HEIGHT):
 		if (_board_array[column][i] == null):
@@ -27,7 +27,7 @@ func calculate_score() -> int:
 func calculate_column_score(column: int) -> int:
 	var dict: Dictionary
 	for i in range(0, HEIGHT):
-		var entry = _board_array[column][i]
+		var entry = _board_array[column][i].get_value()
 		if dict[str(entry)] == null:
 			dict[str(entry)] = 1
 		else:
