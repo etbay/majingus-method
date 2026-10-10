@@ -1,4 +1,4 @@
-extends Camera3D
+class_name PanCamera extends Camera3D
 
 ## Percentage of screen entered that causes the player to pan left or right
 @export var turn_threshold: float = 10
@@ -6,6 +6,9 @@ extends Camera3D
 ## The speed of the camera pan
 @export var turn_speed: float = 5
 
+signal hit_trigger(dir: PoolTrigger.TriggerDirection)
+
+@onready var area_trigger: PanCameraArea = $PanCameraArea
 @onready var _screen_width: float = get_tree().root.content_scale_size.x
 
 var _mouse_pos_x: float 
@@ -13,6 +16,7 @@ var _pan_enabled: bool = true
 
 func _ready() -> void:
 	_mouse_pos_x = _screen_width / 2
+	area_trigger.hit_trigger.connect(func(dir: PoolTrigger.TriggerDirection): hit_trigger.emit(dir))
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
