@@ -3,6 +3,7 @@ class_name InteractableObject extends Sprite3D
 signal item_clicked
 
 @export var hover_highlight: Color 
+@export var required_tool_type: InventoryTool.ToolType
 
 @onready var click_area: Area3D = $Area3D
 
@@ -17,6 +18,7 @@ func _ready() -> void:
 	click_area.mouse_exited.connect(_on_mouse_exited)
 
 func _on_mouse_entered() -> void:
+	print("mouse over")
 	_mouse_over = true
 	# Set highlight color
 	modulate = hover_highlight
