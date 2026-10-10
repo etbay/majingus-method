@@ -42,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 0.0059577627, 0.99998224, 0, -0.99998224, 0.
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1375700040]
 
-[node name="BoardSignalManager" type="Node" parent="CanvasLayer" unique_id=1243684422 node_paths=PackedStringArray("roll_button", "button_00", "button_10", "button_20", "button_30", "button_01", "button_11", "button_21", "button_31", "button_02", "button_12", "button_22", "button_32")]
+[node name="BoardSignalManager" type="Node" parent="CanvasLayer" unique_id=1243684422 node_paths=PackedStringArray("roll_button", "button_00", "button_10", "button_20", "button_30", "button_01", "button_11", "button_21", "button_31", "button_02", "button_12", "button_22", "button_32", "player_score_text", "column_1_score", "column_2_score", "column_3_score", "column_4_score")]
 script = ExtResource("2_8sx4y")
 roll_button = NodePath("../Control/RollDie")
 button_00 = NodePath("../Control/Player1/VBoxContainer/Button")
@@ -57,6 +57,11 @@ button_02 = NodePath("../Control/Player1/VBoxContainer/Button3")
 button_12 = NodePath("../Control/Player1/VBoxContainer2/Button3")
 button_22 = NodePath("../Control/Player1/VBoxContainer3/Button3")
 button_32 = NodePath("../Control/Player1/VBoxContainer4/Button3")
+player_score_text = NodePath("../Control/PlayerScore")
+column_1_score = NodePath("../Control/ColumnScore")
+column_2_score = NodePath("../Control/ColumnScore2")
+column_3_score = NodePath("../Control/ColumnScore3")
+column_4_score = NodePath("../Control/ColumnScore4")
 metadata/_custom_type_script = "uid://dbcb7e3a1ebdt"
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1805039991]
@@ -292,3 +297,31 @@ offset_top = 472.0
 offset_right = 986.0
 offset_bottom = 503.0
 text = "Roll die"
+
+[node name="ColumnScore" type="Label" parent="CanvasLayer/Control" unique_id=983226264]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 371.0
+offset_right = 480.0
+offset_bottom = 394.0
+
+[node name="ColumnScore2" type="Label" parent="CanvasLayer/Control" unique_id=1729925882]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 370.0
+offset_right = 589.0
+offset_bottom = 393.0
+
+[node name="ColumnScore3" type="Label" parent="CanvasLayer/Control" unique_id=1091199983]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 369.0
+offset_right = 688.0
+offset_bottom = 392.0
+
+[node name="ColumnScore4" type="Label" parent="CanvasLayer/Control" unique_id=421349076]
+layout_mode = 0
+offset_left = 761.0
+offset_top = 370.0
+offset_right = 801.0
+offset_bottom = 393.0

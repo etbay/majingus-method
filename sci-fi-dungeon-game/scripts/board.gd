@@ -27,18 +27,20 @@ func calculate_score() -> int:
 		sum += calculate_column_score(i)
 	return sum
 	
+# accepts column index
 func calculate_column_score(column: int) -> int:
-	var dict: Dictionary
-	for i in range(0, HEIGHT):
-		var entry = _board_array[column][i].get_value()
-		if dict[str(entry)] == null:
-			dict[str(entry)] = 1
+	var dict: Dictionary[String, int] = {}
+	for entry in _board_array[column]:
+		var value = str(entry.get_value())
+		if dict.get(value) == null:
+			dict[value] = 1
 		else:
-			dict[str(entry)] += 1
+			dict[value] = dict[value] + 1
 	var sum = 0
+	
 	for entry in dict:
 		if dict[entry] > 0:
-			sum += dict[entry] * int(entry)
+			sum += (dict[entry] * int(entry)) * dict[entry] # dict entry = count
 	return sum
 
 func destroy_die(x: int, y: int) -> void:
@@ -48,7 +50,7 @@ func destroy_die(x: int, y: int) -> void:
 		
 func clear_column(column: int) -> void:
 	for i in range(0, HEIGHT):
-		_board_array[column][i]
+		_board_array[column][i] = null
 
 func clear_board() -> void:
 	for arr in _board_array:

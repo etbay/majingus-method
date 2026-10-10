@@ -21,6 +21,10 @@ signal roll_die()
 @export var button_32: Button
 
 @export var player_score_text: Label
+@export var column_1_score: Label
+@export var column_2_score: Label
+@export var column_3_score: Label
+@export var column_4_score: Label
 
 @onready var _button_arr: Array[Array] = [[button_00, button_01, button_02], [button_10, button_11, button_12], [button_20, button_21, button_22], [button_30, button_31, button_32]]
 	
@@ -62,3 +66,8 @@ func display_score(board: Board) -> void:
 	for i in range(0, board.WIDTH):
 		for j in range(0, board.HEIGHT):
 			_button_arr[i][board.HEIGHT - 1 - j].text = str(board.get_value_at(i,j))
+	column_1_score.text = str(board.calculate_column_score(0))
+	column_2_score.text = str(board.calculate_column_score(1))
+	column_3_score.text = str(board.calculate_column_score(2))
+	column_4_score.text = str(board.calculate_column_score(3))
+	player_score_text.text = str(board.calculate_score())
