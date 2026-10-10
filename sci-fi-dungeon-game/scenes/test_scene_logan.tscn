@@ -1,3 +1,285 @@
 [gd_scene format=3 uid="uid://bfgn5vj7fmsnm"]
 
+[ext_resource type="Script" uid="uid://bph18tv2vdfig" path="res://scripts/game_manager.gd" id="1_2g0j8"]
+[ext_resource type="Script" uid="uid://dbcb7e3a1ebdt" path="res://scripts/board_signal_manager.gd" id="2_8sx4y"]
+
+[sub_resource type="Environment" id="Environment_8sx4y"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_i0u4w"]
+
+[sub_resource type="Compositor" id="Compositor_2g0j8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2g0j8"]
+albedo_color = Color(0.15223157, 0.0501566, 0.09946779, 0.91764706)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qi5dk"]
+material = SubResource("StandardMaterial3D_2g0j8")
+size = Vector3(4, 0.3, 3.5)
+
 [node name="TestSceneLogan" type="Node3D" unique_id=363380781]
+
+[node name="GameManager" type="Node" parent="." unique_id=1697665535 node_paths=PackedStringArray("player_score", "CPU_score", "player_dice_roll", "CPU_dice_roll", "b")]
+script = ExtResource("1_2g0j8")
+player_score = NodePath("../CanvasLayer/Control/PlayerScore")
+CPU_score = NodePath("../CanvasLayer/Control/CPUScore")
+player_dice_roll = NodePath("../CanvasLayer/Control/PlayerDice")
+CPU_dice_roll = NodePath("../CanvasLayer/Control/CPUDice")
+b = NodePath("../CanvasLayer/BoardSignalManager")
+metadata/_custom_type_script = "uid://bph18tv2vdfig"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1190733260]
+transform = Transform3D(1, 0, 0, 0, 0.43909645, 0.89843994, 0, -0.89843994, 0.43909645, 0, 2.0216336, 1.5877793)
+environment = SubResource("Environment_8sx4y")
+attributes = SubResource("CameraAttributesPractical_i0u4w")
+compositor = SubResource("Compositor_2g0j8")
+fov = 80.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=837391724]
+mesh = SubResource("BoxMesh_qi5dk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1955577525]
+transform = Transform3D(1, 0, 0, 0, 0.0059577627, 0.99998224, 0, -0.99998224, 0.0059577627, 0, 1.6547041, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1375700040]
+
+[node name="BoardSignalManager" type="Node" parent="CanvasLayer" unique_id=1243684422 node_paths=PackedStringArray("button_00", "button_10", "button_20", "button_30", "button_01", "button_11", "button_21", "button_31", "button_02", "button_12", "button_22", "button_32")]
+script = ExtResource("2_8sx4y")
+button_00 = NodePath("../Control/Player1/VBoxContainer/Button")
+button_10 = NodePath("../Control/Player1/VBoxContainer2/Button")
+button_20 = NodePath("../Control/Player1/VBoxContainer3/Button")
+button_30 = NodePath("../Control/Player1/VBoxContainer4/Button")
+button_01 = NodePath("../Control/Player1/VBoxContainer/Button2")
+button_11 = NodePath("../Control/Player1/VBoxContainer2/Button2")
+button_21 = NodePath("../Control/Player1/VBoxContainer3/Button2")
+button_31 = NodePath("../Control/Player1/VBoxContainer4/Button2")
+button_02 = NodePath("../Control/Player1/VBoxContainer/Button3")
+button_12 = NodePath("../Control/Player1/VBoxContainer2/Button3")
+button_22 = NodePath("../Control/Player1/VBoxContainer3/Button3")
+button_32 = NodePath("../Control/Player1/VBoxContainer4/Button3")
+metadata/_custom_type_script = "uid://dbcb7e3a1ebdt"
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1805039991]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerName" type="Label" parent="CanvasLayer/Control" unique_id=1311597523]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 104.0
+grow_vertical = 0
+size_flags_vertical = 8
+text = "Player Name:"
+
+[node name="CPUName" type="Label" parent="CanvasLayer/Control" unique_id=551556774]
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 23.0
+size_flags_vertical = 8
+text = "CPU Name:"
+
+[node name="Player1" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=130842385]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 415.0
+offset_top = 403.0
+offset_right = -453.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Player1" unique_id=605504023]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/Player1/VBoxContainer" unique_id=147211836]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/Player1/VBoxContainer" unique_id=1228014435]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/Player1/VBoxContainer" unique_id=937791193]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/Player1" unique_id=18844086]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/Player1/VBoxContainer2" unique_id=1190672003]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/Player1/VBoxContainer2" unique_id=598346651]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/Player1/VBoxContainer2" unique_id=759299866]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/Control/Player1" unique_id=1956474961]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/Player1/VBoxContainer3" unique_id=1225153399]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/Player1/VBoxContainer3" unique_id=1495385544]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/Player1/VBoxContainer3" unique_id=60575272]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer/Control/Player1" unique_id=1825210375]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/Player1/VBoxContainer4" unique_id=1965389275]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/Player1/VBoxContainer4" unique_id=1721260413]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/Player1/VBoxContainer4" unique_id=1102998790]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="CPU" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1766840043]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 415.0
+offset_top = 6.0
+offset_right = -453.0
+offset_bottom = -406.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CPU" unique_id=1490784034]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/CPU/VBoxContainer" unique_id=1855280410]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/CPU/VBoxContainer" unique_id=66487827]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/CPU/VBoxContainer" unique_id=632691444]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/CPU" unique_id=84759524]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/CPU/VBoxContainer2" unique_id=49969354]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/CPU/VBoxContainer2" unique_id=283966105]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/CPU/VBoxContainer2" unique_id=1097765300]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/Control/CPU" unique_id=711063926]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/CPU/VBoxContainer3" unique_id=575262739]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/CPU/VBoxContainer3" unique_id=24720977]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/CPU/VBoxContainer3" unique_id=405275938]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer/Control/CPU" unique_id=2110615297]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/CPU/VBoxContainer4" unique_id=1167890200]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/CPU/VBoxContainer4" unique_id=523189174]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/CPU/VBoxContainer4" unique_id=1803906709]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="PlayerScore" type="Label" parent="CanvasLayer/Control" unique_id=406469247]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 486.0
+offset_right = 191.0
+offset_bottom = 509.0
+text = "Score: "
+
+[node name="PlayerDice" type="Label" parent="CanvasLayer/Control" unique_id=363049328]
+layout_mode = 0
+offset_left = 926.0
+offset_top = 516.0
+offset_right = 1001.0
+offset_bottom = 539.0
+text = "Dice Roll: "
+
+[node name="CPUScore" type="Label" parent="CanvasLayer/Control" unique_id=1006920596]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 84.0
+offset_right = 185.0
+offset_bottom = 107.0
+text = "Score: "
+
+[node name="CPUDice" type="Label" parent="CanvasLayer/Control" unique_id=508834160]
+layout_mode = 0
+offset_left = 912.0
+offset_top = 98.0
+offset_right = 987.0
+offset_bottom = 121.0
+text = "Dice Roll: "
