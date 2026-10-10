@@ -11,7 +11,6 @@ var _pan_enabled: bool = true
 
 func _ready() -> void:
 	_mouse_pos_x = screen_width / 2
-	print("Screen width: %d" % screen_width)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
@@ -26,8 +25,12 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		_mouse_pos_x = event.global_position.x
 
+## Returns true if the input mouse positin is within turn_threshold % of the 
+## right side of the screen
 func within_right_percent_of_screen(mouse_pos: float) -> bool:
 	return mouse_pos > (screen_width - screen_width * (turn_threshold / 100))
 
+## Returns true if the input mouse positin is within turn_threshold % of the 
+## right left of the screen
 func within_left_percent_of_screen(mouse_pos: float) -> bool:
 	return mouse_pos < screen_width * (turn_threshold / 100)
