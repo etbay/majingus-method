@@ -1,5 +1,7 @@
 class_name InteractableObject extends Sprite3D
 
+signal item_clicked
+
 @export var hover_highlight: Color 
 
 @onready var click_area: Area3D = $Area3D
@@ -8,8 +10,7 @@ var _mouse_over: bool = false
 
 func _process(_delta: float) -> void:
 	if _mouse_over and Input.is_action_just_pressed("environment_interact"):
-		# Add stuff
-		pass
+		item_clicked.emit()
 
 func _ready() -> void:
 	click_area.mouse_entered.connect(_on_mouse_entered)
