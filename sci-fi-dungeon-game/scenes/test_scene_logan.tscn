@@ -42,8 +42,9 @@ transform = Transform3D(1, 0, 0, 0, 0.0059577627, 0.99998224, 0, -0.99998224, 0.
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1375700040]
 
-[node name="BoardSignalManager" type="Node" parent="CanvasLayer" unique_id=1243684422 node_paths=PackedStringArray("button_00", "button_10", "button_20", "button_30", "button_01", "button_11", "button_21", "button_31", "button_02", "button_12", "button_22", "button_32")]
+[node name="BoardSignalManager" type="Node" parent="CanvasLayer" unique_id=1243684422 node_paths=PackedStringArray("roll_button", "button_00", "button_10", "button_20", "button_30", "button_01", "button_11", "button_21", "button_31", "button_02", "button_12", "button_22", "button_32")]
 script = ExtResource("2_8sx4y")
+roll_button = NodePath("../Control/RollDie")
 button_00 = NodePath("../Control/Player1/VBoxContainer/Button")
 button_10 = NodePath("../Control/Player1/VBoxContainer2/Button")
 button_20 = NodePath("../Control/Player1/VBoxContainer3/Button")
@@ -283,3 +284,11 @@ offset_top = 98.0
 offset_right = 987.0
 offset_bottom = 121.0
 text = "Dice Roll: "
+
+[node name="RollDie" type="Button" parent="CanvasLayer/Control" unique_id=732836500]
+layout_mode = 0
+offset_left = 921.0
+offset_top = 472.0
+offset_right = 986.0
+offset_bottom = 503.0
+text = "Roll die"
