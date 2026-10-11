@@ -13,12 +13,14 @@ func _init() -> void:
 		array.resize(HEIGHT)
 		array.fill(null)
 
-func place_dice(column: int, roll: Die) -> bool:
+func place_dice(column: int, die: Die) -> bool:
 	var placed: bool = false
 	for i in range(0, HEIGHT):
 		if (_board_array[column][i] == null):
-			_board_array[column][i] = roll
+			_board_array[column][i] = die
 			placed = true
+			die.x = column
+			die.y = i
 			break
 	return placed
 
@@ -50,15 +52,25 @@ func calculate_column_score(column: int) -> int:
 			var sum_values: int = 0
 			for die in column_dict[entry]:
 				sum_values += die.get_value() + die.quality
-				if die.get_type() == Die.DieType.HOLLOW and _board_dict["empty"] != null:
+				if die.get_type() == Die.DieType.HOLLOW and _board_dict.get("empty") != null:
 					sum_values += _board_dict["empty"].size()
+				elif die.get_type() == Die.DieType.PLASMA:
+					sum_values += _get_row_matches(die.y, die.get_value())
 			column_total += sum_values * column_dict[entry].size()
 	return column_total
+
+func _get_row_matches(row: int, face: int) -> int:
+	var matches: int = -1 # there will always be 1 match: the plasma die
+	for i in range(0, WIDTH):
+		if _board_array[i][row] != null and _board_array[i][row].get_value() == face:
+			matches += 1
+	return matches
 
 func destroy_die(x: int, y: int) -> void:
 	_board_array[x][y] = null
 	for i in range(y, HEIGHT - 1):
 		_board_array[x][i] = _board_array[x][i + 1] # falling blocks
+		_board_array[x][i].y = i
 		
 func clear_column(column: int) -> void:
 	for i in range(0, HEIGHT):

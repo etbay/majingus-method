@@ -11,7 +11,8 @@ enum DieType {
 
 var _value: int = 1
 var _faces: Array = [1, 2, 3, 4, 5, 6]
-var position: Array = [0, 0]
+var x: int = 0
+var y: int = 0
 
 # Modifications
 var _type: DieType
@@ -21,7 +22,7 @@ func _init(value: int):
 	_value = value
 	_type = DieType.NORMAL
 	quality = 0
-
+	
 func get_value() -> int:
 	return _value
 
