@@ -66,12 +66,34 @@ func _get_row_matches(row: int, face: int) -> int:
 			matches += 1
 	return matches
 
-func destroy_die(x: int, y: int) -> void:
-	_board_array[x][y] = null
+func destroy_die(x: int, y: int) -> Die:
+	var destroyed = _board_array[x][y]
 	for i in range(y, HEIGHT - 1):
 		_board_array[x][i] = _board_array[x][i + 1] # falling blocks
 		_board_array[x][i].y = i
-		
+	return destroyed
+	
+func attack_column(col: int, die: Die) -> Array[Die]:
+	var destroyed: Array[Die] = []
+	
+	for i in range(0, _board_array[col].size()):
+		var target_die = _board_array[col][i]
+		if target_die != null and target_die.get_value() == die.get_value():
+			destroyed.append(target_die)
+			_board_array[col][i] = null
+	
+	if destroyed.size() > 0:
+		for i in range(0, HEIGHT - 1):
+			if _board_array[col][i] == null:
+				var j: int = i + 1
+				while (j < (HEIGHT - 1) and _board_array[col][j] == null):
+					j += 1
+				if _board_array[col][j] == null:
+					break
+				else:
+					_board_array[col][i] = _board_array[col][j]
+	return destroyed
+
 func clear_column(column: int) -> void:
 	for i in range(0, HEIGHT):
 		_board_array[column][i] = null
@@ -116,5 +138,9 @@ func get_column_dict(column: int) -> Dictionary[String, int]:
 	var column_dict: Dictionary[String, int] = {} # string = die face, int = matching count
 	for entry in _board_array[column]:
 		if entry != null:
-			column_dict.get_or_add(str(entry.get_value()), []).append(entry)
+			if (column_dict.get(str(entry.get_value())) == null):
+				column_dict.get_or_add(str(entry.get_value()), 1)
+			else:
+				column_dict[str(entry.get_value())] += 1
+			
 	return column_dict

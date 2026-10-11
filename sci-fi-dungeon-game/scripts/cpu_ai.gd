@@ -4,17 +4,20 @@ var dice_bag: DiceBag
 var _challenge_level: int # int from 1 to 12
 var _high_threshold: int = 4
 
-func _init(challenge_level: int = 1) -> void:
+func _init(challenge_level: int = 1, bag: DiceBag = null) -> void:
 	clampi(challenge_level, 1, 12)
-	dice_bag = DiceBag.new()
 	_challenge_level = challenge_level
 	_high_threshold = randi_range(3, 5)
-	var dice = dice_bag.get_absolute_dice_array()
-	for i in range(0, challenge_level):
-		dice[i].set_type(randi_range(1, 5))
-		var quality = dice[randi_range(0, dice.size())].quality
-		if quality < 5:
-			dice[randi_range(0, dice.size())].quality = min(quality + randi_range(1, max(_challenge_level / 6, 1)), 5)
+	if (bag == null):
+		dice_bag = DiceBag.new()
+		var dice = dice_bag.get_absolute_dice_array()
+		for i in range(0, challenge_level):
+			dice[i].set_type(randi_range(1, 5))
+			var quality = dice[randi_range(0, dice.size() - 1)].quality
+			if quality < 5:
+				dice[randi_range(0, dice.size() - 1)].quality = min(quality + randi_range(1, max(_challenge_level / 6, 1)), 5)
+	else:
+		dice_bag = bag
 	dice_bag._refresh_dice()
 
 func choose_column(roll: Die, player: Board, cpu: Board) -> int:
@@ -27,15 +30,15 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 	
 	var player_pts: int = player.calculate_score()
 	var cpu_pts: int = cpu.calculate_score()
-	var destructive: bool = false
+	var destructive: bool
 	destructive = ((player_pts - cpu_pts > 20 - _challenge_level && randi() % 2 == 0)
-	|| (randi() % 5 == 0 && player.get_dice_on_board().size() >= 13 - _challenge_level))
-	
+	|| (randi() % 5 == 0 && player.get_dice_on_board().size() >= 10 - (_challenge_level / 2)))
+
 	if (destructive):
 		var player_board_array = player.get_board_values()
 		var potential_targets: Array[Array] = [] # targets stores columns that matter in the form [column, weight]
 		for i in range(0, player_board_array.size()):
-			var column_sum_weight: int
+			var column_sum_weight: int = 0
 			var full_count = 0
 			for die in player_board_array[i]:
 				if die != null:
@@ -44,8 +47,8 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 						#potential targets add!
 						if (column_sum_weight != 0):
 							column_sum_weight *= _challenge_level # if there are two matching dice in the row, weight for the row skyrockets
-						column_sum_weight += die.get_type() + (die.quality * _challenge_level)
-			if full_count < 3:
+						column_sum_weight += 1 + die.get_type() + (die.quality * _challenge_level)
+			if full_count < 3 and column_sum_weight > 0:
 				potential_targets.append([i, column_sum_weight])
 		
 		if potential_targets.size() > 0:
@@ -67,7 +70,7 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 		# similar logic for finding matches
 		var cpu_board_array = cpu.get_board_values()
 		var potential_targets: Array[Array] = [] # targets stores columns that matter in the form [column, weight]
-		for i in range(0, cpu_board_array):
+		for i in range(0, cpu_board_array.size()):
 			var column_sum_weight: int
 			var full_count = 0
 			for die in cpu_board_array[i]:
@@ -78,7 +81,7 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 						if (column_sum_weight != 0):
 							column_sum_weight *= _challenge_level # if there are two matching dice in the row, weight for the row skyrockets
 						column_sum_weight += die.get_type() + (die.quality * _challenge_level)
-			if full_count < 3:
+			if full_count < 3 and column_sum_weight > 0:
 				potential_targets.append([i, column_sum_weight])
 		
 		if potential_targets.size() > 0:
@@ -90,28 +93,32 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 			potential_targets.clear()
 			if roll_value < _high_threshold:
 				for i in range(0, Board.WIDTH):
-					var weight: int = 0
+					var weight: int = 1
 					var dict = cpu.get_column_dict(i)
 					if dict.size() >= 3:
 						continue
-					elif dict[str(roll_value)] != null:
+					elif dict.get(str(roll_value)) != null:
 						weight += dict[str(roll_value)]
 					for j in range (0, _high_threshold):
-						weight += dict[str(j)]
-					weight *= max(1, pow(_challenge_level, dict[str(roll_value)]))
+						if dict.get(str(j)) != null:
+							weight += dict[str(j)]
+					if dict.get(str(roll_value)) != null:
+						weight *= max(1, pow(_challenge_level, dict[str(roll_value)]))
 					potential_targets.append([i, weight])
 			else:
 				#high value
 				for i in range(0, Board.WIDTH):
-					var weight: int = 0
+					var weight: int = 1
 					var dict = cpu.get_column_dict(i)
 					if dict.size() >= 3:
 						continue
-					elif dict[str(roll_value)] != null:
+					elif dict.get(str(roll_value)) != null:
 						weight += dict[str(roll_value)]
 					for j in range (_high_threshold, 6):
-						weight += dict[str(j)]
-					weight *= max(1, pow(_challenge_level, dict[str(roll_value)]))
+						if dict.get(str(j)) != null:
+							weight += dict[str(j)]
+					if dict.get(str(roll_value)) != null:
+						weight *= max(1, pow(_challenge_level, dict[str(roll_value)]))
 					potential_targets.append([i, weight])
 			target_column = get_weighted_choice(potential_targets)
 	if target_column == -1:

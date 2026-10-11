@@ -1,0 +1,70 @@
+class_name TestGameManager extends Node
+
+signal earned_money(int)
+
+@export var game_display: GameDisplay
+
+@export var b: BoardSignalManager
+@export var cb: BoardSignalManager
+
+@onready var cpu_ai: CPUAI = CPUAI.new(5)
+
+@onready var player: Board = Board.new()
+@onready var cpu_board: Board = Board.new()
+
+@onready var player_dice: DiceBag = DiceBag.new()
+@onready var cpu_dice: DiceBag = DiceBag.new()
+
+var turn_in_progress: bool = false
+var turn: int = 0 # 0 = nobody, 1 = player, 2 = cpu
+
+func _ready() -> void:
+	pass
+	#set_process(false)
+
+func _process(delta: float) -> void:
+	if not turn_in_progress and turn == 0:
+		turn = 1
+		turn_in_progress = true
+		player_turn()
+	elif not turn_in_progress and turn == 1:
+		turn = 2
+		turn_in_progress = true
+		cpu_turn()
+
+func start_game() -> void:
+	set_process(true)
+
+func cpu_turn() -> void:
+	var die := Die.new(0)
+	die.roll_die()
+	cb.display_roll(die)
+	
+	var res: int = cpu_ai.choose_column(die, player, cpu_board)
+	if (res < 4):
+		cpu_board.place_dice(res, die)
+	else:
+		# attacking
+		res -= 4
+		player.attack_column(res, die)
+	b.display_score(player)
+	cb.display_score(cpu_board)
+	turn = 0
+	turn_in_progress = false
+	
+func player_turn() -> void:
+	var die := Die.new(0)
+	await(b.roll_die)
+	die.roll_die()
+	
+	b.display_roll(die)
+	
+	# await input for which column they place the die on the board
+	var placed: bool = false
+	while (!placed):
+		var res = await b.coord_selected
+		placed = player.place_dice(res, die)
+	
+	# display score
+	b.display_score(player)
+	turn_in_progress = false # end turn
