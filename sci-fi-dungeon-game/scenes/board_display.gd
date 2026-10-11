@@ -2,10 +2,15 @@ class_name BoardDisplay extends StaticBody3D
 
 signal column_selected(int, Die)
 
-@onready var col_0: DisplayColumn = $Column0
-@onready var col_1: DisplayColumn = $Column1
-@onready var col_2: DisplayColumn = $Column2
-@onready var col_3: DisplayColumn = $Column3
+#@onready var col_0: DisplayColumn = $Column0
+#@onready var col_1: DisplayColumn = $Column1
+#@onready var col_2: DisplayColumn = $Column2
+#@onready var col_3: DisplayColumn = $Column3
+
+@export var col_0: DisplayColumn
+@export var col_1: DisplayColumn
+@export var col_2: DisplayColumn
+@export var col_3: DisplayColumn
 
 func _ready() -> void:
 	col_0.selected.connect(func(die: Die): column_selected.emit(0, die))

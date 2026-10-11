@@ -11,7 +11,7 @@ signal status_changed(new_status: TurnStatus)
 @onready var laser_button: MouseClickDetect = $"../RightButton/MouseClickDetect"
 
 @export var cpu_physics_die: PhysicsDie
-@onready var cpu_board_display: BoardDisplay = $"../CPUGameboard/Board"
+@export var cpu_board_display: BoardDisplay
 @onready var cpu_score_label: Label3D = $"../LeftConsole/Background/Score/ScoreNumberLabel"
 
 @onready var board_display_wrapper: BoardSelectedWrapper = BoardSelectedWrapper.new(board_display, cpu_board_display)
@@ -70,6 +70,7 @@ func take_cpu_turn() -> void:
 	_current_status = TurnStatus.WAITING_FOR_TURN
 	cpu_physics_die.can_roll = true
 	var value = await cpu_physics_die.force_roll()
+	await get_tree().create_timer(1).timeout
 	var cpu_die = cpu_ai.dice_bag.get_die()
 	cpu_die.set_value(value)
 	var cpu_col = cpu_ai.choose_column(cpu_die, board, cpu_board)
@@ -83,6 +84,7 @@ func take_cpu_turn() -> void:
 		board.attack_column(cpu_col - 4, cpu_die)
 		player_score = board.calculate_score()
 		board_display.display_board(board)
+	turn_finished.emit()
 
 
 # Select column (player or enemy)

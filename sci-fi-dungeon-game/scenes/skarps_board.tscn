@@ -67,16 +67,21 @@ game_display = NodePath("..")
 [node name="UIjam_3Dgameboard" parent="." unique_id=1490384484 instance=ExtResource("1_vasga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0049852133, -0.0022302866, 0.00057447)
 
-[node name="PlayerGameboard" type="Node3D" parent="." unique_id=1927149657 node_paths=PackedStringArray("physics_die", "cpu_physics_die")]
+[node name="PlayerGameboard" type="Node3D" parent="." unique_id=1927149657 node_paths=PackedStringArray("physics_die", "cpu_physics_die", "cpu_board_display")]
 script = ExtResource("1_b6vmp")
 physics_die = NodePath("Die")
 cpu_physics_die = NodePath("../CPUGameboard/Die")
+cpu_board_display = NodePath("../CPUGameboard/Board")
 
-[node name="Board" type="StaticBody3D" parent="PlayerGameboard" unique_id=1013850569]
+[node name="Board" type="StaticBody3D" parent="PlayerGameboard" unique_id=1013850569 node_paths=PackedStringArray("col_0", "col_1", "col_2", "col_3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021208914, 1.0768887, 0.35298258)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("5_nebqc")
+col_0 = NodePath("Column0")
+col_1 = NodePath("Column1")
+col_2 = NodePath("Column2")
+col_3 = NodePath("Column3")
 
 [node name="BoardSprite" type="Sprite3D" parent="PlayerGameboard/Board" unique_id=2126375785]
 transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, -0.18, 0, 0.18, -7.86805e-09, 0, 0, 0)
@@ -372,11 +377,15 @@ die = NodePath("../Die")
 [node name="CPUGameboard" type="Node3D" parent="." unique_id=1538765608]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.040671635, 0, -0.119962156)
 
-[node name="Board" type="StaticBody3D" parent="CPUGameboard" unique_id=1420929870]
+[node name="Board" type="StaticBody3D" parent="CPUGameboard" unique_id=1420929870 node_paths=PackedStringArray("col_0", "col_1", "col_2", "col_3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021208914, 1.0768887, 0.35298258)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("5_nebqc")
+col_0 = NodePath("Column0")
+col_1 = NodePath("Column1")
+col_2 = NodePath("Column2")
+col_3 = NodePath("Column3")
 
 [node name="BoardSprite" type="Sprite3D" parent="CPUGameboard/Board" unique_id=381651813]
 transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, -0.18, 0, 0.18, -7.86805e-09, 0, 0, 0)
@@ -389,7 +398,7 @@ shape = SubResource("BoxShape3D_qs5on")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9410094, 0, -0.005764514)
 script = ExtResource("17_cc7eo")
 player_gameboard = NodePath("../../../PlayerGameboard")
-cells = [NodePath("../../../PlayerGameboard/Board/Column0/Cell0"), NodePath("../../../PlayerGameboard/Board/Column0/Cell1"), NodePath("../../../PlayerGameboard/Board/Column0/Cell2")]
+cells = [NodePath("Cell0"), NodePath("Cell1"), NodePath("Cell2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column0" unique_id=369952415]
 shape = SubResource("BoxShape3D_i4yqv")
@@ -435,7 +444,7 @@ shape = SubResource("BoxShape3D_7y72b")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5563053, 0, -0.0057644844)
 script = ExtResource("17_cc7eo")
 player_gameboard = NodePath("../../../PlayerGameboard")
-cells = [NodePath("../../../PlayerGameboard/Board/Column1/Cell0"), NodePath("../../../PlayerGameboard/Board/Column1/Cell1"), NodePath("../../../PlayerGameboard/Board/Column1/Cell2")]
+cells = [NodePath("Cell0"), NodePath("Cell1"), NodePath("Cell2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column1" unique_id=1175146344]
 shape = SubResource("BoxShape3D_i4yqv")
@@ -481,7 +490,7 @@ shape = SubResource("BoxShape3D_7y72b")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18595588, 0, -0.0057644546)
 script = ExtResource("17_cc7eo")
 player_gameboard = NodePath("../../../PlayerGameboard")
-cells = [NodePath("../../../PlayerGameboard/Board/Column2/Cell0"), NodePath("../../../PlayerGameboard/Board/Column2/Cell1"), NodePath("../../../PlayerGameboard/Board/Column2/Cell2")]
+cells = [NodePath("Cell0"), NodePath("Cell1"), NodePath("Cell2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column2" unique_id=410208625]
 shape = SubResource("BoxShape3D_i4yqv")
@@ -527,7 +536,7 @@ shape = SubResource("BoxShape3D_7y72b")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19300628, 0, -0.005764395)
 script = ExtResource("17_cc7eo")
 player_gameboard = NodePath("../../../PlayerGameboard")
-cells = [NodePath("../../../PlayerGameboard/Board/Column3/Cell0"), NodePath("../../../PlayerGameboard/Board/Column3/Cell1"), NodePath("../../../PlayerGameboard/Board/Column3/Cell2")]
+cells = [NodePath("Cell0"), NodePath("Cell1"), NodePath("Cell2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column3" unique_id=1545965421]
 shape = SubResource("BoxShape3D_i4yqv")
@@ -600,7 +609,7 @@ reset_location = NodePath("../DieResetLocation")
 [node name="DieResetLocation" type="Node3D" parent="CPUGameboard" unique_id=509824201]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.784, 1.1640815, 0.299)
 
-[node name="DieValueLabel" type="Label3D" parent="CPUGameboard" unique_id=1451139746]
+[node name="DieValueLabel" type="Label3D" parent="CPUGameboard" unique_id=1451139746 node_paths=PackedStringArray("physics_die", "game_interface")]
 transform = Transform3D(-1, 4.371139e-08, -7.571036e-08, 0, 0.8660255, 0.50000006, 8.742276e-08, 0.50000006, -0.8660255, 0.5632176, 1.8370188, 0.28281432)
 pixel_size = 0.0001
 texture_filter = 0
@@ -608,6 +617,9 @@ text = "5"
 font = ExtResource("4_2vras")
 font_size = 2000
 outline_size = 0
+script = ExtResource("6_uw2da")
+physics_die = NodePath("../Die")
+game_interface = NodePath("../../PlayerGameboard")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CPUGameboard" unique_id=443238591]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1205735, 1.1780145, 0.32223383)
