@@ -1,4 +1,6 @@
-class_name Upgrade extends Node
+class_name Upgrade extends Resource
 
-#var type: Die.DieType
-#var price: int
+@export var icon: Texture2D
+@export var name: String
+@export var cost: int
+@export var type: Die.DieType

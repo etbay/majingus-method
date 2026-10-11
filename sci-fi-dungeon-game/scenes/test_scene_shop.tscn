@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://danv5yuir41kd"]
+
+[ext_resource type="Script" uid="uid://4q8cefygbslf" path="res://scripts/shop_interface.gd" id="1_ccd21"]
+
+[node name="TestSceneShop" type="Node3D" unique_id=704978451]
+
+[node name="ShopInterface" type="Node" parent="." unique_id=30387762]
+script = ExtResource("1_ccd21")
+metadata/_custom_type_script = "uid://4q8cefygbslf"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=402875772]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1950953810]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
