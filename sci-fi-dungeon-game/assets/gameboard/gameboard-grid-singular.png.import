@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1ox82u5b6urk"
-path.s3tc="res://.godot/imported/diceboard_V2_boardtexture.png-9f3dd2b30d79934f556b17c27cf32a38.s3tc.ctex"
+uid="uid://hpdsvv53odj5"
+path.s3tc="res://.godot/imported/gameboard-grid-singular.png-dc83d37e6615ae65667c3b933f6d35c9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "32bad8612c4d08d34ee03aa8aa060518"
-}
 
 [deps]
 
-source_file="res://diceboard_V2_boardtexture.png"
-dest_files=["res://.godot/imported/diceboard_V2_boardtexture.png-9f3dd2b30d79934f556b17c27cf32a38.s3tc.ctex"]
+source_file="res://assets/gameboard/gameboard-grid-singular.png"
+dest_files=["res://.godot/imported/gameboard-grid-singular.png-dc83d37e6615ae65667c3b933f6d35c9.s3tc.ctex"]
 
 [params]
 

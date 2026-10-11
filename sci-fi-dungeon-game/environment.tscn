@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://cdqqcb1m04v0w"]
+
+[ext_resource type="Script" uid="uid://c7lrcguml3n6o" path="res://enviroment_pool.gd" id="1_oqxhg"]
+[ext_resource type="Texture2D" uid="uid://b7uvweshxjo4t" path="res://background-sketch.png" id="2_4sbom"]
+[ext_resource type="Texture2D" uid="uid://fwhckb6000mp" path="res://assets/repeating-background.png" id="3_2bfpd"]
+[ext_resource type="PackedScene" uid="uid://c4dfft6eqpbxe" path="res://assets/gameboard/UIjam_3Dgameboard.glb" id="3_4sbom"]
+[ext_resource type="PackedScene" uid="uid://bouothq8oo31x" path="res://interactable_object.tscn" id="4_3jj1w"]
+[ext_resource type="Texture2D" uid="uid://colfk1etyroc4" path="res://Screenshot 2026-10-05 191304.png" id="5_3gbvy"]
+[ext_resource type="Script" uid="uid://cg2h6snrryap3" path="res://pool_trigger.gd" id="6_7q7v2"]
+[ext_resource type="PackedScene" uid="uid://dw0jydgqdw86s" path="res://pan_camera.tscn" id="7_aai17"]
+[ext_resource type="Script" uid="uid://dtb5stktjubk4" path="res://pan_camera_area.gd" id="8_txl0x"]
+[ext_resource type="PackedScene" uid="uid://gyka836qy4gv" path="res://inventory_hud.tscn" id="9_7px3q"]
+[ext_resource type="PackedScene" uid="uid://cio6xt5lum3aq" path="res://scenes/skarps_board.tscn" id="10_mpsl3"]
+[ext_resource type="Script" uid="uid://bscfe8rilncg2" path="res://camera_switch.gd" id="11_2bfpd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
+size = Vector3(3.9414673, 3.0203857, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4arys"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6iypd"]
+size = Vector3(0.06647021, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6iypd"]
+
+[node name="EnvironmentSystem" type="Node3D" unique_id=67044161]
+
+[node name="EnviromentPool" type="Node" parent="." unique_id=659122170 node_paths=PackedStringArray("environment_spawn", "active_environment", "pan_camera")]
+script = ExtResource("1_oqxhg")
+background_image = ExtResource("2_4sbom")
+environment_spawn = NodePath("..")
+active_environment = NodePath("../Environment")
+pan_camera = NodePath("../PanCamera")
+
+[node name="Environment" type="Node3D" parent="." unique_id=1543069538]
+
+[node name="UIjam_3Dgameboard" parent="Environment" unique_id=1466399746 instance=ExtResource("3_4sbom")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.075496286, 0, 0.25881904, 0.28175598, -29.200087, -2.135067, -4.886114)
+
+[node name="Background" type="Sprite3D" parent="Environment" unique_id=1735480180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.949218)
+texture = ExtResource("3_2bfpd")
+
+[node name="InteractableObject" parent="Environment/Background" unique_id=398030382 instance=ExtResource("4_3jj1w")]
+transform = Transform3D(0.36418173, 0, 0, 0, 0.36418173, 0, 0, 0, 1, 0, 0, 0.017339706)
+texture = ExtResource("5_3gbvy")
+
+[node name="CollisionShape3D" parent="Environment/Background/InteractableObject/Area3D" parent_id_path=PackedInt32Array(398030382, 519297728) index="0" unique_id=17533273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062288284, 0.023010254, 0)
+shape = SubResource("BoxShape3D_jka67")
+
+[node name="PoolTriggerLeft" type="Area3D" parent="Environment" unique_id=89222847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+script = ExtResource("6_7q7v2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PoolTriggerLeft" unique_id=1393381500]
+shape = SubResource("BoxShape3D_4arys")
+
+[node name="PoolTriggerRight" type="Area3D" parent="Environment" unique_id=1682219468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+script = ExtResource("6_7q7v2")
+trigger_direction = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PoolTriggerRight" unique_id=309458157]
+shape = SubResource("BoxShape3D_4arys")
+
+[node name="PanCamera" parent="." unique_id=1444190908 instance=ExtResource("7_aai17")]
+current = false
+fov = 95.0
+
+[node name="PanCameraArea" type="Area3D" parent="PanCamera" unique_id=1164377640]
+script = ExtResource("8_txl0x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PanCamera/PanCameraArea" unique_id=292160548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019328622, 0, 0)
+shape = SubResource("BoxShape3D_6iypd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1825473644]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1473294941]
+
+[node name="InventoryHUD" parent="CanvasLayer" unique_id=1377702667 instance=ExtResource("9_7px3q")]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=56519690 node_paths=PackedStringArray("pan_camera", "skarps_camera")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.5
+offset_right = 60.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Switch camera"
+script = ExtResource("11_2bfpd")
+pan_camera = NodePath("../../PanCamera")
+skarps_camera = NodePath("../../Skarps/Camera3D")
+
+[node name="Skarps" type="Node3D" parent="." unique_id=1098451559]
+
+[node name="Camera3D" type="Camera3D" parent="Skarps" unique_id=1262957634]
+transform = Transform3D(-1, 1.0578467e-15, -8.7422734e-08, -8.069971e-08, 0.38456595, 0.92309755, 3.3619806e-08, 0.92309755, -0.38456595, 7.431512e-09, 0.6299999, 6.5371666)
+current = true
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Skarps" unique_id=1890690469]
+transform = Transform3D(19.604006, 0, 0, 0, 0.2836973, 7.461798, 0, -1.0472379, 2.021404, 0, -0.9184022, 8.854013)
+mesh = SubResource("PlaneMesh_6iypd")
+
+[node name="SkarpsBoard" parent="Skarps" unique_id=1549528452 instance=ExtResource("10_mpsl3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -2.243, 7.609)
+
+[editable path="Environment/Background/InteractableObject"]
+[editable path="CanvasLayer/InventoryHUD"]

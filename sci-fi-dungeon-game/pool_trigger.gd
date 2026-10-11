@@ -17,12 +17,10 @@ func _ready() -> void:
 func _on_area_entered(area: Node3D) -> void:
 	if area is PanCameraArea:
 		_entered_from_left = area.global_position.x < global_position.x
-		print("entered")
 
 func _on_area_exited(area: Node3D) -> void:
 	if area is PanCameraArea:
 		var exited_left := area.global_position.x < global_position.x
 		if exited_left == _entered_from_left:
 			return
-		print("exited")
 		area.hit_pool_trigger(trigger_direction)
