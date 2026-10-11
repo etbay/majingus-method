@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cio6xt5lum3aq"]
+
+[ext_resource type="PackedScene" uid="uid://c4dfft6eqpbxe" path="res://assets/gameboard/UIjam_3Dgameboard.glb" id="1_vasga"]
+[ext_resource type="Texture2D" uid="uid://cys84461rqlc2" path="res://GDC_Logo.png" id="2_1pvmy"]
+[ext_resource type="Texture2D" uid="uid://hpdsvv53odj5" path="res://assets/gameboard/gameboard-grid-singular.png" id="2_4xij6"]
+[ext_resource type="Texture2D" uid="uid://dtm70ywopr03q" path="res://assets/gameboard/center_gameboard.png" id="2_76fi4"]
+[ext_resource type="Script" uid="uid://bnfysh2pm77pi" path="res://scenes/skarps_button.gd" id="2_vasga"]
+[ext_resource type="Texture2D" uid="uid://dnwml83apmcgb" path="res://assets/gameboard/left_gameboard.png" id="3_3hfn7"]
+[ext_resource type="Texture2D" uid="uid://y613imlf4y7" path="res://assets/gameboard/right_gameboard.png" id="4_1la0o"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1pvmy"]
+height = 0.08654785
+radius = 0.18603516
+
+[node name="SkarpsBoard" type="Node3D" unique_id=1549528452]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="UIjam_3Dgameboard" parent="." unique_id=1490384484 instance=ExtResource("1_vasga")]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2126375785]
+transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, -0.18, 0, 0.18, -7.86805e-09, -0.030033112, 1.0895264, 0.3491766)
+modulate = Color(1, 1, 1, 0.88235295)
+texture = ExtResource("2_4xij6")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1035377711]
+transform = Transform3D(-0.18, -2.7179246e-08, 1.1880425e-15, 0, -7.86805e-09, -0.18, 2.7179246e-08, -0.18, 7.86805e-09, -0.020689417, 1.0895264, -0.47444272)
+modulate = Color(1, 1, 1, 0.88235295)
+texture = ExtResource("2_4xij6")
+
+[node name="CenterConsole" type="Sprite3D" parent="." unique_id=536467810]
+transform = Transform3D(0.355, 2.969553e-08, 2.2015605e-08, -2.9695535e-08, 0.103170745, 0.33967748, 2.2015598e-08, -0.33967748, 0.103170745, 0.011889425, 0.9785849, 1.1399534)
+texture = ExtResource("2_76fi4")
+
+[node name="LeftConsole" type="Sprite3D" parent="." unique_id=1193779361]
+transform = Transform3D(0.40443677, 0.013330213, 0.016679518, -0.016757919, 0.002114689, 0.40464774, 0.013231524, -0.40477505, 0.0026633139, -2.0101652, 1.0044751, 0.67479724)
+texture = ExtResource("3_3hfn7")
+
+[node name="RightConsole" type="Sprite3D" parent="." unique_id=486928073]
+transform = Transform3D(0.4086281, 4.946276e-08, -0.033512566, 0.03351233, -0.0015411659, 0.40862522, -0.00012592207, -0.40999705, -0.0015360097, 2.0404897, 0.9915081, 0.67887884)
+texture = ExtResource("4_1la0o")
+
+[node name="LeftButton" type="Node3D" parent="." unique_id=1641349821]
+transform = Transform3D(1, 0, 0, 0, 0.48633534, 0.87377226, 0, -0.87377226, 0.48633534, -1.404, 0.888, 1.335)
+script = ExtResource("2_vasga")
+
+[node name="IconSprite" type="Sprite3D" parent="LeftButton" unique_id=486919821]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+pixel_size = 0.0001
+texture = ExtResource("2_1pvmy")
+
+[node name="Area3D" type="Area3D" parent="LeftButton" unique_id=1299598680]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftButton/Area3D" unique_id=1237719451]
+transform = Transform3D(1, -1.1736732e-07, -3.470529e-08, -3.2350837e-08, 0.020010382, -0.9997999, 1.1803834e-07, 0.9997999, 0.020010382, 0.005282879, -0.0023929477, -0.026993752)
+shape = SubResource("CylinderShape3D_1pvmy")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1436674116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0010103e-07, 1.245468, 1.1450224)
+omni_range = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=633769804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0413573, 1.3019882, 0.64559245)
+omni_range = 2.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=1810884448]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0127866, 1.1981505, 0.71929157)
+omni_range = 2.0
