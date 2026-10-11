@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://d4ki78hmu6tcg"]
+
+[ext_resource type="Script" uid="uid://p5cmxd2dx578" path="res://scripts/upgrade.gd" id="1_eqlks"]
+
+[resource]
+script = ExtResource("1_eqlks")
+name = "Gilded"
+cost = 6
+type = 1
+metadata/_custom_type_script = "uid://p5cmxd2dx578"
