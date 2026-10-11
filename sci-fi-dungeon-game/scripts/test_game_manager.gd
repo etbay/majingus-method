@@ -7,7 +7,7 @@ signal earned_money(int)
 @export var b: BoardSignalManager
 @export var cb: BoardSignalManager
 
-@onready var cpu_ai: CPUAI = CPUAI.new(5)
+@onready var cpu_ai: CPUAI = CPUAI.new(12)
 
 @onready var player: Board = Board.new()
 @onready var cpu_board: Board = Board.new()

@@ -92,6 +92,7 @@ func attack_column(col: int, die: Die) -> Array[Die]:
 					break
 				else:
 					_board_array[col][i] = _board_array[col][j]
+					_board_array[col][j] = null
 	return destroyed
 
 func clear_column(column: int) -> void:
@@ -144,3 +145,10 @@ func get_column_dict(column: int) -> Dictionary[String, int]:
 				column_dict[str(entry.get_value())] += 1
 			
 	return column_dict
+
+func get_column_count(column: int) -> int:
+	var total = 0
+	for i in _board_array[column]:
+		if i != null:
+			total += 1
+	return total

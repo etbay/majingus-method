@@ -12,10 +12,10 @@ func _init(challenge_level: int = 1, bag: DiceBag = null) -> void:
 		dice_bag = DiceBag.new()
 		var dice = dice_bag.get_absolute_dice_array()
 		for i in range(0, challenge_level):
-			dice[i].set_type(randi_range(1, 5))
+			dice[randi_range(0, dice.size() - 1)].set_type(randi_range(1, 5))
 			var quality = dice[randi_range(0, dice.size() - 1)].quality
 			if quality < 5:
-				dice[randi_range(0, dice.size() - 1)].quality = min(quality + randi_range(1, max(_challenge_level / 6, 1)), 5)
+				dice[randi_range(0, dice.size() - 1)].quality = min(quality + 1, 5)
 	else:
 		dice_bag = bag
 	dice_bag._refresh_dice()
@@ -31,9 +31,9 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 	var player_pts: int = player.calculate_score()
 	var cpu_pts: int = cpu.calculate_score()
 	var destructive: bool
-	destructive = ((player_pts - cpu_pts > 20 - _challenge_level && randi() % 2 == 0)
-	|| (randi() % 5 == 0 && player.get_dice_on_board().size() >= 10 - (_challenge_level / 2)))
-
+	destructive = ((player_pts - cpu_pts > 10 - _challenge_level && randi() % 2 == 0)
+	|| (randi() % 3 == 0 && player.get_dice_on_board().size() >= 6 - (_challenge_level / 2)))
+	
 	if (destructive):
 		var player_board_array = player.get_board_values()
 		var potential_targets: Array[Array] = [] # targets stores columns that matter in the form [column, weight]
@@ -97,6 +97,8 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 					var dict = cpu.get_column_dict(i)
 					if dict.size() >= 3:
 						continue
+					elif dict.size() == 0:
+						weight =+ 1
 					elif dict.get(str(roll_value)) != null:
 						weight += dict[str(roll_value)]
 					for j in range (0, _high_threshold):
@@ -112,6 +114,8 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 					var dict = cpu.get_column_dict(i)
 					if dict.size() >= 3:
 						continue
+					elif dict.size() == 0:
+						weight =+ 1
 					elif dict.get(str(roll_value)) != null:
 						weight += dict[str(roll_value)]
 					for j in range (_high_threshold, 6):
@@ -121,7 +125,8 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 						weight *= max(1, pow(_challenge_level, dict[str(roll_value)]))
 					potential_targets.append([i, weight])
 			target_column = get_weighted_choice(potential_targets)
-	if target_column == -1:
+	while target_column == -1 || (target_column < 4 && cpu.get_column_count(target_column) >= 3) || (target_column >= 4 && player.get_column_count(target_column - 4) >= 3):
+		#catch all incorrect spot errors with pure randomness
 		target_column = randi_range(0, Board.WIDTH - 1)
 	return target_column
 
