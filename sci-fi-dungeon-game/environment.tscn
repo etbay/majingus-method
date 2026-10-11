@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://b7uvweshxjo4t" path="res://background-sketch.png" id="2_4sbom"]
 [ext_resource type="Texture2D" uid="uid://fwhckb6000mp" path="res://assets/repeating-background.png" id="3_2bfpd"]
 [ext_resource type="PackedScene" uid="uid://c4dfft6eqpbxe" path="res://assets/gameboard/UIjam_3Dgameboard.glb" id="3_4sbom"]
-[ext_resource type="PackedScene" uid="uid://bouothq8oo31x" path="res://interactable_object.tscn" id="4_3jj1w"]
-[ext_resource type="Texture2D" uid="uid://colfk1etyroc4" path="res://Screenshot 2026-10-05 191304.png" id="5_3gbvy"]
 [ext_resource type="Script" uid="uid://cg2h6snrryap3" path="res://pool_trigger.gd" id="6_7q7v2"]
 [ext_resource type="PackedScene" uid="uid://dw0jydgqdw86s" path="res://pan_camera.tscn" id="7_aai17"]
 [ext_resource type="Script" uid="uid://dtb5stktjubk4" path="res://pan_camera_area.gd" id="8_txl0x"]
@@ -13,9 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cio6xt5lum3aq" path="res://scenes/skarps_board.tscn" id="10_mpsl3"]
 [ext_resource type="Script" uid="uid://bscfe8rilncg2" path="res://camera_switch.gd" id="11_2bfpd"]
 [ext_resource type="Script" uid="uid://csou168mv7jpy" path="res://roll_button.gd" id="12_3jj1w"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
-size = Vector3(3.9414673, 3.0203857, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4arys"]
 
@@ -41,14 +36,6 @@ transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.075496286, 0, 0.25881904, 0.28
 [node name="Background" type="Sprite3D" parent="Environment" unique_id=1735480180]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.949218)
 texture = ExtResource("3_2bfpd")
-
-[node name="InteractableObject" parent="Environment/Background" unique_id=398030382 instance=ExtResource("4_3jj1w")]
-transform = Transform3D(0.36418173, 0, 0, 0, 0.36418173, 0, 0, 0, 1, 0, 0, 0.017339706)
-texture = ExtResource("5_3gbvy")
-
-[node name="CollisionShape3D" parent="Environment/Background/InteractableObject/Area3D" parent_id_path=PackedInt32Array(398030382, 519297728) index="0" unique_id=17533273]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062288284, 0.023010254, 0)
-shape = SubResource("BoxShape3D_jka67")
 
 [node name="PoolTriggerLeft" type="Area3D" parent="Environment" unique_id=89222847]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
@@ -106,7 +93,7 @@ script = ExtResource("11_2bfpd")
 pan_camera = NodePath("../../PanCamera")
 skarps_camera = NodePath("../../Skarps/Camera3D")
 
-[node name="Button2" type="Button" parent="CanvasLayer" unique_id=248713011 node_paths=PackedStringArray("physics_die")]
+[node name="Button2" type="Button" parent="CanvasLayer" unique_id=248713011 node_paths=PackedStringArray("game_interface")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -117,16 +104,15 @@ offset_top = -31.0
 offset_right = 60.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Roll dice"
+text = "Start turn"
 script = ExtResource("12_3jj1w")
-physics_die = NodePath("../../Skarps/SkarpsBoard/PlayerGameboard/Die")
+game_interface = NodePath("../../Skarps/SkarpsBoard/PlayerGameboard")
 
 [node name="Skarps" type="Node3D" parent="." unique_id=1098451559]
 
 [node name="Camera3D" type="Camera3D" parent="Skarps" unique_id=1262957634]
-transform = Transform3D(-1, 1.0578467e-15, -8.7422734e-08, -8.069971e-08, 0.38456595, 0.92309755, 3.3619806e-08, 0.92309755, -0.38456595, 7.431512e-09, 0.6299999, 6.5371666)
+transform = Transform3D(-1, 1.0578467e-15, -8.7422734e-08, -8.069971e-08, 0.38456595, 0.92309755, 3.3619806e-08, 0.92309755, -0.38456595, 1.0385886e-08, 0.59527045, 6.5416794)
 current = true
-metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Skarps" unique_id=1890690469]
 transform = Transform3D(19.604006, 0, 0, 0, 0.2836973, 7.461798, 0, -1.0472379, 2.021404, 0, -0.9184022, 8.854013)
@@ -135,6 +121,4 @@ mesh = SubResource("PlaneMesh_6iypd")
 [node name="SkarpsBoard" parent="Skarps" unique_id=1549528452 instance=ExtResource("10_mpsl3")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.00152421, -2.2413986, 7.606835)
 
-[editable path="Environment/Background/InteractableObject"]
 [editable path="CanvasLayer/InventoryHUD"]
-[editable path="Skarps/SkarpsBoard"]

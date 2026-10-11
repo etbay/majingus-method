@@ -1,17 +1,34 @@
 extends Area3D
 
+@onready var select_sprite: Sprite3D = $SelectSprite
+@export var player_gameboard: GameInterface
+
+var hoverable: bool = false
 var mouse_hovered: bool = false
 
 func _ready() -> void:
+	select_sprite.visible = false
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
+	player_gameboard.die_rolled.connect(_on_die_rolled)
+	player_gameboard.turn_finished.connect(_on_turn_finished)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if mouse_hovered and Input.is_action_just_pressed("skarps_interact"):
 		pass
 
+func _on_die_rolled() -> void:
+	hoverable = true
+
+func _on_turn_finished() -> void:
+	hoverable = false
+
 func _on_mouse_entered() -> void:
 	mouse_hovered = true
+	if hoverable:
+		select_sprite.visible = true
 
 func _on_mouse_exited() -> void:
 	mouse_hovered = false
+	if hoverable:
+		select_sprite.visible = false
