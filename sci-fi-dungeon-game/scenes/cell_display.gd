@@ -10,3 +10,7 @@ func _ready() -> void:
 func set_value(val: int) -> void:
 	value = val
 	die_cell.texture = TextureDictionary.die_val_dict[val]
+
+func make_invisible() -> void:
+	value = 0
+	die_cell.texture = null

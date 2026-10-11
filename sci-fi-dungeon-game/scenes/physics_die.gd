@@ -77,6 +77,21 @@ func roll() -> int:
 	rotation.y = 0
 	return face_up
 
+func force_roll():
+	can_roll = false
+	roll_started.emit()
+	_move_timer.start(0.05)
+	_rolling = true
+	_apply_random_force()
+	await get_tree().create_timer(0.2).timeout
+	_apply_random_force()
+	await get_tree().create_timer(0.2).timeout
+	_apply_random_force()
+	await roll_finished
+	global_position = reset_location.global_position
+	rotation.y = 0
+	return face_up
+
 func _apply_random_force() -> void:
 	var x_force: float = randf_range(0, 5)
 	var z_force: float = randf_range(0, 5)

@@ -66,11 +66,25 @@ func _get_row_matches(row: int, face: int) -> int:
 			matches += 1
 	return matches
 
+func clear_row(row: int) -> Array[Die]:
+	var destroyed: Array[Die] = []
+	for i in range(0, WIDTH):
+		destroyed.append(destroy_die(i, row))
+	return destroyed
+
 func destroy_die(x: int, y: int) -> Die:
 	var destroyed = _board_array[x][y]
+	_board_array[x][y] = null
 	for i in range(y, HEIGHT - 1):
-		_board_array[x][i] = _board_array[x][i + 1] # falling blocks
-		_board_array[x][i].y = i
+		if _board_array[x][i] == null:
+			var j: int = i + 1
+			while (j < (HEIGHT - 1) and _board_array[x][j] == null):
+				j += 1
+			if _board_array[x][j] == null:
+				break
+			else:
+				_board_array[x][i] = _board_array[x][j]
+				_board_array[x][j] = null
 	return destroyed
 	
 func attack_column(col: int, die: Die) -> Array[Die]:
