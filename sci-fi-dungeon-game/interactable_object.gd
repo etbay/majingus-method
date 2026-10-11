@@ -4,6 +4,7 @@ signal item_clicked
 
 @export var hover_highlight: Color 
 @export var required_tool_type: InventoryTool.ToolType
+@export var highlight_target: Sprite3D
 
 @onready var click_area: Area3D = $Area3D
 
@@ -20,9 +21,9 @@ func _ready() -> void:
 func _on_mouse_entered() -> void:
 	_mouse_over = true
 	# Set highlight color
-	modulate = hover_highlight
+	highlight_target.modulate = hover_highlight
 
 func _on_mouse_exited() -> void:
 	_mouse_over = false
 	# Reset highlight on mouse exit
-	modulate = Color.WHITE
+	highlight_target.modulate = Color.WHITE
