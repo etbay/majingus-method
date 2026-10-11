@@ -63,11 +63,14 @@ func _on_roll_pressed() -> void:
 	emit_signal("roll_die")
 
 func display_score(board: Board) -> void:
+	board.fill_dict()
 	for i in range(0, board.WIDTH):
 		for j in range(0, board.HEIGHT):
-			_button_arr[i][board.HEIGHT - 1 - j].text = str(board.get_value_at(i,j))
+			var value = board.get_value_at(i,j)
+			if value > -1:
+				_button_arr[i][board.HEIGHT - 1 - j].text = str(value)
+	player_score_text.text = str(board.calculate_score())
 	column_1_score.text = str(board.calculate_column_score(0))
 	column_2_score.text = str(board.calculate_column_score(1))
 	column_3_score.text = str(board.calculate_column_score(2))
 	column_4_score.text = str(board.calculate_column_score(3))
-	player_score_text.text = str(board.calculate_score())
