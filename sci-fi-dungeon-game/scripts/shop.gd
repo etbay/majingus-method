@@ -4,10 +4,10 @@ var num_upgrades: int = 2
 var num_shivs: int = 2
 var num_lasers: int = 0
 
-var _possible_upgrades: Array[Upgrade] = []
+var _possible_upgrades: Array[DieUpgrade] = []
 #var _possible_consumables: Array[Consumable] = []
 
-var upgrades: Array[Upgrade] = []
+var upgrades: Array[DieUpgrade] = []
 #var consumables: Array[Consumable] = []
 
 var reroll_counter: int = 1 # reroll cost = 2^counter
@@ -20,7 +20,7 @@ var reroll_counter: int = 1 # reroll cost = 2^counter
 
 # max displayed upgrades, max consumables, special upgrades, special consumables
 func _init(n_num_upgrades: int, n_num_shivs: int, n_num_lasers: int,
-	possible_upgrades: Array[Upgrade]):
+	possible_upgrades: Array[DieUpgrade]):
 	self.num_upgrades = n_num_upgrades
 	self.num_shivs = n_num_shivs
 	self.num_lasers = n_num_lasers

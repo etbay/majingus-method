@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Sci-fi Dungeon Game"
-run/main_scene="uid://danv5yuir41kd"
+run/main_scene="uid://cdqqcb1m04v0w"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [autoload]

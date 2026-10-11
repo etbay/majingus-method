@@ -1,4 +1,4 @@
-class_name Upgrade extends Resource
+class_name DieUpgrade extends Resource
 
 @export var icon: Texture2D
 @export var name: String

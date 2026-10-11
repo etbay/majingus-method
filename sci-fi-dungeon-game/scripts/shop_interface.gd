@@ -12,7 +12,7 @@ var shop: Shop
 var dice_bag: DiceBag = DiceBag.new()
 
 @export var select_wrapper: DiceSelectWrapper
-@export var possible_upgrades: Array[Upgrade]
+@export var possible_upgrades: Array[DieUpgrade]
 
 func _ready() -> void:
 	buy_shiv.pressed.connect(bought_shiv)
