@@ -8,6 +8,8 @@ class_name GameDisplay extends Node3D
 func start_game() -> void:
 	game_manager.start_game()
 
-func take_turn() -> void:
+func player_take_turn() -> void:
 	player_board.take_turn()
 	await player_board.turn_finished
+	game_manager.turn_in_progress = false
+	print("turn finished")

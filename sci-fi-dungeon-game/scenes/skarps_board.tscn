@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cwsa6wqw1yivo" path="res://scenes/game_display.gd" id="1_1131k"]
 [ext_resource type="Script" uid="uid://cms4ow6ffc5li" path="res://scripts/game_interface.gd" id="1_b6vmp"]
 [ext_resource type="PackedScene" uid="uid://c4dfft6eqpbxe" path="res://assets/gameboard/UIjam_3Dgameboard.glb" id="1_vasga"]
-[ext_resource type="Texture2D" uid="uid://cys84461rqlc2" path="res://GDC_Logo.png" id="2_1pvmy"]
 [ext_resource type="Texture2D" uid="uid://hpdsvv53odj5" path="res://assets/gameboard/gameboard-grid-singular.png" id="2_4xij6"]
 [ext_resource type="Texture2D" uid="uid://dtm70ywopr03q" path="res://assets/gameboard/center_gameboard.png" id="2_76fi4"]
 [ext_resource type="Script" uid="uid://bph18tv2vdfig" path="res://scripts/game_manager.gd" id="2_uflgs"]
@@ -19,9 +18,17 @@
 [ext_resource type="Script" uid="uid://ceuax7xdl4okt" path="res://scenes/die_face_detect.gd" id="6_vbsse"]
 [ext_resource type="Texture2D" uid="uid://bnteqjhmjdncf" path="res://assets/icons/diceroll_status_icon.png" id="9_eh8qp"]
 [ext_resource type="Script" uid="uid://brnruomtpb5sn" path="res://scenes/cell_display.gd" id="9_q5opd"]
+[ext_resource type="Texture2D" uid="uid://v20jvxgllwir" path="res://assets/icons/die_types/normal_icon.png" id="10_d3b0i"]
 [ext_resource type="FontFile" uid="uid://s2spjex2vfst" path="res://assets/Source_Code_Pro/static/SourceCodePro-Bold.ttf" id="11_1rt75"]
 [ext_resource type="Texture2D" uid="uid://b2wnyyppwygwu" path="res://assets/icons/column_select_icon_1.png" id="12_uflgs"]
 [ext_resource type="Script" uid="uid://dalfqvk43pgtx" path="res://die_pointer.gd" id="13_7y72b"]
+[ext_resource type="Script" uid="uid://d3r4grpdlhpus" path="res://scenes/center_console.gd" id="16_7rfbg"]
+[ext_resource type="Texture2D" uid="uid://crlv35ega58fd" path="res://assets/icons/shiv_status_icon_1.png" id="20_nahi8"]
+[ext_resource type="Texture2D" uid="uid://brqg7uveocvga" path="res://assets/portrait.png" id="20_q5opd"]
+[ext_resource type="Texture2D" uid="uid://c2lh3sn532kw6" path="res://assets/goop_head_lineart.png" id="21_5mohp"]
+[ext_resource type="Texture2D" uid="uid://do4h81bjgy15s" path="res://assets/icons/plasmagun_status_icon.png" id="24_aat4b"]
+[ext_resource type="Texture2D" uid="uid://ro30cs8h5mvq" path="res://assets/icons/shiv_status_icon_white.png" id="27_aat4b"]
+[ext_resource type="Texture2D" uid="uid://bs4iqvcfbaal3" path="res://assets/icons/plasmagun_status_icon_white.png" id="28_v41ad"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qs5on"]
 size = Vector3(2.3, 0.01, 0.8)
@@ -120,52 +127,174 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column0/Cell2" unique_id=1515439117]
 shape = SubResource("BoxShape3D_7y72b")
 
-[node name="Column1" type="Area3D" parent="PlayerGameboard/Board" unique_id=1034241266 node_paths=PackedStringArray("player_gameboard")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56206465, 0, -0.005764514)
+[node name="Column1" type="Area3D" parent="PlayerGameboard/Board" unique_id=1726541361 node_paths=PackedStringArray("player_gameboard", "cells")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5563053, 0, -0.0057644844)
 script = ExtResource("3_i4yqv")
 player_gameboard = NodePath("../..")
+cells = [NodePath("Cell0"), NodePath("Cell1"), NodePath("Cell2")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column1" unique_id=302696952]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column1" unique_id=450862283]
 shape = SubResource("BoxShape3D_i4yqv")
 
-[node name="SelectSprite" type="Sprite3D" parent="PlayerGameboard/Board/Column1" unique_id=303045197]
+[node name="SelectSprite" type="Sprite3D" parent="PlayerGameboard/Board/Column1" unique_id=112522544]
 transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, 0.08, 0, -0.08, -3.496911e-09, -4.273653e-05, 0.0108606815, 0.5118772)
 texture = ExtResource("4_jfdob")
 
-[node name="Column2" type="Area3D" parent="PlayerGameboard/Board" unique_id=1996299238 node_paths=PackedStringArray("player_gameboard")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1882062, 0, -0.005764514)
+[node name="Cell0" type="Area3D" parent="PlayerGameboard/Board/Column1" unique_id=2096379432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, -0.25856772)
+script = ExtResource("9_q5opd")
+
+[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column1/Cell0" unique_id=813801444]
+transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
+render_priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column1/Cell0" unique_id=1296796036]
+shape = SubResource("BoxShape3D_7y72b")
+
+[node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column1" unique_id=245026353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
+script = ExtResource("9_q5opd")
+
+[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column1/Cell1" unique_id=779068485]
+transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
+render_priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column1/Cell1" unique_id=209542437]
+shape = SubResource("BoxShape3D_7y72b")
+
+[node name="Cell2" type="Area3D" parent="PlayerGameboard/Board/Column1" unique_id=767681608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
+script = ExtResource("9_q5opd")
+
+[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column1/Cell2" unique_id=1854839742]
+transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
+render_priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column1/Cell2" unique_id=1221532297]
+shape = SubResource("BoxShape3D_7y72b")
+
+[node name="Column2" type="Area3D" parent="PlayerGameboard/Board" unique_id=1656529433 node_paths=PackedStringArray("player_gameboard", "cells")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18595588, 0, -0.0057644546)
 script = ExtResource("3_i4yqv")
 player_gameboard = NodePath("../..")
+cells = [NodePath("Cell0"), NodePath("Cell1"), NodePath("Cell2")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column2" unique_id=685059596]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column2" unique_id=46858890]
 shape = SubResource("BoxShape3D_i4yqv")
 
-[node name="SelectSprite" type="Sprite3D" parent="PlayerGameboard/Board/Column2" unique_id=391800416]
+[node name="SelectSprite" type="Sprite3D" parent="PlayerGameboard/Board/Column2" unique_id=233567481]
 transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, 0.08, 0, -0.08, -3.496911e-09, -4.273653e-05, 0.0108606815, 0.5118772)
 texture = ExtResource("4_jfdob")
 
-[node name="Column3" type="Area3D" parent="PlayerGameboard/Board" unique_id=442117691 node_paths=PackedStringArray("player_gameboard")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1907388, 0, -0.005764514)
+[node name="Cell0" type="Area3D" parent="PlayerGameboard/Board/Column2" unique_id=201442584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, -0.25856772)
+script = ExtResource("9_q5opd")
+
+[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column2/Cell0" unique_id=1494269956]
+transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
+render_priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column2/Cell0" unique_id=1536387836]
+shape = SubResource("BoxShape3D_7y72b")
+
+[node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column2" unique_id=1588317770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
+script = ExtResource("9_q5opd")
+
+[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column2/Cell1" unique_id=1263419704]
+transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
+render_priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column2/Cell1" unique_id=145352765]
+shape = SubResource("BoxShape3D_7y72b")
+
+[node name="Cell2" type="Area3D" parent="PlayerGameboard/Board/Column2" unique_id=465129858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
+script = ExtResource("9_q5opd")
+
+[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column2/Cell2" unique_id=877435800]
+transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
+render_priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column2/Cell2" unique_id=1017120331]
+shape = SubResource("BoxShape3D_7y72b")
+
+[node name="Column3" type="Area3D" parent="PlayerGameboard/Board" unique_id=1711002368 node_paths=PackedStringArray("player_gameboard", "cells")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19300628, 0, -0.005764395)
 script = ExtResource("3_i4yqv")
 player_gameboard = NodePath("../..")
+cells = [NodePath("Cell0"), NodePath("Cell1"), NodePath("Cell2")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column3" unique_id=846764444]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column3" unique_id=210871789]
 shape = SubResource("BoxShape3D_i4yqv")
 
-[node name="SelectSprite" type="Sprite3D" parent="PlayerGameboard/Board/Column3" unique_id=960221383]
+[node name="SelectSprite" type="Sprite3D" parent="PlayerGameboard/Board/Column3" unique_id=724824076]
 transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, 0.08, 0, -0.08, -3.496911e-09, -4.273653e-05, 0.0108606815, 0.5118772)
 texture = ExtResource("4_jfdob")
 
-[node name="Die" parent="PlayerGameboard" unique_id=1718489097 instance=ExtResource("3_2vras")]
+[node name="Cell0" type="Area3D" parent="PlayerGameboard/Board/Column3" unique_id=1448867621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, -0.25856772)
+script = ExtResource("9_q5opd")
+
+[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column3/Cell0" unique_id=392961599]
+transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
+render_priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column3/Cell0" unique_id=1357591993]
+shape = SubResource("BoxShape3D_7y72b")
+
+[node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column3" unique_id=2066032987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
+script = ExtResource("9_q5opd")
+
+[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column3/Cell1" unique_id=1948246827]
+transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
+render_priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column3/Cell1" unique_id=1119999385]
+shape = SubResource("BoxShape3D_7y72b")
+
+[node name="Cell2" type="Area3D" parent="PlayerGameboard/Board/Column3" unique_id=1197515797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
+script = ExtResource("9_q5opd")
+
+[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column3/Cell2" unique_id=319093634]
+transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
+render_priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column3/Cell2" unique_id=1654323584]
+shape = SubResource("BoxShape3D_7y72b")
+
+[node name="DieTypeDisplay" type="Node3D" parent="PlayerGameboard/Board" unique_id=2114129889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9990268, 0, 0.2695528)
+
+[node name="Sprite3D" type="Sprite3D" parent="PlayerGameboard/Board/DieTypeDisplay" unique_id=1943416346]
+transform = Transform3D(0.055, 0, 0, 0, -2.4041265e-09, 0.055, 0, -0.055, -2.4041265e-09, 0, 0, 0)
+render_priority = 1
+texture = ExtResource("10_d3b0i")
+
+[node name="ScoreLabel" type="Label3D" parent="PlayerGameboard/Board/DieTypeDisplay" unique_id=633905986]
+transform = Transform3D(0.049382713, 2.0014436e-16, 2.3283059e-10, 4.440892e-16, -2.1585866e-09, 0.049382694, 2.001444e-16, -0.049382705, -2.1585862e-09, 0.047806267, 2.8650617e-09, 0.06554497)
+pixel_size = 0.01
+render_priority = 1
+outline_modulate = Color(1, 1, 1, 1)
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+
+[node name="Die" parent="PlayerGameboard" unique_id=1718489097 node_paths=PackedStringArray("reset_location") instance=ExtResource("3_2vras")]
 transform = Transform3D(0.9999997, 0, 0, 0, 0.99999976, 0, 0, 0, 0.9999998, 0.7835893, 1.2343849, 0.2994303)
 collision_layer = 2
 collision_mask = 2
 mass = 0.4
 physics_material_override = SubResource("PhysicsMaterial_i4yqv")
 gravity_scale = 0.616
+reset_location = NodePath("../DieResetLocation")
 
-[node name="Node3D" type="Node3D" parent="PlayerGameboard" unique_id=890377036]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.784, 1.234, 0.299)
+[node name="DieResetLocation" type="Node3D" parent="PlayerGameboard" unique_id=890377036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.784, 1.1640815, 0.299)
 
 [node name="DieValueLabel" type="Label3D" parent="PlayerGameboard" unique_id=1077069434 node_paths=PackedStringArray("physics_die", "game_interface")]
 transform = Transform3D(1, 0, 0, 0, 0.8660255, 0.50000006, 0, -0.50000006, 0.8660255, 0.5632176, 1.8370188, 0.35028243)
@@ -230,7 +359,7 @@ input_ray_pickable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004077196, 0.3462851, 0.026392221)
 shape = SubResource("BoxShape3D_byg7y")
 
-[node name="Sprite3D" type="Sprite3D" parent="PlayerGameboard" unique_id=1074513056 node_paths=PackedStringArray("die")]
+[node name="DiePointer" type="Sprite3D" parent="PlayerGameboard" unique_id=1074513056 node_paths=PackedStringArray("die")]
 transform = Transform3D(0.065, 0, 0, 0, -0.056291647, -0.032500003, 0, 0.032500003, -0.056291647, 0.7863867, 1.4731307, 0.27857807)
 texture = ExtResource("12_uflgs")
 script = ExtResource("13_7y72b")
@@ -241,47 +370,180 @@ transform = Transform3D(-0.18, -2.7179246e-08, 1.1880425e-15, 0, -7.86805e-09, -
 modulate = Color(1, 1, 1, 0.9411765)
 texture = ExtResource("2_4xij6")
 
-[node name="CenterConsole" type="Node3D" parent="." unique_id=1263747822]
+[node name="CenterConsole" type="Node3D" parent="." unique_id=1263747822 node_paths=PackedStringArray("player_gameboard")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.516, 1.127, 1.129)
+script = ExtResource("16_7rfbg")
+player_gameboard = NodePath("../PlayerGameboard")
 
 [node name="StatusIcon" type="Sprite3D" parent="CenterConsole" unique_id=1425366506]
 transform = Transform3D(0.06, 5.018962e-09, 3.7209476e-09, -5.018964e-09, 0.017437309, 0.05741028, 3.7209453e-09, -0.05741028, 0.017437309, -0.06263347, -0.03285773, 0.014610077)
 texture = ExtResource("9_eh8qp")
 
 [node name="StatusLabel" type="Label3D" parent="CenterConsole" unique_id=730606847]
-transform = Transform3D(0.02, 0, 0, 0, 0.0061176084, 0.019041399, 0, -0.019041399, 0.0061176084, 0.1304344, -0.059814095, -8.6426735e-05)
+transform = Transform3D(0.02, 0, 0, 0, 0.0061176084, 0.019041399, 0, -0.019041399, 0.0061176084, 0.13043445, -0.06457806, 0.014741659)
 pixel_size = 0.05
 modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+outline_modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
 text = "You are rolling"
 font = ExtResource("11_1rt75")
 font_size = 100
-outline_size = 0
 horizontal_alignment = 0
 
 [node name="ConsoleBackground" type="Sprite3D" parent="CenterConsole" unique_id=536467810]
 transform = Transform3D(0.355, 2.969553e-08, 2.2015605e-08, -2.9695535e-08, 0.103170745, 0.33967748, 2.2015598e-08, -0.33967748, 0.103170745, 0.50984246, -0.17279531, 0.019198596)
 texture = ExtResource("2_76fi4")
 
-[node name="LeftConsole" type="Sprite3D" parent="." unique_id=1193779361]
-transform = Transform3D(0.40443677, 0.013330213, 0.016679518, -0.016757919, 0.002114689, 0.40464774, 0.013231524, -0.40477505, 0.0026633139, -2.0101652, 1.0044751, 0.67479724)
+[node name="LeftConsole" type="Node3D" parent="." unique_id=591422906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01, 1.1194682, 0.6666864)
+
+[node name="Portrait" type="Sprite3D" parent="LeftConsole" unique_id=1547400972]
+transform = Transform3D(0.17965747, -0.008197296, 0.0074830987, -0.0045916378, 0.055594016, 0.17113803, -0.010104914, -0.17100325, 0.055279117, 0, 0, -0.6533158)
+texture = ExtResource("20_q5opd")
+
+[node name="CharacterSprite" type="Sprite3D" parent="LeftConsole/Portrait" unique_id=221662741]
+transform = Transform3D(0.33, -3.54619e-09, -1.6161023e-09, 3.54619e-09, 0.33, 5.9103167e-10, 1.6161023e-09, -5.9103167e-10, 0.33, 0.0027003288, 0.022989959, -0.050490856)
+texture = ExtResource("21_5mohp")
+
+[node name="Background" type="Sprite3D" parent="LeftConsole" unique_id=1193779361]
+transform = Transform3D(0.40462735, 0, 0.01736994, -0.017369945, -1.7703112e-08, 0.40462744, 7.592642e-10, -0.405, -1.7686826e-08, -0.024459597, -0.14031662, 0.017202308)
 texture = ExtResource("3_3hfn7")
 
+[node name="ShivInventory" type="Node3D" parent="LeftConsole/Background" unique_id=2051948332]
+transform = Transform3D(2.037, 0, 0, 0, -8.904009e-08, 2.037, 0, -2.037, -8.904009e-08, -0.33394074, -0.499296, 0.009700766)
+
+[node name="Sprite3D" type="Sprite3D" parent="LeftConsole/Background/ShivInventory" unique_id=1854803818]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0, 0, 0)
+render_priority = 1
+texture = ExtResource("20_nahi8")
+
+[node name="Sprite3D2" type="Sprite3D" parent="LeftConsole/Background/ShivInventory" unique_id=1568525952]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0.15, 0, 0)
+render_priority = 1
+texture = ExtResource("20_nahi8")
+
+[node name="Sprite3D3" type="Sprite3D" parent="LeftConsole/Background/ShivInventory" unique_id=602979417]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0.3, 0, 0)
+render_priority = 1
+texture = ExtResource("20_nahi8")
+
+[node name="PlasmagunInventory" type="Node3D" parent="LeftConsole/Background" unique_id=1123416576]
+transform = Transform3D(2.037, 0, 0, 0, -8.904009e-08, 2.037, 0, -2.037, -8.904009e-08, -0.117565766, 0.20988193, 0.009700524)
+
+[node name="Sprite3D" type="Sprite3D" parent="LeftConsole/Background/PlasmagunInventory" unique_id=1618121569]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, -0.048734296, -6.728677e-09, -0.15814483)
+render_priority = 1
+texture = ExtResource("24_aat4b")
+
+[node name="Node3D" type="Node3D" parent="LeftConsole/Background" unique_id=416706066]
+transform = Transform3D(0.9994348, -0.033616517, 0, 0.033616517, 0.9994348, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="ScoreLabel" type="Label3D" parent="LeftConsole/Background/Node3D" unique_id=1580125668]
+transform = Transform3D(0.049382713, -4.440892e-16, 2.3283084e-10, 4.440892e-16, 0.049382705, 0, 2.0014445e-16, 0, 0.049382694, -0.23005152, 0.5857645, -0.0070562363)
+pixel_size = 0.05
+render_priority = 1
+modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+outline_modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+text = "Score:"
+font = ExtResource("11_1rt75")
+font_size = 80
+outline_size = 20
+horizontal_alignment = 0
+
+[node name="ScoreNumberLabel" type="Label3D" parent="LeftConsole/Background/Node3D" unique_id=1299347832]
+transform = Transform3D(0.049382713, -4.440892e-16, 2.3283084e-10, 4.440892e-16, 0.049382705, 0, 2.0014445e-16, 0, 0.049382694, -0.0980711, 0.29831934, -0.007122278)
+pixel_size = 0.05
+render_priority = 1
+modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+outline_modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+text = "25"
+font = ExtResource("11_1rt75")
+font_size = 140
+outline_size = 20
+horizontal_alignment = 0
+
 [node name="RightConsole" type="Sprite3D" parent="." unique_id=486928073]
-transform = Transform3D(0.4086281, 4.946276e-08, -0.033512566, 0.03351233, -0.0015411659, 0.40862522, -0.00012592207, -0.40999705, -0.0015360097, 2.0404897, 0.9915081, 0.67887884)
+transform = Transform3D(0.4086281, 4.946276e-08, -0.033512566, 0.03351233, -0.0015411659, 0.40862522, -0.00012592207, -0.40999705, -0.0015360097, 2.0373824, 0.9912533, 0.6788798)
 texture = ExtResource("4_1la0o")
+
+[node name="ShivInventory" type="Node3D" parent="RightConsole" unique_id=1166437381]
+transform = Transform3D(2.037, 0, 0, 0, -8.904009e-08, 2.037, 0, -2.037, -8.904009e-08, -0.33394074, -0.499296, 0.009700766)
+
+[node name="Sprite3D" type="Sprite3D" parent="RightConsole/ShivInventory" unique_id=1068468684]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0, 0, 0)
+render_priority = 1
+texture = ExtResource("20_nahi8")
+
+[node name="Sprite3D2" type="Sprite3D" parent="RightConsole/ShivInventory" unique_id=757690825]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0.15, 0, 0)
+render_priority = 1
+texture = ExtResource("20_nahi8")
+
+[node name="Sprite3D3" type="Sprite3D" parent="RightConsole/ShivInventory" unique_id=896347387]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0.3, 0, 0)
+render_priority = 1
+texture = ExtResource("20_nahi8")
+
+[node name="PlasmagunInventory" type="Node3D" parent="RightConsole" unique_id=1950537765]
+transform = Transform3D(2.037, 0, 0, 0, -8.904009e-08, 2.037, 0, -2.037, -8.904009e-08, -0.117565766, 0.20988193, 0.009700524)
+
+[node name="Sprite3D" type="Sprite3D" parent="RightConsole/PlasmagunInventory" unique_id=1742453814]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0.1437409, -6.5261556e-09, -0.15814483)
+render_priority = 1
+texture = ExtResource("24_aat4b")
+
+[node name="Score" type="Node3D" parent="RightConsole" unique_id=850895937]
+transform = Transform3D(0.99927586, 0.038049683, 0, -0.038049683, 0.99927586, 0, 0, 0, 1, -0.27140862, 0.020528505, -6.483606e-07)
+
+[node name="ScoreLabel" type="Label3D" parent="RightConsole/Score" unique_id=437727303]
+transform = Transform3D(0.049382713, -4.440892e-16, 2.3283084e-10, 4.440892e-16, 0.049382705, 0, 2.0014445e-16, 0, 0.049382694, -0.23005152, 0.5857645, -0.0070562363)
+pixel_size = 0.05
+render_priority = 1
+modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+outline_modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+text = "Score:"
+font = ExtResource("11_1rt75")
+font_size = 80
+outline_size = 20
+horizontal_alignment = 0
+
+[node name="ScoreNumberLabel" type="Label3D" parent="RightConsole/Score" unique_id=1810519314]
+transform = Transform3D(0.049382713, -4.440892e-16, 2.3283084e-10, 4.440892e-16, 0.049382705, 0, 2.0014445e-16, 0, 0.049382694, 0.09529586, 0.29831934, -0.0071222796)
+pixel_size = 0.05
+render_priority = 1
+modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+outline_modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+text = "25"
+font = ExtResource("11_1rt75")
+font_size = 140
+outline_size = 20
 
 [node name="LeftButton" type="Node3D" parent="." unique_id=1641349821]
 transform = Transform3D(1, 0, 0, 0, 0.48633534, 0.87377226, 0, -0.87377226, 0.48633534, -1.404, 0.888, 1.335)
 script = ExtResource("2_vasga")
 
 [node name="IconSprite" type="Sprite3D" parent="LeftButton" unique_id=486919821]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+transform = Transform3D(4.535, 0, 0, 0, 4.535, 0, 0, 0, 4.535, 0.004286886, 0.008442596, -7.676427e-09)
 pixel_size = 0.0001
-texture = ExtResource("2_1pvmy")
+texture = ExtResource("27_aat4b")
 
 [node name="Area3D" type="Area3D" parent="LeftButton" unique_id=1299598680]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LeftButton/Area3D" unique_id=1237719451]
+transform = Transform3D(1, -1.1736732e-07, -3.470529e-08, -3.2350837e-08, 0.020010382, -0.9997999, 1.1803834e-07, 0.9997999, 0.020010382, 0.005282879, -0.0023929477, -0.026993752)
+shape = SubResource("CylinderShape3D_1pvmy")
+
+[node name="LeftButton2" type="Node3D" parent="." unique_id=1591922940]
+transform = Transform3D(1, 0, 0, 0, 0.48633534, 0.87377226, 0, -0.87377226, 0.48633534, 1.3781599, 0.888, 1.335)
+script = ExtResource("2_vasga")
+
+[node name="IconSprite" type="Sprite3D" parent="LeftButton2" unique_id=1793588990]
+transform = Transform3D(4.535, 0, 0, 0, 4.535, 0, 0, 0, 4.535, 0.004286886, 0.008442596, -7.676427e-09)
+pixel_size = 0.0001
+texture = ExtResource("28_v41ad")
+
+[node name="Area3D" type="Area3D" parent="LeftButton2" unique_id=1515497627]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftButton2/Area3D" unique_id=1025468872]
 transform = Transform3D(1, -1.1736732e-07, -3.470529e-08, -3.2350837e-08, 0.020010382, -0.9997999, 1.1803834e-07, 0.9997999, 0.020010382, 0.005282879, -0.0023929477, -0.026993752)
 shape = SubResource("CylinderShape3D_1pvmy")
 

@@ -19,13 +19,14 @@ var turn_in_progress: bool = false
 var turn: int = 0 # 0 = nobody, 1 = player, 2 = cpu
 
 func _ready() -> void:
-	set_process(false)
+	#set_process(false)
+	pass
 
 func _process(delta: float) -> void:
 	if not turn_in_progress and turn == 0:
 		turn = 1
 		turn_in_progress = true
-		player_turn()
+		game_display.player_take_turn()
 	elif not turn_in_progress and turn == 1:
 		turn = 2
 		turn_in_progress = true
