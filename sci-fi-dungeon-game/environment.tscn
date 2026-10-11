@@ -34,7 +34,7 @@ pan_camera = NodePath("../PanCamera")
 transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.075496286, 0, 0.25881904, 0.28175598, -29.200087, -2.135067, -4.886114)
 
 [node name="Background" type="Sprite3D" parent="Environment" unique_id=1735480180]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.949218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003129959, 2.3841858e-07, -4.947579)
 texture = ExtResource("3_2bfpd")
 
 [node name="PoolTriggerLeft" type="Area3D" parent="Environment" unique_id=89222847]
@@ -55,6 +55,7 @@ shape = SubResource("BoxShape3D_4arys")
 [node name="PanCamera" parent="." unique_id=1444190908 instance=ExtResource("7_aai17")]
 current = false
 fov = 95.0
+turn_speed = 10.0
 
 [node name="PanCameraArea" type="Area3D" parent="PanCamera" unique_id=1164377640]
 script = ExtResource("8_txl0x")
