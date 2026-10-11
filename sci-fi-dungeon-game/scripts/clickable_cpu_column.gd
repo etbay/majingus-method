@@ -6,9 +6,15 @@ var is_empty: bool:
 			if cell.value != 0:
 				return false
 		return true
+var no_matches: bool:
+	get:
+		for cell in cells:
+			if cell.value == last_roll_value:
+				return false
+		return true
 
 func _select() -> void:
-	if is_full || is_empty:
+	if is_full || is_empty || no_matches:
 		return
 	
 	hoverable = false

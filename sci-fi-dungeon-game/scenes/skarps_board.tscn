@@ -73,15 +73,11 @@ physics_die = NodePath("Die")
 cpu_physics_die = NodePath("../CPUGameboard/Die")
 cpu_board_display = NodePath("../CPUGameboard/Board")
 
-[node name="Board" type="StaticBody3D" parent="PlayerGameboard" unique_id=1013850569 node_paths=PackedStringArray("col_0", "col_1", "col_2", "col_3")]
+[node name="Board" type="StaticBody3D" parent="PlayerGameboard" unique_id=1013850569]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021208914, 1.0768887, 0.35298258)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("5_nebqc")
-col_0 = NodePath("Column0")
-col_1 = NodePath("Column1")
-col_2 = NodePath("Column2")
-col_3 = NodePath("Column3")
 
 [node name="BoardSprite" type="Sprite3D" parent="PlayerGameboard/Board" unique_id=2126375785]
 transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, -0.18, 0, 0.18, -7.86805e-09, 0, 0, 0)
@@ -306,7 +302,7 @@ reset_location = NodePath("../DieResetLocation")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.784, 1.1640815, 0.299)
 
 [node name="DieValueLabel" type="Label3D" parent="PlayerGameboard" unique_id=1077069434 node_paths=PackedStringArray("physics_die", "game_interface")]
-transform = Transform3D(1, 0, 0, 0, 0.8660255, 0.50000006, 0, -0.50000006, 0.8660255, 0.5632176, 1.8370188, 0.35028243)
+transform = Transform3D(1, 0, 0, 0, 0.8660255, 0.50000006, 0, -0.50000006, 0.8660255, 0.7097655, 1.8370188, 0.35028243)
 pixel_size = 0.0001
 texture_filter = 0
 text = "5"
@@ -377,15 +373,11 @@ die = NodePath("../Die")
 [node name="CPUGameboard" type="Node3D" parent="." unique_id=1538765608]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.040671635, 0, -0.119962156)
 
-[node name="Board" type="StaticBody3D" parent="CPUGameboard" unique_id=1420929870 node_paths=PackedStringArray("col_0", "col_1", "col_2", "col_3")]
+[node name="Board" type="StaticBody3D" parent="CPUGameboard" unique_id=1420929870]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021208914, 1.0768887, 0.35298258)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("5_nebqc")
-col_0 = NodePath("Column0")
-col_1 = NodePath("Column1")
-col_2 = NodePath("Column2")
-col_3 = NodePath("Column3")
 
 [node name="BoardSprite" type="Sprite3D" parent="CPUGameboard/Board" unique_id=381651813]
 transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, -0.18, 0, 0.18, -7.86805e-09, 0, 0, 0)
@@ -610,7 +602,7 @@ reset_location = NodePath("../DieResetLocation")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.784, 1.1640815, 0.299)
 
 [node name="DieValueLabel" type="Label3D" parent="CPUGameboard" unique_id=1451139746 node_paths=PackedStringArray("physics_die", "game_interface")]
-transform = Transform3D(-1, 4.371139e-08, -7.571036e-08, 0, 0.8660255, 0.50000006, 8.742276e-08, 0.50000006, -0.8660255, 0.5632176, 1.8370188, 0.28281432)
+transform = Transform3D(-1, 4.371139e-08, -7.571036e-08, 0, 0.8660255, 0.50000006, 8.742276e-08, 0.50000006, -0.8660255, 0.61945933, 1.8370188, 0.28281435)
 pixel_size = 0.0001
 texture_filter = 0
 text = "5"

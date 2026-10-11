@@ -90,12 +90,7 @@ func take_cpu_turn() -> void:
 # Select column (player or enemy)
 func select_column() -> void:
 	_current_status = TurnStatus.SELECTING
-	var res = await board_display_wrapper.column_selected
-	if (res[0] < 4):
-		board_display.display_board(board)
-	else:
-		cpu_board_display.display_board(cpu_board)
-	turn_finished.emit()
+	await board_display_wrapper.column_selected
 
 # Roll die
 func roll_die() -> Die:
@@ -111,10 +106,13 @@ func _on_column_selected(column: int, die: Die) -> void:
 		#player side
 		board.place_dice(column, die)
 		player_score = board.calculate_score()
+		board_display.display_board(board)
 	else:
 		#attacking
-		cpu_board.attack_column(column - 4, die)
+		var destroyed = cpu_board.attack_column(column - 4, die)
 		cpu_score = cpu_board.calculate_score()
+		cpu_board_display.display_board(cpu_board)
+	turn_finished.emit()
 
 func _on_shiv_selected() -> void:
 	print("shiv selected")
