@@ -14,9 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://y613imlf4y7" path="res://assets/gameboard/right_gameboard.png" id="4_1la0o"]
 [ext_resource type="FontFile" uid="uid://cukfpuaoj7veg" path="res://assets/Doto/static/Doto-Black.ttf" id="4_2vras"]
 [ext_resource type="Texture2D" uid="uid://c6tth8a4sopmb" path="res://assets/icons/column_select_icon.png" id="4_jfdob"]
+[ext_resource type="Script" uid="uid://bnalm8rgbly05" path="res://scenes/board_display.gd" id="5_nebqc"]
 [ext_resource type="Script" uid="uid://cse2wxvuler4y" path="res://scenes/die_value_label.gd" id="6_uw2da"]
 [ext_resource type="Script" uid="uid://ceuax7xdl4okt" path="res://scenes/die_face_detect.gd" id="6_vbsse"]
 [ext_resource type="Texture2D" uid="uid://bnteqjhmjdncf" path="res://assets/icons/diceroll_status_icon.png" id="9_eh8qp"]
+[ext_resource type="Script" uid="uid://brnruomtpb5sn" path="res://scenes/cell_display.gd" id="9_q5opd"]
 [ext_resource type="FontFile" uid="uid://s2spjex2vfst" path="res://assets/Source_Code_Pro/static/SourceCodePro-Bold.ttf" id="11_1rt75"]
 [ext_resource type="Texture2D" uid="uid://b2wnyyppwygwu" path="res://assets/icons/column_select_icon_1.png" id="12_uflgs"]
 [ext_resource type="Script" uid="uid://dalfqvk43pgtx" path="res://die_pointer.gd" id="13_7y72b"]
@@ -63,19 +65,20 @@ physics_die = NodePath("Die")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021208914, 1.0768887, 0.35298258)
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("5_nebqc")
 
 [node name="BoardSprite" type="Sprite3D" parent="PlayerGameboard/Board" unique_id=2126375785]
 transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, -0.18, 0, 0.18, -7.86805e-09, 0, 0, 0)
-modulate = Color(1, 1, 1, 0.9411765)
 texture = ExtResource("2_4xij6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board" unique_id=106292425]
 shape = SubResource("BoxShape3D_qs5on")
 
-[node name="Column0" type="Area3D" parent="PlayerGameboard/Board" unique_id=1416827387 node_paths=PackedStringArray("player_gameboard")]
+[node name="Column0" type="Area3D" parent="PlayerGameboard/Board" unique_id=1416827387 node_paths=PackedStringArray("player_gameboard", "cells")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9410094, 0, -0.005764514)
 script = ExtResource("3_i4yqv")
 player_gameboard = NodePath("../..")
+cells = [NodePath("Cell0"), NodePath("Cell1"), NodePath("Cell2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column0" unique_id=511959097]
 shape = SubResource("BoxShape3D_i4yqv")
@@ -84,12 +87,37 @@ shape = SubResource("BoxShape3D_i4yqv")
 transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, 0.08, 0, -0.08, -3.496911e-09, -4.273653e-05, 0.0108606815, 0.5118772)
 texture = ExtResource("4_jfdob")
 
-[node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column0" unique_id=1277898364]
+[node name="Cell0" type="Area3D" parent="PlayerGameboard/Board/Column0" unique_id=1277898364]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, -0.25856772)
+script = ExtResource("9_q5opd")
 
-[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column0/Cell1" unique_id=626087545]
+[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column0/Cell0" unique_id=626087545]
+transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
+render_priority = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column0/Cell1" unique_id=1052624795]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column0/Cell0" unique_id=1052624795]
+shape = SubResource("BoxShape3D_7y72b")
+
+[node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column0" unique_id=1318877218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
+script = ExtResource("9_q5opd")
+
+[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column0/Cell1" unique_id=866544155]
+transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
+render_priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column0/Cell1" unique_id=873403275]
+shape = SubResource("BoxShape3D_7y72b")
+
+[node name="Cell2" type="Area3D" parent="PlayerGameboard/Board/Column0" unique_id=1744503454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
+script = ExtResource("9_q5opd")
+
+[node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column0/Cell2" unique_id=1861515363]
+transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
+render_priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column0/Cell2" unique_id=1515439117]
 shape = SubResource("BoxShape3D_7y72b")
 
 [node name="Column1" type="Area3D" parent="PlayerGameboard/Board" unique_id=1034241266 node_paths=PackedStringArray("player_gameboard")]

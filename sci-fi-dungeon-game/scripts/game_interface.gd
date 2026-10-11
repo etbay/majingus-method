@@ -1,10 +1,10 @@
 class_name GameInterface extends Node
 
 signal turn_finished
-signal die_rolled
+signal die_rolled(int)
 
 @export var physics_die: PhysicsDie
-var board: Board
+@onready var board_display: BoardDisplay = $Board
 
 func _ready() -> void:
 	pass
@@ -12,12 +12,12 @@ func _ready() -> void:
 func take_turn() -> void:
 	var die_value: int = await roll_die()
 	physics_die.can_roll = false
-	die_rolled.emit()
+	die_rolled.emit(die_value)
 	print("die has been rolled")
 
 # Select column (player or enemy)
 func select_column() -> void:
-	pass
+	await board_display.column_selected
 # Use item(item type)
 
 # Roll die
