@@ -111,3 +111,10 @@ func fill_dict() -> void:
 				_board_dict.get_or_add(str(die.get_value()), []).append(die)
 			else: # for empty spaces, track in empty code
 				_board_dict.get_or_add("empty", []).append(die)
+
+func get_column_dict(column: int) -> Dictionary[String, int]:
+	var column_dict: Dictionary[String, int] = {} # string = die face, int = matching count
+	for entry in _board_array[column]:
+		if entry != null:
+			column_dict.get_or_add(str(entry.get_value()), []).append(entry)
+	return column_dict
