@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dapuxk7oiampo"]
+
+[ext_resource type="Script" uid="uid://p5cmxd2dx578" path="res://scripts/upgrade.gd" id="1_j2bgn"]
+
+[resource]
+script = ExtResource("1_j2bgn")
+name = "Plasma"
+cost = 6
+type = 5
+metadata/_custom_type_script = "uid://p5cmxd2dx578"
