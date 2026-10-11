@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fwhckb6000mp"
-path.s3tc="res://.godot/imported/repeating-background.png-64e914dadf136d63dba234df34860e26.s3tc.ctex"
+uid="uid://dnwml83apmcgb"
+path.s3tc="res://.godot/imported/left_gameboard.png-70cd906da97555cca6ede2278bfafddd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://repeating-background.png"
-dest_files=["res://.godot/imported/repeating-background.png-64e914dadf136d63dba234df34860e26.s3tc.ctex"]
+source_file="res://assets/gameboard/left_gameboard.png"
+dest_files=["res://.godot/imported/left_gameboard.png-70cd906da97555cca6ede2278bfafddd.s3tc.ctex"]
 
 [params]
 

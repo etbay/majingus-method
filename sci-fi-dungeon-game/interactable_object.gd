@@ -18,7 +18,6 @@ func _ready() -> void:
 	click_area.mouse_exited.connect(_on_mouse_exited)
 
 func _on_mouse_entered() -> void:
-	print("mouse over")
 	_mouse_over = true
 	# Set highlight color
 	modulate = hover_highlight

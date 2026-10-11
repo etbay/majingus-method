@@ -1,5 +1,7 @@
 class_name GameManager extends Node
 
+signal earned_money(int)
+
 @export var player_score: Label
 @export var CPU_score: Label
 
@@ -11,19 +13,26 @@ class_name GameManager extends Node
 @onready var player: Board = Board.new()
 @onready var cpu: Board = Board.new()
 
-var turn_in_progress: bool = false
+@onready var player_dice: DiceBag
+@onready var cpu_dice: DiceBag
 
-func _ready() -> void:
-	pass
-	#b.coord_selected.connect(_on_coord_selected)
+var turn_in_progress: bool = false
+var turn: int = 0 # 0 = nobody, 1 = player, 2 = cpu
 
 func _process(delta: float) -> void:
-	if not turn_in_progress:
-		player_turn()
+	if not turn_in_progress and turn == 0:
+		turn = 1
 		turn_in_progress = true
+		player_turn()
+	elif not turn_in_progress and turn == 1:
+		turn = 2
+		turn_in_progress = true
+		cpu_turn()
 
 func cpu_turn() -> void:
-	pass
+	
+	turn = 0
+	turn_in_progress = false
 	
 func player_turn() -> void:
 	var die := Die.new(0)
@@ -41,6 +50,3 @@ func player_turn() -> void:
 	# display score
 	b.display_score(player)
 	turn_in_progress = false # end turn
-#
-#func _on_coord_selected(coords: Array) -> void:
-	#pass
