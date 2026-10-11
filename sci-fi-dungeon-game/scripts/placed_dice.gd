@@ -3,10 +3,10 @@ class_name Die extends Node
 enum DieType {
 	NORMAL,
 	GILDED,
-	WEIGHTED,
 	LOW_ROLLER,
 	HOLLOW,
-	PLASMA
+	PLASMA,
+	WEIGHTED
 }
 
 var _value: int = 1

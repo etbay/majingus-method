@@ -4,6 +4,7 @@ signal coord_selected(int)
 signal roll_die()
 
 @export var roll_button: Button
+@export var roll_label: Label
 
 @export var button_00: Button
 @export var button_10: Button
@@ -41,11 +42,14 @@ func _ready() -> void:
 	button_30.pressed.connect(_on_column_4_pressed)
 	button_31.pressed.connect(_on_column_4_pressed)
 	button_32.pressed.connect(_on_column_4_pressed)
-	roll_button.pressed.connect(_on_roll_pressed)
+	if (roll_button != null):
+		roll_button.pressed.connect(_on_roll_pressed)
 
 #func _process(delta: float) -> void:
 	#
 
+func force_roll() -> void:
+	emit_signal("roll_die")
 
 func _on_column_1_pressed() -> void:
 	emit_signal("coord_selected", 0)
@@ -62,6 +66,9 @@ func _on_column_4_pressed() -> void:
 func _on_roll_pressed() -> void:
 	emit_signal("roll_die")
 
+func display_roll(die: Die) -> void:
+	roll_label.text = "Roll: %d" % die.get_value()
+
 func display_score(board: Board) -> void:
 	board.fill_dict()
 	for i in range(0, board.WIDTH):
@@ -69,6 +76,8 @@ func display_score(board: Board) -> void:
 			var value = board.get_value_at(i,j)
 			if value > -1:
 				_button_arr[i][board.HEIGHT - 1 - j].text = str(value)
+			else:
+				_button_arr[i][board.HEIGHT - 1 - j].text = "-"
 	player_score_text.text = str(board.calculate_score())
 	column_1_score.text = str(board.calculate_column_score(0))
 	column_2_score.text = str(board.calculate_column_score(1))

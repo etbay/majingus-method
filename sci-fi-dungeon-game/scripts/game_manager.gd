@@ -8,12 +8,15 @@ signal earned_money(int)
 @export var CPU_score: Label
 
 @export var b: BoardSignalManager
+@export var cb: BoardSignalManager
+
+@onready var cpu_ai: CPUAI = CPUAI.new(5)
 
 @onready var player: Board = Board.new()
-@onready var cpu: Board = Board.new()
+@onready var cpu_board: Board = Board.new()
 
-@onready var player_dice: DiceBag
-@onready var cpu_dice: DiceBag
+@onready var player_dice: DiceBag = DiceBag.new()
+@onready var cpu_dice: DiceBag = DiceBag.new()
 
 var turn_in_progress: bool = false
 var turn: int = 0 # 0 = nobody, 1 = player, 2 = cpu
@@ -36,6 +39,11 @@ func start_game() -> void:
 	set_process(true)
 
 func cpu_turn() -> void:
+	var die := Die.new(0)
+	die.roll_die()
+	
+	var column: int = cpu_ai.choose_column(die, player, cpu_board)
+	
 	
 	turn = 0
 	turn_in_progress = false

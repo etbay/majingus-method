@@ -17,7 +17,6 @@ func return_dice(die: Die) -> void:
 	_dice_array.append(die) 
 
 func get_absolute_dice_array() -> Array[Die]:
-	_total_dice_array.sort()
 	return _total_dice_array
 
 func set_absolute_dice_array(arr: Array[Die]) -> void:
@@ -29,4 +28,4 @@ func shuffle() -> void:
 
 # function to update the current dice list with the absolute dice list
 func _refresh_dice() -> void:
-	_dice_array = _total_dice_array
+	_dice_array.assign(_total_dice_array)
