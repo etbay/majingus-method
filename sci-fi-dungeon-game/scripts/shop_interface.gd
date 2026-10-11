@@ -20,6 +20,7 @@ func _ready() -> void:
 	upgrade_1.pressed.connect(buy_upgrade_1)
 	upgrade_2.pressed.connect(buy_upgrade_2)
 	up_quality.pressed.connect(buy_quality)
+	reroll.pressed.connect(reroll_shop)
 	shop = Shop.new(2, 2, 0, possible_upgrades)
 	display_shop()
 
@@ -28,9 +29,18 @@ func display_shop() -> void:
 	upgrade_1.text = "Dice Upgrade: %s\n$%d" % [shop.upgrades[0].type, shop.upgrades[0].cost]  
 	upgrade_2.text = "Dice Upgrade: %s\n$%d" % [shop.upgrades[1].type, shop.upgrades[1].cost]
 	up_quality.text = "Quality upgrade (+1)\n$3"
+	reroll.text = "Reroll: $%d" % shop.get_reroll_cost()
 
 func bought_shiv() -> void:
-	bought_shiv_signal.emit()
+	if (Money.money >= 2):
+		Money.money -= 2
+		bought_shiv_signal.emit()
+
+func reroll_shop() -> void:
+	if (Money.money >= shop.get_reroll_cost()):
+		Money.money -= shop.get_reroll_cost()
+		shop.reroll()
+		display_shop()
 
 func buy_upgrade_1() -> void:
 	buy_upgrade(0)
@@ -39,17 +49,22 @@ func buy_upgrade_2() -> void:
 	buy_upgrade(1)
 
 func buy_quality() -> void:
-	var quality = 100
-	var target: Die
-	while (quality >= 5):
-		target = await get_target()
-		quality = target.quality
-	target.quality += 1
-	
+	if (Money.money >= 3):
+		Money.money -= 3
+		var quality = 100
+		var target: Die
+		while (quality >= 5):
+			target = await get_target()
+			quality = target.quality
+		target.quality += 1
+		display_dice()
+		
 func buy_upgrade(index: int) -> void:
-	var target = await get_target()
-	target.set_type(shop.upgrades[index].type)
-	select_wrapper.display_dice(dice_bag)
+	if (Money.money >= shop.upgrades[index].cost):
+		Money.money -= shop.upgrades[index].cost
+		var target = await get_target()
+		target.set_type(shop.upgrades[index].type)
+		display_dice()
 
 func get_target() -> Die:
 	var target: Array = await(select_wrapper.dice_selected)

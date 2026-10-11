@@ -30,12 +30,9 @@ func _init(n_num_upgrades: int, n_num_shivs: int, n_num_lasers: int,
 
 func generate_shop() -> void:
 	#populate upgrades array
+	upgrades = []
 	for i in range(0, num_upgrades):
 		upgrades.append(_possible_upgrades[randi_range(0,_possible_upgrades.size() - 1)])
-	
-	#populate items
-	#for i in range(0, _num_consumables):
-		#consumables.append(_possible_consumables[randi_range(0,_possible_consumables.size())])
 
 func reroll() -> void:
 	generate_shop()

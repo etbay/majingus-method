@@ -49,7 +49,7 @@ func _ready() -> void:
 func display_dice(bag: DiceBag) -> void:
 	var dice_arr: Array[Die] = bag.get_absolute_dice_array()
 	for i in range(0, dice_arr.size()):
-		button_arr[i].text = str(dice_arr[i].get_type())
+		button_arr[i].text = "Type: " + str(dice_arr[i].get_type()) + "\nQuality: +" + str(dice_arr[i].quality)
 
 func _button_00_p():
 	dice_selected.emit(0, 0)
