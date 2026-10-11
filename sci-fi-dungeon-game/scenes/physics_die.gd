@@ -5,6 +5,8 @@ signal roll_started
 signal face_up_changed(int)
 signal roll_finished
 
+@export var reset_location: Node3D
+
 @onready var raycast_1: RayCast3D = $RayCast_1
 @onready var raycast_2: RayCast3D = $RayCast_2
 @onready var raycast_3: RayCast3D = $RayCast_3
@@ -71,6 +73,8 @@ func roll() -> int:
 	await get_tree().create_timer(0.2).timeout
 	_apply_random_force()
 	await roll_finished
+	global_position = reset_location.global_position
+	rotation.y = 0
 	return face_up
 
 func _apply_random_force() -> void:
