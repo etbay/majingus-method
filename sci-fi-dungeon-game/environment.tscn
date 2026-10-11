@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://gyka836qy4gv" path="res://inventory_hud.tscn" id="9_7px3q"]
 [ext_resource type="PackedScene" uid="uid://cio6xt5lum3aq" path="res://scenes/skarps_board.tscn" id="10_mpsl3"]
 [ext_resource type="Script" uid="uid://bscfe8rilncg2" path="res://camera_switch.gd" id="11_2bfpd"]
+[ext_resource type="Script" uid="uid://csou168mv7jpy" path="res://roll_button.gd" id="12_3jj1w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
 size = Vector3(3.9414673, 3.0203857, 1)
@@ -77,6 +78,11 @@ shape = SubResource("BoxShape3D_6iypd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1825473644]
 
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=2028378337]
+transform = Transform3D(1, 0, 0, 0, 0.27397493, 0.96173686, 0, -0.96173686, 0.27397493, 0, 0, 0)
+light_energy = 0.188
+sky_mode = 1
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1473294941]
 
 [node name="InventoryHUD" parent="CanvasLayer" unique_id=1377702667 instance=ExtResource("9_7px3q")]
@@ -100,6 +106,21 @@ script = ExtResource("11_2bfpd")
 pan_camera = NodePath("../../PanCamera")
 skarps_camera = NodePath("../../Skarps/Camera3D")
 
+[node name="Button2" type="Button" parent="CanvasLayer" unique_id=248713011 node_paths=PackedStringArray("physics_die")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.5
+offset_top = -31.0
+offset_right = 60.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Roll dice"
+script = ExtResource("12_3jj1w")
+physics_die = NodePath("../../Skarps/SkarpsBoard/PlayerGameboard/Die")
+
 [node name="Skarps" type="Node3D" parent="." unique_id=1098451559]
 
 [node name="Camera3D" type="Camera3D" parent="Skarps" unique_id=1262957634]
@@ -112,7 +133,8 @@ transform = Transform3D(19.604006, 0, 0, 0, 0.2836973, 7.461798, 0, -1.0472379, 
 mesh = SubResource("PlaneMesh_6iypd")
 
 [node name="SkarpsBoard" parent="Skarps" unique_id=1549528452 instance=ExtResource("10_mpsl3")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -2.243, 7.609)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.00152421, -2.2413986, 7.606835)
 
 [editable path="Environment/Background/InteractableObject"]
 [editable path="CanvasLayer/InventoryHUD"]
+[editable path="Skarps/SkarpsBoard"]
