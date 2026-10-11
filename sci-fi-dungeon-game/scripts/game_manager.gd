@@ -2,11 +2,10 @@ class_name GameManager extends Node
 
 signal earned_money(int)
 
+@export var game_display: GameDisplay
+
 @export var player_score: Label
 @export var CPU_score: Label
-
-@export var player_dice_roll: Label
-@export var CPU_dice_roll: Label
 
 @export var b: BoardSignalManager
 
@@ -19,6 +18,9 @@ signal earned_money(int)
 var turn_in_progress: bool = false
 var turn: int = 0 # 0 = nobody, 1 = player, 2 = cpu
 
+func _ready() -> void:
+	set_process(false)
+
 func _process(delta: float) -> void:
 	if not turn_in_progress and turn == 0:
 		turn = 1
@@ -29,6 +31,9 @@ func _process(delta: float) -> void:
 		turn_in_progress = true
 		cpu_turn()
 
+func start_game() -> void:
+	set_process(true)
+
 func cpu_turn() -> void:
 	
 	turn = 0
@@ -38,8 +43,6 @@ func player_turn() -> void:
 	var die := Die.new(0)
 	await(b.roll_die)
 	die.roll_die()
-	# tell the player their roll
-	player_dice_roll.text = "Dice Roll: " + str(die.get_value())
 	
 	# await input for which column they place the die on the board
 	var placed: bool = false
