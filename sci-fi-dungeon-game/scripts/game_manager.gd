@@ -22,8 +22,7 @@ var turn_in_progress: bool = false
 var turn: int = 0 # 0 = nobody, 1 = player, 2 = cpu
 
 func _ready() -> void:
-	#set_process(false)
-	pass
+	set_process(false)
 
 func _process(delta: float) -> void:
 	if not turn_in_progress and turn == 0:
@@ -39,26 +38,8 @@ func start_game() -> void:
 	set_process(true)
 
 func cpu_turn() -> void:
-	var die := Die.new(0)
-	die.roll_die()
-	
-	var column: int = cpu_ai.choose_column(die, player, cpu_board)
-	
-	
 	turn = 0
 	turn_in_progress = false
 	
 func player_turn() -> void:
-	var die := Die.new(0)
-	await(b.roll_die)
-	die.roll_die()
-	
-	# await input for which column they place the die on the board
-	var placed: bool = false
-	while (!placed):
-		var res = await b.coord_selected
-		placed = player.place_dice(res, die)
-	
-	# display score
-	b.display_score(player)
 	turn_in_progress = false # end turn

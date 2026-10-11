@@ -8,7 +8,7 @@ func _init() -> void:
 		_dice_array.append(Die.new(0))
 		_total_dice_array.append(Die.new(0))
 
-func get_dice() -> Die:
+func get_die() -> Die:
 	shuffle()
 	var die = _dice_array.pop_front()
 	return die

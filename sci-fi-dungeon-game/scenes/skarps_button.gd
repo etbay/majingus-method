@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var click_area: Area3D = $Area3D
+@onready var click_area: MouseClickDetect = $MouseClickDetect
 
 var _mouse_over: bool = false
 
