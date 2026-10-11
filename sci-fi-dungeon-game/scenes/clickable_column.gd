@@ -5,7 +5,7 @@ signal selected(Die)
 @onready var select_sprite: Sprite3D = $SelectSprite
 @export var player_gameboard: GameInterface
 
-@export var cells: Array[CellDisplay]
+@export var cells: Array[CellDisplay] = []
 var hoverable: bool = false
 var mouse_hovered: bool = false
 var is_full: bool:

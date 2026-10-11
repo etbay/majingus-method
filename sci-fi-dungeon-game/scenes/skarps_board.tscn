@@ -55,9 +55,10 @@ size = Vector3(0.9, 0.01, 1)
 height = 0.08654785
 radius = 0.18603516
 
-[node name="GameDisplay" type="Node3D" unique_id=1549528452]
+[node name="GameDisplay" type="Node3D" unique_id=1549528452 node_paths=PackedStringArray("start_button")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_1131k")
+start_button = NodePath("CanvasLayer/Button")
 
 [node name="GameManager" type="Node" parent="." unique_id=163007815 node_paths=PackedStringArray("game_display")]
 script = ExtResource("2_uflgs")
@@ -66,9 +67,10 @@ game_display = NodePath("..")
 [node name="UIjam_3Dgameboard" parent="." unique_id=1490384484 instance=ExtResource("1_vasga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0049852133, -0.0022302866, 0.00057447)
 
-[node name="PlayerGameboard" type="Node3D" parent="." unique_id=1927149657 node_paths=PackedStringArray("physics_die")]
+[node name="PlayerGameboard" type="Node3D" parent="." unique_id=1927149657 node_paths=PackedStringArray("physics_die", "cpu_physics_die")]
 script = ExtResource("1_b6vmp")
 physics_die = NodePath("Die")
+cpu_physics_die = NodePath("../CPUGameboard/Die")
 
 [node name="Board" type="StaticBody3D" parent="PlayerGameboard" unique_id=1013850569]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021208914, 1.0768887, 0.35298258)
@@ -383,10 +385,11 @@ texture = ExtResource("2_4xij6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board" unique_id=670149146]
 shape = SubResource("BoxShape3D_qs5on")
 
-[node name="Column0" type="Area3D" parent="CPUGameboard/Board" unique_id=534756368 node_paths=PackedStringArray("player_gameboard")]
+[node name="Column0" type="Area3D" parent="CPUGameboard/Board" unique_id=534756368 node_paths=PackedStringArray("player_gameboard", "cells")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9410094, 0, -0.005764514)
 script = ExtResource("17_cc7eo")
 player_gameboard = NodePath("../../../PlayerGameboard")
+cells = [NodePath("../../../PlayerGameboard/Board/Column0/Cell0"), NodePath("../../../PlayerGameboard/Board/Column0/Cell1"), NodePath("../../../PlayerGameboard/Board/Column0/Cell2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column0" unique_id=369952415]
 shape = SubResource("BoxShape3D_i4yqv")
@@ -428,10 +431,11 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column0/Cell2" unique_id=2140747219]
 shape = SubResource("BoxShape3D_7y72b")
 
-[node name="Column1" type="Area3D" parent="CPUGameboard/Board" unique_id=1183290114 node_paths=PackedStringArray("player_gameboard")]
+[node name="Column1" type="Area3D" parent="CPUGameboard/Board" unique_id=1183290114 node_paths=PackedStringArray("player_gameboard", "cells")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5563053, 0, -0.0057644844)
 script = ExtResource("17_cc7eo")
 player_gameboard = NodePath("../../../PlayerGameboard")
+cells = [NodePath("../../../PlayerGameboard/Board/Column1/Cell0"), NodePath("../../../PlayerGameboard/Board/Column1/Cell1"), NodePath("../../../PlayerGameboard/Board/Column1/Cell2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column1" unique_id=1175146344]
 shape = SubResource("BoxShape3D_i4yqv")
@@ -473,10 +477,11 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column1/Cell2" unique_id=2127383492]
 shape = SubResource("BoxShape3D_7y72b")
 
-[node name="Column2" type="Area3D" parent="CPUGameboard/Board" unique_id=673922699 node_paths=PackedStringArray("player_gameboard")]
+[node name="Column2" type="Area3D" parent="CPUGameboard/Board" unique_id=673922699 node_paths=PackedStringArray("player_gameboard", "cells")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18595588, 0, -0.0057644546)
 script = ExtResource("17_cc7eo")
 player_gameboard = NodePath("../../../PlayerGameboard")
+cells = [NodePath("../../../PlayerGameboard/Board/Column2/Cell0"), NodePath("../../../PlayerGameboard/Board/Column2/Cell1"), NodePath("../../../PlayerGameboard/Board/Column2/Cell2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column2" unique_id=410208625]
 shape = SubResource("BoxShape3D_i4yqv")
@@ -518,10 +523,11 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column2/Cell2" unique_id=1246955989]
 shape = SubResource("BoxShape3D_7y72b")
 
-[node name="Column3" type="Area3D" parent="CPUGameboard/Board" unique_id=1921497129 node_paths=PackedStringArray("player_gameboard")]
+[node name="Column3" type="Area3D" parent="CPUGameboard/Board" unique_id=1921497129 node_paths=PackedStringArray("player_gameboard", "cells")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19300628, 0, -0.005764395)
 script = ExtResource("17_cc7eo")
 player_gameboard = NodePath("../../../PlayerGameboard")
+cells = [NodePath("../../../PlayerGameboard/Board/Column3/Cell0"), NodePath("../../../PlayerGameboard/Board/Column3/Cell1"), NodePath("../../../PlayerGameboard/Board/Column3/Cell2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column3" unique_id=1545965421]
 shape = SubResource("BoxShape3D_i4yqv")
@@ -852,3 +858,12 @@ omni_range = 2.0
 [node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=1810884448]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0127866, 1.1981505, 0.71929157)
 omni_range = 2.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1965814109]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=670122236]
+offset_left = 24.0
+offset_top = 629.0
+offset_right = 89.0
+offset_bottom = 694.0
+text = "Start Game"
