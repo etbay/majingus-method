@@ -5,6 +5,7 @@ signal item_clicked
 @export var hover_highlight: Color 
 @export var required_tool_type: InventoryTool.ToolType
 @export var highlight_target: Sprite3D
+@export var this_one_is_the_shop: bool = false
 
 @onready var click_area: Area3D = $Area3D
 
@@ -12,6 +13,8 @@ var _mouse_over: bool = false
 
 func _process(_delta: float) -> void:
 	if _mouse_over and Input.is_action_just_pressed("environment_interact"):
+		if this_one_is_the_shop:
+			GlobalSignals.switch_to_shop.emit()
 		item_clicked.emit()
 
 func _ready() -> void:

@@ -6,7 +6,7 @@
 
 [node name="InteractableObject" type="Sprite3D" unique_id=398030382]
 script = ExtResource("2_jthww")
-hover_highlight = Color(0.93474776, 0.9078065, 1.540184e-06, 1)
+hover_highlight = Color(1, 1, 1, 1)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=519297728]
 

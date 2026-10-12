@@ -1,10 +1,16 @@
 extends Node
 
 signal balance_changed(int)
+signal shiv_count_changed(int)
 
 var dice_bag: DiceBag
 
-var shivs: int = 0
+var shivs: int = 3:
+	set(value):
+		if shivs != value:
+			shivs = value
+			shiv_count_changed.emit(shivs)
+
 var has_laser_gun: bool = false
 
 var balance: int = 0:

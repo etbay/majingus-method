@@ -8,7 +8,7 @@ signal earned_money(int)
 @export var CPU_score: Label
 
 var turn_in_progress: bool = false
-var turn: int = 1 # 1 = player, 0 = cpu
+var turn: int = 0 # 1 = player, 0 = cpu
 
 func _ready() -> void:
 	set_process(false)

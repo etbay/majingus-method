@@ -20,6 +20,7 @@ TextureDictionary="*uid://bta0ev23vfmlo"
 PlayerInventory="*uid://dx4aaah2hn12b"
 AudioDictionary="*uid://resp2qqswy1a"
 MusicMan="*uid://bn77iydvmkyar"
+GlobalSignals="*uid://b2m7tggty2b7i"
 
 [display]
 

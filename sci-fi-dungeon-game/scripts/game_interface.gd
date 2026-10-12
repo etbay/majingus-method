@@ -3,6 +3,7 @@ class_name GameInterface extends Node
 signal turn_finished
 signal die_rolled(Die)
 signal status_changed(new_status: TurnStatus)
+signal game_started
 
 @export var physics_die: PhysicsDie
 @onready var board_display: BoardDisplay = $Board
@@ -38,13 +39,14 @@ var cpu_score: int = -1:
 
 enum TurnStatus
 {
+	NONE,
 	WAITING_FOR_TURN,
 	ROLLING,
 	SELECTING,
 	USING_ITEM
 }
 
-var _current_status := TurnStatus.WAITING_FOR_TURN:
+var _current_status := TurnStatus.NONE:
 	set(value):
 		if _current_status != value:
 			_current_status = value
@@ -60,6 +62,7 @@ func _ready() -> void:
 func start_game() -> void:
 	player_score = 0
 	cpu_score = 0
+	game_started.emit()
 
 func take_turn() -> void:
 	die_rolled.emit(await roll_die())
@@ -140,7 +143,7 @@ func _on_column_selected(column: int, die: Die) -> void:
 	turn_finished.emit()
 
 func _on_shiv_selected() -> void:
-	if (_current_status != TurnStatus.WAITING_FOR_TURN and _current_status != TurnStatus.USING_ITEM and PlayerInventory.shivs > 0):
+	if (_current_status != TurnStatus.WAITING_FOR_TURN and _current_status != TurnStatus.USING_ITEM and _current_status != TurnStatus.NONE and PlayerInventory.shivs > 0):
 		var prev_status = _current_status
 		_current_status = TurnStatus.USING_ITEM
 		MusicMan.play_sound(AudioDictionary.sfx["Slash"])
