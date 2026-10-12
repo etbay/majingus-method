@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d18li8aifjs5t"]
 
-[ext_resource type="Script" uid="uid://boavr8qtqy0od" path="res://scenes/physics_die.gd" id="1_hvcds"]
+[ext_resource type="Script" uid="uid://boavr8qtqy0od" path="res://scripts/game/physics_die.gd" id="1_hvcds"]
 [ext_resource type="PackedScene" uid="uid://cd8f6uaimibn8" path="res://assets/dicemodel.glb" id="2_kw4wr"]
-[ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scenes/mouse_click_detect.gd" id="3_kw4wr"]
+[ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scripts/game/mouse_click_detect.gd" id="3_kw4wr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh8qp"]
 emission_enabled = true

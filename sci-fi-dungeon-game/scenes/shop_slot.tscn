@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c6px4xcl1faap"]
 
-[ext_resource type="Script" uid="uid://corm1mf32fuwq" path="res://scenes/shop_slot.gd" id="1_p3qaa"]
+[ext_resource type="Script" uid="uid://corm1mf32fuwq" path="res://scripts/shop/shop_slot.gd" id="1_p3qaa"]
 [ext_resource type="Texture2D" uid="uid://ogcdvy05vtha" path="res://assets/shop/dice_inventory_unselected.png" id="2_sqko8"]
 [ext_resource type="Texture2D" uid="uid://v20jvxgllwir" path="res://assets/icons/die_types/normal_icon.png" id="3_rcx0n"]
 [ext_resource type="FontFile" uid="uid://cukfpuaoj7veg" path="res://assets/Doto/static/Doto-Black.ttf" id="4_1s4jk"]
-[ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scenes/mouse_click_detect.gd" id="5_d5fab"]
+[ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scripts/game/mouse_click_detect.gd" id="5_d5fab"]
 [ext_resource type="FontFile" uid="uid://1ueiimeutkfn" path="res://assets/Source_Code_Pro/static/SourceCodePro-SemiBold.ttf" id="6_mqk1u"]
 [ext_resource type="FontFile" uid="uid://11u4yuj57s8s" path="res://assets/Doto/Doto-VariableFont_ROND,wght.ttf" id="7_2hph7"]
 

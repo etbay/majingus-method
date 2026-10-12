@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://qv7jrb1lf2b0"]
 
-[ext_resource type="Script" uid="uid://dqn1jg778nn8i" path="res://scenes/die_type_display.gd" id="1_vfkcf"]
+[ext_resource type="Script" uid="uid://dqn1jg778nn8i" path="res://scripts/game/ui/die_type_display.gd" id="1_vfkcf"]
 [ext_resource type="Texture2D" uid="uid://v20jvxgllwir" path="res://assets/icons/die_types/normal_icon.png" id="2_usevx"]
 [ext_resource type="FontFile" uid="uid://cukfpuaoj7veg" path="res://assets/Doto/static/Doto-Black.ttf" id="3_n5yr7"]
 [ext_resource type="FontFile" uid="uid://1ueiimeutkfn" path="res://assets/Source_Code_Pro/static/SourceCodePro-SemiBold.ttf" id="4_n5yr7"]
-[ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scenes/mouse_click_detect.gd" id="4_usevx"]
+[ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scripts/game/mouse_click_detect.gd" id="4_usevx"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jwvyd"]
 size = Vector2(0.745, 0.545)
