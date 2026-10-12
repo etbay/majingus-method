@@ -1,0 +1,380 @@
+ID: NPC_1
+Character: Prisoner
+Text: I sure hope you don’t use the Majingus method.
+Character: Prisoner
+Text: I hate the Majingus method...
+ID: NPC_2
+Character: Prisoner
+Text: Scarps is a lot like Karate, if you think about it...
+Character: Prisoner
+Text: which is a lot like waxing your car, apparently.
+ID: NPC_3
+Character: Prisoner
+Text: Hey, it’s me, I’m veritably...
+Character: Prisoner
+Text: your personal gambling friend!
+ID: NPC_4
+Character: Prisoner
+Text: You remind me of this guy I knew named Edwin, a master scarps player.
+Character: Prisoner
+Text: He learned to mimic other people’s styles, but it was difficult to piece them together.
+ID: NPC_5
+Character: Neighbor
+Text: Hello.
+ID: NPC_6
+Character: Prisoner
+Text: Why, I have had just the dangdest hankering for a game!
+Character: Prison
+Text: Let’s say we don’t play Cyrogian style this time; I can’t keep losing!
+ID: NPC_7
+Character: Prisoner
+Text: Alright, what we gonna play, gamer?
+ID: NPC_8
+Character: Undercover Guard
+Text: I have some contrab- I mean stuff to gamble with.
+Character: Undercover Guard
+Text: On second thought, you might recognize some of this stuff... Cash then?
+ID: NPC_9
+Character: Prisoner
+Text: Every time I go into the system to find a new jumpsuit, it leads to women’s fashion.
+Character: Prisoner
+Text: At least show me dresses that aren’t orange, too!
+ID: NPC_10
+Character: Prisoner
+Text: Watch out for space-cougars, the little thieves.
+Character: Prisoner
+Text: I hear they can be quite the vandals when they want to be.
+ID: NPC_11
+Character: Prizoner
+Text: I’m so cool that I changed my name.
+ID: NPC_12
+Character: Prisoner
+Text: I
+Character: Prisoner
+Text: have
+Character: Prisoner
+Text: five
+Character: Prisoner
+Text: dialogue
+Character: Prisoner
+Text: boxes! Look at them all and weep!
+ID: NPC_13
+Character: Prisoner
+Text: Rowan, the writer here!
+Character: Prisoner
+Text: Evan, see if you can make this text green, thank you!
+Character: Prisoner
+Text: Did that do anything?
+ID: NPC_14
+Character: Prisoner
+Text: Losing in scarps almost makes you wish for a nuclear winter.
+Character: Prisoner
+Text: I hate the fact that the game is always rigged from the start.
+ID: NPC_15
+Character: Prisoner
+Text: Doesn’t it concern you that all of our politicians are robots?
+Character: Prisoner
+Text: Maybe you just look like that after having the job for that long...
+ID: NPC_16
+Character: Prisoner
+Text: Hey, let’s just do a quick game this time.
+Character: Prisoner
+Text: I reaaaaaaally need to use the bathroom.
+ID: NPC_17
+Character: Prisoner
+Text: When I’m looking for that special something, I just lick an outlet!
+Character: Prisoner
+Text: It’s fun, easy, and free!
+ID: NPC_18
+Character: Prisoner
+Text: Why do people keep beating me up?
+Character: Prisoner
+Text: I’m not even the biggest guy in the yard!
+ID: NPC_19
+Character: Prisoner
+Text: Gimme your lunch money, dweeb-o.
+ID: NPC_20
+Character: Prisoner
+Text: The other prisoners have been calling me their “Chuddy Buddy.”
+Character: Prisoner
+Text: It really hurts my feelings.
+ID: NPC_21
+Character: Prisoner
+Text: I’m writing poems.
+Character: Prisoner
+Text: They are special ones called “haikus.”
+Character: Prisoner
+Text: I think they’re neat.
+ID: NPC_22
+Character: Prisoner
+Text: You’re telling me that you’re in some sort of space dungeon?
+Character: Prisoner
+Text: I would hate to see only the one scene over and over.
+ID: Frog_1
+Condition: start_game
+Character: Madame Illwater
+Text: Ah! So you’re the one who sent me that letter!
+Character: Madame Illwater
+Text: What manner of perfume did you use? It was… 
+Character: Madame Illwater
+Text: ...very musky.
+Character: Madame Illwater
+Text: Madame Illwater, darling, at your service!
+Character: Madame Illwater
+Text: Today, I wager my most treasured possession!
+Character: Madame Illwater
+Text: My “Borilla Blue” sticky hand cream!
+Character: Madame Illwater
+Text: (The B stands for Beautiful!)
+Character: Madame Illwater
+Text: Without it, I couldn't hold a teacup, let alone a set of holodice!
+Character: Madame Illwater
+Text: I am grace, I am beauty, I am the very soul of the stage!
+Character: Madame Illwater
+Text: And if I lose, I'll simply call it a stupid game and never touch it again,
+Character: Madame Illwater
+Text: because anything that I don’t win immediately shouldn’t exist!
+Character: Madame Illwater
+Text: Wink!~
+
+ID: Frog_2
+Condition: lose
+Character: Madame Illwater
+Text: Are you really surprised that you lost?
+Character: Madame Illwater
+Text: To be honest, you shouldn’t be.
+Character: Madame Illwater
+Text: You’re up against me!
+
+ID: Frog_3
+Condition: win
+Character: Madame Illwater
+Text: Well, I keep my promises!
+Character: Madame Illwater
+Text: Take my hand cream and pray to whatever god you have that you will never see again.
+Character: Madame Illwater
+Text: Because I WILL strangle the life from your feeble body.
+Character: Madame Illwater
+Text: I mean
+Character: Madame Illwater
+Text: Uhhhh
+Character: Madame Illwater
+Text: Good game! Bye!!!
+ID: Reel_1
+Condition: start_game
+Character: Reel N’Fysh
+Text: You the one who mailed me? Figures.
+Character: Reel N’Fysh
+Text: An out-of-date celebrity like me doesn’t do much other than scarps.
+Character: Reel N’Fysh
+Text: I got two cosmic glop schloppers I just caught that I’ll put up.
+Character: Reel N’Fysh
+Text: Folks back home used ta use ‘em as shoes. Reckon you might as well. 
+Character: Reel N’Fysh
+Text: Course, that’s on you ta win ‘em.
+Character: Reel N’Fysh
+Text: And I’m no fresh sport ta scarps.
+Character: Reel N’Fysh
+Text: Put ‘em up, cellie.
+
+ID: Reel_2
+Condition: lose
+Character: Reel N’Fysh
+Text: Gill issue.
+
+ID: Reel_3
+Condition: win
+Character: Reel N’Fysh
+Text: Damn.
+Character: Reel N’Fysh
+Text: Here’s yer fish.
+Character: Reel N’Fysh
+Text: I’m gettin’ outta here.
+ID: Gloop_1
+Condition: start_game
+Character: Dr. Glooper
+Text: gloprrrrprprprppp apapap paapappgplgororororlrorlglg :)
+Character: Dr. Glooper
+Text: shulpslpplppllplplppslpslslpp tt uuuoo gorpygorpygorppygorp :D
+Character: Dr. Glooper
+Text: florpppppppppppppppp                schlorp >:)
+Character: Dr. Glooper
+Text: (It holds up a second, lightly gooped protective suit.)
+Character: Dr. Glooper
+Text: ...
+Character: Dr. Glooper
+Text: schplehhhhhhhhhhhh        glorpglorp :0
+
+ID: Gloop_2
+Condition: lose
+Character: Dr. Glooper
+Text: glapgalp :D
+
+ID: Gloop_3
+Condition: win
+Character: Dr. Glooper
+Text: gwomp gwomp :(
+Character: Dr. Glooper
+Text: (It begrudgingly hands over the suit.)
+Character: Dr. Glooper
+Text: Galbabaty hghgbhgbbhghbhgbhba
+ID: John_1
+Condition: start_game
+Character: Sen. John P.
+Text: HELLO THERE FELLOW HUMAN
+Character: Sen. John P.
+Text: I AM THE SENATOR OF SPACE
+Character: Sen. John P.
+Text: JOHN “Trustworthy Johnald, circa 2193” PANOPTICON
+Character: Sen. John P.
+Text: AND I HAVE COME TO CHALLENGE YOU TO A GAME OF SCARPS
+Character: Sen. John P.
+Text: YOU SEE, I RECEIVED YOUR MAIL
+Character: Sen. John P.
+Text: INFORMING ME THAT YOU ARE THE “greatest scarps player in the galaxy”
+Character: Sen. John P.
+Text: “possibly of all time”
+Character: Sen. John P.
+Text: WHICH IS A VERY BOLD CLAIM TO MAKE IN WRITING
+Character: Sen. John P.
+Text: WHO THE HELL SENDS PEOPLE MAIL ANYMORE
+Character: Sen. John P.
+Text: NO MATTER
+Character: Sen. John P.
+Text: IF YOU DEFEAT ME, I SHALL AWARD YOU ONE OF MY TWIN AIR TANKS
+Character: Sen. John P.
+Text: A TROPHY COMMENSURATE WITH YOUR GREATNESS
+Character: Sen. John P.
+Text: HOWEVER, IF I WIN, I SHALL CLAIM YOUR MONEY
+Character: Sen. John P.
+Text: I WOULD CLAIM YOUR ORGANS
+Character: Sen. John P.
+Text: BUT THE FALLIBILITY OF FLESH DICTATES THAT YOU NEED THOSE
+Character: Sen. John P.
+Text: AND I HAVE NO USE FOR A WORTHLESS MEAT SACK
+Character: Sen. John P.
+Text: YOUR MONEY, HOWEVER, CAN BE CONVERTED INTO CAMPAIGN FUNDS
+Character: Sen. John P.
+Text: THIS IS A PERFECTLY NORMAL AND LEGAL POLITICAL ACTIVITY
+Character: Sen. John P.
+Text: NOW WITNESS THE INTERGALACTIC SUPERIORITY
+Character: Sen. John P.
+Text: OF THE MACHINE MIND
+
+ID: John_2
+Condition: lose
+Character: Sen. John P.
+Text: BAHAHAHAHAHAHAHAHAHAHAHAHA
+Character: Sen. John P.
+Text: YOU ARE AWFUL AT THIS GAME
+Character: Sen. John P.
+Text: BAHAHAHAHAHAHAHAHAHAHAHAHA
+
+
+ID: John_3
+Condition: win
+Character: Sen. John P.
+Text: THIS IS THE LAST TIME THAT I BUY DICE FROM SPACE AMAZON
+Character: Sen. John P.
+Text: NOW I’M OUT OF AN OXYGEN TANK
+Character: Sen. John P.
+Text: CURSE YOU, SPACE BEZOS
+Character: Sen. John P.
+Text: THIS BLUNDER WILL BLOTCH MY SPOTLESS POLITICAL CAREER
+Character: Sen. John P.
+Text: THIS IS UNACCEPTABLE
+Character: Sen. John P.
+Text: MY NEXT CAMPAIGN WILL BE ABOUT THE DEVELOPMENT OF MIND CONTROL
+Character: Sen. John P.
+Text: SO THAT NOBODY WILL REMEMBER THIS HAPPENED.
+
+ID: Fish_1
+Condition: start_game
+Character: Xygas the Forever Fish
+Text: BEHOLD, CHILD!
+Character: Xygas the Forever Fish
+Text: You stand before Xygas, the Forever Fish, the Scaled One Who Persists!
+Character: Xygas the Forever Fish
+Text: I have been expecting you for some time now.
+Character: Xygas the Forever Fish
+Text: Once again, the threads of destiny have coiled around me.
+Character: Xygas the Forever Fish
+Text: My resting in this prison is no accident.
+Character: Xygas the Forever Fish
+Text: You believe this to be a game of chance, do you not?
+Character: Xygas the Forever Fish
+Text: FOOL! Chance is merely destiny wearing a cheap disguise!
+Character: Xygas the Forever Fish
+Text: Every card, every coin, every foolish wager brings us closer to the inevitable conclusion.
+Character: Xygas the Forever Fish
+Text: Your defeat.
+Character: Xygas the Forever Fish
+Text: My freedom.
+Character: Xygas the Forever Fish
+Text: My hypothesis is that you will try to gamble my fishbowl out from under my fins.
+Character: Xygas the Forever Fish
+Text: You falter at step one.
+Character: Xygas the Forever Fish
+Text: I have lived through eons that your species hasn’t existed for.
+Character: Xygas the Forever Fish
+Text: I traveled between realms, unimpeded for millennia.
+Character: Xygas the Forever Fish
+Text: I have watched civilizations rise from dust, build mighty towers, and crumble into the cold embrace of oblivion.
+Character: Xygas the Forever Fish
+Text: And now I reside in a vent.
+Character: Xygas the Forever Fish
+Text: Do not mistake my prison for weakness, child. 
+Character: Xygas the Forever Fish
+The greatest kings have known cages, and the greatest heroes have known suffering.
+Character: Xygas the Forever Fish
+Text: Come, then! Summon your courage!
+Character: Xygas the Forever Fish
+Text: You will not beat me.
+Character: Xygas the Forever Fish
+Text: You will not make me yield.
+Character: Xygas the Forever Fish
+Text: You will not win.
+
+ID: Fish_2
+Condition: lose
+Character: Xygas the Forever Fish
+Text: BLEED.
+Character: Xygas the Forever Fish
+Text: SCREAM.
+Character: Xygas the Forever Fish
+Text: WEAK, WITHOUT YOUR BAUBLES AND TRINKETS.
+
+ID: Fish_3
+Condition: win
+Character: Xygas the Forever Fish
+Text: THIS PLANE GROWS DARK... BROTHER... I CANNOT SEE YOU... WHERE ARE YOU...? 
+Character: Xygas the Forever Fish
+Text: Almost lost my cool there.
+Character: Xygas the Forever Fish
+Text: Take the fish bowl and leave me.
+Character: Xygas the Forever Fish
+Text: BEGONE!
+ID: Trader_1
+Condition: start_shop
+Character: ratthew
+Text: yo check out wut I got 0.o
+
+ID: Trader_2
+Condition: start_shop
+Character: ratthew
+Text: 6 dolla shrimp specil :0
+
+ID: Trader_3
+Condition: start_shop
+Character: ratthew
+Text: “swag messiah” is my    middle name
+
+ID: Trader_4
+Condition: start_shop
+Character: ratthew
+Text: i’m the coolest Rat yvuoe ever met
+
+ID: Trader_5
+Condition: start_shop
+Character: ratthew
+Text: sunglasses emoji, man
