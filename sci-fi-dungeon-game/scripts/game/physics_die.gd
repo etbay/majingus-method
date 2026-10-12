@@ -140,10 +140,10 @@ func _set_normal() -> void:
 
 func _set_weighted() -> void:
 	mesh.mesh = TextureDictionary.type_mesh_dict[Die.DieType.WEIGHTED]
-	raycast_1.face_value = 4
+	raycast_1.face_value = 5
 	raycast_2.face_value = 4
 	raycast_3.face_value = 5
-	raycast_4.face_value = 5
+	raycast_4.face_value = 4
 	raycast_5.face_value = 6
 	raycast_6.face_value = 6
 

@@ -47,7 +47,6 @@ func calculate_column_score(column: int) -> int:
 	for entry in _board_array[column]:
 		if entry != null:
 			column_dict.get_or_add(str(entry.get_value()), []).append(entry)
-
 	var column_total = 0
 	for entry in column_dict:
 		if column_dict[entry].size() > 0:
@@ -55,7 +54,7 @@ func calculate_column_score(column: int) -> int:
 			var mult_bonus: int = 0
 			for die in column_dict[entry]:
 				var type = die.get_type()
-				sum_values += type + die.quality
+				sum_values += die.get_value() + die.quality
 				if type == Die.DieType.HOLLOW and _board_dict.get("empty") != null:
 					sum_values += _board_dict["empty"].size()
 				elif type == Die.DieType.PLASMA:
@@ -74,7 +73,7 @@ func _get_row_matches(row: int, face: int) -> int:
 
 func _get_column_matches(col: int, face: int) -> int:
 	var matches: int = -1 # there will always be 1 match: the target die
-	for i in range(0, WIDTH):
+	for i in range(0, HEIGHT):
 		if _board_array[col][i] != null and _board_array[col][i].get_value() == face:
 			matches += 1
 	return matches
