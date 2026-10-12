@@ -2,6 +2,9 @@ extends Node
 
 var music_player: AudioStreamPlayer
 
+func _process(delta: float) -> void:
+	if (music_player == null):
+		play_music(AudioDictionary.music["MainTheme"])
 
 func play_sound(audio: AudioStream) -> void:
 	var player: AudioStreamPlayer = AudioStreamPlayer.new()

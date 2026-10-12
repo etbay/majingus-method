@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func start_game() -> void:
 	game_manager.start_game()
+	MusicMan.play_music(AudioDictionary.music["DiceTheme"])
 
 func player_take_turn() -> void:
 	game.take_turn()

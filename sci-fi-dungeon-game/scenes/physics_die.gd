@@ -64,6 +64,7 @@ func _process(_delta: float) -> void:
 
 func roll() -> int:
 	await die_clicked
+	MusicMan.play_sound(AudioDictionary.sfx["Dice"])
 	can_roll = false
 	roll_started.emit()
 	_move_timer.start(0.05)
