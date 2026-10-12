@@ -18,10 +18,10 @@ var y: int = 0
 var _type: DieType
 var quality: int = 0
 
-func _init(value: int = 1):
+func _init(value: int = 0, type: DieType = DieType.NORMAL, qual: int = 0):
 	_value = value
-	_type = DieType.NORMAL
-	quality = 0
+	_type = type
+	quality = qual
 	
 func get_value() -> int:
 	return _value
