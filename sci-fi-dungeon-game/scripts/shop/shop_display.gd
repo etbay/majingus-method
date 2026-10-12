@@ -1,4 +1,4 @@
-extends Node3D
+class_name ShopDisplay extends Node3D
 
 var shop: Shop
 
