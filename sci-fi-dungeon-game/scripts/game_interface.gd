@@ -9,9 +9,11 @@ signal status_changed(new_status: TurnStatus)
 @onready var player_score_label: Label3D = $"../RightConsole/Score/ScoreNumberLabel"
 @onready var shiv_button: MouseClickDetect = $"../LeftButton/MouseClickDetect"
 @onready var laser_button: MouseClickDetect = $"../RightButton/MouseClickDetect"
+@onready var player_die_details: DieTypeDisplay = $Board/DieTypeDisplay
 
 @export var cpu_physics_die: PhysicsDie
 @export var cpu_board_display: BoardDisplay
+@onready var cpu_die_details: DieTypeDisplay = $"../CPUGameboard/Board/DieTypeDisplay"
 @onready var cpu_score_label: Label3D = $"../LeftConsole/Background/Score/ScoreNumberLabel"
 
 @onready var board_display_wrapper: BoardSelectedWrapper = BoardSelectedWrapper.new(board_display, cpu_board_display)
@@ -19,7 +21,7 @@ signal status_changed(new_status: TurnStatus)
 @onready var item_targeting: ItemTargeting = $"ItemTargeting"
 
 var cpu_board := Board.new()
-var cpu_ai := CPUAI.new() # fill with challenge level
+var cpu_ai := CPUAI.new(10) # fill with challenge level
 
 var board := Board.new()
 var player_score: int = -1:
@@ -55,6 +57,7 @@ func _ready() -> void:
 	board_display_wrapper.column_selected.connect(_on_column_selected)
 	shiv_button.mouse_clicked.connect(_on_shiv_selected)
 	laser_button.mouse_clicked.connect(_on_laser_selected)
+
 	start_game()
 
 func start_game() -> void:
@@ -63,15 +66,16 @@ func start_game() -> void:
 func take_turn() -> void:
 	die_rolled.emit(await roll_die())
 	physics_die.can_roll = false
-	print("die has been rolled")
+	#print("die has been rolled")
 	await select_column()
 
 func take_cpu_turn() -> void:
 	_current_status = TurnStatus.WAITING_FOR_TURN
 	cpu_physics_die.can_roll = true
+	var cpu_die = cpu_ai.dice_bag.get_die()
+	cpu_die_details.display(cpu_die)
 	var value = await cpu_physics_die.force_roll()
 	await get_tree().create_timer(.5).timeout
-	var cpu_die = cpu_ai.dice_bag.get_die()
 	cpu_die.set_value(value)
 	var cpu_col = cpu_ai.choose_column(cpu_die, board, cpu_board)
 	if (cpu_col < 4):
@@ -102,8 +106,9 @@ func select_column() -> void:
 func roll_die() -> Die:
 	_current_status = TurnStatus.ROLLING
 	physics_die.can_roll = true
-	var value = await physics_die.roll()
 	var player_die = PlayerInventory.dice_bag.get_die()
+	player_die_details.display(player_die)
+	var value = await physics_die.roll()
 	player_die.set_value(value)
 	return player_die
 

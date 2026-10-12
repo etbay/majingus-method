@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://brnruomtpb5sn" path="res://scenes/cell_display.gd" id="9_q5opd"]
 [ext_resource type="Texture2D" uid="uid://v20jvxgllwir" path="res://assets/icons/die_types/normal_icon.png" id="10_d3b0i"]
 [ext_resource type="FontFile" uid="uid://s2spjex2vfst" path="res://assets/Source_Code_Pro/static/SourceCodePro-Bold.ttf" id="11_1rt75"]
+[ext_resource type="Script" uid="uid://dqn1jg778nn8i" path="res://scenes/die_type_display.gd" id="11_rhhuy"]
 [ext_resource type="Texture2D" uid="uid://b2wnyyppwygwu" path="res://assets/icons/column_select_icon_1.png" id="12_uflgs"]
 [ext_resource type="Script" uid="uid://dalfqvk43pgtx" path="res://die_pointer.gd" id="13_7y72b"]
 [ext_resource type="Script" uid="uid://d3r4grpdlhpus" path="res://scenes/center_console.gd" id="16_7rfbg"]
@@ -291,6 +292,7 @@ shape = SubResource("BoxShape3D_7y72b")
 
 [node name="DieTypeDisplay" type="Node3D" parent="PlayerGameboard/Board" unique_id=2114129889]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9990268, 0, 0.2695528)
+script = ExtResource("11_rhhuy")
 
 [node name="Sprite3D" type="Sprite3D" parent="PlayerGameboard/Board/DieTypeDisplay" unique_id=1943416346]
 transform = Transform3D(0.055, 0, 0, 0, -2.4041265e-09, 0.055, 0, -0.055, -2.4041265e-09, 0, 0, 0)
@@ -603,6 +605,7 @@ shape = SubResource("BoxShape3D_7y72b")
 
 [node name="DieTypeDisplay" type="Node3D" parent="CPUGameboard/Board" unique_id=147135199]
 transform = Transform3D(-1, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -1, 0.9990269, 0, -0.25264537)
+script = ExtResource("11_rhhuy")
 
 [node name="Sprite3D" type="Sprite3D" parent="CPUGameboard/Board/DieTypeDisplay" unique_id=644331327]
 transform = Transform3D(0.055, 0, 0, 0, -2.4041265e-09, 0.055, 0, -0.055, -2.4041265e-09, -0.027444601, 0, 0.028908968)
