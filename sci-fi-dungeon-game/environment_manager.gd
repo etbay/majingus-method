@@ -25,12 +25,15 @@ func _ready() -> void:
 	current_camera.current = true
 	GlobalSignals.switch_to_shop.connect(func(): 
 		switch_camera(shop_camera)
+		MusicMan.play_music(AudioDictionary.music["RatTheme"])
 		game_ui.switch_to_shop())
 	GlobalSignals.switch_to_game.connect(func(): 
 		switch_camera(game_camera)
+		MusicMan.play_music(AudioDictionary.music["DiceTheme"])
 		game_ui.switch_to_game())
 	exit_to_environment.mouse_clicked.connect(func():
 		switch_camera(env_camera)
+		MusicMan.play_music(AudioDictionary.music["MainTheme"])
 		game_ui.switch_to_environment()
 		if game_ended:
 			skarps_board.reset_board())
