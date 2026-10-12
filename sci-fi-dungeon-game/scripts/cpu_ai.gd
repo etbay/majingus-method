@@ -12,7 +12,8 @@ func _init(challenge_level: int = 1, bag: DiceBag = null) -> void:
 		dice_bag = DiceBag.new()
 		var dice = dice_bag.get_absolute_dice_array()
 		for i in range(0, challenge_level):
-			dice[randi_range(0, dice.size() - 1)].set_type(randi_range(1, 5))
+			var possible_types = [1, 3, 4]
+			dice[randi_range(0, dice.size() - 1)].set_type(possible_types[randi_range(0, possible_types.size() - 1)])
 			var quality = dice[randi_range(0, dice.size() - 1)].quality
 			if quality < 5:
 				dice[randi_range(0, dice.size() - 1)].quality = min(quality + 1, 5)

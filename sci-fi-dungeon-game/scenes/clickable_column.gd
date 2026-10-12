@@ -67,6 +67,6 @@ func _on_mouse_exited() -> void:
 func display(arr: Array[Die]) -> void:
 	for i in range(0, Board.HEIGHT):
 		if (arr[i] != null and arr[i].get_value() != 0):
-			cells[i].set_value(arr[i].get_value())
+			cells[i].set_value(arr[i])
 		else:
 			cells[i].make_invisible()

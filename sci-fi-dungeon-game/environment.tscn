@@ -223,7 +223,7 @@ offset_top = -31.0
 offset_right = 60.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Start turn"
+text = "Start Game"
 script = ExtResource("12_3jj1w")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2007199979]
@@ -303,8 +303,9 @@ texture = ExtResource("3_2bfpd")
 [node name="GameCamera" type="Camera3D" parent="Skarps" unique_id=1262957634]
 transform = Transform3D(-1, 1.0578467e-15, -8.7422734e-08, -8.069971e-08, 0.38456595, 0.92309755, 3.3619806e-08, 0.92309755, -0.38456595, 1.0385886e-08, 0.59527045, 6.5416794)
 
-[node name="SkarpsBoard" parent="Skarps" unique_id=1549528452 instance=ExtResource("10_mpsl3")]
+[node name="SkarpsBoard" parent="Skarps" unique_id=1549528452 node_paths=PackedStringArray("start_button") instance=ExtResource("10_mpsl3")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.00152421, -2.2413986, 7.606835)
+start_button = NodePath("../../CanvasLayer/StartButton")
 
 [node name="Floor" type="Sprite3D" parent="Skarps" unique_id=866005600]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -5.672697, 3.923293)
