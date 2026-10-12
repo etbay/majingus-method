@@ -18,6 +18,8 @@
 [ext_resource type="Script" uid="uid://bscfe8rilncg2" path="res://camera_switch.gd" id="11_2bfpd"]
 [ext_resource type="Texture2D" uid="uid://cw11iaumgqp0u" path="res://assets/characters/johnspace.png" id="11_pgkm7"]
 [ext_resource type="Script" uid="uid://csou168mv7jpy" path="res://roll_button.gd" id="12_3jj1w"]
+[ext_resource type="Script" uid="uid://715vwn2n5drg" path="res://dialogue_control.gd" id="17_mpsl3"]
+[ext_resource type="Texture2D" uid="uid://cmotsqvfgyvu0" path="res://assets/dialogue_box.png" id="18_mbc85"]
 [ext_resource type="Texture2D" uid="uid://cqbvd2u4nxeds" path="res://assets/screen_cropped.png" id="12_w1st6"]
 [ext_resource type="Texture2D" uid="uid://cgnhwyy4rx2vl" path="res://assets/floor_texture.png" id="17_7px3q"]
 [ext_resource type="PackedScene" uid="uid://c6ctuuw46lpot" path="res://scenes/shop.tscn" id="17_txl0x"]
@@ -215,6 +217,67 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
+[node name="Dialogue_Control" type="Control" parent="CanvasLayer" unique_id=452579939]
+layout_mode = 3
+anchor_left = 0.52500004
+anchor_top = 0.36100003
+anchor_right = 0.52500004
+anchor_bottom = 0.37800002
+offset_left = -414.00006
+offset_top = -113.92001
+offset_right = 373.99994
+offset_bottom = 20.839996
+script = ExtResource("17_mpsl3")
+
+[node name="Dialogue_Container" type="TextureRect" parent="CanvasLayer/Dialogue_Control" unique_id=558850767]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.014
+offset_right = -1.0
+offset_bottom = -0.058013916
+texture = ExtResource("18_mbc85")
+expand_mode = 1
+
+[node name="Character_Speech" type="RichTextLabel" parent="CanvasLayer/Dialogue_Control" unique_id=2129552842]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10300001
+anchor_top = 0.374
+anchor_right = 0.95300007
+anchor_bottom = 0.79600006
+offset_left = -0.1640091
+offset_top = 2.0219994
+offset_right = 0.035949707
+offset_bottom = 10.987991
+theme_override_font_sizes/normal_font_size = 20
+text = "Test Speech"
+
+[node name="Character_Name" type="RichTextLabel" parent="CanvasLayer/Dialogue_Control" unique_id=1336315785]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.029000001
+anchor_top = 0.082
+anchor_right = 0.21200001
+anchor_bottom = 0.31300002
+offset_left = 0.14799881
+offset_top = -0.0539999
+offset_right = -0.056015015
+offset_bottom = -0.011001587
+theme_override_font_sizes/normal_font_size = 25
+text = "Test Name"
+scroll_active = false
+
+[node name="Dialogue_Continue" type="TextureButton" parent="CanvasLayer/Dialogue_Control" unique_id=1806131733]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99500006
+anchor_bottom = 0.99300003
+offset_left = 3.0
+offset_top = -1.0
+offset_right = -0.060058594
+offset_bottom = 0.0289917
+
 [node name="LeftArrow" type="TextureRect" parent="CanvasLayer" unique_id=1212373161]
 custom_maximum_size = Vector2(100, 100)
 anchors_preset = 4
@@ -277,6 +340,8 @@ texture = ExtResource("17_7px3q")
 
 [node name="Shop" parent="." unique_id=616363720 instance=ExtResource("17_txl0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7600746, 0.9951081, 7.097279)
+
+[connection signal="pressed" from="CanvasLayer/Dialogue_Control/Dialogue_Continue" to="CanvasLayer/Dialogue_Control" method="_on_next_pressed"]
 
 [editable path="Environment/EnvironmentGameboard/UIjam_3Dgameboard"]
 [editable path="CanvasLayer/InventoryHUD"]
