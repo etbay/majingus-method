@@ -5,6 +5,8 @@ signal slot_selected(InventorySlot)
 const DICE_INVENTORY_UNSELECTED = preload("uid://ogcdvy05vtha")
 const DICE_INVENTORY_SELECTED = preload("uid://cil1f84ato5ue")
 
+@export var index: int = 0
+
 @onready var quality_label: Label3D = $PanelSprite/QualityLabel
 @onready var mouse_detect: MouseClickDetect = $Area3D
 @onready var slot_sprite: Sprite3D = $PanelSprite

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://brwbbyktfag0h" path="res://assets/shop/shop_buttons_decorative.png" id="1_1v8qu"]
 [ext_resource type="Script" uid="uid://skol5y3rgxe" path="res://scenes/shop_display.gd" id="1_24it5"]
 [ext_resource type="Script" uid="uid://cuisvnl6o22ru" path="res://scripts/shop_button.gd" id="2_44xle"]
+[ext_resource type="Script" uid="uid://dmu34n35hea3v" path="res://scripts/die_upgrade.gd" id="2_pqync"]
 [ext_resource type="Texture2D" uid="uid://dlkujsgbaou0g" path="res://assets/shop/shop_buttons_1_unselected.png" id="3_24it5"]
 [ext_resource type="FontFile" uid="uid://b6yfr2clhuqwj" path="res://assets/Source_Code_Pro/static/SourceCodePro-Medium.ttf" id="4_7mqwv"]
 [ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scenes/mouse_click_detect.gd" id="5_gobkm"]
@@ -18,11 +19,35 @@
 [ext_resource type="Script" uid="uid://b1r5lb80vu4jf" path="res://scenes/balance_label.gd" id="12_7mqwv"]
 [ext_resource type="FontFile" uid="uid://1ueiimeutkfn" path="res://assets/Source_Code_Pro/static/SourceCodePro-SemiBold.ttf" id="14_5u241"]
 
+[sub_resource type="Resource" id="Resource_5u241"]
+script = ExtResource("2_pqync")
+name = "Gilded Die"
+cost = 5
+type = 1
+metadata/_custom_type_script = "uid://dmu34n35hea3v"
+
+[sub_resource type="Resource" id="Resource_pqync"]
+script = ExtResource("2_pqync")
+name = "Hollow Die"
+cost = 5
+type = 3
+metadata/_custom_type_script = "uid://dmu34n35hea3v"
+
+[sub_resource type="Resource" id="Resource_yuijs"]
+script = ExtResource("2_pqync")
+name = "Plasma Die"
+cost = 5
+type = 4
+metadata/_custom_type_script = "uid://dmu34n35hea3v"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgkm7"]
 size = Vector3(1.0626221, 0.28790283, 0.5175781)
 
 [node name="Shop" type="Node3D" unique_id=616363720]
 script = ExtResource("1_24it5")
+possible_upgrades = Array[ExtResource("2_pqync")]([SubResource("Resource_5u241"), SubResource("Resource_pqync"), SubResource("Resource_yuijs")])
+
+[node name="Timer" type="Timer" parent="." unique_id=1940707240]
 
 [node name="ShopCamera" type="Camera3D" parent="." unique_id=2008603653]
 transform = Transform3D(-1, 0, 8.742278e-08, 2.262668e-08, 0.9659258, 0.25881904, -8.444392e-08, 0.25881904, -0.9659258, 0.1868, 0.0076735504, -0.12719907)
@@ -181,36 +206,47 @@ transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.2588
 
 [node name="InventorySlot2" parent="Inventory" unique_id=2023999414 instance=ExtResource("7_5u241")]
 transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, 0.71567833, -1.2393919, 1.9024353)
+index = 1
 
 [node name="InventorySlot3" parent="Inventory" unique_id=1109433782 instance=ExtResource("7_5u241")]
 transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, 0.31567833, -1.2393919, 1.9024353)
+index = 2
 
 [node name="InventorySlot4" parent="Inventory" unique_id=1229189597 instance=ExtResource("7_5u241")]
 transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, -0.08432168, -1.2393919, 1.9024353)
+index = 3
 
 [node name="InventorySlot5" parent="Inventory" unique_id=1333053028 instance=ExtResource("7_5u241")]
 transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, -0.48432168, -1.2393919, 1.9024353)
+index = 4
 
 [node name="InventorySlot6" parent="Inventory" unique_id=1779778151 instance=ExtResource("7_5u241")]
 transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, -0.8843217, -1.2393919, 1.9024353)
+index = 5
 
 [node name="InventorySlot7" parent="Inventory" unique_id=1584677246 instance=ExtResource("7_5u241")]
 transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, 1.1156783, -1.6257623, 1.7989076)
+index = 6
 
 [node name="InventorySlot8" parent="Inventory" unique_id=866179922 instance=ExtResource("7_5u241")]
 transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, 0.71567833, -1.6257623, 1.7989076)
+index = 7
 
 [node name="InventorySlot9" parent="Inventory" unique_id=38415627 instance=ExtResource("7_5u241")]
 transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, 0.31567833, -1.6257623, 1.7989076)
+index = 8
 
 [node name="InventorySlot10" parent="Inventory" unique_id=1517267012 instance=ExtResource("7_5u241")]
 transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, -0.08432168, -1.6257623, 1.7989076)
+index = 9
 
 [node name="InventorySlot11" parent="Inventory" unique_id=1437681931 instance=ExtResource("7_5u241")]
 transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, -0.48432168, -1.6257623, 1.7989076)
+index = 10
 
 [node name="InventorySlot12" parent="Inventory" unique_id=1921709916 instance=ExtResource("7_5u241")]
 transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, -0.8843217, -1.6257623, 1.7989076)
+index = 11
 
 [editable path="ItemsForSale/ToolSlot"]
 [editable path="ItemsForSale/ItemSlot"]
