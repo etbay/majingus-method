@@ -37,6 +37,7 @@ func _select() -> void:
 	
 	hoverable = false
 	select_sprite.visible = false
+	MusicMan.play_sound(AudioDictionary.sfx["Select"])
 	selected.emit(die)
 	#for cell in cells:
 		#if cell.value == 0:

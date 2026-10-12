@@ -18,6 +18,7 @@ func _select() -> void:
 		MusicMan.play_sound(AudioDictionary.sfx["Fail"])
 		return
 	
+	MusicMan.play_sound(AudioDictionary.sfx["Select"])
 	hoverable = false
 	select_sprite.visible = false
 	selected.emit(die)

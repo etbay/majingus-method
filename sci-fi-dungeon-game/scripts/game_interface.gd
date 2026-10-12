@@ -95,7 +95,7 @@ func take_cpu_turn() -> void:
 		board_display.display_board(board)
 		MusicMan.play_sound(AudioDictionary.sfx["Laser"])
 		for dead_die in destroyed:
-			cpu_ai.dice_bag.return_dice(dead_die)
+			PlayerInventory.dice_bag.return_dice(dead_die)
 		cpu_ai.dice_bag.return_dice(cpu_die)
 	turn_finished.emit()
 
@@ -128,7 +128,6 @@ func _on_column_selected(column: int, die: Die) -> void:
 		board.place_dice(column, die)
 		player_score = board.calculate_score()
 		board_display.display_board(board)
-		MusicMan.play_sound(AudioDictionary.sfx["Success"])
 	else:
 		#attacking
 		var destroyed = cpu_board.attack_column(column - 4, die)

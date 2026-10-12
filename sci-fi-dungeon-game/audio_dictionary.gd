@@ -11,6 +11,8 @@ var sfx: Dictionary[String, AudioStream] = {
 	"Explosion" = preload("res://assets/sound/Explosion.ogg"),
 	"ToiletUnlock" = preload("res://assets/sound/scifi wrench and toilet.ogg"),
 	"Slash" = preload("res://assets/sound/shing.ogg"),
+	"Destruction" = preload("res://assets/sound/destruction.ogg"),
+	"Select" = preload("res://assets/sound/column_select.ogg")
 }
 
 var music: Dictionary[String, AudioStream] = {
