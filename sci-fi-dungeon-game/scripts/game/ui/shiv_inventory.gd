@@ -8,7 +8,7 @@ func _ready() -> void:
 	_on_change(1)
 	PlayerInventory.shiv_count_changed.connect(_on_change)
 
-func _on_change(count: int) -> void:
+func _on_change(_count: int) -> void:
 	shiv1.visible = PlayerInventory.shivs >= 1
 	shiv2.visible = PlayerInventory.shivs >= 2
 	shiv3.visible = PlayerInventory.shivs >= 3

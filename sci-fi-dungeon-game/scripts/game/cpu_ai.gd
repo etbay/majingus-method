@@ -72,7 +72,7 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 		var cpu_board_array = cpu.get_board_values()
 		var potential_targets: Array[Array] = [] # targets stores columns that matter in the form [column, weight]
 		for i in range(0, cpu_board_array.size()):
-			var column_sum_weight: int
+			var column_sum_weight: int = 1
 			var full_count = 0
 			for die in cpu_board_array[i]:
 				if die != null:

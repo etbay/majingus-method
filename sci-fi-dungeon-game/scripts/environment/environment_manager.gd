@@ -60,6 +60,6 @@ func switch_camera(camera: Camera3D) -> void:
 func _on_game_start() -> void:
 	exit_to_environment.visible = false
 
-func _on_game_over(x: int, y: int) -> void:
+func _on_game_over(_x: int, _y: int) -> void:
 	exit_to_environment.visible = true
 	game_ended = true
