@@ -144,6 +144,7 @@ func _on_shiv_selected() -> void:
 	if (_current_status != TurnStatus.WAITING_FOR_TURN and _current_status != TurnStatus.USING_ITEM and PlayerInventory.shivs > 0):
 		var prev_status = _current_status
 		_current_status = TurnStatus.USING_ITEM
+		MusicMan.play_sound(AudioDictionary.sfx["Slash"])
 		cpu_board_display.disable_columns()
 		board_display.disable_columns()
 		item_targeting.enable_cells()
@@ -156,6 +157,7 @@ func _on_shiv_selected() -> void:
 			if (destroyed == null):
 				_current_status = prev_status
 				return
+			MusicMan.play_sound(AudioDictionary.sfx["Explosion"])
 			player_score = board.calculate_score()
 			board_display.display_board(board)
 			PlayerInventory.dice_bag.return_dice(destroyed)
