@@ -212,8 +212,8 @@ func reset_board() -> void:
 	cpu_board = Board.new()
 	cpu_ai = CPUAI.new(cpu_ai._challenge_level + 1) # fill with challenge level
 	board = Board.new()
-	player_score = -1
-	cpu_score = -1
-	_current_status = TurnStatus.NONE
+	player_score = 0
+	cpu_score = 0
+	_current_status = TurnStatus.ROLLING
 	cpu_board_display.display_board(cpu_board)
 	board_display.display_board(board)
