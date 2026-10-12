@@ -1,0 +1,252 @@
+[gd_scene format=3 uid="uid://c6ctuuw46lpot"]
+
+[ext_resource type="Texture2D" uid="uid://brwbbyktfag0h" path="res://assets/shop/shop_buttons_decorative.png" id="1_1v8qu"]
+[ext_resource type="Script" uid="uid://skol5y3rgxe" path="res://scenes/shop_display.gd" id="1_24it5"]
+[ext_resource type="Script" uid="uid://cuisvnl6o22ru" path="res://scripts/shop_button.gd" id="2_44xle"]
+[ext_resource type="Script" uid="uid://dmu34n35hea3v" path="res://scripts/die_upgrade.gd" id="2_pqync"]
+[ext_resource type="Texture2D" uid="uid://dlkujsgbaou0g" path="res://assets/shop/shop_buttons_1_unselected.png" id="3_24it5"]
+[ext_resource type="FontFile" uid="uid://b6yfr2clhuqwj" path="res://assets/Source_Code_Pro/static/SourceCodePro-Medium.ttf" id="4_7mqwv"]
+[ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scenes/mouse_click_detect.gd" id="5_gobkm"]
+[ext_resource type="Texture2D" uid="uid://dn0j2jeqbw8e8" path="res://assets/shop/shop_buttons_2_unselected.png" id="6_j14q8"]
+[ext_resource type="PackedScene" uid="uid://deqqmyuvv7xir" path="res://scenes/inventory_slot.tscn" id="7_5u241"]
+[ext_resource type="PackedScene" uid="uid://c6px4xcl1faap" path="res://scenes/shop_slot.tscn" id="8_44xle"]
+[ext_resource type="Texture2D" uid="uid://cqbvd2u4nxeds" path="res://assets/screen_cropped.png" id="8_pqync"]
+[ext_resource type="Texture2D" uid="uid://c5q77rop8mdo" path="res://assets/shop/shop_background_light.png" id="9_yuijs"]
+[ext_resource type="FontFile" uid="uid://cukfpuaoj7veg" path="res://assets/Doto/static/Doto-Black.ttf" id="10_aa4hd"]
+[ext_resource type="Texture2D" uid="uid://c2wapo1q2cnw6" path="res://assets/tools/file.png" id="10_gobkm"]
+[ext_resource type="Script" uid="uid://dmadj4q1x13pr" path="res://inventory.gd" id="11_68utx"]
+[ext_resource type="Texture2D" uid="uid://crlv35ega58fd" path="res://assets/icons/shiv_status_icon_1.png" id="11_j14q8"]
+[ext_resource type="Script" uid="uid://b1r5lb80vu4jf" path="res://scenes/balance_label.gd" id="12_7mqwv"]
+[ext_resource type="FontFile" uid="uid://1ueiimeutkfn" path="res://assets/Source_Code_Pro/static/SourceCodePro-SemiBold.ttf" id="14_5u241"]
+
+[sub_resource type="Resource" id="Resource_5u241"]
+script = ExtResource("2_pqync")
+name = "Gilded Die"
+cost = 5
+type = 1
+metadata/_custom_type_script = "uid://dmu34n35hea3v"
+
+[sub_resource type="Resource" id="Resource_pqync"]
+script = ExtResource("2_pqync")
+name = "Hollow Die"
+cost = 5
+type = 3
+metadata/_custom_type_script = "uid://dmu34n35hea3v"
+
+[sub_resource type="Resource" id="Resource_yuijs"]
+script = ExtResource("2_pqync")
+name = "Plasma Die"
+cost = 5
+type = 4
+metadata/_custom_type_script = "uid://dmu34n35hea3v"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pgkm7"]
+size = Vector3(1.0626221, 0.28790283, 0.5175781)
+
+[node name="Shop" type="Node3D" unique_id=616363720]
+script = ExtResource("1_24it5")
+possible_upgrades = Array[ExtResource("2_pqync")]([SubResource("Resource_5u241"), SubResource("Resource_pqync"), SubResource("Resource_yuijs")])
+
+[node name="Timer" type="Timer" parent="." unique_id=1940707240]
+
+[node name="ShopCamera" type="Camera3D" parent="." unique_id=2008603653]
+transform = Transform3D(-1, 0, 8.742278e-08, 2.262668e-08, 0.9659258, 0.25881904, -8.444392e-08, 0.25881904, -0.9659258, 0.1868, 0.0076735504, -0.12719907)
+
+[node name="ShopButtons" type="Node3D" parent="." unique_id=937597399]
+transform = Transform3D(1.115, 0, 0, 0, 1.0770073, -0.28858325, 0, 0.28858325, 1.0770073, 0.2337327, -0.534244, 2.0420508)
+
+[node name="ButtonDecor" type="Sprite3D" parent="ShopButtons" unique_id=449107049]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 5.5879357e-10, 0.030136677)
+render_priority = 3
+texture = ExtResource("1_1v8qu")
+
+[node name="PurchaseButton" type="Node3D" parent="ShopButtons" unique_id=1634621216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12544912, -5.2386895e-10)
+script = ExtResource("2_44xle")
+top_button = true
+
+[node name="ButtonSprite" type="Sprite3D" parent="ShopButtons/PurchaseButton" unique_id=1304978617]
+transform = Transform3D(0.145, 0, 0, 0, 0.145, 0, 0, 0, 0.145, 0, 0, 0)
+render_priority = 3
+texture = ExtResource("3_24it5")
+
+[node name="Label3D" type="Label3D" parent="ShopButtons/PurchaseButton" unique_id=856011636]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+pixel_size = 0.001
+render_priority = 4
+text = "Purchase"
+font = ExtResource("4_7mqwv")
+font_size = 130
+outline_size = 0
+
+[node name="Area3D" type="Area3D" parent="ShopButtons/PurchaseButton" unique_id=974434619]
+script = ExtResource("5_gobkm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShopButtons/PurchaseButton/Area3D" unique_id=1107588540]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, -2.9802322e-08, 0, 2.9802322e-08, 0.9999999, 0.003967285, 0.023987293, 0.2412095)
+shape = SubResource("BoxShape3D_pgkm7")
+
+[node name="RerollButton" type="Node3D" parent="ShopButtons" unique_id=624878779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12782912, -3.6670826e-09)
+script = ExtResource("2_44xle")
+
+[node name="ButtonSprite" type="Sprite3D" parent="ShopButtons/RerollButton" unique_id=1096061292]
+transform = Transform3D(0.145, 0, 0, 0, 0.145, 0, 0, 0, 0.145, 0, 0, 0)
+render_priority = 3
+texture = ExtResource("6_j14q8")
+
+[node name="RerollLabel" type="Label3D" parent="ShopButtons/RerollButton" unique_id=468205226]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.08813636, 1.110223e-16, -7.7051245e-09)
+pixel_size = 0.001
+render_priority = 4
+text = "Re-roll"
+font = ExtResource("4_7mqwv")
+font_size = 130
+outline_size = 0
+
+[node name="RerollPriceLabel" type="Label3D" parent="ShopButtons/RerollButton" unique_id=1958337221]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.3017254, 1.110223e-16, 2.6377668e-08)
+pixel_size = 0.001
+render_priority = 4
+modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+text = "$2"
+font = ExtResource("10_aa4hd")
+font_size = 130
+outline_size = 0
+
+[node name="Area3D" type="Area3D" parent="ShopButtons/RerollButton" unique_id=725179766]
+script = ExtResource("5_gobkm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShopButtons/RerollButton/Area3D" unique_id=440739410]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, -2.9802322e-08, 0, 2.9802322e-08, 0.9999999, 0.003967285, 0.01760915, 0.2412095)
+shape = SubResource("BoxShape3D_pgkm7")
+
+[node name="ItemsForSale" type="Node3D" parent="." unique_id=2010442213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2034265, 0.050069273, 2.261078)
+
+[node name="ToolSlot" parent="ItemsForSale" unique_id=1730422566 instance=ExtResource("8_44xle")]
+transform = Transform3D(-1.3, 2.9414682e-08, -1.0977709e-07, 0, 1.2557036, 0.33646473, 1.13649605e-07, 0.33646473, -1.2557036, 0.26, -0.12557036, -0.033646498)
+
+[node name="ItemSprite" parent="ItemsForSale/ToolSlot/SlotSprite" parent_id_path=PackedInt32Array(1730422566, 591143567) index="0" unique_id=1001877306]
+transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, 0, 0.049998544, -0.047424316)
+texture = ExtResource("10_gobkm")
+
+[node name="ItemSlot" parent="ItemsForSale" unique_id=805986099 instance=ExtResource("8_44xle")]
+transform = Transform3D(-1.3, 5.080477e-08, -1.8960597e-07, 0, 1.2557036, 0.3364648, 1.9629454e-07, 0.3364648, -1.2557036, -0.52000004, 0.25114074, 0.06729305)
+
+[node name="ItemSprite" parent="ItemsForSale/ItemSlot/SlotSprite" parent_id_path=PackedInt32Array(805986099, 591143567) index="0" unique_id=1001877306]
+transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, 0, 0.049998544, -0.047424316)
+texture = ExtResource("11_j14q8")
+
+[node name="ShopSlot3" parent="ItemsForSale" unique_id=859297599 instance=ExtResource("8_44xle")]
+transform = Transform3D(-1.3, 5.080477e-08, -1.8960597e-07, 0, 1.2557036, 0.3364648, 1.9629454e-07, 0.3364648, -1.2557036, -1.4300001, 0.25114074, 0.06729318)
+
+[node name="QualityUpgradeSlot" parent="ItemsForSale" unique_id=1165100107 instance=ExtResource("8_44xle")]
+transform = Transform3D(-1.3, 5.080477e-08, -1.8960597e-07, 0, 1.2557036, 0.3364648, 1.9629454e-07, 0.3364648, -1.2557036, -2.21, -0.12557036, -0.033646144)
+
+[node name="Background" type="Sprite3D" parent="." unique_id=1246517262]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0.24083138, -0.5841242, 2.0968223)
+texture = ExtResource("8_pqync")
+
+[node name="Highlight" type="Sprite3D" parent="Background" unique_id=693260226]
+transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 0, -6.3329936e-10, -0.037205845)
+texture = ExtResource("9_yuijs")
+
+[node name="ShopLabel" type="Label3D" parent="Background" unique_id=403300876]
+transform = Transform3D(-0.04938271, 0, -4.3171724e-09, 0, 0.049382713, 0, 4.3171737e-09, 0, -0.049382694, 1.393684, 1.2557602, 0.008509675)
+pixel_size = 0.05
+render_priority = 1
+modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+outline_modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+text = "SHOP"
+font = ExtResource("10_aa4hd")
+font_size = 60
+horizontal_alignment = 0
+
+[node name="ErrorMessageLabel" type="Label3D" parent="Background" unique_id=1708573585]
+transform = Transform3D(-0.04938271, 0, -4.3171724e-09, 0, 0.049382713, 0, 4.3171737e-09, 0, -0.049382694, 0.0063043386, 1.280108, 0.008509795)
+pixel_size = 0.05
+render_priority = 1
+modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+outline_modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+text = "Error message"
+font = ExtResource("14_5u241")
+font_size = 48
+
+[node name="BalanceLabel" type="Label3D" parent="Background" unique_id=401574082]
+transform = Transform3D(-0.04938271, 0, -4.3171724e-09, 0, 0.049382713, 0, 4.3171737e-09, 0, -0.049382694, -1.4086329, 1.2557602, 0.008509921)
+pixel_size = 0.05
+render_priority = 1
+modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+outline_modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+text = "$10"
+font = ExtResource("10_aa4hd")
+font_size = 60
+horizontal_alignment = 2
+script = ExtResource("12_7mqwv")
+
+[node name="Inventory" type="Node3D" parent="." unique_id=1350759946 node_paths=PackedStringArray("inventory_slots")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10831642, 0, 0)
+script = ExtResource("11_68utx")
+inventory_slots = [NodePath("InventorySlot"), NodePath("InventorySlot2"), NodePath("InventorySlot3"), NodePath("InventorySlot4"), NodePath("InventorySlot5"), NodePath("InventorySlot6"), NodePath("InventorySlot7"), NodePath("InventorySlot8"), NodePath("InventorySlot9"), NodePath("InventorySlot10"), NodePath("InventorySlot11"), NodePath("InventorySlot12")]
+
+[node name="InventoryLabel" type="Label3D" parent="Inventory" unique_id=1620398213]
+transform = Transform3D(-0.04938271, 0, -4.3171724e-09, -1.1173668e-09, 0.047700036, 0.012781181, 4.1700696e-09, 0.012781186, -0.047700018, 1.5516477, -0.8820756, 1.9550724)
+pixel_size = 0.05
+render_priority = 1
+modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+outline_modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+text = "INVENTORY"
+font = ExtResource("10_aa4hd")
+font_size = 60
+horizontal_alignment = 0
+
+[node name="InventorySlot" parent="Inventory" unique_id=1529923490 instance=ExtResource("7_5u241")]
+transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, 1.1156783, -1.2393919, 1.9024353)
+
+[node name="InventorySlot2" parent="Inventory" unique_id=2023999414 instance=ExtResource("7_5u241")]
+transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, 0.71567833, -1.2393919, 1.9024353)
+index = 1
+
+[node name="InventorySlot3" parent="Inventory" unique_id=1109433782 instance=ExtResource("7_5u241")]
+transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, 0.31567833, -1.2393919, 1.9024353)
+index = 2
+
+[node name="InventorySlot4" parent="Inventory" unique_id=1229189597 instance=ExtResource("7_5u241")]
+transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, -0.08432168, -1.2393919, 1.9024353)
+index = 3
+
+[node name="InventorySlot5" parent="Inventory" unique_id=1333053028 instance=ExtResource("7_5u241")]
+transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, -0.48432168, -1.2393919, 1.9024353)
+index = 4
+
+[node name="InventorySlot6" parent="Inventory" unique_id=1779778151 instance=ExtResource("7_5u241")]
+transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, -0.8843217, -1.2393919, 1.9024353)
+index = 5
+
+[node name="InventorySlot7" parent="Inventory" unique_id=1584677246 instance=ExtResource("7_5u241")]
+transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, 1.1156783, -1.6257623, 1.7989076)
+index = 6
+
+[node name="InventorySlot8" parent="Inventory" unique_id=866179922 instance=ExtResource("7_5u241")]
+transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, 0.71567833, -1.6257623, 1.7989076)
+index = 7
+
+[node name="InventorySlot9" parent="Inventory" unique_id=38415627 instance=ExtResource("7_5u241")]
+transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, 0.31567833, -1.6257623, 1.7989076)
+index = 8
+
+[node name="InventorySlot10" parent="Inventory" unique_id=1517267012 instance=ExtResource("7_5u241")]
+transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, -0.08432168, -1.6257623, 1.7989076)
+index = 9
+
+[node name="InventorySlot11" parent="Inventory" unique_id=1437681931 instance=ExtResource("7_5u241")]
+transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, -0.48432168, -1.6257623, 1.7989076)
+index = 10
+
+[node name="InventorySlot12" parent="Inventory" unique_id=1921709916 instance=ExtResource("7_5u241")]
+transform = Transform3D(-1, 2.2626683e-08, -8.4443926e-08, 0, 0.96592593, 0.25881907, 8.742278e-08, 0.25881907, -0.96592593, -0.8843217, -1.6257623, 1.7989076)
+index = 11
+
+[editable path="ItemsForSale/ToolSlot"]
+[editable path="ItemsForSale/ItemSlot"]

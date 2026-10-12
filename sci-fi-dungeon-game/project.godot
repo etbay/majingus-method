@@ -17,6 +17,9 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 [autoload]
 
 TextureDictionary="*uid://bta0ev23vfmlo"
+PlayerInventory="*uid://dx4aaah2hn12b"
+AudioDictionary="*uid://resp2qqswy1a"
+MusicMan="*uid://bn77iydvmkyar"
 
 [display]
 

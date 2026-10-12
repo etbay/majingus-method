@@ -16,9 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://bd8eay6y4b3br" path="res://assets/vent_cropped.png" id="9_7q7v2"]
 [ext_resource type="PackedScene" uid="uid://cio6xt5lum3aq" path="res://scenes/skarps_board.tscn" id="10_mpsl3"]
 [ext_resource type="Script" uid="uid://bscfe8rilncg2" path="res://camera_switch.gd" id="11_2bfpd"]
+[ext_resource type="Texture2D" uid="uid://cw11iaumgqp0u" path="res://assets/characters/johnspace.png" id="11_pgkm7"]
 [ext_resource type="Script" uid="uid://csou168mv7jpy" path="res://roll_button.gd" id="12_3jj1w"]
 [ext_resource type="Script" uid="uid://715vwn2n5drg" path="res://dialogue_control.gd" id="17_mpsl3"]
 [ext_resource type="Texture2D" uid="uid://cmotsqvfgyvu0" path="res://assets/dialogue_box.png" id="18_mbc85"]
+[ext_resource type="Texture2D" uid="uid://cqbvd2u4nxeds" path="res://assets/screen_cropped.png" id="12_w1st6"]
+[ext_resource type="Texture2D" uid="uid://cgnhwyy4rx2vl" path="res://assets/floor_texture.png" id="17_7px3q"]
+[ext_resource type="PackedScene" uid="uid://c6ctuuw46lpot" path="res://scenes/shop.tscn" id="17_txl0x"]
+[ext_resource type="Texture2D" uid="uid://b2wnyyppwygwu" path="res://assets/icons/column_select_icon_1.png" id="19_4qs8q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
 size = Vector3(4.715515, 0.8117676, 1.211792)
@@ -37,6 +42,9 @@ size = Vector3(9.973022, 5.787842, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7q7v2"]
 size = Vector3(4.694977, 1.7345581, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1st6"]
+size = Vector3(4.6668243, 3.244896, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6iypd"]
 size = Vector3(0.06647021, 1, 1)
@@ -121,9 +129,34 @@ highlight_target = NodePath(".")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014785767, 0.012664795, 0)
 shape = SubResource("BoxShape3D_7q7v2")
 
+[node name="Vent2" type="Sprite3D" parent="Environment" unique_id=1071631409 node_paths=PackedStringArray("highlight_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.068584, 0.43816686, -4.694611)
+render_priority = 2
+texture = ExtResource("12_w1st6")
+script = ExtResource("8_7q7v2")
+hover_highlight = Color(0.99416226, 0.95142263, 0.7193252, 1)
+highlight_target = NodePath(".")
+
+[node name="Area3D" type="Area3D" parent="Environment/Vent2" unique_id=1321879679]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Vent2/Area3D" unique_id=447422494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0007095337, -0.00888443, 0)
+shape = SubResource("BoxShape3D_w1st6")
+
+[node name="Character" type="Sprite3D" parent="Environment" unique_id=1824914348]
+transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, -29.007647, 1.351565, -5.683466)
+render_priority = -1
+texture = ExtResource("11_pgkm7")
+
+[node name="SpaceBackground" type="Sprite3D" parent="Environment" unique_id=495200399]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -8.971832)
+modulate = Color(0, 0, 0, 1)
+render_priority = -100
+texture = ExtResource("3_2bfpd")
+
 [node name="EnvironmentCamera" parent="." unique_id=1444190908 instance=ExtResource("7_aai17")]
-current = false
-fov = 95.0
+fov = 87.6
+turn_threshold = 7.0
 turn_speed = 8.0
 
 [node name="PanCameraArea" type="Area3D" parent="EnvironmentCamera" unique_id=1164377640]
@@ -161,7 +194,7 @@ grow_horizontal = 2
 text = "Switch camera"
 script = ExtResource("11_2bfpd")
 
-[node name="Button2" type="Button" parent="CanvasLayer" unique_id=248713011]
+[node name="StartButton" type="Button" parent="CanvasLayer" unique_id=248713011]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -172,7 +205,7 @@ offset_top = -31.0
 offset_right = 60.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Start turn"
+text = "Start Game"
 script = ExtResource("12_3jj1w")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2007199979]
@@ -245,19 +278,73 @@ offset_top = -1.0
 offset_right = -0.060058594
 offset_bottom = 0.0289917
 
+[node name="LeftArrow" type="TextureRect" parent="CanvasLayer" unique_id=1212373161]
+custom_maximum_size = Vector2(100, 100)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 48.0
+offset_right = 100.0
+offset_bottom = 148.0
+grow_vertical = 2
+rotation = -1.5707964
+texture = ExtResource("19_4qs8q")
+
+[node name="LeftArrow2" type="TextureRect" parent="CanvasLayer" unique_id=1368258340]
+custom_maximum_size = Vector2(100, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5707964
+texture = ExtResource("19_4qs8q")
+
 [node name="Skarps" type="Node3D" parent="." unique_id=1098451559]
 
+[node name="SpaceBackground2" type="Sprite3D" parent="Skarps" unique_id=2080520856]
+transform = Transform3D(-1, 2.262668e-08, -8.444392e-08, 0, 0.9659258, 0.25881904, 8.742278e-08, 0.25881904, -0.9659258, -1.6799961e-06, -0.34185195, 10.417284)
+modulate = Color(0, 0, 0, 1)
+render_priority = -100
+texture = ExtResource("3_2bfpd")
+
+[node name="Character" type="Sprite3D" parent="Skarps" unique_id=1617087183]
+transform = Transform3D(0.56, 0, 0, 0, 0.54091847, -0.14493866, 0, 0.14493866, 0.54091847, 0.11430943, 0.114994645, 10.3272295)
+render_priority = -1
+texture = ExtResource("11_pgkm7")
+
 [node name="Background2" type="Sprite3D" parent="Skarps" unique_id=1908461041]
-transform = Transform3D(-1, 0, 8.742278e-08, 2.314194e-08, 0.96432734, 0.26471293, -8.4304176e-08, 0.26471293, -0.96432734, -29.235304, 1.1920929e-06, 9.087568)
+transform = Transform3D(-1, 2.262668e-08, -8.444392e-08, 0, 0.9659258, 0.25881904, 8.742278e-08, 0.25881904, -0.9659258, -29.235304, -0.5546347, 8.912759)
+texture = ExtResource("3_2bfpd")
+
+[node name="Background3" type="Sprite3D" parent="Skarps" unique_id=1546477725]
+transform = Transform3D(-1, 0, 8.742278e-08, 2.314194e-08, 0.96432734, 0.26471293, -8.4304176e-08, 0.26471293, -0.96432734, 47.531773, -0.54790944, 8.921283)
 texture = ExtResource("3_2bfpd")
 
 [node name="GameCamera" type="Camera3D" parent="Skarps" unique_id=1262957634]
 transform = Transform3D(-1, 1.0578467e-15, -8.7422734e-08, -8.069971e-08, 0.38456595, 0.92309755, 3.3619806e-08, 0.92309755, -0.38456595, 1.0385886e-08, 0.59527045, 6.5416794)
 
-[node name="SkarpsBoard" parent="Skarps" unique_id=1549528452 instance=ExtResource("10_mpsl3")]
+[node name="SkarpsBoard" parent="Skarps" unique_id=1549528452 node_paths=PackedStringArray("start_button") instance=ExtResource("10_mpsl3")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.00152421, -2.2413986, 7.606835)
+start_button = NodePath("../../CanvasLayer/StartButton")
+
+[node name="Floor" type="Sprite3D" parent="Skarps" unique_id=866005600]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -5.672697, 3.923293)
+render_priority = -2
+texture = ExtResource("17_7px3q")
+
+[node name="Shop" parent="." unique_id=616363720 instance=ExtResource("17_txl0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7600746, 0.9951081, 7.097279)
 
 [connection signal="pressed" from="CanvasLayer/Dialogue_Control/Dialogue_Continue" to="CanvasLayer/Dialogue_Control" method="_on_next_pressed"]
 
 [editable path="Environment/EnvironmentGameboard/UIjam_3Dgameboard"]
 [editable path="CanvasLayer/InventoryHUD"]
+[editable path="Shop"]
+[editable path="Shop/ItemsForSale/ToolSlot"]
+[editable path="Shop/ItemsForSale/ItemSlot"]
