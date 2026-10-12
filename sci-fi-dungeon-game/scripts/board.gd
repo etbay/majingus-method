@@ -35,7 +35,7 @@ func calculate_gilded() -> int:
 	var money: int = 0
 	for arr in _board_array:
 		for die in arr:
-			if die != null and die.type == Die.DieType.GILDED and _board_dict[die.get_value()] != null:
+			if die != null and die.get_type() == Die.DieType.GILDED and _board_dict[die.get_value()] != null:
 				money += maxi(_board_dict[die.get_value()].size() - 1, 0) # add 1 money per matching die roll	
 	return money
 

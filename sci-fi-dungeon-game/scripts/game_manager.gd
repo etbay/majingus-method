@@ -12,6 +12,7 @@ var turn: int = 0 # 1 = player, 0 = cpu
 
 func _ready() -> void:
 	set_process(false)
+	game_display.game_over.connect(end_game)
 
 func _process(delta: float) -> void:
 	if not turn_in_progress and turn == 0:
@@ -25,3 +26,8 @@ func _process(delta: float) -> void:
 
 func start_game() -> void:
 	set_process(true)
+
+func end_game(x: int, y: int) -> void:
+	set_process(false)
+	turn_in_progress = false
+	turn = 0
