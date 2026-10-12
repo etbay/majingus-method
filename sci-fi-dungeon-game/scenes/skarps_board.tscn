@@ -24,8 +24,8 @@
 [ext_resource type="Script" uid="uid://dalfqvk43pgtx" path="res://die_pointer.gd" id="13_7y72b"]
 [ext_resource type="Script" uid="uid://d3r4grpdlhpus" path="res://scenes/center_console.gd" id="16_7rfbg"]
 [ext_resource type="Texture2D" uid="uid://crlv35ega58fd" path="res://assets/icons/shiv_status_icon_1.png" id="20_nahi8"]
-[ext_resource type="Texture2D" uid="uid://brqg7uveocvga" path="res://assets/portrait.png" id="20_q5opd"]
-[ext_resource type="Texture2D" uid="uid://c2lh3sn532kw6" path="res://assets/goop_head_lineart.png" id="21_5mohp"]
+[ext_resource type="Texture2D" uid="uid://brqg7uveocvga" path="res://assets/gameboard/portrait.png" id="20_q5opd"]
+[ext_resource type="Texture2D" uid="uid://cw11iaumgqp0u" path="res://assets/characters/johnspace.png" id="21_d3b0i"]
 [ext_resource type="Texture2D" uid="uid://do4h81bjgy15s" path="res://assets/icons/plasmagun_status_icon.png" id="24_aat4b"]
 [ext_resource type="Texture2D" uid="uid://ro30cs8h5mvq" path="res://assets/icons/shiv_status_icon_white.png" id="27_aat4b"]
 [ext_resource type="Texture2D" uid="uid://bs4iqvcfbaal3" path="res://assets/icons/plasmagun_status_icon_white.png" id="28_v41ad"]
@@ -397,12 +397,14 @@ texture = ExtResource("2_76fi4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01, 1.1194682, 0.6666864)
 
 [node name="Portrait" type="Sprite3D" parent="LeftConsole" unique_id=1547400972]
-transform = Transform3D(0.17965747, -0.008197296, 0.0074830987, -0.0045916378, 0.055594016, 0.17113803, -0.010104914, -0.17100325, 0.055279117, 0, 0, -0.6533158)
+transform = Transform3D(0.17965747, -0.008197294, 0.0074830977, -0.0045916378, 0.055594016, 0.17113803, -0.010104911, -0.17100325, 0.055279117, 0, 0, -0.6533158)
 texture = ExtResource("20_q5opd")
 
 [node name="CharacterSprite" type="Sprite3D" parent="LeftConsole/Portrait" unique_id=221662741]
 transform = Transform3D(0.33, -3.54619e-09, -1.6161023e-09, 3.54619e-09, 0.33, 5.9103167e-10, 1.6161023e-09, -5.9103167e-10, 0.33, 0.0027003288, 0.022989959, -0.050490856)
-texture = ExtResource("21_5mohp")
+transparency = 0.08
+render_priority = 1
+texture = ExtResource("21_d3b0i")
 
 [node name="Background" type="Sprite3D" parent="LeftConsole" unique_id=1193779361]
 transform = Transform3D(0.40462735, 0, 0.01736994, -0.017369945, -1.7703112e-08, 0.40462744, 7.592642e-10, -0.405, -1.7686826e-08, -0.024459597, -0.14031662, 0.017202308)
