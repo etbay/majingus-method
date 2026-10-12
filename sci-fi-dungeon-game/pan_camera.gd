@@ -11,8 +11,11 @@ signal hit_trigger(dir: PoolTrigger.TriggerDirection)
 @onready var area_trigger: PanCameraArea = $PanCameraArea
 @onready var _screen_width: float = get_tree().root.content_scale_size.x
 
+var enabled: bool = true
+
 var _mouse_pos_x: float 
-var _pan_enabled: bool = true
+var pan_enabled: bool = true
+var panning: bool = false
 
 func _ready() -> void:
 	_mouse_pos_x = _screen_width / 2
@@ -20,12 +23,16 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		_pan_enabled = not _pan_enabled
+		pan_enabled = not pan_enabled
 	
-	if _pan_enabled and within_right_percent_of_screen(_mouse_pos_x):
+	if pan_enabled and within_right_percent_of_screen(_mouse_pos_x):
 		position.x += turn_speed * delta
-	if _pan_enabled and within_left_percent_of_screen(_mouse_pos_x):
+		panning = true
+	elif pan_enabled and within_left_percent_of_screen(_mouse_pos_x):
 		position.x -= turn_speed * delta
+		panning = true
+	else:
+		panning = false
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

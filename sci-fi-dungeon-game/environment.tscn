@@ -11,17 +11,21 @@
 [ext_resource type="PackedScene" uid="uid://dw0jydgqdw86s" path="res://pan_camera.tscn" id="7_aai17"]
 [ext_resource type="Texture2D" uid="uid://qqo6xycga7pj" path="res://assets/bed_cropped.png" id="8_3gbvy"]
 [ext_resource type="Script" uid="uid://den6y6w7fw24w" path="res://interactable_object.gd" id="8_7q7v2"]
+[ext_resource type="Texture2D" uid="uid://dqxmncpwok4ou" path="res://assets/pipes_unbroken.png" id="8_pgkm7"]
 [ext_resource type="Script" uid="uid://dtb5stktjubk4" path="res://pan_camera_area.gd" id="8_txl0x"]
 [ext_resource type="PackedScene" uid="uid://gyka836qy4gv" path="res://inventory_hud.tscn" id="9_7px3q"]
 [ext_resource type="Texture2D" uid="uid://bd8eay6y4b3br" path="res://assets/vent_cropped.png" id="9_7q7v2"]
 [ext_resource type="PackedScene" uid="uid://cio6xt5lum3aq" path="res://scenes/skarps_board.tscn" id="10_mpsl3"]
-[ext_resource type="Script" uid="uid://bscfe8rilncg2" path="res://camera_switch.gd" id="11_2bfpd"]
 [ext_resource type="Texture2D" uid="uid://cw11iaumgqp0u" path="res://assets/characters/johnspace.png" id="11_pgkm7"]
 [ext_resource type="Script" uid="uid://csou168mv7jpy" path="res://roll_button.gd" id="12_3jj1w"]
 [ext_resource type="Texture2D" uid="uid://cqbvd2u4nxeds" path="res://assets/screen_cropped.png" id="12_w1st6"]
+[ext_resource type="Texture2D" uid="uid://c5q77rop8mdo" path="res://assets/shop/shop_background_light.png" id="13_rn5b3"]
+[ext_resource type="Texture2D" uid="uid://cuo0vdv2c4t21" path="res://assets/toilet_unbroken.png" id="14_4nqy1"]
+[ext_resource type="Script" uid="uid://dv7gy4kta7xw7" path="res://game_ui.gd" id="16_4qs8q"]
 [ext_resource type="Texture2D" uid="uid://cgnhwyy4rx2vl" path="res://assets/floor_texture.png" id="17_7px3q"]
 [ext_resource type="PackedScene" uid="uid://c6ctuuw46lpot" path="res://scenes/shop.tscn" id="17_txl0x"]
 [ext_resource type="Texture2D" uid="uid://b2wnyyppwygwu" path="res://assets/icons/column_select_icon_1.png" id="19_4qs8q"]
+[ext_resource type="Script" uid="uid://c3hoylo0kia3t" path="res://exit_to_environment.gd" id="20_rpk5l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
 size = Vector3(4.715515, 0.8117676, 1.211792)
@@ -43,6 +47,9 @@ size = Vector3(4.694977, 1.7345581, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w1st6"]
 size = Vector3(4.6668243, 3.244896, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4nqy1"]
+size = Vector3(5.0216255, 7.5956144, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6iypd"]
 size = Vector3(0.06647021, 1, 1)
@@ -83,6 +90,10 @@ mesh = SubResource("BoxMesh_txl0x")
 [node name="Background" type="Sprite3D" parent="Environment" unique_id=1735480180]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003129959, 2.3841858e-07, -4.947579)
 texture = ExtResource("3_2bfpd")
+
+[node name="Pipes" type="Sprite3D" parent="Environment" unique_id=187053272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020671844, -0.11182904, -4.674667)
+texture = ExtResource("8_pgkm7")
 
 [node name="PoolTriggerLeft" type="Area3D" parent="Environment" unique_id=89222847]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
@@ -127,7 +138,7 @@ highlight_target = NodePath(".")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014785767, 0.012664795, 0)
 shape = SubResource("BoxShape3D_7q7v2")
 
-[node name="Vent2" type="Sprite3D" parent="Environment" unique_id=1071631409 node_paths=PackedStringArray("highlight_target")]
+[node name="Shop" type="Sprite3D" parent="Environment" unique_id=1071631409 node_paths=PackedStringArray("highlight_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.068584, 0.43816686, -4.694611)
 render_priority = 2
 texture = ExtResource("12_w1st6")
@@ -135,11 +146,30 @@ script = ExtResource("8_7q7v2")
 hover_highlight = Color(0.99416226, 0.95142263, 0.7193252, 1)
 highlight_target = NodePath(".")
 
-[node name="Area3D" type="Area3D" parent="Environment/Vent2" unique_id=1321879679]
+[node name="Area3D" type="Area3D" parent="Environment/Shop" unique_id=1321879679]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Vent2/Area3D" unique_id=447422494]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Shop/Area3D" unique_id=447422494]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0007095337, -0.00888443, 0)
 shape = SubResource("BoxShape3D_w1st6")
+
+[node name="Sprite3D" type="Sprite3D" parent="Environment/Shop" unique_id=610711313]
+transform = Transform3D(0.315, 0, 0, 0, 0.315, 0, 0, 0, 0.315, 0, 0, 0.02617073)
+render_priority = 5
+texture = ExtResource("13_rn5b3")
+
+[node name="Toilet" type="Sprite3D" parent="Environment" unique_id=467108388 node_paths=PackedStringArray("highlight_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.785334, -0.056267023, -4.694611)
+render_priority = 2
+texture = ExtResource("14_4nqy1")
+script = ExtResource("8_7q7v2")
+hover_highlight = Color(0.99416226, 0.95142263, 0.7193252, 1)
+highlight_target = NodePath(".")
+
+[node name="Area3D" type="Area3D" parent="Environment/Toilet" unique_id=1377587915]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Toilet/Area3D" unique_id=1837350925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3241844, 0.03179896, 0)
+shape = SubResource("BoxShape3D_4nqy1")
 
 [node name="Character" type="Sprite3D" parent="Environment" unique_id=1824914348]
 transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, -29.007647, 1.351565, -5.683466)
@@ -172,6 +202,7 @@ light_energy = 0.188
 sky_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1473294941]
+script = ExtResource("16_4qs8q")
 
 [node name="InventoryHUD" parent="CanvasLayer" unique_id=1377702667 instance=ExtResource("9_7px3q")]
 visible = false
@@ -180,17 +211,6 @@ anchor_left = 1.0
 anchor_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 1
-
-[node name="Button" type="Button" parent="CanvasLayer" unique_id=56519690]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -60.5
-offset_right = 60.5
-offset_bottom = 31.0
-grow_horizontal = 2
-text = "Switch camera"
-script = ExtResource("11_2bfpd")
 
 [node name="Button2" type="Button" parent="CanvasLayer" unique_id=248713011]
 anchors_preset = 7
@@ -227,7 +247,24 @@ grow_vertical = 2
 rotation = -1.5707964
 texture = ExtResource("19_4qs8q")
 
-[node name="LeftArrow2" type="TextureRect" parent="CanvasLayer" unique_id=1368258340]
+[node name="DownArrow" type="TextureRect" parent="CanvasLayer" unique_id=1896707422]
+custom_maximum_size = Vector2(100, 100)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = 7.0
+offset_right = 153.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 3.1415927
+texture = ExtResource("19_4qs8q")
+script = ExtResource("20_rpk5l")
+
+[node name="RightArrow" type="TextureRect" parent="CanvasLayer" unique_id=1368258340]
 custom_maximum_size = Vector2(100, 100)
 anchors_preset = 6
 anchor_left = 1.0
@@ -280,3 +317,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7600746, 0.9951081, 7.09727
 [editable path="Environment/EnvironmentGameboard/UIjam_3Dgameboard"]
 [editable path="CanvasLayer/InventoryHUD"]
 [editable path="Shop"]
+[editable path="Shop/ItemsForSale/ToolSlot"]
+[editable path="Shop/ItemsForSale/ItemSlot"]
