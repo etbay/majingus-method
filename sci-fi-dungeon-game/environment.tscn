@@ -22,7 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://cuo0vdv2c4t21" path="res://assets/toilet_unbroken.png" id="14_4nqy1"]
 [ext_resource type="Script" uid="uid://dv7gy4kta7xw7" path="res://game_ui.gd" id="16_4qs8q"]
 [ext_resource type="Texture2D" uid="uid://cgnhwyy4rx2vl" path="res://assets/floor_texture.png" id="17_7px3q"]
+[ext_resource type="Script" uid="uid://715vwn2n5drg" path="res://dialogue_control.gd" id="17_mpsl3"]
 [ext_resource type="PackedScene" uid="uid://c6ctuuw46lpot" path="res://scenes/shop.tscn" id="17_txl0x"]
+[ext_resource type="Texture2D" uid="uid://cmotsqvfgyvu0" path="res://assets/dialogue_box.png" id="18_mbc85"]
 [ext_resource type="Texture2D" uid="uid://b2wnyyppwygwu" path="res://assets/icons/column_select_icon_1.png" id="19_4qs8q"]
 [ext_resource type="Script" uid="uid://c3hoylo0kia3t" path="res://exit_to_environment.gd" id="20_rpk5l"]
 
@@ -222,6 +224,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="Dialogue_Control" type="Control" parent="CanvasLayer" unique_id=452579939]
+visible = false
 layout_mode = 3
 anchor_left = 0.52500004
 anchor_top = 0.36100003
