@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CPUCharacter" format=3 uid="uid://l3jv3vj013f3"]
+
+[ext_resource type="Script" uid="uid://b4jpjkgigxeln" path="res://scripts/cpu_character.gd" id="1_cj4rg"]
+[ext_resource type="Texture2D" uid="uid://bdgwfnij51u8o" path="res://assets/characters/frog_head.png" id="2_iwcqp"]
+
+[resource]
+script = ExtResource("1_cj4rg")
+texture = ExtResource("2_iwcqp")
+character_name = "Frog Lady"
+difficulty = 8
+metadata/_custom_type_script = "uid://b4jpjkgigxeln"

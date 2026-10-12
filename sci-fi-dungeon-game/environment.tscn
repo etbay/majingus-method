@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cmotsqvfgyvu0" path="res://assets/dialogue_box.png" id="18_mbc85"]
 [ext_resource type="Texture2D" uid="uid://b2wnyyppwygwu" path="res://assets/icons/column_select_icon_1.png" id="19_4qs8q"]
 [ext_resource type="Script" uid="uid://c3hoylo0kia3t" path="res://exit_to_environment.gd" id="20_rpk5l"]
+[ext_resource type="Script" uid="uid://qs1hrkxf551s" path="res://tutorial_button.gd" id="25_454qq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
 size = Vector3(4.715515, 0.8117676, 1.211792)
@@ -330,6 +331,65 @@ grow_vertical = 2
 rotation = 1.5707964
 texture = ExtResource("19_4qs8q")
 
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=2104624576]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.5
+offset_right = 34.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Tutorial"
+script = ExtResource("25_454qq")
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1027573364]
+visible = false
+custom_maximum_size = Vector2(700, 600)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 299.0
+offset_top = 62.0
+offset_right = -281.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15487596, 0.154876, 0.15487596, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect2" unique_id=648621002]
+layout_mode = 0
+offset_right = 828.0
+offset_bottom = 751.0
+scale = Vector2(0.815, 0.8093359)
+text = "Objective:  
+The goal of Scarps is to earn the most points by strategically placing your holodice.
+
+Gameplay:
+Placement of Dice:
+Players take turns placing holodice on the game board. Dice can be placed in any open space on the board.
+
+Scoring Points:
+When a player places dice, they should aim to stack dice with the same number in the same column.
+Points are calculated based on the number of identical dice in a column:
+If there are two dice with the same number in a column, calculate the score as follows: 
+Example: Two 3's = [3 + 3] x 2 = 6 points.
+If there are three dice with the same number in a column, the score would be:
+Example: Three 3's = [3 + 3 + 3] x 3 = 9 points.
+  
+Attacking Opponent:
+Players can place dice on their opponent's side to \"attack.\"
+To do this, there must be an open space available for your die.
+Attacking allows you to destroy one of your opponent's dice in a selected column.
+
+Upgrading Dice:
+Players can upgrade their dice to enhance their score.
+If a die receives a +1 upgrade and is part of a scoring combination:
+Example: For the previous example with two 3's, if one of the dice is upgraded, the score will be:
+[3 + 3 + 1] x 2 = 7 points.
+
+Winning the Game: 
+The game ends when a player has all their columns filled. The player with the highest total score wins. "
+
 [node name="Skarps" type="Node3D" parent="." unique_id=1098451559]
 
 [node name="SpaceBackground2" type="Sprite3D" parent="Skarps" unique_id=2080520856]
@@ -354,8 +414,9 @@ texture = ExtResource("3_2bfpd")
 [node name="GameCamera" type="Camera3D" parent="Skarps" unique_id=1262957634]
 transform = Transform3D(-1, 1.0578467e-15, -8.7422734e-08, -8.069971e-08, 0.38456595, 0.92309755, 3.3619806e-08, 0.92309755, -0.38456595, 1.0385886e-08, 0.59527045, 6.5416794)
 
-[node name="SkarpsBoard" parent="Skarps" unique_id=1549528452 instance=ExtResource("10_mpsl3")]
+[node name="SkarpsBoard" parent="Skarps" unique_id=1549528452 node_paths=PackedStringArray("door_character") instance=ExtResource("10_mpsl3")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.00152421, -2.2413986, 7.606835)
+door_character = NodePath("../Character")
 
 [node name="Floor" type="Sprite3D" parent="Skarps" unique_id=866005600]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -5.672697, 3.923293)
