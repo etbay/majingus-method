@@ -108,5 +108,4 @@ func match_current_die(die: Die) -> void:
 	mat.albedo_color = TextureDictionary.type_color_dict[die.get_type()]
 	mat.emission_enabled = true
 	mat.emission = mat.albedo_color
-	mat.emission_intensity = 1.0
 	mesh.set_surface_override_material(0, mat)

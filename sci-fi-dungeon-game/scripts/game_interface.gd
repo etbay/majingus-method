@@ -36,9 +36,6 @@ var cpu_score: int = -1:
 			cpu_score = value
 			cpu_score_label.text = "%d" % cpu_score
 
-var shiv_count: int = 3
-var laser_count: int = 1
-
 enum TurnStatus
 {
 	WAITING_FOR_TURN,
@@ -76,9 +73,11 @@ func take_cpu_turn() -> void:
 	cpu_die_details.display(cpu_die)
 	cpu_physics_die.match_current_die(cpu_die)
 	var value = await cpu_physics_die.force_roll()
-	await get_tree().create_timer(.5).timeout
+	await get_tree().create_timer(1).timeout
 	cpu_die.set_value(value)
+	
 	var cpu_col = cpu_ai.choose_column(cpu_die, board, cpu_board)
+	
 	if (cpu_col < 4):
 		# on cpu board
 		cpu_board.place_dice(cpu_col, cpu_die)

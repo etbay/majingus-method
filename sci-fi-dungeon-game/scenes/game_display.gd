@@ -29,6 +29,7 @@ func cpu_take_turn() -> void:
 
 func game_over_func():
 	game.cleanup_dice()
+	print("Game Over")
 	game_over.emit(game.board.calculate_score(), game.cpu_board.calculate_score()) # left = players score, right = cpu's
 	pass
 	# all necessary game over / cleanup steps

@@ -57,10 +57,9 @@ size = Vector3(0.9, 0.01, 1)
 height = 0.08654785
 radius = 0.18603516
 
-[node name="GameDisplay" type="Node3D" unique_id=1549528452 node_paths=PackedStringArray("start_button")]
+[node name="GameDisplay" type="Node3D" unique_id=1549528452]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_1131k")
-start_button = NodePath("")
 
 [node name="GameManager" type="Node" parent="." unique_id=163007815 node_paths=PackedStringArray("game_display")]
 script = ExtResource("2_uflgs")
