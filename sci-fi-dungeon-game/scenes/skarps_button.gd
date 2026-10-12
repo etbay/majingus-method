@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var click_area: MouseClickDetect = $MouseClickDetect
+@onready var shiv_sprite: Sprite3D = $IconSprite
 
 var _mouse_over: bool = false
 
@@ -14,6 +15,8 @@ func _process(delta: float) -> void:
 
 func _on_mouse_entered() -> void:
 	_mouse_over = true
+	shiv_sprite.modulate = Color.GOLDENROD
 
 func _on_mouse_exited() -> void:
 	_mouse_over = false
+	shiv_sprite.modulate = Color.WHITE

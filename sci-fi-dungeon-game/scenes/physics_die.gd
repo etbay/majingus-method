@@ -59,7 +59,7 @@ func _process(_delta: float) -> void:
 	if _rolling and _move_timer.is_stopped():
 		_rolling = false
 	
-	if linear_velocity != Vector3.ZERO and angular_velocity != Vector3.ZERO:
+	if linear_velocity != Vector3.ZERO or angular_velocity != Vector3.ZERO:
 		_move_timer.start(0.05)
 
 func roll() -> int:

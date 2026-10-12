@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://qv7jrb1lf2b0"]
+
+[ext_resource type="Script" uid="uid://dqn1jg778nn8i" path="res://scenes/die_type_display.gd" id="1_vfkcf"]
+[ext_resource type="Texture2D" uid="uid://v20jvxgllwir" path="res://assets/icons/die_types/normal_icon.png" id="2_usevx"]
+[ext_resource type="FontFile" uid="uid://cukfpuaoj7veg" path="res://assets/Doto/static/Doto-Black.ttf" id="3_n5yr7"]
+[ext_resource type="FontFile" uid="uid://1ueiimeutkfn" path="res://assets/Source_Code_Pro/static/SourceCodePro-SemiBold.ttf" id="4_n5yr7"]
+[ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scenes/mouse_click_detect.gd" id="4_usevx"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jwvyd"]
+size = Vector2(0.745, 0.545)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vfkcf"]
+size = Vector3(0.18243408, 0.089408875, 0.16064453)
+
+[node name="DieTypeDisplay" type="Node3D" unique_id=1895616007]
+script = ExtResource("1_vfkcf")
+
+[node name="ItemSprite" type="Sprite3D" parent="." unique_id=1916585562]
+transform = Transform3D(0.055, 0, 0, 0, -2.4041265e-09, 0.055, 0, -0.055, -2.4041265e-09, 0, 0, 0)
+render_priority = 5
+texture = ExtResource("2_usevx")
+
+[node name="QualityLabel" type="Label3D" parent="." unique_id=1621908218]
+transform = Transform3D(0.049382713, 2.0014438e-16, 8.7485866e-24, 0, -2.1585866e-09, 0.049382694, 2.0014442e-16, -0.049382705, -2.1585862e-09, 0.047806267, 2.8650617e-09, 0.06554497)
+pixel_size = 0.01
+render_priority = 1
+outline_modulate = Color(1, 1, 1, 1)
+text = "+2"
+font = ExtResource("3_n5yr7")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+
+[node name="TooltipLabel" type="Label3D" parent="." unique_id=38893907]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5.6248632e-09, 0.12868184)
+pixel_size = 0.001
+render_priority = 5
+text = "The pattern reminds you of a bug’s carapace. Gives Points for every empty spot on your board."
+font = ExtResource("4_n5yr7")
+font_size = 64
+outline_size = 31
+vertical_alignment = 0
+autowrap_mode = 2
+width = 700.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TooltipLabel" unique_id=1875305846]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.25259924, -0.0021955771)
+mesh = SubResource("PlaneMesh_jwvyd")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1974415308]
+script = ExtResource("4_usevx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=505182183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00045776367, -0.005592346, 0.0021972656)
+shape = SubResource("BoxShape3D_vfkcf")

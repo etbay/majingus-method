@@ -19,9 +19,8 @@
 [ext_resource type="Script" uid="uid://ceuax7xdl4okt" path="res://scenes/die_face_detect.gd" id="6_vbsse"]
 [ext_resource type="Texture2D" uid="uid://bnteqjhmjdncf" path="res://assets/icons/diceroll_status_icon.png" id="9_eh8qp"]
 [ext_resource type="Script" uid="uid://brnruomtpb5sn" path="res://scenes/cell_display.gd" id="9_q5opd"]
-[ext_resource type="Texture2D" uid="uid://v20jvxgllwir" path="res://assets/icons/die_types/normal_icon.png" id="10_d3b0i"]
 [ext_resource type="FontFile" uid="uid://s2spjex2vfst" path="res://assets/Source_Code_Pro/static/SourceCodePro-Bold.ttf" id="11_1rt75"]
-[ext_resource type="Script" uid="uid://dqn1jg778nn8i" path="res://scenes/die_type_display.gd" id="11_rhhuy"]
+[ext_resource type="PackedScene" uid="uid://qv7jrb1lf2b0" path="res://scenes/die_type_display.tscn" id="11_c0eyu"]
 [ext_resource type="Texture2D" uid="uid://b2wnyyppwygwu" path="res://assets/icons/column_select_icon_1.png" id="12_uflgs"]
 [ext_resource type="Script" uid="uid://dalfqvk43pgtx" path="res://die_pointer.gd" id="13_7y72b"]
 [ext_resource type="Script" uid="uid://d3r4grpdlhpus" path="res://scenes/center_console.gd" id="16_7rfbg"]
@@ -31,8 +30,11 @@
 [ext_resource type="Texture2D" uid="uid://cw11iaumgqp0u" path="res://assets/characters/johnspace.png" id="21_d3b0i"]
 [ext_resource type="Texture2D" uid="uid://do4h81bjgy15s" path="res://assets/icons/plasmagun_status_icon.png" id="24_aat4b"]
 [ext_resource type="Texture2D" uid="uid://ro30cs8h5mvq" path="res://assets/icons/shiv_status_icon_white.png" id="27_aat4b"]
-[ext_resource type="Texture2D" uid="uid://bs4iqvcfbaal3" path="res://assets/icons/plasmagun_status_icon_white.png" id="28_v41ad"]
 [ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scenes/mouse_click_detect.gd" id="29_6ppqr"]
+[ext_resource type="Script" uid="uid://c2c5mrywxkt46" path="res://scenes/shiv_inventory.gd" id="30_clux5"]
+[ext_resource type="Script" uid="uid://d1yft7s42ku6g" path="res://scenes/plasmagun_inventory.gd" id="31_4pxeq"]
+[ext_resource type="Script" uid="uid://uein033h4nwc" path="res://scenes/skarps_start_button.gd" id="35_n0mid"]
+[ext_resource type="FontFile" uid="uid://1ueiimeutkfn" path="res://assets/Source_Code_Pro/static/SourceCodePro-SemiBold.ttf" id="36_n0mid"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qs5on"]
 size = Vector3(2.3, 0.01, 0.8)
@@ -289,25 +291,8 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column3/Cell2" unique_id=1654323584]
 shape = SubResource("BoxShape3D_7y72b")
 
-[node name="DieTypeDisplay" type="Node3D" parent="PlayerGameboard/Board" unique_id=2114129889]
+[node name="DieTypeDisplay" parent="PlayerGameboard/Board" unique_id=1895616007 instance=ExtResource("11_c0eyu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9990268, 0, 0.2695528)
-script = ExtResource("11_rhhuy")
-
-[node name="Sprite3D" type="Sprite3D" parent="PlayerGameboard/Board/DieTypeDisplay" unique_id=1943416346]
-transform = Transform3D(0.055, 0, 0, 0, -2.4041265e-09, 0.055, 0, -0.055, -2.4041265e-09, 0, 0, 0)
-render_priority = 1
-texture = ExtResource("10_d3b0i")
-
-[node name="ScoreLabel" type="Label3D" parent="PlayerGameboard/Board/DieTypeDisplay" unique_id=633905986]
-transform = Transform3D(0.049382713, 2.0014436e-16, 2.3283059e-10, 4.440892e-16, -2.1585866e-09, 0.049382694, 2.001444e-16, -0.049382705, -2.1585862e-09, 0.047806267, 2.8650617e-09, 0.06554497)
-pixel_size = 0.01
-render_priority = 1
-outline_modulate = Color(1, 1, 1, 1)
-text = "+2"
-font = ExtResource("4_2vras")
-font_size = 150
-outline_size = 0
-horizontal_alignment = 0
 
 [node name="Die" parent="PlayerGameboard" unique_id=1718489097 node_paths=PackedStringArray("reset_location") instance=ExtResource("3_2vras")]
 transform = Transform3D(0.9999997, 0, 0, 0, 0.99999976, 0, 0, 0, 0.9999998, 0.7835893, 1.2343849, 0.2994303)
@@ -602,25 +587,8 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column3/Cell2" unique_id=1020535537]
 shape = SubResource("BoxShape3D_7y72b")
 
-[node name="DieTypeDisplay" type="Node3D" parent="CPUGameboard/Board" unique_id=147135199]
-transform = Transform3D(-1, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -1, 0.9990269, 0, -0.25264537)
-script = ExtResource("11_rhhuy")
-
-[node name="Sprite3D" type="Sprite3D" parent="CPUGameboard/Board/DieTypeDisplay" unique_id=644331327]
-transform = Transform3D(0.055, 0, 0, 0, -2.4041265e-09, 0.055, 0, -0.055, -2.4041265e-09, -0.027444601, 0, 0.028908968)
-render_priority = 1
-texture = ExtResource("10_d3b0i")
-
-[node name="ScoreLabel" type="Label3D" parent="CPUGameboard/Board/DieTypeDisplay" unique_id=1968713715]
-transform = Transform3D(0.049382713, 2.0014436e-16, 2.3283059e-10, 4.440892e-16, -2.1585866e-09, 0.049382694, 2.001444e-16, -0.049382705, -2.1585862e-09, 0.047806267, 2.8650617e-09, 0.06554497)
-pixel_size = 0.01
-render_priority = 1
-outline_modulate = Color(1, 1, 1, 1)
-text = "+2"
-font = ExtResource("4_2vras")
-font_size = 150
-outline_size = 0
-horizontal_alignment = 0
+[node name="DieTypeDisplay" parent="CPUGameboard/Board" unique_id=1244693380 instance=ExtResource("11_c0eyu")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.0316743, 0.01850009, -0.28190237)
 
 [node name="Die" parent="CPUGameboard" unique_id=742034613 node_paths=PackedStringArray("reset_location") instance=ExtResource("3_2vras")]
 transform = Transform3D(0.9999997, 0, 0, 0, 0.99999976, 0, 0, 0, 0.9999998, 0.7835893, 1.2343849, 0.2994303)
@@ -745,6 +713,7 @@ texture = ExtResource("3_3hfn7")
 
 [node name="ShivInventory" type="Node3D" parent="LeftConsole/Background" unique_id=2051948332]
 transform = Transform3D(2.037, 0, 0, 0, -8.904009e-08, 2.037, 0, -2.037, -8.904009e-08, -0.33394074, -0.499296, 0.009700766)
+visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="LeftConsole/Background/ShivInventory" unique_id=1854803818]
 transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0, 0, 0)
@@ -763,6 +732,7 @@ texture = ExtResource("20_nahi8")
 
 [node name="PlasmagunInventory" type="Node3D" parent="LeftConsole/Background" unique_id=1123416576]
 transform = Transform3D(2.037, 0, 0, 0, -8.904009e-08, 2.037, 0, -2.037, -8.904009e-08, -0.117565766, 0.20988193, 0.009700524)
+visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="LeftConsole/Background/PlasmagunInventory" unique_id=1618121569]
 transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, -0.048734296, -6.728677e-09, -0.15814483)
@@ -802,6 +772,7 @@ texture = ExtResource("4_1la0o")
 
 [node name="ShivInventory" type="Node3D" parent="RightConsole" unique_id=1166437381]
 transform = Transform3D(2.037, 0, 0, 0, -8.904009e-08, 2.037, 0, -2.037, -8.904009e-08, -0.33394074, -0.499296, 0.009700766)
+script = ExtResource("30_clux5")
 
 [node name="Sprite3D" type="Sprite3D" parent="RightConsole/ShivInventory" unique_id=1068468684]
 transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0, 0, 0)
@@ -820,6 +791,7 @@ texture = ExtResource("20_nahi8")
 
 [node name="PlasmagunInventory" type="Node3D" parent="RightConsole" unique_id=1950537765]
 transform = Transform3D(2.037, 0, 0, 0, -8.904009e-08, 2.037, 0, -2.037, -8.904009e-08, -0.117565766, 0.20988193, 0.009700524)
+script = ExtResource("31_4pxeq")
 
 [node name="Sprite3D" type="Sprite3D" parent="RightConsole/PlasmagunInventory" unique_id=1742453814]
 transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0.1437409, -6.5261556e-09, -0.15814483)
@@ -871,12 +843,13 @@ shape = SubResource("CylinderShape3D_1pvmy")
 
 [node name="RightButton" type="Node3D" parent="." unique_id=1591922940]
 transform = Transform3D(1, 0, 0, 0, 0.48633534, 0.87377226, 0, -0.87377226, 0.48633534, 1.3781599, 0.888, 1.335)
-script = ExtResource("2_vasga")
+script = ExtResource("35_n0mid")
 
-[node name="IconSprite" type="Sprite3D" parent="RightButton" unique_id=1793588990]
-transform = Transform3D(4.535, 0, 0, 0, 4.535, 0, 0, 0, 4.535, 0.004286886, 0.008442596, -7.676427e-09)
-pixel_size = 0.0001
-texture = ExtResource("28_v41ad")
+[node name="Label3D" type="Label3D" parent="RightButton" unique_id=743193855]
+pixel_size = 0.001
+text = "START"
+font = ExtResource("36_n0mid")
+font_size = 103
 
 [node name="MouseClickDetect" type="Area3D" parent="RightButton" unique_id=1609806771]
 script = ExtResource("29_6ppqr")

@@ -8,6 +8,7 @@ const SHOP_BUTTONS_2_UNSELECTED = preload("uid://dn0j2jeqbw8e8")
 const FILE = preload("uid://c2wapo1q2cnw6")
 const SCREWDRIVER = preload("uid://duyav2xr2d5db")
 const WRENCH = preload("uid://dlg38rsmr6vpl")
+const COLUMN_SELECT_ICON = preload("uid://c6tth8a4sopmb")
 
 
 var rolling_status_icon: CompressedTexture2D = preload("res://assets/icons/diceroll_status_icon.png")
@@ -46,6 +47,15 @@ var die_val_dict: Dictionary[int, CompressedTexture2D] = {
 	5 : die_face_5,
 	6 : die_face_6,
 
+}
+
+var die_type_tooltip: Dictionary[Die.DieType, String] = {
+	Die.DieType.NORMAL : "A regular six-sided die.",
+	Die.DieType.GILDED : "Gold-plated holodice. +1 Gold per matching number on your board.",
+	Die.DieType.LOW_ROLLER : "Acrylic-looking holodice of old-world Casinos. Can only roll 1’s, 2’s, and 3’s.",
+	Die.DieType.HOLLOW : "The pattern reminds you of a bug’s carapace. Gives Points for every empty spot on your board.",
+	Die.DieType.PLASMA : "Burning, cube-shaped motes of light. Gains Points equal to matches in its row.",
+	Die.DieType.WEIGHTED : "Expensive, inlaid iron holodice. Can only roll 4’s, 5’s, and 6’s."
 }
 
 var type_color_dict: Dictionary[Die.DieType, Color] = {
