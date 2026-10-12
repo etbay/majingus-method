@@ -16,6 +16,7 @@ const VENT_FISH = preload("uid://sjav46uc51qo")
 @onready var start_button_detect: MouseClickDetect = $RightButton/MouseClickDetect
 @onready var character_sprite: Sprite3D = $LeftConsole/Portrait/CharacterSprite
 @export var door_character: Sprite3D
+@export var door_character_env: Sprite3D
 
 var cpu_characters: Array[CPUCharacter]
 var current_cpu: CPUCharacter = null
@@ -28,18 +29,21 @@ func _ready() -> void:
 	cpu_characters.append(RAT_GUY)
 	cpu_characters.append(TRADER)
 	cpu_characters.append(VENT_FISH)
+	
+	var new_cpu: CPUCharacter = cpu_characters.pick_random()
+	while new_cpu == current_cpu:
+		new_cpu = cpu_characters.pick_random()
+	current_cpu = new_cpu
+	game.set_cpu(current_cpu)
+	character_sprite.texture = current_cpu.texture
+	door_character.texture = current_cpu.texture
+	door_character_env.texture = current_cpu.texture
+	
 	start_button_detect.mouse_clicked.connect(start_game)
 	game_over.connect(_on_game_over)
 
 func start_game() -> void:
 	if game._current_status == game.TurnStatus.NONE:
-		var new_cpu: CPUCharacter = cpu_characters.pick_random()
-		while new_cpu == current_cpu:
-			new_cpu = cpu_characters.pick_random()
-		current_cpu = new_cpu
-		game.set_cpu(current_cpu)
-		character_sprite.texture = current_cpu.texture
-		door_character.texture = current_cpu.texture
 		game_manager.start_game()
 		game_started.emit()
 	MusicMan.play_music(AudioDictionary.music["DiceTheme"])
@@ -63,6 +67,14 @@ func game_over_func():
 	game.cleanup_dice()
 	print("Game Over")
 	game_over.emit(game.board.calculate_score(), game.cpu_board.calculate_score()) # left = players score, right = cpu's
+	var new_cpu: CPUCharacter = cpu_characters.pick_random()
+	while new_cpu == current_cpu:
+		new_cpu = cpu_characters.pick_random()
+	current_cpu = new_cpu
+	game.set_cpu(current_cpu)
+	character_sprite.texture = current_cpu.texture
+	door_character.texture = current_cpu.texture
+	door_character_env.texture = current_cpu.texture
 	pass
 	# all necessary game over / cleanup steps
 
