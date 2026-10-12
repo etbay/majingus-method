@@ -5,13 +5,6 @@
 [ext_resource type="Script" uid="uid://cv7wue06aqk7a" path="res://scripts/game/die_face_raycast.gd" id="3_e5bsa"]
 [ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scripts/game/mouse_click_detect.gd" id="3_kw4wr"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh8qp"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1rt75"]
-albedo_color = Color(0, 0, 0, 1)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_4xij6"]
 size = Vector3(0.15, 0.15, 0.15)
 
@@ -26,10 +19,6 @@ mesh = NodePath("dicemodel/Cube")
 
 [node name="dicemodel" parent="." unique_id=398892540 instance=ExtResource("2_kw4wr")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
-
-[node name="Cube" parent="dicemodel" index="0" unique_id=59275986]
-surface_material_override/0 = SubResource("StandardMaterial3D_eh8qp")
-surface_material_override/1 = SubResource("StandardMaterial3D_1rt75")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=233373875]
 transform = Transform3D(0.99999857, 0, -1.3500312e-13, 0, 1, 0, 2.2026825e-13, 0, 0.99999857, 0, 0, 0)

@@ -41,6 +41,7 @@ func _ready() -> void:
 	_move_timer.one_shot = true
 	add_child(_move_timer)
 	mouse_detect.mouse_clicked.connect(func(): die_clicked.emit())
+	match_current_die(Die.new(0))
 
 func _process(_delta: float) -> void:
 	if raycast_1.get_collider() is DieFaceDetect:
@@ -80,6 +81,7 @@ func roll() -> int:
 	return face_up
 
 func force_roll():
+	MusicMan.play_sound(AudioDictionary.sfx["Dice"])
 	can_roll = false
 	roll_started.emit()
 	_move_timer.start(0.05)
@@ -106,7 +108,50 @@ func _apply_random_force() -> void:
 
 func match_current_die(die: Die) -> void:
 	var mat = StandardMaterial3D.new()
+	_check_type(die)
 	mat.albedo_color = TextureDictionary.type_color_dict[die.get_type()]
 	mat.emission_enabled = true
 	mat.emission = mat.albedo_color
 	mesh.set_surface_override_material(0, mat)
+	var mat2 = StandardMaterial3D.new()
+	mat2.albedo_color = Color.BLACK
+	mesh.set_surface_override_material(1, mat2)
+	
+	if (die.get_type() == Die.DieType.WEIGHTED || die.get_type() == Die.DieType.LOW_ROLLER):
+		mesh.set_surface_override_material(0, mat2)
+		mesh.set_surface_override_material(1, mat)
+
+func _check_type(die: Die) -> void:
+	if (die.get_type() == Die.DieType.WEIGHTED):
+		_set_weighted()
+	elif (die.get_type() == Die.DieType.LOW_ROLLER):
+		_set_low_roller()
+	else:
+		_set_normal()
+
+func _set_normal() -> void:
+	mesh.mesh = TextureDictionary.type_mesh_dict[Die.DieType.NORMAL]
+	raycast_1.face_value = 1
+	raycast_2.face_value = 2
+	raycast_3.face_value = 3
+	raycast_4.face_value = 4
+	raycast_5.face_value = 5
+	raycast_6.face_value = 6
+
+func _set_weighted() -> void:
+	mesh.mesh = TextureDictionary.type_mesh_dict[Die.DieType.WEIGHTED]
+	raycast_1.face_value = 4
+	raycast_2.face_value = 4
+	raycast_3.face_value = 5
+	raycast_4.face_value = 5
+	raycast_5.face_value = 6
+	raycast_6.face_value = 6
+
+func _set_low_roller() -> void:
+	mesh.mesh = TextureDictionary.type_mesh_dict[Die.DieType.LOW_ROLLER]
+	raycast_1.face_value = 3
+	raycast_2.face_value = 2
+	raycast_3.face_value = 1
+	raycast_4.face_value = 2
+	raycast_5.face_value = 3
+	raycast_6.face_value = 1
