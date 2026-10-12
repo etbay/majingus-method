@@ -1,5 +1,7 @@
 class_name EnvironmentManager extends Node3D
 
+signal done_transitioning
+
 @onready var env_camera: Camera3D = $EnvironmentCamera
 @onready var game_camera: Camera3D = $Skarps/GameCamera
 @onready var shop_camera: Camera3D = $Shop/ShopCamera
@@ -18,10 +20,10 @@ var fading_in: bool = false
 func _ready() -> void:
 	game_ui.switch_to_environment()
 	current_camera.current = true
-	shop_interactable.item_clicked.connect(func(): 
+	GlobalSignals.switch_to_shop.connect(func(): 
 		switch_camera(shop_camera)
 		game_ui.switch_to_shop())
-	environment_gameboard.gameboard_clicked.connect(func(): 
+	GlobalSignals.switch_to_game.connect(func(): 
 		switch_camera(game_camera)
 		game_ui.switch_to_game())
 	exit_to_environment.mouse_clicked.connect(func():
@@ -42,4 +44,5 @@ func switch_camera(camera: Camera3D) -> void:
 	tween = create_tween()
 	tween.tween_property(fade_overlay, "color:a", 0.0, 0.5)
 	await tween.finished
+	done_transitioning.emit()
 	fade_overlay.visible = false

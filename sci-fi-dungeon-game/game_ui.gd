@@ -4,20 +4,24 @@ class_name GameUI extends CanvasLayer
 @onready var right_arrow: TextureRect = $RightArrow
 @onready var environment_camera: PanCamera = $"../EnvironmentCamera"
 @onready var down_arrow: MouseClickDetectUI = $DownArrow
+@onready var environment_system: EnvironmentManager = $".."
 
 func switch_to_shop() -> void:
+	await environment_system.done_transitioning
 	left_arrow.visible = false
 	right_arrow.visible = false
 	environment_camera.enabled = false
 	down_arrow.visible = true
 
 func switch_to_game() -> void:
+	await environment_system.done_transitioning
 	left_arrow.visible = false
 	right_arrow.visible = false
 	environment_camera.enabled = false
 	down_arrow.visible = true
 
 func switch_to_environment() -> void:
+	await environment_system.done_transitioning
 	left_arrow.visible = true
 	right_arrow.visible = true
 	environment_camera.enabled = true
