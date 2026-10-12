@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://cukfpuaoj7veg" path="res://assets/Doto/static/Doto-Black.ttf" id="4_2vras"]
 [ext_resource type="Texture2D" uid="uid://c6tth8a4sopmb" path="res://assets/icons/column_select_icon.png" id="4_jfdob"]
 [ext_resource type="Script" uid="uid://bnalm8rgbly05" path="res://scenes/board_display.gd" id="5_nebqc"]
+[ext_resource type="Script" uid="uid://c0k8uf37uu5a6" path="res://scripts/item_targeting.gd" id="5_vk6jj"]
 [ext_resource type="Script" uid="uid://cse2wxvuler4y" path="res://scenes/die_value_label.gd" id="6_uw2da"]
 [ext_resource type="Script" uid="uid://ceuax7xdl4okt" path="res://scenes/die_face_detect.gd" id="6_vbsse"]
 [ext_resource type="Texture2D" uid="uid://bnteqjhmjdncf" path="res://assets/icons/diceroll_status_icon.png" id="9_eh8qp"]
@@ -73,6 +74,12 @@ physics_die = NodePath("Die")
 cpu_physics_die = NodePath("../CPUGameboard/Die")
 cpu_board_display = NodePath("../CPUGameboard/Board")
 
+[node name="ItemTargeting" type="Node" parent="PlayerGameboard" unique_id=1476685491 node_paths=PackedStringArray("player_cells", "cpu_cells")]
+script = ExtResource("5_vk6jj")
+player_cells = [NodePath("../Board/Column0/Cell0"), NodePath("../Board/Column0/Cell1"), NodePath("../Board/Column0/Cell2"), NodePath("../Board/Column1/Cell0"), NodePath("../Board/Column1/Cell1"), NodePath("../Board/Column1/Cell2"), NodePath("../Board/Column2/Cell0"), NodePath("../Board/Column2/Cell1"), NodePath("../Board/Column2/Cell2"), NodePath("../Board/Column3/Cell0"), NodePath("../Board/Column3/Cell1"), NodePath("../Board/Column3/Cell2")]
+cpu_cells = [NodePath("../../CPUGameboard/Board/Column0/Cell0"), NodePath("../../CPUGameboard/Board/Column0/Cell1"), NodePath("../../CPUGameboard/Board/Column0/Cell2"), NodePath("../../CPUGameboard/Board/Column1/Cell0"), NodePath("../../CPUGameboard/Board/Column1/Cell1"), NodePath("../../CPUGameboard/Board/Column1/Cell2"), NodePath("../../CPUGameboard/Board/Column2/Cell0"), NodePath("../../CPUGameboard/Board/Column2/Cell1"), NodePath("../../CPUGameboard/Board/Column2/Cell2"), NodePath("../../CPUGameboard/Board/Column3/Cell0"), NodePath("../../CPUGameboard/Board/Column3/Cell1"), NodePath("../../CPUGameboard/Board/Column3/Cell2")]
+metadata/_custom_type_script = "uid://c0k8uf37uu5a6"
+
 [node name="Board" type="StaticBody3D" parent="PlayerGameboard" unique_id=1013850569]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021208914, 1.0768887, 0.35298258)
 collision_layer = 2
@@ -102,6 +109,7 @@ texture = ExtResource("4_jfdob")
 [node name="Cell0" type="Area3D" parent="PlayerGameboard/Board/Column0" unique_id=1277898364]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, -0.25856772)
 script = ExtResource("9_q5opd")
+coords = Array[int]([0, 0])
 
 [node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column0/Cell0" unique_id=626087545]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -113,6 +121,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column0" unique_id=1318877218]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
+coords = Array[int]([0, 1])
 
 [node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column0/Cell1" unique_id=866544155]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -124,6 +133,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell2" type="Area3D" parent="PlayerGameboard/Board/Column0" unique_id=1744503454]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
+coords = Array[int]([0, 2])
 
 [node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column0/Cell2" unique_id=1861515363]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -148,6 +158,7 @@ texture = ExtResource("4_jfdob")
 [node name="Cell0" type="Area3D" parent="PlayerGameboard/Board/Column1" unique_id=2096379432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, -0.25856772)
 script = ExtResource("9_q5opd")
+coords = Array[int]([1, 0])
 
 [node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column1/Cell0" unique_id=813801444]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -159,6 +170,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column1" unique_id=245026353]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
+coords = Array[int]([1, 1])
 
 [node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column1/Cell1" unique_id=779068485]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -170,6 +182,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell2" type="Area3D" parent="PlayerGameboard/Board/Column1" unique_id=767681608]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
+coords = Array[int]([1, 2])
 
 [node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column1/Cell2" unique_id=1854839742]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -194,6 +207,7 @@ texture = ExtResource("4_jfdob")
 [node name="Cell0" type="Area3D" parent="PlayerGameboard/Board/Column2" unique_id=201442584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, -0.25856772)
 script = ExtResource("9_q5opd")
+coords = Array[int]([2, 0])
 
 [node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column2/Cell0" unique_id=1494269956]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -205,6 +219,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column2" unique_id=1588317770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
+coords = Array[int]([2, 1])
 
 [node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column2/Cell1" unique_id=1263419704]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -216,6 +231,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell2" type="Area3D" parent="PlayerGameboard/Board/Column2" unique_id=465129858]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
+coords = Array[int]([2, 2])
 
 [node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column2/Cell2" unique_id=877435800]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -240,6 +256,7 @@ texture = ExtResource("4_jfdob")
 [node name="Cell0" type="Area3D" parent="PlayerGameboard/Board/Column3" unique_id=1448867621]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, -0.25856772)
 script = ExtResource("9_q5opd")
+coords = Array[int]([3, 0])
 
 [node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column3/Cell0" unique_id=392961599]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -251,6 +268,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column3" unique_id=2066032987]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
+coords = Array[int]([3, 1])
 
 [node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column3/Cell1" unique_id=1948246827]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -262,6 +280,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell2" type="Area3D" parent="PlayerGameboard/Board/Column3" unique_id=1197515797]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
+coords = Array[int]([3, 2])
 
 [node name="DieCell" type="Sprite3D" parent="PlayerGameboard/Board/Column3/Cell2" unique_id=319093634]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -402,6 +421,7 @@ texture = ExtResource("4_jfdob")
 [node name="Cell0" type="Area3D" parent="CPUGameboard/Board/Column0" unique_id=752671369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, -0.25856772)
 script = ExtResource("9_q5opd")
+coords = Array[int]([0, 0])
 
 [node name="DieCell" type="Sprite3D" parent="CPUGameboard/Board/Column0/Cell0" unique_id=130855409]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -413,6 +433,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell1" type="Area3D" parent="CPUGameboard/Board/Column0" unique_id=1053361545]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
+coords = Array[int]([0, 1])
 
 [node name="DieCell" type="Sprite3D" parent="CPUGameboard/Board/Column0/Cell1" unique_id=829371796]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -424,6 +445,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell2" type="Area3D" parent="CPUGameboard/Board/Column0" unique_id=1299620126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
+coords = Array[int]([0, 2])
 
 [node name="DieCell" type="Sprite3D" parent="CPUGameboard/Board/Column0/Cell2" unique_id=1103067541]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -448,6 +470,7 @@ texture = ExtResource("4_jfdob")
 [node name="Cell0" type="Area3D" parent="CPUGameboard/Board/Column1" unique_id=1988317717]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, -0.25856772)
 script = ExtResource("9_q5opd")
+coords = Array[int]([1, 0])
 
 [node name="DieCell" type="Sprite3D" parent="CPUGameboard/Board/Column1/Cell0" unique_id=48158240]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -459,6 +482,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell1" type="Area3D" parent="CPUGameboard/Board/Column1" unique_id=1006288049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
+coords = Array[int]([1, 1])
 
 [node name="DieCell" type="Sprite3D" parent="CPUGameboard/Board/Column1/Cell1" unique_id=1882927265]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -470,6 +494,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell2" type="Area3D" parent="CPUGameboard/Board/Column1" unique_id=31468976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
+coords = Array[int]([1, 2])
 
 [node name="DieCell" type="Sprite3D" parent="CPUGameboard/Board/Column1/Cell2" unique_id=1570463938]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -494,6 +519,7 @@ texture = ExtResource("4_jfdob")
 [node name="Cell0" type="Area3D" parent="CPUGameboard/Board/Column2" unique_id=1964268334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, -0.25856772)
 script = ExtResource("9_q5opd")
+coords = Array[int]([2, 0])
 
 [node name="DieCell" type="Sprite3D" parent="CPUGameboard/Board/Column2/Cell0" unique_id=2078412848]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -505,6 +531,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell1" type="Area3D" parent="CPUGameboard/Board/Column2" unique_id=736853421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
+coords = Array[int]([2, 1])
 
 [node name="DieCell" type="Sprite3D" parent="CPUGameboard/Board/Column2/Cell1" unique_id=1953780636]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -516,6 +543,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell2" type="Area3D" parent="CPUGameboard/Board/Column2" unique_id=1488693678]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
+coords = Array[int]([2, 2])
 
 [node name="DieCell" type="Sprite3D" parent="CPUGameboard/Board/Column2/Cell2" unique_id=1190795487]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -540,6 +568,7 @@ texture = ExtResource("4_jfdob")
 [node name="Cell0" type="Area3D" parent="CPUGameboard/Board/Column3" unique_id=1903892179]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, -0.25856772)
 script = ExtResource("9_q5opd")
+coords = Array[int]([3, 0])
 
 [node name="DieCell" type="Sprite3D" parent="CPUGameboard/Board/Column3/Cell0" unique_id=584790315]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -551,6 +580,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell1" type="Area3D" parent="CPUGameboard/Board/Column3" unique_id=1696539989]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
+coords = Array[int]([3, 1])
 
 [node name="DieCell" type="Sprite3D" parent="CPUGameboard/Board/Column3/Cell1" unique_id=1459043340]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)
@@ -562,6 +592,7 @@ shape = SubResource("BoxShape3D_7y72b")
 [node name="Cell2" type="Area3D" parent="CPUGameboard/Board/Column3" unique_id=1296872721]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
+coords = Array[int]([3, 2])
 
 [node name="DieCell" type="Sprite3D" parent="CPUGameboard/Board/Column3/Cell2" unique_id=400748025]
 transform = Transform3D(0.12, 1.0490732e-08, 4.5856447e-16, 0, -5.2453664e-09, 0.12, 1.0490732e-08, -0.12, -5.2453664e-09, 0, 0.026542902, 0)

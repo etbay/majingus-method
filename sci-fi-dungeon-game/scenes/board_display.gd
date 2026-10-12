@@ -19,3 +19,15 @@ func display_board(board: Board) -> void:
 	col_1.display(arr[1])
 	col_2.display(arr[2])
 	col_3.display(arr[3])
+
+func disable_columns() -> void:
+	col_0.collision.disabled = true
+	col_1.collision.disabled = true
+	col_2.collision.disabled = true
+	col_3.collision.disabled = true
+
+func enable_columns() -> void:
+	col_0.collision.disabled = false
+	col_1.collision.disabled = false
+	col_2.collision.disabled = false
+	col_3.collision.disabled = false

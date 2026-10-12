@@ -15,10 +15,8 @@ func player_take_turn() -> void:
 	game.take_turn()
 	await game.turn_finished
 	game_manager.turn_in_progress = false
-	print("turn finished")
 
 func cpu_take_turn() -> void:
 	game.take_cpu_turn()
 	await game.turn_finished
 	game_manager.turn_in_progress = false
-	print("cpu finished")
