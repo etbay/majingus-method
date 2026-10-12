@@ -25,7 +25,7 @@ func _on_status_changed(status: GameInterface.TurnStatus) -> void:
 		status_label.text = "Waiting for CPU"
 
 func _game_over(player_score: int, cpu_score: int) -> void:
-	status_icon.visble = false
+	status_icon.visible = false
 	if player_score >= cpu_score:
 		status_label.text = "YOU WON"
 	else:
