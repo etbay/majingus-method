@@ -13,7 +13,7 @@ var shivs: int = 3:
 
 var has_laser_gun: bool = false
 
-var balance: int = 1000:
+var balance: int = 0:
 	set(value):
 		if balance != value:
 			balance = value

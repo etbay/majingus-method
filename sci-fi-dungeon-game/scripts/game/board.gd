@@ -38,7 +38,7 @@ func calculate_gilded() -> int:
 			if die != null and die.get_type() == Die.DieType.GILDED and _board_dict[die.get_value()] != null:
 				var target: Array = _board_dict.get(str(die.get_value()))
 				if target != null:
-					money += maxi(target.size() - 1, 0) # add 1 money per matching die roll	
+					money += max(target.size() - 1, 0) * max(die.quality, 1) # add 1 money per matching die roll	
 	return money
 
 # accepts column index
@@ -47,24 +47,35 @@ func calculate_column_score(column: int) -> int:
 	for entry in _board_array[column]:
 		if entry != null:
 			column_dict.get_or_add(str(entry.get_value()), []).append(entry)
-	
+
 	var column_total = 0
 	for entry in column_dict:
 		if column_dict[entry].size() > 0:
 			var sum_values: int = 0
+			var mult_bonus: int = 0
 			for die in column_dict[entry]:
-				sum_values += die.get_value() + die.quality
-				if die.get_type() == Die.DieType.HOLLOW and _board_dict.get("empty") != null:
+				var type = die.get_type()
+				sum_values += type + die.quality
+				if type == Die.DieType.HOLLOW and _board_dict.get("empty") != null:
 					sum_values += _board_dict["empty"].size()
-				elif die.get_type() == Die.DieType.PLASMA:
-					sum_values += _get_row_matches(die.y, die.get_value())
-			column_total += sum_values * column_dict[entry].size()
+				elif type == Die.DieType.PLASMA:
+					sum_values += _get_row_matches(die.y, die.get_value()) * max(die.quality, 1)
+				elif type == Die.DieType.LOW_ROLLER:
+					mult_bonus += _get_column_matches(die.x, die.get_value())
+			column_total += sum_values * (column_dict[entry].size() + mult_bonus)
 	return column_total
 
 func _get_row_matches(row: int, face: int) -> int:
-	var matches: int = -1 # there will always be 1 match: the plasma die
+	var matches: int = -1 # there will always be 1 match: the target die
 	for i in range(0, WIDTH):
 		if _board_array[i][row] != null and _board_array[i][row].get_value() == face:
+			matches += 1
+	return matches
+
+func _get_column_matches(col: int, face: int) -> int:
+	var matches: int = -1 # there will always be 1 match: the target die
+	for i in range(0, WIDTH):
+		if _board_array[col][i] != null and _board_array[col][i].get_value() == face:
 			matches += 1
 	return matches
 
