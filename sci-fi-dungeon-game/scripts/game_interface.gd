@@ -215,5 +215,6 @@ func reset_board() -> void:
 	player_score = 0
 	cpu_score = 0
 	_current_status = TurnStatus.ROLLING
+	_current_status = TurnStatus.NONE
 	cpu_board_display.display_board(cpu_board)
 	board_display.display_board(board)
