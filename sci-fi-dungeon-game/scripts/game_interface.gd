@@ -59,6 +59,9 @@ func _ready() -> void:
 
 	start_game()
 
+func set_cpu(character: CPUCharacter) -> void:
+	cpu_ai = CPUAI.new(character.difficulty)
+
 func start_game() -> void:
 	player_score = 0
 	cpu_score = 0
