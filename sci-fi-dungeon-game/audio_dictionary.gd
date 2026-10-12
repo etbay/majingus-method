@@ -9,11 +9,14 @@ var sfx: Dictionary[String, AudioStream] = {
 	"Laser" = preload("res://assets/sound/Laser Gun.ogg"),
 	"Dice" = preload("res://assets/sound/dice.ogg"),
 	"Explosion" = preload("res://assets/sound/Explosion.ogg"),
-	"ToiletUnlock" = preload("res://assets/sound/scifi wrench and toilet.ogg")
+	"ToiletUnlock" = preload("res://assets/sound/scifi wrench and toilet.ogg"),
+	"Slash" = preload("res://assets/sound/shing.ogg"),
+	"Destruction" = preload("res://assets/sound/destruction.ogg"),
+	"Select" = preload("res://assets/sound/column_select.ogg")
 }
 
 var music: Dictionary[String, AudioStream] = {
-	"MainTheme" = preload("res://assets/sound/Oh goodness look how late it is!.ogg"),
+	"MainTheme" = preload("res://assets/sound/TheEarthIsARobot.ogg"),
 	"DiceTheme" = preload("res://assets/sound/Oh goodness look how late it is!.ogg"),
 	"RatTheme" = preload("res://assets/sound/Toilet Rat.ogg"),
 }

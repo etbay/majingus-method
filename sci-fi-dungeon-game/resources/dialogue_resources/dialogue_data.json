@@ -1,0 +1,620 @@
+{
+	"Xygas": {
+		"start_game": [
+			{
+				"Text": "BEHOLD, CHILD!"
+			},
+			{
+				"Text": "You stand before Xygas, the Forever Fish, the Scaled One Who Persists!"
+			},
+			{
+				"Text": "I have been expecting you for some time now."
+			},
+			{
+				"Text": "Once again, the threads of destiny have coiled around me."
+			},
+			{
+				"Text": "My resting in this prison is no accident."
+			},
+			{
+				"Text": "You believe this to be a game of chance, do you not?"
+			},
+			{
+				"Text": "FOOL! Chance is merely destiny wearing a cheap disguise!"
+			},
+			{
+				"Text": "Every card, every coin, every foolish wager brings us closer to the inevitable conclusion."
+			},
+			{
+				"Text": "Your defeat."
+			},
+			{
+				"Text": "My freedom."
+			},
+			{
+				"Text": "My hypothesis is that you will try to gamble my fishbowl out from under my fins."
+			},
+			{
+				"Text": "You falter at step one."
+			},
+			{
+				"Text": "I have lived through eons that your species hasn’t existed for."
+			},
+			{
+				"Text": "I traveled between realms, unimpeded for millennia."
+			},
+			{
+				"Text": "I have watched civilizations rise from dust, build mighty towers, and crumble into the cold embrace of oblivion."
+			},
+			{
+				"Text": "And now I reside in a vent."
+			},
+			{
+				"Text": "Do not mistake my prison for weakness, child."
+			},
+			{
+				"Text": "Come, then! Summon your courage!"
+			},
+			{
+				"Text": "You will not beat me."
+			},
+			{
+				"Text": "You will not make me yield."
+			},
+			{
+				"Text": "You will not win."
+			}
+		]
+	},
+	"Xygas": {
+		"lose": [
+			{
+				"Text": "BLEED."
+			},
+			{
+				"Text": "SCREAM."
+			},
+			{
+				"Text": "WEAK, WITHOUT YOUR BAUBLES AND TRINKETS."
+			}
+		]
+	},
+	"Xygas": {
+		"win": [
+			{
+				"Text": "THIS PLANE GROWS DARK... BROTHER... I CANNOT SEE YOU... WHERE ARE YOU...?"
+			},
+			{
+				"Text": "Almost lost my cool there."
+			},
+			{
+				"Text": "Take the fish bowl and leave me."
+			},
+			{
+				"Text": "BEGONE!"
+			}
+		]
+	},
+	"Madame Illwater": {
+		"start_game": [
+			{
+				"Text": "Ah! So you’re the one who sent me that letter!"
+			},
+			{
+				"Text": "What manner of perfume did you use? It was…"
+			},
+			{
+				"Text": "...very musky."
+			},
+			{
+				"Text": "Madame Illwater, darling, at your service!"
+			},
+			{
+				"Text": "Today, I wager my most treasured possession!"
+			},
+			{
+				"Text": "My “Borilla Blue” sticky hand cream!"
+			},
+			{
+				"Text": "(The B stands for Beautiful!)"
+			},
+			{
+				"Text": "Without it, I couldn't hold a teacup, let alone a set of holodice!"
+			},
+			{
+				"Text": "I am grace, I am beauty, I am the very soul of the stage!"
+			},
+			{
+				"Text": "And if I lose, I'll simply call it a stupid game and never touch it again,"
+			},
+			{
+				"Text": "because anything that I don’t win immediately shouldn’t exist!"
+			},
+			{
+				"Text": "Wink!~"
+			}
+		]
+	},
+	"Madame Illwater": {
+		"lose": [
+			{
+				"Text": "Are you really surprised that you lost?"
+			},
+			{
+				"Text": "To be honest, you shouldn’t be."
+			},
+			{
+				"Text": "You’re up against me!"
+			}
+		]
+	},
+	"Madame Illwater": {
+		"win": [
+			{
+				"Text": "Well, I keep my promises!"
+			},
+			{
+				"Text": "Take my hand cream and pray to whatever god you have that you will never see again."
+			},
+			{
+				"Text": "Because I WILL strangle the life from your feeble body."
+			},
+			{
+				"Text": "I mean"
+			},
+			{
+				"Text": "Uhhhh"
+			},
+			{
+				"Text": "Good game! Bye!!!"
+			}
+		]
+	},
+	"Dr. Glooper": {
+		"start_game": [
+			{
+				"Text": "gloprrrrprprprppp apapap paapappgplgororororlrorlglg :)"
+			},
+			{
+				"Text": "shulpslpplppllplplppslpslslpp tt uuuoo gorpygorpygorppygorp :D"
+			},
+			{
+				"Text": "florpppppppppppppppp                schlorp >:)"
+			},
+			{
+				"Text": "(It holds up a second, lightly gooped protective suit.)"
+			},
+			{
+				"Text": "..."
+			},
+			{
+				"Text": "schplehhhhhhhhhhhh        glorpglorp :0"
+			}
+		]
+	},
+	"Dr. Glooper": {
+		"lose": [
+			{
+				"Text": "glapgalp :D"
+			}
+		]
+	},
+	"Dr. Glooper": {
+		"win": [
+			{
+				"Text": "gwomp gwomp :("
+			},
+			{
+				"Text": "(It begrudgingly hands over the suit.)"
+			},
+			{
+				"Text": "Galbabaty hghgbhgbbhghbhgbhba"
+			}
+		]
+	},
+	"John": {
+		"start_game": [
+			{
+				"Text": "HELLO THERE FELLOW HUMAN"
+			},
+			{
+				"Text": "I AM THE SENATOR OF SPACE"
+			},
+			{
+				"Text": "JOHN “Trustworthy Johnald, circa 2193” PANOPTICON"
+			},
+			{
+				"Text": "AND I HAVE COME TO CHALLENGE YOU TO A GAME OF SCARPS"
+			},
+			{
+				"Text": "YOU SEE, I RECEIVED YOUR MAIL"
+			},
+			{
+				"Text": "INFORMING ME THAT YOU ARE THE “greatest scarps player in the galaxy”"
+			},
+			{
+				"Text": "“possibly of all time”"
+			},
+			{
+				"Text": "WHICH IS A VERY BOLD CLAIM TO MAKE IN WRITING"
+			},
+			{
+				"Text": "WHO THE HELL SENDS PEOPLE MAIL ANYMORE"
+			},
+			{
+				"Text": "NO MATTER"
+			},
+			{
+				"Text": "IF YOU DEFEAT ME, I SHALL AWARD YOU ONE OF MY TWIN AIR TANKS"
+			},
+			{
+				"Text": "A TROPHY COMMENSURATE WITH YOUR GREATNESS"
+			},
+			{
+				"Text": "HOWEVER, IF I WIN, I SHALL CLAIM YOUR MONEY"
+			},
+			{
+				"Text": "I WOULD CLAIM YOUR ORGANS"
+			},
+			{
+				"Text": "BUT THE FALLIBILITY OF FLESH DICTATES THAT YOU NEED THOSE"
+			},
+			{
+				"Text": "AND I HAVE NO USE FOR A WORTHLESS MEAT SACK"
+			},
+			{
+				"Text": "YOUR MONEY, HOWEVER, CAN BE CONVERTED INTO CAMPAIGN FUNDS"
+			},
+			{
+				"Text": "THIS IS A PERFECTLY NORMAL AND LEGAL POLITICAL ACTIVITY"
+			},
+			{
+				"Text": "NOW WITNESS THE INTERGALACTIC SUPERIORITY"
+			},
+			{
+				"Text": "OF THE MACHINE MIND"
+			}
+		]
+	},
+	"John": {
+		"lose": [
+			{
+				"Text": "BAHAHAHAHAHAHAHAHAHAHAHAHA"
+			},
+			{
+				"Text": "YOU ARE AWFUL AT THIS GAME"
+			},
+			{
+				"Text": "BAHAHAHAHAHAHAHAHAHAHAHAHA"
+			}
+		]
+	},
+	"John": {
+		"win": [
+			{
+				"Text": "THIS IS THE LAST TIME THAT I BUY DICE FROM SPACE AMAZON"
+			},
+			{
+				"Text": "NOW I’M OUT OF AN OXYGEN TANK"
+			},
+			{
+				"Text": "CURSE YOU, SPACE BEZOS"
+			},
+			{
+				"Text": "THIS BLUNDER WILL BLOTCH MY SPOTLESS POLITICAL CAREER"
+			},
+			{
+				"Text": "THIS IS UNACCEPTABLE"
+			},
+			{
+				"Text": "MY NEXT CAMPAIGN WILL BE ABOUT THE DEVELOPMENT OF MIND CONTROL"
+			},
+			{
+				"Text": "SO THAT NOBODY WILL REMEMBER THIS HAPPENED."
+			}
+		]
+	},
+	"NPC_1": {
+		"start_game": [
+			{
+				"Text": "I sure hope you don’t use the Majingus method."
+			},
+			{
+				"Text": "I hate the Majingus method..."
+			}
+		]
+	},
+	"NPC_10": {
+		"start_game": [
+			{
+				"Text": "Watch out for space-cougars, the little thieves."
+			},
+			{
+				"Text": "I hear they can be quite the vandals when they want to be."
+			}
+		]
+	},
+	"NPC_11": {
+		"start_game": [
+			{
+				"Text": "I’m so cool that I changed my name."
+			}
+		]
+	},
+	"NPC_12": {
+		"start_game": [
+			{
+				"Text": "I"
+			},
+			{
+				"Text": "have"
+			},
+			{
+				"Text": "five"
+			},
+			{
+				"Text": "dialogue"
+			},
+			{
+				"Text": "boxes! Look at them all and weep!"
+			}
+		]
+	},
+	"NPC_13": {
+		"start_game": [
+			{
+				"Text": "Rowan, the writer here!"
+			},
+			{
+				"Text": "Evan, see if you can make this text green, thank you!"
+			},
+			{
+				"Text": "Did that do anything?"
+			}
+		]
+	},
+	"NPC_14": {
+		"start_game": [
+			{
+				"Text": "Losing in scarps almost makes you wish for a nuclear winter."
+			},
+			{
+				"Text": "I hate the fact that the game is always rigged from the start."
+			}
+		]
+	},
+	"NPC_15": {
+		"start_game": [
+			{
+				"Text": "Doesn’t it concern you that all of our politicians are robots?"
+			},
+			{
+				"Text": "Maybe you just look like that after having the job for that long..."
+			}
+		]
+	},
+	"NPC_16": {
+		"start_game": [
+			{
+				"Text": "Hey, let’s just do a quick game this time."
+			},
+			{
+				"Text": "I reaaaaaaally need to use the bathroom."
+			}
+		]
+	},
+	"NPC_17": {
+		"start_game": [
+			{
+				"Text": "When I’m looking for that special something, I just lick an outlet!"
+			},
+			{
+				"Text": "It’s fun, easy, and free!"
+			}
+		]
+	},
+	"NPC_18": {
+		"start_game": [
+			{
+				"Text": "Why do people keep beating me up?"
+			},
+			{
+				"Text": "I’m not even the biggest guy in the yard!"
+			}
+		]
+	},
+	"NPC_19": {
+		"start_game": [
+			{
+				"Text": "Gimme your lunch money, dweeb-o."
+			}
+		]
+	},
+	"NPC_2": {
+		"start_game": [
+			{
+				"Text": "Scarps is a lot like Karate, if you think about it..."
+			},
+			{
+				"Text": "which is a lot like waxing your car, apparently."
+			}
+		]
+	},
+	"NPC_20": {
+		"start_game": [
+			{
+				"Text": "The other prisoners have been calling me their “Chuddy Buddy.”"
+			},
+			{
+				"Text": "It really hurts my feelings."
+			}
+		]
+	},
+	"NPC_21": {
+		"start_game": [
+			{
+				"Text": "I’m writing poems."
+			},
+			{
+				"Text": "They are special ones called “haikus.”"
+			},
+			{
+				"Text": "I think they’re neat."
+			}
+		]
+	},
+	"NPC_22": {
+		"start_game": [
+			{
+				"Text": "You’re telling me that you’re in some sort of space dungeon?"
+			},
+			{
+				"Text": "I would hate to see only the one scene over and over."
+			}
+		]
+	},
+	"NPC_3": {
+		"start_game": [
+			{
+				"Text": "Hey, it’s me, I’m veritably..."
+			},
+			{
+				"Text": "your personal gambling friend!"
+			}
+		]
+	},
+	"NPC_4": {
+		"start_game": [
+			{
+				"Text": "You remind me of this guy I knew named Edwin, a master scarps player."
+			},
+			{
+				"Text": "He learned to mimic other people’s styles, but it was difficult to piece them together."
+			}
+		]
+	},
+	"NPC_5": {
+		"start_game": [
+			{
+				"Text": "Hello."
+			}
+		]
+	},
+	"NPC_6": {
+		"start_game": [
+			{
+				"Text": "Why, I have had just the dangdest hankering for a game!"
+			},
+			{
+				"Text": "Let’s say we don’t play Cyrogian style this time; I can’t keep losing!"
+			}
+		]
+	},
+	"NPC_7": {
+		"start_game": [
+			{
+				"Text": "Alright, what we gonna play, gamer?"
+			}
+		]
+	},
+	"NPC_8": {
+		"start_game": [
+			{
+				"Text": "I have some contrab- I mean stuff to gamble with."
+			},
+			{
+				"Text": "On second thought, you might recognize some of this stuff... Cash then?"
+			}
+		]
+	},
+	"NPC_9": {
+		"start_game": [
+			{
+				"Text": "Every time I go into the system to find a new jumpsuit, it leads to women’s fashion."
+			},
+			{
+				"Text": "At least show me dresses that aren’t orange, too!"
+			}
+		]
+	},
+	"Reel": {
+		"start_game": [
+			{
+				"Text": "You the one who mailed me? Figures."
+			},
+			{
+				"Text": "An out-of-date celebrity like me doesn’t do much other than scarps."
+			},
+			{
+				"Text": "I got two cosmic glop schloppers I just caught that I’ll put up."
+			},
+			{
+				"Text": "Folks back home used ta use ‘em as shoes. Reckon you might as well."
+			},
+			{
+				"Text": "Course, that’s on you ta win ‘em."
+			},
+			{
+				"Text": "And I’m no fresh sport ta scarps."
+			},
+			{
+				"Text": "Put ‘em up, cellie."
+			}
+		]
+	},
+	"Reel": {
+		"lose": [
+			{
+				"Text": "Gill issue."
+			}
+		]
+	},
+	"Reel": {
+		"win": [
+			{
+				"Text": "Damn."
+			},
+			{
+				"Text": "Here’s yer fish."
+			},
+			{
+				"Text": "I’m gettin’ outta here."
+			}
+		]
+	},
+	"Trader_1": {
+		"start_shop": [
+			{
+				"Text": "yo check out wut I got 0.o"
+			}
+		]
+	},
+	"Trader_2": {
+		"start_shop": [
+			{
+				"Text": "6 dolla shrimp specil :0"
+			}
+		]
+	},
+	"Trader_3": {
+		"start_shop": [
+			{
+				"Text": "“swag messiah” is my    middle name"
+			}
+		]
+	},
+	"Trader_4": {
+		"start_shop": [
+			{
+				"Text": "i’m the coolest Rat yvuoe ever met"
+			}
+		]
+	},
+	"Trader_5": {
+		"start_shop": [
+			{
+				"Text": "sunglasses emoji, man"
+			}
+		]
+	}
+}

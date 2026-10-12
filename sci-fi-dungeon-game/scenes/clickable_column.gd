@@ -32,10 +32,12 @@ func _process(_delta: float) -> void:
 
 func _select() -> void:
 	if is_full:
+		MusicMan.play_sound(AudioDictionary.sfx["Fail"])
 		return
 	
 	hoverable = false
 	select_sprite.visible = false
+	MusicMan.play_sound(AudioDictionary.sfx["Select"])
 	selected.emit(die)
 	#for cell in cells:
 		#if cell.value == 0:
