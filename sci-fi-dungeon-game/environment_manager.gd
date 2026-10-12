@@ -11,8 +11,10 @@ signal done_transitioning
 @onready var fade_overlay: ColorRect = $CanvasLayer/ColorRect
 @onready var environment_gameboard: EnvironmentGameboard = $Environment/EnvironmentGameboard
 @onready var shop_interactable: InteractableObject = $Environment/Shop
+@onready var skarps_board: GameDisplay = $Skarps/SkarpsBoard
 
 @export var current_camera: Camera3D
+
 
 var fading_black: bool = false
 var fading_in: bool = false
@@ -29,6 +31,8 @@ func _ready() -> void:
 	exit_to_environment.mouse_clicked.connect(func():
 		switch_camera(env_camera)
 		game_ui.switch_to_environment())
+	skarps_board.game_started.connect(_on_game_start)
+	skarps_board.game_over.connect(_on_game_over)
 
 func switch_camera(camera: Camera3D) -> void:
 	fading_black = true
@@ -46,3 +50,9 @@ func switch_camera(camera: Camera3D) -> void:
 	await tween.finished
 	done_transitioning.emit()
 	fade_overlay.visible = false
+
+func _on_game_start() -> void:
+	exit_to_environment.visible = false
+
+func _on_game_over() -> void:
+	exit_to_environment.visible = true

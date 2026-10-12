@@ -15,15 +15,19 @@ func _ready() -> void:
 
 func player_cell_selected(pos: Array[int]) -> void:
 	if (clickable):
-		pos.push_front(1)
+		var arr: Array[int] = []
+		arr.assign(pos)
+		arr.push_front(0)
 		print("Broadcasted player cell click")
-		selected.emit(pos)
+		selected.emit(arr)
 
 func cpu_cell_selected(pos: Array[int]) -> void:
 	if (clickable):
-		pos.push_front(0)
+		var arr: Array[int] = []
+		arr.assign(pos)
+		arr.push_front(0)
 		print("Broadcasted cpu cell click")
-		selected.emit(pos)
+		selected.emit(arr)
 
 func disable_cells():
 	for cell in player_cells:

@@ -80,7 +80,7 @@ func take_cpu_turn() -> void:
 	cpu_die_details.display(cpu_die)
 	cpu_physics_die.match_current_die(cpu_die)
 	var value = await cpu_physics_die.force_roll()
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0).timeout
 	cpu_die.set_value(value)
 	
 	var cpu_col = cpu_ai.choose_column(cpu_die, board, cpu_board)

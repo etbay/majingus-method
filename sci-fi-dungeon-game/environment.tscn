@@ -145,8 +145,8 @@ render_priority = 2
 texture = ExtResource("12_w1st6")
 script = ExtResource("8_7q7v2")
 hover_highlight = Color(0.99416226, 0.95142263, 0.7193252, 1)
-highlight_target = NodePath(".")
 this_one_is_the_shop = true
+highlight_target = NodePath(".")
 
 [node name="Area3D" type="Area3D" parent="Environment/Shop" unique_id=1321879679]
 
