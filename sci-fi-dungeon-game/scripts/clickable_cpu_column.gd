@@ -15,6 +15,7 @@ var no_matches: bool:
 
 func _select() -> void:
 	if is_full || is_empty || no_matches:
+		MusicMan.play_sound(AudioDictionary.sfx["Fail"])
 		return
 	
 	hoverable = false

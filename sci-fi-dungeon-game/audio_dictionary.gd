@@ -13,7 +13,7 @@ var sfx: Dictionary[String, AudioStream] = {
 }
 
 var music: Dictionary[String, AudioStream] = {
-	"MainTheme" = preload("res://assets/sound/Oh goodness look how late it is!.ogg"),
+	"MainTheme" = preload("res://assets/sound/TheEarthIsARobot.ogg"),
 	"DiceTheme" = preload("res://assets/sound/Oh goodness look how late it is!.ogg"),
 	"RatTheme" = preload("res://assets/sound/Toilet Rat.ogg"),
 }
