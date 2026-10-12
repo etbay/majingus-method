@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://boavr8qtqy0od" path="res://scripts/game/physics_die.gd" id="1_hvcds"]
 [ext_resource type="PackedScene" uid="uid://cd8f6uaimibn8" path="res://assets/dicemodel.glb" id="2_kw4wr"]
+[ext_resource type="Script" uid="uid://cv7wue06aqk7a" path="res://scripts/game/die_face_raycast.gd" id="3_e5bsa"]
 [ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scripts/game/mouse_click_detect.gd" id="3_kw4wr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh8qp"]
@@ -35,29 +36,52 @@ transform = Transform3D(0.99999857, 0, -1.3500312e-13, 0, 1, 0, 2.2026825e-13, 0
 shape = SubResource("BoxShape3D_4xij6")
 metadata/_edit_lock_ = true
 
-[node name="RayCast_1" type="RayCast3D" parent="." unique_id=368990537]
+[node name="RayCast_1" type="RayCast3D" parent="." unique_id=931676706]
+transform = Transform3D(0.9999985, 0, -1.350031e-13, 0, 1, 0, 2.2026823e-13, 0, 0.9999985, 0, 0, 0)
 target_position = Vector3(0, -3, 0)
 collision_mask = 3
+script = ExtResource("3_e5bsa")
+metadata/_custom_type_script = "uid://cv7wue06aqk7a"
 
-[node name="RayCast_3" type="RayCast3D" parent="." unique_id=1340751693]
-target_position = Vector3(0, 3, 0)
-collision_mask = 3
-
-[node name="RayCast_6" type="RayCast3D" parent="." unique_id=165683568]
-target_position = Vector3(-3, 0, 0)
-collision_mask = 3
-
-[node name="RayCast_5" type="RayCast3D" parent="." unique_id=400223338]
-target_position = Vector3(3, 0, 0)
-collision_mask = 3
-
-[node name="RayCast_2" type="RayCast3D" parent="." unique_id=1621875902]
+[node name="RayCast_2" type="RayCast3D" parent="." unique_id=1539613676]
+transform = Transform3D(0.9999985, 0, -1.350031e-13, 0, 1, 0, 2.2026823e-13, 0, 0.9999985, 0, 0, 0)
 target_position = Vector3(0, 0, -3)
 collision_mask = 3
+script = ExtResource("3_e5bsa")
+face_value = 2
+metadata/_custom_type_script = "uid://cv7wue06aqk7a"
 
-[node name="RayCast_4" type="RayCast3D" parent="." unique_id=378478112]
+[node name="RayCast_3" type="RayCast3D" parent="." unique_id=384558302]
+transform = Transform3D(0.9999985, 0, -1.350031e-13, 0, 1, 0, 2.2026823e-13, 0, 0.9999985, 0, 0, 0)
+target_position = Vector3(0, 3, 0)
+collision_mask = 3
+script = ExtResource("3_e5bsa")
+face_value = 3
+metadata/_custom_type_script = "uid://cv7wue06aqk7a"
+
+[node name="RayCast_4" type="RayCast3D" parent="." unique_id=1687933072]
+transform = Transform3D(0.9999985, 0, -1.350031e-13, 0, 1, 0, 2.2026823e-13, 0, 0.9999985, 0, 0, 0)
 target_position = Vector3(0, 0, 3)
 collision_mask = 3
+script = ExtResource("3_e5bsa")
+face_value = 4
+metadata/_custom_type_script = "uid://cv7wue06aqk7a"
+
+[node name="RayCast_5" type="RayCast3D" parent="." unique_id=2131020268]
+transform = Transform3D(0.9999985, 0, -1.350031e-13, 0, 1, 0, 2.2026823e-13, 0, 0.9999985, 0, 0, 0)
+target_position = Vector3(3, 0, 0)
+collision_mask = 3
+script = ExtResource("3_e5bsa")
+face_value = 5
+metadata/_custom_type_script = "uid://cv7wue06aqk7a"
+
+[node name="RayCast_6" type="RayCast3D" parent="." unique_id=956919026]
+transform = Transform3D(0.9999985, 0, -1.350031e-13, 0, 1, 0, 2.2026823e-13, 0, 0.9999985, 0, 0, 0)
+target_position = Vector3(-3, 0, 0)
+collision_mask = 3
+script = ExtResource("3_e5bsa")
+face_value = 6
+metadata/_custom_type_script = "uid://cv7wue06aqk7a"
 
 [node name="MouseDetect" type="Area3D" parent="." unique_id=140536022]
 script = ExtResource("3_kw4wr")

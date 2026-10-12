@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://bnalm8rgbly05" path="res://scripts/game/board_display.gd" id="5_nebqc"]
 [ext_resource type="Script" uid="uid://c0k8uf37uu5a6" path="res://scripts/game/item_targeting.gd" id="5_vk6jj"]
 [ext_resource type="Script" uid="uid://cse2wxvuler4y" path="res://scripts/game/ui/die_value_label.gd" id="6_uw2da"]
-[ext_resource type="Script" uid="uid://ceuax7xdl4okt" path="res://scripts/game/die_face_detect.gd" id="6_vbsse"]
+[ext_resource type="Script" uid="uid://b4nxk1xyiirct" path="res://scripts/game/die_face_detect.gd" id="6_vbsse"]
 [ext_resource type="Texture2D" uid="uid://bnteqjhmjdncf" path="res://assets/icons/diceroll_status_icon.png" id="9_eh8qp"]
 [ext_resource type="Script" uid="uid://brnruomtpb5sn" path="res://scripts/game/cell_display.gd" id="9_q5opd"]
 [ext_resource type="FontFile" uid="uid://s2spjex2vfst" path="res://assets/Source_Code_Pro/static/SourceCodePro-Bold.ttf" id="11_1rt75"]

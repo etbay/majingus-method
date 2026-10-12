@@ -7,12 +7,12 @@ signal roll_finished
 
 @export var reset_location: Node3D
 
-@onready var raycast_1: RayCast3D = $RayCast_1
-@onready var raycast_2: RayCast3D = $RayCast_2
-@onready var raycast_3: RayCast3D = $RayCast_3
-@onready var raycast_4: RayCast3D = $RayCast_4
-@onready var raycast_5: RayCast3D = $RayCast_5
-@onready var raycast_6: RayCast3D = $RayCast_6
+@onready var raycast_1: DieFaceRaycast = $RayCast_1
+@onready var raycast_2: DieFaceRaycast = $RayCast_2
+@onready var raycast_3: DieFaceRaycast = $RayCast_3
+@onready var raycast_4: DieFaceRaycast = $RayCast_4
+@onready var raycast_5: DieFaceRaycast = $RayCast_5
+@onready var raycast_6: DieFaceRaycast = $RayCast_6
 @onready var mouse_detect: MouseClickDetect = $MouseDetect
 @export var mesh: MeshInstance3D
 
@@ -44,17 +44,17 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if raycast_1.get_collider() is DieFaceDetect:
-		face_up = 1
+		face_up = raycast_1.face_value
 	elif raycast_2.get_collider() is DieFaceDetect:
-		face_up = 2
+		face_up = raycast_2.face_value
 	elif raycast_3.get_collider() is DieFaceDetect:
-		face_up = 3
+		face_up = raycast_3.face_value
 	elif raycast_4.get_collider() is DieFaceDetect:
-		face_up = 4
+		face_up = raycast_4.face_value
 	elif raycast_5.get_collider() is DieFaceDetect:
-		face_up = 5
+		face_up = raycast_5.face_value
 	elif raycast_6.get_collider() is DieFaceDetect:
-		face_up = 6
+		face_up = raycast_6.face_value
 	
 	if _rolling and _move_timer.is_stopped():
 		_rolling = false
