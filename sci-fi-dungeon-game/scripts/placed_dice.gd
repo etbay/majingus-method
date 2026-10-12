@@ -26,6 +26,9 @@ func _init(value: int = 0, type: DieType = DieType.NORMAL, qual: int = 0):
 func get_value() -> int:
 	return _value
 
+func set_value(value: int) -> void:
+	_value = value
+
 func roll_die() -> int:
 	_value = _faces[randi_range(0, _faces.size() - 1)]
 	return _value

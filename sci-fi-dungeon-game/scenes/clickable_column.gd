@@ -3,9 +3,10 @@ class_name DisplayColumn extends Area3D
 signal selected(Die)
 
 @onready var select_sprite: Sprite3D = $SelectSprite
+@onready var collision: CollisionShape3D = $CollisionShape3D
 @export var player_gameboard: GameInterface
 
-@export var cells: Array[CellDisplay]
+@export var cells: Array[CellDisplay] = []
 var hoverable: bool = false
 var mouse_hovered: bool = false
 var is_full: bool:
@@ -35,15 +36,17 @@ func _select() -> void:
 	
 	hoverable = false
 	select_sprite.visible = false
-	for cell in cells:
-		if cell.value == 0:
-			cell.set_value(last_roll_value)
-			die = Die.new(last_roll_value)
-			selected.emit(die)
-			return
+	selected.emit(die)
+	#for cell in cells:
+		#if cell.value == 0:
+			#cell.set_value(last_roll_value)
+			#die = Die.new(last_roll_value)
+			#selected.emit(die)
+	return
 
-func _on_die_rolled(die_val: int) -> void:
-	last_roll_value = die_val
+func _on_die_rolled(die_val: Die) -> void:
+	last_roll_value = die_val.get_value()
+	die = die_val
 	hoverable = true
 	if mouse_hovered:
 		select_sprite.visible = true
@@ -60,3 +63,10 @@ func _on_mouse_exited() -> void:
 	mouse_hovered = false
 	if hoverable:
 		select_sprite.visible = false
+
+func display(arr: Array[Die]) -> void:
+	for i in range(0, Board.HEIGHT):
+		if (arr[i] != null and arr[i].get_value() != 0):
+			cells[i].set_value(arr[i].get_value())
+		else:
+			cells[i].make_invisible()
