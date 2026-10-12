@@ -17,9 +17,10 @@ func _process(_delta: float) -> void:
 	if mouse_hovered and Input.is_action_just_pressed("skarps_interact"):
 		cell_clicked.emit(coords)
 
-func set_value(val: int) -> void:
-	value = val
-	die_cell.texture = TextureDictionary.die_val_dict[val]
+func set_value(val: Die) -> void:
+	value = val.get_value()
+	die_cell.texture = TextureDictionary.die_val_dict[value]
+	die_cell.modulate = TextureDictionary.type_color_dict[val.get_type()]
 
 func make_invisible() -> void:
 	value = 0

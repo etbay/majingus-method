@@ -9,9 +9,11 @@ signal status_changed(new_status: TurnStatus)
 @onready var player_score_label: Label3D = $"../RightConsole/Score/ScoreNumberLabel"
 @onready var shiv_button: MouseClickDetect = $"../LeftButton/MouseClickDetect"
 @onready var laser_button: MouseClickDetect = $"../RightButton/MouseClickDetect"
+@onready var player_die_details: DieTypeDisplay = $Board/DieTypeDisplay
 
 @export var cpu_physics_die: PhysicsDie
 @export var cpu_board_display: BoardDisplay
+@onready var cpu_die_details: DieTypeDisplay = $"../CPUGameboard/Board/DieTypeDisplay"
 @onready var cpu_score_label: Label3D = $"../LeftConsole/Background/Score/ScoreNumberLabel"
 
 @onready var board_display_wrapper: BoardSelectedWrapper = BoardSelectedWrapper.new(board_display, cpu_board_display)
@@ -19,9 +21,8 @@ signal status_changed(new_status: TurnStatus)
 @onready var item_targeting: ItemTargeting = $"ItemTargeting"
 
 var cpu_board := Board.new()
-var cpu_ai := CPUAI.new() # fill with challenge level
+var cpu_ai := CPUAI.new(10) # fill with challenge level
 
-var dice_bag := DiceBag.new()
 var board := Board.new()
 var player_score: int = -1:
 	set(value):
@@ -34,9 +35,6 @@ var cpu_score: int = -1:
 		if cpu_score != value:
 			cpu_score = value
 			cpu_score_label.text = "%d" % cpu_score
-
-var shiv_count: int = 3
-var laser_count: int = 1
 
 enum TurnStatus
 {
@@ -56,6 +54,7 @@ func _ready() -> void:
 	board_display_wrapper.column_selected.connect(_on_column_selected)
 	shiv_button.mouse_clicked.connect(_on_shiv_selected)
 	laser_button.mouse_clicked.connect(_on_laser_selected)
+
 	start_game()
 
 func start_game() -> void:
@@ -64,17 +63,21 @@ func start_game() -> void:
 func take_turn() -> void:
 	die_rolled.emit(await roll_die())
 	physics_die.can_roll = false
-	print("die has been rolled")
+	#print("die has been rolled")
 	await select_column()
 
 func take_cpu_turn() -> void:
 	_current_status = TurnStatus.WAITING_FOR_TURN
 	cpu_physics_die.can_roll = true
+	var cpu_die = cpu_ai.dice_bag.get_die()
+	cpu_die_details.display(cpu_die)
+	cpu_physics_die.match_current_die(cpu_die)
 	var value = await cpu_physics_die.force_roll()
 	await get_tree().create_timer(1).timeout
-	var cpu_die = cpu_ai.dice_bag.get_die()
 	cpu_die.set_value(value)
+	
 	var cpu_col = cpu_ai.choose_column(cpu_die, board, cpu_board)
+	
 	if (cpu_col < 4):
 		# on cpu board
 		cpu_board.place_dice(cpu_col, cpu_die)
@@ -82,9 +85,12 @@ func take_cpu_turn() -> void:
 		cpu_board_display.display_board(cpu_board)
 	else:
 		# attacking player
-		board.attack_column(cpu_col - 4, cpu_die)
+		var destroyed = board.attack_column(cpu_col - 4, cpu_die)
 		player_score = board.calculate_score()
 		board_display.display_board(board)
+		for dead_die in destroyed:
+			cpu_ai.dice_bag.return_dice(dead_die)
+		cpu_ai.dice_bag.return_dice(cpu_die)
 	turn_finished.emit()
 
 
@@ -100,8 +106,10 @@ func select_column() -> void:
 func roll_die() -> Die:
 	_current_status = TurnStatus.ROLLING
 	physics_die.can_roll = true
+	var player_die = PlayerInventory.dice_bag.get_die()
+	player_die_details.display(player_die)
+	physics_die.match_current_die(player_die)
 	var value = await physics_die.roll()
-	var player_die = dice_bag.get_die()
 	player_die.set_value(value)
 	return player_die
 
@@ -116,33 +124,42 @@ func _on_column_selected(column: int, die: Die) -> void:
 		var destroyed = cpu_board.attack_column(column - 4, die)
 		cpu_score = cpu_board.calculate_score()
 		cpu_board_display.display_board(cpu_board)
+		for dead_die in destroyed:
+			cpu_ai.dice_bag.return_dice(dead_die)
+		PlayerInventory.dice_bag.return_dice(die)
 	turn_finished.emit()
 
 func _on_shiv_selected() -> void:
-	if (_current_status != TurnStatus.WAITING_FOR_TURN and _current_status != TurnStatus.USING_ITEM and shiv_count > 0):
+	if (_current_status != TurnStatus.WAITING_FOR_TURN and _current_status != TurnStatus.USING_ITEM and PlayerInventory.shivs > 0):
 		var prev_status = _current_status
 		_current_status = TurnStatus.USING_ITEM
 		cpu_board_display.disable_columns()
 		board_display.disable_columns()
 		item_targeting.enable_cells()
 		item_targeting.clickable = true
-		print("shiv selected")
 		var pos = await item_targeting.selected
-		print("target selected")
 		var destroyed: Die
 		if pos[0] == 1:
 			#player board
 			destroyed = board.destroy_die(pos[1], pos[2])
+			if (destroyed == null):
+				_current_status = prev_status
+				return
 			player_score = board.calculate_score()
 			board_display.display_board(board)
-			cpu_ai.dice_bag.return_dice(destroyed)
+			PlayerInventory.dice_bag.return_dice(destroyed)
 		elif pos[0] == 0:
 			#cpu board
 			destroyed = cpu_board.destroy_die(pos[1], pos[2])
+			if (destroyed == null):
+				_current_status = prev_status
+				return
 			cpu_score = cpu_board.calculate_score()
 			cpu_board_display.display_board(cpu_board)
 			cpu_ai.dice_bag.return_dice(destroyed)
+			
 		#else: cancel strike
+		PlayerInventory.shivs -= 1
 		item_targeting.clickable = false
 		cpu_board_display.enable_columns()
 		board_display.enable_columns()
@@ -152,7 +169,24 @@ func _on_shiv_selected() -> void:
 
 func _on_laser_selected() -> void:
 	print("laser selected")
-	if (_current_status != TurnStatus.WAITING_FOR_TURN and laser_count > 0):
-		_current_status = TurnStatus.USING_ITEM
+	#if (_current_status != TurnStatus.WAITING_FOR_TURN and laser_count > 0):
+		#_current_status = TurnStatus.USING_ITEM
 		# spawn visual indicator / change display
 		# wait for player to select enemy row
+
+func cleanup_dice():
+	PlayerInventory.dice_bag._refresh_dice()
+	cpu_ai.dice_bag._refresh_dice()
+
+func game_over_check() -> bool:
+	var player_board_full: bool = true
+	var cpu_board_full: bool = true
+	for arr in board.get_board_values():
+		for die in arr:
+			if die == null || die.get_value() == 0:
+				player_board_full = false
+	for arr in cpu_board.get_board_values():
+		for die in arr:
+			if die == null || die.get_value() == 0:
+				cpu_board_full = false
+	return player_board_full || cpu_board_full

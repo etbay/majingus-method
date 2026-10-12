@@ -45,4 +45,14 @@ var die_val_dict: Dictionary[int, CompressedTexture2D] = {
 	4 : die_face_4,
 	5 : die_face_5,
 	6 : die_face_6,
+
+}
+
+var type_color_dict: Dictionary[Die.DieType, Color] = {
+	Die.DieType.NORMAL : Color.WHITE,
+	Die.DieType.GILDED : Color.GOLDENROD,
+	Die.DieType.LOW_ROLLER : Color.BLUE,
+	Die.DieType.HOLLOW : Color.WEB_PURPLE,
+	Die.DieType.PLASMA : Color.DEEP_PINK,
+	Die.DieType.WEIGHTED : Color.GREEN
 }
