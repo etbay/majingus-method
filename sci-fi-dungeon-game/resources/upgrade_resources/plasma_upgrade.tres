@@ -5,6 +5,5 @@
 [resource]
 script = ExtResource("1_j2bgn")
 name = "Plasma"
-cost = 6
-type = 5
-metadata/_custom_type_script = "uid://p5cmxd2dx578"
+cost = 5
+type = 4

@@ -5,6 +5,5 @@
 [resource]
 script = ExtResource("1_wpr5s")
 name = "Hollow"
-cost = 6
-type = 4
-metadata/_custom_type_script = "uid://p5cmxd2dx578"
+cost = 5
+type = 3

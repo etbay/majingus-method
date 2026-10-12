@@ -6,4 +6,4 @@
 script = ExtResource("1_tn6g3")
 name = "Weighted"
 cost = 20
-type = 2
+type = 5

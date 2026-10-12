@@ -4,11 +4,14 @@
 [ext_resource type="Script" uid="uid://skol5y3rgxe" path="res://scripts/shop/shop_display.gd" id="1_24it5"]
 [ext_resource type="Script" uid="uid://cuisvnl6o22ru" path="res://scripts/shop/shop_button.gd" id="2_44xle"]
 [ext_resource type="Script" uid="uid://dmu34n35hea3v" path="res://scripts/shop/die_upgrade.gd" id="2_pqync"]
+[ext_resource type="Resource" uid="uid://d4ki78hmu6tcg" path="res://resources/upgrade_resources/gilded_upgrade.tres" id="3_6nbx6"]
 [ext_resource type="Texture2D" uid="uid://dlkujsgbaou0g" path="res://assets/shop/shop_buttons_1_unselected.png" id="3_24it5"]
 [ext_resource type="Resource" uid="uid://cyc0ppyxa5ndb" path="res://resources/upgrade_resources/weighted_upgrade.tres" id="3_mihhf"]
 [ext_resource type="Resource" uid="uid://cwu8lld6iy5q5" path="res://resources/upgrade_resources/low_roller_upgrade.tres" id="4_5lclc"]
 [ext_resource type="FontFile" uid="uid://b6yfr2clhuqwj" path="res://assets/Source_Code_Pro/static/SourceCodePro-Medium.ttf" id="4_7mqwv"]
+[ext_resource type="Resource" uid="uid://brj7mcl0f2wyr" path="res://resources/upgrade_resources/hollow_upgrade.tres" id="4_p0at6"]
 [ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scripts/game/mouse_click_detect.gd" id="5_gobkm"]
+[ext_resource type="Resource" uid="uid://dapuxk7oiampo" path="res://resources/upgrade_resources/plasma_upgrade.tres" id="6_c8dfh"]
 [ext_resource type="Texture2D" uid="uid://dn0j2jeqbw8e8" path="res://assets/shop/shop_buttons_2_unselected.png" id="6_j14q8"]
 [ext_resource type="PackedScene" uid="uid://deqqmyuvv7xir" path="res://scenes/inventory_slot.tscn" id="7_5u241"]
 [ext_resource type="PackedScene" uid="uid://c6px4xcl1faap" path="res://scenes/shop_slot.tscn" id="8_44xle"]
@@ -26,27 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://v20jvxgllwir" path="res://assets/icons/die_types/normal_icon.png" id="15_6nbx6"]
 [ext_resource type="FontFile" uid="uid://11u4yuj57s8s" path="res://assets/Doto/Doto-VariableFont_ROND,wght.ttf" id="17_mihhf"]
 
-[sub_resource type="Resource" id="Resource_5u241"]
-script = ExtResource("2_pqync")
-name = "Gilded Die"
-cost = 5
-type = 1
-metadata/_custom_type_script = "uid://dmu34n35hea3v"
-
-[sub_resource type="Resource" id="Resource_pqync"]
-script = ExtResource("2_pqync")
-name = "Hollow Die"
-cost = 5
-type = 3
-metadata/_custom_type_script = "uid://dmu34n35hea3v"
-
-[sub_resource type="Resource" id="Resource_yuijs"]
-script = ExtResource("2_pqync")
-name = "Plasma Die"
-cost = 5
-type = 4
-metadata/_custom_type_script = "uid://dmu34n35hea3v"
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgkm7"]
 size = Vector3(1.0626221, 0.28790283, 0.5175781)
 
@@ -61,7 +43,7 @@ size = Vector3(0.37994385, 0.37872314, 0.0970459)
 
 [node name="Shop" type="Node3D" unique_id=616363720]
 script = ExtResource("1_24it5")
-possible_upgrades = Array[ExtResource("2_pqync")]([SubResource("Resource_5u241"), SubResource("Resource_pqync"), SubResource("Resource_yuijs"), ExtResource("3_mihhf"), ExtResource("4_5lclc")])
+possible_upgrades = Array[ExtResource("2_pqync")]([ExtResource("3_6nbx6"), ExtResource("4_p0at6"), ExtResource("4_5lclc"), ExtResource("6_c8dfh"), ExtResource("3_mihhf")])
 
 [node name="Timer" type="Timer" parent="." unique_id=1940707240]
 

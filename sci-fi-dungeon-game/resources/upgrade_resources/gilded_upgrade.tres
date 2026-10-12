@@ -5,6 +5,5 @@
 [resource]
 script = ExtResource("1_eqlks")
 name = "Gilded"
-cost = 6
+cost = 5
 type = 1
-metadata/_custom_type_script = "uid://p5cmxd2dx578"
