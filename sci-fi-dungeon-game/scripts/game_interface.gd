@@ -74,6 +74,7 @@ func take_cpu_turn() -> void:
 	cpu_physics_die.can_roll = true
 	var cpu_die = cpu_ai.dice_bag.get_die()
 	cpu_die_details.display(cpu_die)
+	cpu_physics_die.match_current_die(cpu_die)
 	var value = await cpu_physics_die.force_roll()
 	await get_tree().create_timer(.5).timeout
 	cpu_die.set_value(value)
@@ -108,6 +109,7 @@ func roll_die() -> Die:
 	physics_die.can_roll = true
 	var player_die = PlayerInventory.dice_bag.get_die()
 	player_die_details.display(player_die)
+	physics_die.match_current_die(player_die)
 	var value = await physics_die.roll()
 	player_die.set_value(value)
 	return player_die

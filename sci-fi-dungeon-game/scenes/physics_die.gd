@@ -14,6 +14,7 @@ signal roll_finished
 @onready var raycast_5: RayCast3D = $RayCast_5
 @onready var raycast_6: RayCast3D = $RayCast_6
 @onready var mouse_detect: MouseClickDetect = $MouseDetect
+@export var mesh: MeshInstance3D
 
 var can_roll: bool = false:
 	set(value):
@@ -101,3 +102,11 @@ func _apply_random_force() -> void:
 	var x_rotation: float = randf_range(0, 360)
 	var z_rotation: float = randf_range(0, 360)
 	apply_torque(Vector3(x_rotation, 0, z_rotation))
+
+func match_current_die(die: Die) -> void:
+	var mat = StandardMaterial3D.new()
+	mat.albedo_color = TextureDictionary.type_color_dict[die.get_type()]
+	mat.emission_enabled = true
+	mat.emission = mat.albedo_color
+	mat.emission_intensity = 1.0
+	mesh.set_surface_override_material(0, mat)
