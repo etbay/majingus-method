@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CPUCharacter" format=3 uid="uid://c51aw8nwdyj0r"]
 
-[ext_resource type="Script" uid="uid://b4jpjkgigxeln" path="res://scripts/cpu_character.gd" id="1_cww44"]
+[ext_resource type="Script" uid="uid://b4jpjkgigxeln" path="res://scripts/game/cpu_character.gd" id="1_cww44"]
 [ext_resource type="Texture2D" uid="uid://c2c8u305d601p" path="res://assets/characters/ratguy.png" id="2_3ppo2"]
 
 [resource]

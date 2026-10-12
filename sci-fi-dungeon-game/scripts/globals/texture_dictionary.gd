@@ -66,3 +66,9 @@ var type_color_dict: Dictionary[Die.DieType, Color] = {
 	Die.DieType.PLASMA : Color.DEEP_PINK,
 	Die.DieType.WEIGHTED : Color.GREEN
 }
+
+var type_mesh_dict: Dictionary[Die.DieType, Mesh] = {
+	Die.DieType.NORMAL: preload("res://assets/dice_mesh/dicemodel_Cube_001.res"),
+	Die.DieType.LOW_ROLLER: preload("res://assets/dice_mesh/dicemodel_lowroller_Cube_001.res"),
+	Die.DieType.WEIGHTED: preload("res://assets/dice_mesh/dicemodel_weighted_Cube_003.res")
+}

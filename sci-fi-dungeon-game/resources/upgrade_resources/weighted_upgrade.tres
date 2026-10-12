@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://cyc0ppyxa5ndb"]
+[gd_resource type="Resource" script_class="DieUpgrade" format=3 uid="uid://cyc0ppyxa5ndb"]
 
-[ext_resource type="Script" uid="uid://p5cmxd2dx578" path="res://scripts/upgrade.gd" id="1_tn6g3"]
+[ext_resource type="Script" uid="uid://dmu34n35hea3v" path="res://scripts/shop/die_upgrade.gd" id="1_tn6g3"]
 
 [resource]
 script = ExtResource("1_tn6g3")
 name = "Weighted"
-cost = 20
-type = 2
-metadata/_custom_type_script = "uid://p5cmxd2dx578"
+cost = 5
+type = 5

@@ -12,6 +12,7 @@ signal done_transitioning
 @onready var environment_gameboard: EnvironmentGameboard = $Environment/EnvironmentGameboard
 @onready var shop_interactable: InteractableObject = $Environment/Shop
 @onready var skarps_board: GameDisplay = $Skarps/SkarpsBoard
+@onready var shop: ShopDisplay = $Shop
 
 @export var current_camera: Camera3D
 
@@ -60,6 +61,7 @@ func switch_camera(camera: Camera3D) -> void:
 func _on_game_start() -> void:
 	exit_to_environment.visible = false
 
-func _on_game_over(x: int, y: int) -> void:
+func _on_game_over(_x: int, _y: int) -> void:
 	exit_to_environment.visible = true
 	game_ended = true
+	shop.refresh_shop()

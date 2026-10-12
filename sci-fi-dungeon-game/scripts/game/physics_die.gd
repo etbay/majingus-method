@@ -7,12 +7,12 @@ signal roll_finished
 
 @export var reset_location: Node3D
 
-@onready var raycast_1: RayCast3D = $RayCast_1
-@onready var raycast_2: RayCast3D = $RayCast_2
-@onready var raycast_3: RayCast3D = $RayCast_3
-@onready var raycast_4: RayCast3D = $RayCast_4
-@onready var raycast_5: RayCast3D = $RayCast_5
-@onready var raycast_6: RayCast3D = $RayCast_6
+@onready var raycast_1: DieFaceRaycast = $RayCast_1
+@onready var raycast_2: DieFaceRaycast = $RayCast_2
+@onready var raycast_3: DieFaceRaycast = $RayCast_3
+@onready var raycast_4: DieFaceRaycast = $RayCast_4
+@onready var raycast_5: DieFaceRaycast = $RayCast_5
+@onready var raycast_6: DieFaceRaycast = $RayCast_6
 @onready var mouse_detect: MouseClickDetect = $MouseDetect
 @export var mesh: MeshInstance3D
 
@@ -41,20 +41,21 @@ func _ready() -> void:
 	_move_timer.one_shot = true
 	add_child(_move_timer)
 	mouse_detect.mouse_clicked.connect(func(): die_clicked.emit())
+	match_current_die(Die.new(0))
 
 func _process(_delta: float) -> void:
 	if raycast_1.get_collider() is DieFaceDetect:
-		face_up = 1
+		face_up = raycast_1.face_value
 	elif raycast_2.get_collider() is DieFaceDetect:
-		face_up = 2
+		face_up = raycast_2.face_value
 	elif raycast_3.get_collider() is DieFaceDetect:
-		face_up = 3
+		face_up = raycast_3.face_value
 	elif raycast_4.get_collider() is DieFaceDetect:
-		face_up = 4
+		face_up = raycast_4.face_value
 	elif raycast_5.get_collider() is DieFaceDetect:
-		face_up = 5
+		face_up = raycast_5.face_value
 	elif raycast_6.get_collider() is DieFaceDetect:
-		face_up = 6
+		face_up = raycast_6.face_value
 	
 	if _rolling and _move_timer.is_stopped():
 		_rolling = false
@@ -80,6 +81,7 @@ func roll() -> int:
 	return face_up
 
 func force_roll():
+	MusicMan.play_sound(AudioDictionary.sfx["Dice"])
 	can_roll = false
 	roll_started.emit()
 	_move_timer.start(0.05)
@@ -106,7 +108,50 @@ func _apply_random_force() -> void:
 
 func match_current_die(die: Die) -> void:
 	var mat = StandardMaterial3D.new()
+	_check_type(die)
 	mat.albedo_color = TextureDictionary.type_color_dict[die.get_type()]
 	mat.emission_enabled = true
 	mat.emission = mat.albedo_color
 	mesh.set_surface_override_material(0, mat)
+	var mat2 = StandardMaterial3D.new()
+	mat2.albedo_color = Color.BLACK
+	mesh.set_surface_override_material(1, mat2)
+	
+	if (die.get_type() == Die.DieType.WEIGHTED || die.get_type() == Die.DieType.LOW_ROLLER):
+		mesh.set_surface_override_material(0, mat2)
+		mesh.set_surface_override_material(1, mat)
+
+func _check_type(die: Die) -> void:
+	if (die.get_type() == Die.DieType.WEIGHTED):
+		_set_weighted()
+	elif (die.get_type() == Die.DieType.LOW_ROLLER):
+		_set_low_roller()
+	else:
+		_set_normal()
+
+func _set_normal() -> void:
+	mesh.mesh = TextureDictionary.type_mesh_dict[Die.DieType.NORMAL]
+	raycast_1.face_value = 1
+	raycast_2.face_value = 2
+	raycast_3.face_value = 3
+	raycast_4.face_value = 4
+	raycast_5.face_value = 5
+	raycast_6.face_value = 6
+
+func _set_weighted() -> void:
+	mesh.mesh = TextureDictionary.type_mesh_dict[Die.DieType.WEIGHTED]
+	raycast_1.face_value = 5
+	raycast_2.face_value = 4
+	raycast_3.face_value = 5
+	raycast_4.face_value = 4
+	raycast_5.face_value = 6
+	raycast_6.face_value = 6
+
+func _set_low_roller() -> void:
+	mesh.mesh = TextureDictionary.type_mesh_dict[Die.DieType.LOW_ROLLER]
+	raycast_1.face_value = 3
+	raycast_2.face_value = 2
+	raycast_3.face_value = 1
+	raycast_4.face_value = 2
+	raycast_5.face_value = 3
+	raycast_6.face_value = 1

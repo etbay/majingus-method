@@ -79,7 +79,9 @@ func game_over_func():
 
 func _on_game_over(player_score: int, cpu_score: int) -> void:
 	if player_score >= cpu_score:
-		PlayerInventory.balance += 5
+		PlayerInventory.balance += 10 + (min(int(PlayerInventory.balance / 5), 10))
+	else:
+		PlayerInventory.balance /= 2
 	PlayerInventory.balance += game.board.calculate_gilded()
 
 func reset_board() -> void:

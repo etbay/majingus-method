@@ -1,7 +1,5 @@
 class_name GameManager extends Node
 
-signal earned_money(int)
-
 @export var game_display: GameDisplay
 
 @export var player_score: Label

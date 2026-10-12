@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://danv5yuir41kd"]
 
-[ext_resource type="Script" uid="uid://4q8cefygbslf" path="res://scripts/shop_interface.gd" id="1_ccd21"]
-[ext_resource type="Script" uid="uid://p5cmxd2dx578" path="res://scripts/upgrade.gd" id="2_2k26e"]
-[ext_resource type="Script" uid="uid://cve30cp0m6p5v" path="res://scripts/dice_select_wrapper.gd" id="2_vf6ka"]
+[ext_resource type="Script" uid="uid://4q8cefygbslf" path="res://scripts/shop/shop_interface.gd" id="1_ccd21"]
+[ext_resource type="Script" uid="uid://dmu34n35hea3v" path="res://scripts/shop/die_upgrade.gd" id="2_2k26e"]
+[ext_resource type="Script" uid="uid://cve30cp0m6p5v" path="res://scripts/game/dice_select_wrapper.gd" id="2_vf6ka"]
 [ext_resource type="Resource" uid="uid://d4ki78hmu6tcg" path="res://resources/upgrade_resources/gilded_upgrade.tres" id="3_3n4o0"]
 [ext_resource type="Resource" uid="uid://brj7mcl0f2wyr" path="res://resources/upgrade_resources/hollow_upgrade.tres" id="4_xrvu4"]
 [ext_resource type="Resource" uid="uid://cwu8lld6iy5q5" path="res://resources/upgrade_resources/low_roller_upgrade.tres" id="5_vnjr0"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfgn5vj7fmsnm"]
 
-[ext_resource type="Script" uid="uid://ddsm42pfpdpsn" path="res://scripts/test_game_manager.gd" id="1_8sx4y"]
-[ext_resource type="Script" uid="uid://dbcb7e3a1ebdt" path="res://scripts/board_signal_manager.gd" id="2_8sx4y"]
+[ext_resource type="Script" uid="uid://ddsm42pfpdpsn" path="res://scripts/game/test_game_manager.gd" id="1_8sx4y"]
+[ext_resource type="Script" uid="uid://dbcb7e3a1ebdt" path="res://scripts/game/board_signal_manager.gd" id="2_8sx4y"]
 
 [sub_resource type="Environment" id="Environment_8sx4y"]
 

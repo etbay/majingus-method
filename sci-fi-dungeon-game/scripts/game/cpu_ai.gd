@@ -12,7 +12,7 @@ func _init(challenge_level: int = 1, bag: DiceBag = null) -> void:
 		dice_bag = DiceBag.new()
 		var dice = dice_bag.get_absolute_dice_array()
 		for i in range(0, challenge_level):
-			var possible_types = [1, 3, 4]
+			var possible_types = [1, 2, 3, 4, 5]
 			dice[randi_range(0, dice.size() - 1)].set_type(possible_types[randi_range(0, possible_types.size() - 1)])
 			var quality = dice[randi_range(0, dice.size() - 1)].quality
 			if quality < 5:
@@ -72,7 +72,7 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 		var cpu_board_array = cpu.get_board_values()
 		var potential_targets: Array[Array] = [] # targets stores columns that matter in the form [column, weight]
 		for i in range(0, cpu_board_array.size()):
-			var column_sum_weight: int
+			var column_sum_weight: int = 1
 			var full_count = 0
 			for die in cpu_board_array[i]:
 				if die != null:

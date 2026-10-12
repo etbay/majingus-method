@@ -2,7 +2,7 @@ extends Node
 
 var music_player: AudioStreamPlayer
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (music_player == null):
 		play_music(AudioDictionary.music["MainTheme"])
 
