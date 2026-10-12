@@ -3,6 +3,7 @@ class_name DisplayColumn extends Area3D
 signal selected(Die)
 
 @onready var select_sprite: Sprite3D = $SelectSprite
+@onready var collision: CollisionShape3D = $CollisionShape3D
 @export var player_gameboard: GameInterface
 
 @export var cells: Array[CellDisplay] = []

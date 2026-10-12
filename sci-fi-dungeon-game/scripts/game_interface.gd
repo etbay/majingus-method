@@ -16,6 +16,7 @@ signal status_changed(new_status: TurnStatus)
 
 @onready var board_display_wrapper: BoardSelectedWrapper = BoardSelectedWrapper.new(board_display, cpu_board_display)
 
+@onready var item_targeting: ItemTargeting = $"ItemTargeting"
 
 var cpu_board := Board.new()
 var cpu_ai := CPUAI.new() # fill with challenge level
@@ -90,6 +91,9 @@ func take_cpu_turn() -> void:
 # Select column (player or enemy)
 func select_column() -> void:
 	_current_status = TurnStatus.SELECTING
+	cpu_board_display.enable_columns()
+	board_display.enable_columns()
+	item_targeting.disable_cells()
 	await board_display_wrapper.column_selected
 
 # Roll die
@@ -115,9 +119,34 @@ func _on_column_selected(column: int, die: Die) -> void:
 	turn_finished.emit()
 
 func _on_shiv_selected() -> void:
-	print("shiv selected")
-	if (_current_status != TurnStatus.WAITING_FOR_TURN and shiv_count > 0):
+	if (_current_status != TurnStatus.WAITING_FOR_TURN and _current_status != TurnStatus.USING_ITEM and shiv_count > 0):
+		var prev_status = _current_status
 		_current_status = TurnStatus.USING_ITEM
+		cpu_board_display.disable_columns()
+		board_display.disable_columns()
+		item_targeting.enable_cells()
+		item_targeting.clickable = true
+		print("shiv selected")
+		var pos = await item_targeting.selected
+		print("target selected")
+		var destroyed: Die
+		if pos[0] == 1:
+			#player board
+			destroyed = board.destroy_die(pos[1], pos[2])
+			player_score = board.calculate_score()
+			board_display.display_board(board)
+			cpu_ai.dice_bag.return_dice(destroyed)
+		elif pos[0] == 0:
+			#cpu board
+			destroyed = cpu_board.destroy_die(pos[1], pos[2])
+			cpu_score = cpu_board.calculate_score()
+			cpu_board_display.display_board(cpu_board)
+			cpu_ai.dice_bag.return_dice(destroyed)
+		#else: cancel strike
+		item_targeting.clickable = false
+		cpu_board_display.enable_columns()
+		board_display.enable_columns()
+		_current_status = prev_status
 		# spawn visual indicator / change display
 		# wait for player to select enemy die
 
