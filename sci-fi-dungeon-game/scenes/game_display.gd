@@ -46,7 +46,6 @@ func start_game() -> void:
 	if game._current_status == game.TurnStatus.NONE:
 		game_manager.start_game()
 		game_started.emit()
-	MusicMan.play_music(AudioDictionary.music["DiceTheme"])
 
 func player_take_turn() -> void:
 	game.take_turn()
