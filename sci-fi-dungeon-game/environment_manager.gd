@@ -18,6 +18,7 @@ signal done_transitioning
 
 var fading_black: bool = false
 var fading_in: bool = false
+var game_ended: bool = false
 
 func _ready() -> void:
 	game_ui.switch_to_environment()
@@ -30,7 +31,9 @@ func _ready() -> void:
 		game_ui.switch_to_game())
 	exit_to_environment.mouse_clicked.connect(func():
 		switch_camera(env_camera)
-		game_ui.switch_to_environment())
+		game_ui.switch_to_environment()
+		if game_ended:
+			skarps_board.reset_board())
 	skarps_board.game_started.connect(_on_game_start)
 	skarps_board.game_over.connect(_on_game_over)
 
@@ -54,5 +57,6 @@ func switch_camera(camera: Camera3D) -> void:
 func _on_game_start() -> void:
 	exit_to_environment.visible = false
 
-func _on_game_over() -> void:
+func _on_game_over(x: int, y: int) -> void:
 	exit_to_environment.visible = true
+	game_ended = true

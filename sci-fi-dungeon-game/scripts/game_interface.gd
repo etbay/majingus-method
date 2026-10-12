@@ -22,7 +22,7 @@ signal game_started
 @onready var item_targeting: ItemTargeting = $"ItemTargeting"
 
 var cpu_board := Board.new()
-var cpu_ai := CPUAI.new(10) # fill with challenge level
+var cpu_ai := CPUAI.new(1) # fill with challenge level
 
 var board := Board.new()
 var player_score: int = -1:
@@ -207,3 +207,13 @@ func game_over_check() -> bool:
 			if die == null || die.get_value() == 0:
 				cpu_board_full = false
 	return player_board_full || cpu_board_full
+
+func reset_board() -> void:
+	cpu_board = Board.new()
+	cpu_ai = CPUAI.new(cpu_ai._challenge_level + 1) # fill with challenge level
+	board = Board.new()
+	player_score = -1
+	cpu_score = -1
+	_current_status = TurnStatus.NONE
+	cpu_board_display.display_board(cpu_board)
+	board_display.display_board(board)

@@ -27,5 +27,7 @@ func _process(delta: float) -> void:
 func start_game() -> void:
 	set_process(true)
 
-func end_game() -> void:
+func end_game(x: int, y: int) -> void:
 	set_process(false)
+	turn_in_progress = false
+	turn = 0
