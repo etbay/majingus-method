@@ -11,7 +11,7 @@ const DICE_INVENTORY_SELECTED = preload("uid://cil1f84ato5ue")
 @onready var item_price: Label3D = $ItemPrice
 @onready var item_label: Label3D = $ItemLabel
 @onready var quality_label: Label3D = $SlotSprite/QualityLabel
-
+	
 var price: int = 0:
 	set(value):
 		if price != value:
@@ -61,19 +61,25 @@ func _make_data_visible() -> void:
 	item_price.visible = true
 	item_label.visible = true
 
-func set_data(cost: int, desc: String, sprite: CompressedTexture2D) -> void:
+func set_data(cost: int, desc: String, sprite: CompressedTexture2D, die_quality: int = -1) -> void:
 	price = cost
 	description = desc
 	item_sprite.texture = sprite
 	quality_label.visible = false
 	selectable = true
 	_make_data_visible()
+	if die_quality != -1:
+		quality_label.visible = true
+		quality_label.text = "+%d" % die_quality
 
-func set_die(new_die: Die) -> void:
+func set_die(cost: int, desc: String, new_die: Die) -> void:
+	price = cost
+	description = desc
 	die = new_die
 	item_sprite.texture = TextureDictionary.die_type_dict[die.get_type()]
 	quality_label.visible = false
 	selectable = true
+	_make_data_visible()
 
 func select() -> void:
 	slot_sprite.texture = DICE_INVENTORY_SELECTED
