@@ -89,7 +89,7 @@ collision_mask = 2
 script = ExtResource("5_nebqc")
 
 [node name="BoardSprite" type="Sprite3D" parent="PlayerGameboard/Board" unique_id=2126375785]
-transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, -0.18, 0, 0.18, -7.86805e-09, 0, 0, 0)
+transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, -0.18, 0, 0.18, -7.86805e-09, -0.00049459934, 0, -1.8179417e-05)
 texture = ExtResource("2_4xij6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board" unique_id=106292425]
@@ -120,6 +120,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column0/Cell0" unique_id=1052624795]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="PlayerGameboard/Board/Column0/Cell0" unique_id=461543544]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.10199368, 0.014999986, 0.049940936)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column0" unique_id=1318877218]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
@@ -132,6 +141,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column0/Cell1" unique_id=873403275]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="PlayerGameboard/Board/Column0/Cell1" unique_id=1874791289]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.10199368, 0.014999986, 0.049940914)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell2" type="Area3D" parent="PlayerGameboard/Board/Column0" unique_id=1744503454]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
@@ -143,6 +161,15 @@ render_priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column0/Cell2" unique_id=1515439117]
 shape = SubResource("BoxShape3D_7y72b")
+
+[node name="DieQuality" type="Label3D" parent="PlayerGameboard/Board/Column0/Cell2" unique_id=1063299553]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.10199368, 0.014999986, 0.049940944)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
 
 [node name="Column1" type="Area3D" parent="PlayerGameboard/Board" unique_id=1726541361 node_paths=PackedStringArray("player_gameboard", "cells")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5563053, 0, -0.0057644844)
@@ -169,6 +196,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column1/Cell0" unique_id=1296796036]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="PlayerGameboard/Board/Column1/Cell0" unique_id=477598254]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.10199368, 0.014999986, 0.049940936)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column1" unique_id=245026353]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
@@ -181,6 +217,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column1/Cell1" unique_id=209542437]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="PlayerGameboard/Board/Column1/Cell1" unique_id=1006302534]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.10199368, 0.014999986, 0.049940936)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell2" type="Area3D" parent="PlayerGameboard/Board/Column1" unique_id=767681608]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
@@ -192,6 +237,15 @@ render_priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column1/Cell2" unique_id=1221532297]
 shape = SubResource("BoxShape3D_7y72b")
+
+[node name="DieQuality" type="Label3D" parent="PlayerGameboard/Board/Column1/Cell2" unique_id=265693351]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.10199368, 0.014999986, 0.049940936)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
 
 [node name="Column2" type="Area3D" parent="PlayerGameboard/Board" unique_id=1656529433 node_paths=PackedStringArray("player_gameboard", "cells")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18595588, 0, -0.0057644546)
@@ -218,6 +272,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column2/Cell0" unique_id=1536387836]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="PlayerGameboard/Board/Column2/Cell0" unique_id=1219986149]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.10199368, 0.014999986, 0.049940936)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column2" unique_id=1588317770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
@@ -230,6 +293,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column2/Cell1" unique_id=145352765]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="PlayerGameboard/Board/Column2/Cell1" unique_id=1525590303]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.10199368, 0.014999986, 0.049940936)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell2" type="Area3D" parent="PlayerGameboard/Board/Column2" unique_id=465129858]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
@@ -241,6 +313,15 @@ render_priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column2/Cell2" unique_id=1017120331]
 shape = SubResource("BoxShape3D_7y72b")
+
+[node name="DieQuality" type="Label3D" parent="PlayerGameboard/Board/Column2/Cell2" unique_id=1690433448]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.10199368, 0.014999986, 0.049940936)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
 
 [node name="Column3" type="Area3D" parent="PlayerGameboard/Board" unique_id=1711002368 node_paths=PackedStringArray("player_gameboard", "cells")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19300628, 0, -0.005764395)
@@ -267,6 +348,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column3/Cell0" unique_id=1357591993]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="PlayerGameboard/Board/Column3/Cell0" unique_id=616955578]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.10199368, 0.014999986, 0.049940936)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell1" type="Area3D" parent="PlayerGameboard/Board/Column3" unique_id=2066032987]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
@@ -279,6 +369,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column3/Cell1" unique_id=1119999385]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="PlayerGameboard/Board/Column3/Cell1" unique_id=1817035097]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.10199368, 0.014999986, 0.049940936)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell2" type="Area3D" parent="PlayerGameboard/Board/Column3" unique_id=1197515797]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
@@ -290,6 +389,15 @@ render_priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGameboard/Board/Column3/Cell2" unique_id=1654323584]
 shape = SubResource("BoxShape3D_7y72b")
+
+[node name="DieQuality" type="Label3D" parent="PlayerGameboard/Board/Column3/Cell2" unique_id=2068505187]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.10199368, 0.014999986, 0.049940936)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
 
 [node name="DieTypeDisplay" parent="PlayerGameboard/Board" unique_id=1895616007 instance=ExtResource("11_c0eyu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9990268, 0, 0.2695528)
@@ -416,6 +524,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column0/Cell0" unique_id=1546263815]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="CPUGameboard/Board/Column0/Cell0" unique_id=122229770]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -0.102, 0.014999986, -0.05)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell1" type="Area3D" parent="CPUGameboard/Board/Column0" unique_id=1053361545]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
@@ -428,6 +545,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column0/Cell1" unique_id=1690433899]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="CPUGameboard/Board/Column0/Cell1" unique_id=569719841]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -0.102, 0.014999986, -0.05)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell2" type="Area3D" parent="CPUGameboard/Board/Column0" unique_id=1299620126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
@@ -439,6 +565,15 @@ render_priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column0/Cell2" unique_id=2140747219]
 shape = SubResource("BoxShape3D_7y72b")
+
+[node name="DieQuality" type="Label3D" parent="CPUGameboard/Board/Column0/Cell2" unique_id=449878053]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -0.102, 0.014999986, -0.05)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
 
 [node name="Column1" type="Area3D" parent="CPUGameboard/Board" unique_id=1183290114 node_paths=PackedStringArray("player_gameboard", "cells")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5563053, 0, -0.0057644844)
@@ -465,6 +600,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column1/Cell0" unique_id=1820192052]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="CPUGameboard/Board/Column1/Cell0" unique_id=548959506]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -0.102, 0.014999986, -0.05)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell1" type="Area3D" parent="CPUGameboard/Board/Column1" unique_id=1006288049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
@@ -477,6 +621,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column1/Cell1" unique_id=445962101]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="CPUGameboard/Board/Column1/Cell1" unique_id=77193755]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -0.102, 0.014999986, -0.05)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell2" type="Area3D" parent="CPUGameboard/Board/Column1" unique_id=31468976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
@@ -488,6 +641,15 @@ render_priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column1/Cell2" unique_id=2127383492]
 shape = SubResource("BoxShape3D_7y72b")
+
+[node name="DieQuality" type="Label3D" parent="CPUGameboard/Board/Column1/Cell2" unique_id=1608354495]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -0.102, 0.014999986, -0.05)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
 
 [node name="Column2" type="Area3D" parent="CPUGameboard/Board" unique_id=673922699 node_paths=PackedStringArray("player_gameboard", "cells")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18595588, 0, -0.0057644546)
@@ -514,6 +676,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column2/Cell0" unique_id=1962491678]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="CPUGameboard/Board/Column2/Cell0" unique_id=2040720479]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -0.102, 0.014999986, -0.05)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell1" type="Area3D" parent="CPUGameboard/Board/Column2" unique_id=736853421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
@@ -526,6 +697,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column2/Cell1" unique_id=2016617021]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="CPUGameboard/Board/Column2/Cell1" unique_id=1781081014]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -0.102, 0.014999986, -0.05)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell2" type="Area3D" parent="CPUGameboard/Board/Column2" unique_id=1488693678]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
@@ -537,6 +717,15 @@ render_priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column2/Cell2" unique_id=1246955989]
 shape = SubResource("BoxShape3D_7y72b")
+
+[node name="DieQuality" type="Label3D" parent="CPUGameboard/Board/Column2/Cell2" unique_id=54283694]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -0.102, 0.014999986, -0.05)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
 
 [node name="Column3" type="Area3D" parent="CPUGameboard/Board" unique_id=1921497129 node_paths=PackedStringArray("player_gameboard", "cells")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19300628, 0, -0.005764395)
@@ -563,6 +752,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column3/Cell0" unique_id=349222853]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="CPUGameboard/Board/Column3/Cell0" unique_id=1138469095]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -0.102, 0.014999986, -0.05)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell1" type="Area3D" parent="CPUGameboard/Board/Column3" unique_id=1696539989]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, 0.0011129677)
 script = ExtResource("9_q5opd")
@@ -575,6 +773,15 @@ render_priority = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column3/Cell1" unique_id=69103418]
 shape = SubResource("BoxShape3D_7y72b")
 
+[node name="DieQuality" type="Label3D" parent="CPUGameboard/Board/Column3/Cell1" unique_id=1967603674]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -0.102, 0.014999986, -0.05)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
+
 [node name="Cell2" type="Area3D" parent="CPUGameboard/Board/Column3" unique_id=1296872721]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0, 0.254041)
 script = ExtResource("9_q5opd")
@@ -586,6 +793,15 @@ render_priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CPUGameboard/Board/Column3/Cell2" unique_id=1020535537]
 shape = SubResource("BoxShape3D_7y72b")
+
+[node name="DieQuality" type="Label3D" parent="CPUGameboard/Board/Column3/Cell2" unique_id=1785895513]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -0.102, 0.014999986, -0.05)
+pixel_size = 0.0005
+render_priority = 8
+text = "+2"
+font = ExtResource("4_2vras")
+font_size = 150
+outline_size = 20
 
 [node name="DieTypeDisplay" parent="CPUGameboard/Board" unique_id=1244693380 instance=ExtResource("11_c0eyu")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.0316743, 0.01850009, -0.28190237)

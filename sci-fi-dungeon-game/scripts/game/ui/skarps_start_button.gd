@@ -15,10 +15,10 @@ func _ready() -> void:
 	game_display.game_started.connect(func(): 
 		enabled = false
 		label_3d.modulate = Color.WHITE)
-	game_display.game_over.connect(func(_player_score: int, _cpu_score: int): enabled = true)
+	game_display.game_over.connect(func(_player_score: int, _cpu_score: int): enabled = false)
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("skarps_interact"):
+	if enabled and _mouse_over and Input.is_action_just_pressed("skarps_interact"):
 		pressed.emit()
 
 func _on_mouse_entered() -> void:
