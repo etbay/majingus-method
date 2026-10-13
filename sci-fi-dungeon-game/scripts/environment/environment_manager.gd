@@ -59,6 +59,7 @@ func switch_camera(camera: Camera3D) -> void:
 	fade_overlay.visible = false
 
 func _on_game_start() -> void:
+	PlayerInventory.dice_bag.refresh_dice()
 	exit_to_environment.visible = false
 
 func _on_game_over(_x: int, _y: int) -> void:
