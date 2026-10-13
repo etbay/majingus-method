@@ -13,7 +13,7 @@ const VENT_FISH = preload("uid://sjav46uc51qo")
 
 @onready var game_manager: GameManager = $GameManager
 @onready var game: GameInterface = $PlayerGameboard
-@onready var start_button_detect: MouseClickDetect = $RightButton/MouseClickDetect
+@onready var start_button_detect: StartButton = $RightButton
 @onready var character_sprite: Sprite3D = $LeftConsole/Portrait/CharacterSprite
 @export var door_character: Sprite3D
 @export var door_character_env: Sprite3D
@@ -39,7 +39,7 @@ func _ready() -> void:
 	door_character.texture = current_cpu.texture
 	door_character_env.texture = current_cpu.texture
 	
-	start_button_detect.mouse_clicked.connect(start_game)
+	start_button_detect.pressed.connect(start_game)
 	game_over.connect(_on_game_over)
 
 func start_game() -> void:
@@ -86,3 +86,4 @@ func _on_game_over(player_score: int, cpu_score: int) -> void:
 
 func reset_board() -> void:
 	game.reset_board()
+	start_button_detect.enabled = true
