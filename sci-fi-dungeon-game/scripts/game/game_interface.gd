@@ -3,7 +3,6 @@ class_name GameInterface extends Node
 signal turn_finished
 signal die_rolled(Die)
 signal status_changed(new_status: TurnStatus)
-signal game_started
 
 @export var physics_die: PhysicsDie
 @onready var board_display: BoardDisplay = $Board
@@ -65,7 +64,6 @@ func set_cpu(character: CPUCharacter) -> void:
 func start_game() -> void:
 	player_score = 0
 	cpu_score = 0
-	game_started.emit()
 
 func take_turn() -> void:
 	die_rolled.emit(await roll_die())
@@ -230,3 +228,5 @@ func reset_board() -> void:
 	_current_status = TurnStatus.NONE
 	cpu_board_display.display_board(cpu_board)
 	board_display.display_board(board)
+	physics_die.match_current_die(Die.new(0))
+	cpu_physics_die.match_current_die(Die.new(0))
