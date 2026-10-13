@@ -17,8 +17,8 @@ func player_cell_selected(pos: Array[int]) -> void:
 	if (clickable):
 		var arr: Array[int] = []
 		arr.assign(pos)
-		arr.push_front(0)
-		print("Broadcasted player cell click")
+		arr.push_front(1)
+		#print("Broadcasted player cell click")
 		selected.emit(arr)
 
 func cpu_cell_selected(pos: Array[int]) -> void:
@@ -26,7 +26,7 @@ func cpu_cell_selected(pos: Array[int]) -> void:
 		var arr: Array[int] = []
 		arr.assign(pos)
 		arr.push_front(0)
-		print("Broadcasted cpu cell click")
+		#print("Broadcasted cpu cell click")
 		selected.emit(arr)
 
 func disable_cells():

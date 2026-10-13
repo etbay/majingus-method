@@ -109,9 +109,7 @@ func take_cpu_turn() -> void:
 # Select column (player or enemy)
 func select_column() -> void:
 	_current_status = TurnStatus.SELECTING
-	cpu_board_display.enable_columns()
-	board_display.enable_columns()
-	item_targeting.disable_cells()
+	_enable_columns()
 	await board_display_wrapper.column_selected
 
 # Roll die
@@ -120,8 +118,7 @@ func roll_die() -> Die:
 	physics_die.can_roll = true
 	var player_die = PlayerInventory.dice_bag.get_die()
 	if player_die == null:
-		PlayerInventory.dice_bag._refresh_dice()
-		player_die = PlayerInventory.dice_bag.get_die()
+		print("ERROR: Player Bag NULL!")
 	player_die_details.display(player_die)
 	physics_die.match_current_die(player_die)
 	var value = await physics_die.roll()
@@ -150,17 +147,17 @@ func _on_shiv_selected() -> void:
 		var prev_status = _current_status
 		_current_status = TurnStatus.USING_ITEM
 		MusicMan.play_sound(AudioDictionary.sfx["Slash"])
-		cpu_board_display.disable_columns()
-		board_display.disable_columns()
-		item_targeting.enable_cells()
+		_enable_cells()
 		item_targeting.clickable = true
 		var pos = await item_targeting.selected
 		var destroyed: Die
+		#print("Targeting: [%d, %d, %d]" % [pos[0], pos[1], pos[2]])
 		if pos[0] == 1:
 			#player board
 			destroyed = board.destroy_die(pos[1], pos[2])
 			if (destroyed == null):
 				_current_status = prev_status
+				_enable_columns()
 				return
 			MusicMan.play_sound(AudioDictionary.sfx["Explosion"])
 			player_score = board.calculate_score()
@@ -171,6 +168,7 @@ func _on_shiv_selected() -> void:
 			destroyed = cpu_board.destroy_die(pos[1], pos[2])
 			if (destroyed == null):
 				_current_status = prev_status
+				_enable_columns()
 				return
 			cpu_score = cpu_board.calculate_score()
 			cpu_board_display.display_board(cpu_board)
@@ -184,8 +182,19 @@ func _on_shiv_selected() -> void:
 		_current_status = prev_status
 		# spawn visual indicator / change display
 		# wait for player to select enemy die
+		_enable_columns()
 	else:
 		MusicMan.play_sound(AudioDictionary.sfx["Fail"])
+
+func _enable_columns():
+	cpu_board_display.enable_columns()
+	board_display.enable_columns()
+	item_targeting.disable_cells()
+
+func _enable_cells():
+	cpu_board_display.disable_columns()
+	board_display.disable_columns()
+	item_targeting.enable_cells()
 
 func _on_laser_selected() -> void:
 	print("laser selected")
