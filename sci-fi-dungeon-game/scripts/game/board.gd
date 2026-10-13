@@ -25,6 +25,7 @@ func place_dice(column: int, die: Die) -> bool:
 	return placed
 
 func calculate_score() -> int:
+	fill_dict()
 	var sum = 0
 	for i in range(0, WIDTH):
 		sum += calculate_column_score(i)
@@ -32,13 +33,14 @@ func calculate_score() -> int:
 	return sum
 
 func calculate_gilded() -> int:
+	fill_dict()
 	var money: int = 0
 	for arr in _board_array:
 		for die: Die in arr:
-			if die != null and die.get_type() == Die.DieType.GILDED and _board_dict[str(die.get_value())] != null:
-				var target: Array = _board_dict.get(str(die.get_value()))
-				if target != null:
-					money += max(target.size() - 1, 0) * max(die.quality, 1) # add 1 money per matching die roll	
+			if die != null and die.get_type() == Die.DieType.GILDED:
+				var matches: Array = _board_dict.get(str(die.get_value()), null)
+				if matches != null:
+					money += max(matches.size() - 1, 0) * (die.quality + 1) # add 1 money per matching die roll	
 	return money
 
 # accepts column index

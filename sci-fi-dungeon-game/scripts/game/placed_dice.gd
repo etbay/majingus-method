@@ -20,7 +20,7 @@ var quality: int = 0
 
 func _init(value: int = 0, type: DieType = DieType.NORMAL, qual: int = 0):
 	_value = value
-	_type = type
+	_type = DieType.GILDED
 	quality = qual
 	
 func get_value() -> int:
