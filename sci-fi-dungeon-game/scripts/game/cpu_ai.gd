@@ -19,7 +19,7 @@ func _init(challenge_level: int = 1, bag: DiceBag = null) -> void:
 				dice[randi_range(0, dice.size() - 1)].quality = min(quality + 1, 5)
 	else:
 		dice_bag = bag
-	dice_bag._refresh_dice()
+	dice_bag.refresh_dice()
 
 func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 	var target_column: int = -1

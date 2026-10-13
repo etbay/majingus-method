@@ -76,7 +76,7 @@ func take_cpu_turn() -> void:
 	cpu_physics_die.can_roll = true
 	var cpu_die = cpu_ai.dice_bag.get_die()
 	if cpu_die == null:
-		cpu_ai.dice_bag._refresh_dice()
+		cpu_ai.dice_bag.refresh_dice()
 		cpu_die = cpu_ai.dice_bag.get_die()
 	cpu_die_details.display(cpu_die)
 	cpu_physics_die.match_current_die(cpu_die)
@@ -202,8 +202,8 @@ func _on_laser_selected() -> void:
 		# wait for player to select enemy row
 
 func cleanup_dice():
-	PlayerInventory.dice_bag._refresh_dice()
-	cpu_ai.dice_bag._refresh_dice()
+	PlayerInventory.dice_bag.refresh_dice()
+	cpu_ai.dice_bag.refresh_dice()
 
 func game_over_check() -> bool:
 	var player_board_full: bool = true
