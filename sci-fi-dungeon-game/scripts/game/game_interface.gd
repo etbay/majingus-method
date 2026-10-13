@@ -157,7 +157,7 @@ func _on_shiv_selected() -> void:
 				_current_status = prev_status
 				_enable_columns()
 				return
-			MusicMan.play_sound(AudioDictionary.sfx["Explosion"])
+			MusicMan.play_sound(AudioDictionary.sfx["Slash"])
 			player_score = board.calculate_score()
 			board_display.display_board(board)
 			PlayerInventory.dice_bag.return_dice(destroyed)
@@ -168,12 +168,57 @@ func _on_shiv_selected() -> void:
 				_current_status = prev_status
 				_enable_columns()
 				return
+			MusicMan.play_sound(AudioDictionary.sfx["Slash"])
 			cpu_score = cpu_board.calculate_score()
 			cpu_board_display.display_board(cpu_board)
 			cpu_ai.dice_bag.return_dice(destroyed)
 			
 		#else: cancel strike
 		PlayerInventory.shivs -= 1
+		item_targeting.clickable = false
+		cpu_board_display.enable_columns()
+		board_display.enable_columns()
+		_current_status = prev_status
+		# spawn visual indicator / change display
+		# wait for player to select enemy die
+		_enable_columns()
+	else:
+		MusicMan.play_sound(AudioDictionary.sfx["Fail"])
+
+func _on_laser_selected() -> void:
+	if (_current_status != TurnStatus.WAITING_FOR_TURN and _current_status != TurnStatus.USING_ITEM and _current_status != TurnStatus.NONE and PlayerInventory.has_laser_gun):
+		var prev_status = _current_status
+		_current_status = TurnStatus.USING_ITEM
+		MusicMan.play_sound(AudioDictionary.sfx["Success"])
+		_enable_cells()
+		item_targeting.clickable = true
+		var pos = await item_targeting.selected
+		var destroyed: Array[Die]
+		if pos[0] == 1:
+			#player board
+			destroyed = board.clear_row(pos[2])
+			if (destroyed == null):
+				_current_status = prev_status
+				_enable_columns()
+				return
+			MusicMan.play_sound(AudioDictionary.sfx["Laser"])
+			player_score = board.calculate_score()
+			board_display.display_board(board)
+			PlayerInventory.dice_bag.return_dice_array(destroyed)
+		elif pos[0] == 0:
+			#cpu board
+			destroyed = cpu_board.clear_row(pos[2])
+			if (destroyed == null):
+				_current_status = prev_status
+				_enable_columns()
+				return
+			MusicMan.play_sound(AudioDictionary.sfx["Laser"])
+			cpu_score = cpu_board.calculate_score()
+			cpu_board_display.display_board(cpu_board)
+			cpu_ai.dice_bag.return_dice_array(destroyed)
+			
+		#else: cancel strike
+		PlayerInventory.has_laser_gun = false
 		item_targeting.clickable = false
 		cpu_board_display.enable_columns()
 		board_display.enable_columns()
@@ -193,13 +238,6 @@ func _enable_cells():
 	cpu_board_display.disable_columns()
 	board_display.disable_columns()
 	item_targeting.enable_cells()
-
-func _on_laser_selected() -> void:
-	print("laser selected")
-	#if (_current_status != TurnStatus.WAITING_FOR_TURN and laser_count > 0):
-		#_current_status = TurnStatus.USING_ITEM
-		# spawn visual indicator / change display
-		# wait for player to select enemy row
 
 func cleanup_dice():
 	PlayerInventory.dice_bag.refresh_dice()
