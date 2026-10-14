@@ -131,6 +131,12 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 		target_column = randi_range(0, Board.WIDTH - 1)
 	return target_column
 
+func use_shiv(roll: Die, player: Board, cpu: Board) -> Array[int]:
+	return []
+
+func use_laser(roll: Die, player: Board) -> int:
+	return 0
+
 func get_weighted_choice(potential_targets: Array[Array]) -> int:
 	var target_column = 3 # default to last column in case somethign breaks
 	var total_weight = 0

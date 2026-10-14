@@ -60,7 +60,7 @@ func calculate_column_score(column: int) -> int:
 				if type == Die.DieType.HOLLOW and _board_dict.get("empty") != null:
 					sum_values += _board_dict["empty"].size()
 				elif type == Die.DieType.PLASMA:
-					sum_values += _get_row_matches(die.y, die.get_value()) * max(die.quality, 1)
+					mult_bonus += _get_row_matches(die.y, die.get_value())
 				elif type == Die.DieType.LOW_ROLLER:
 					mult_bonus += _get_column_matches(die.x, die.get_value())
 			column_total += sum_values * (column_dict[entry].size() + mult_bonus)
