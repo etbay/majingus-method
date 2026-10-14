@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="SaveDataResource" format=3 uid="uid://bqsgsiuysr13v"]
+
+[ext_resource type="Script" uid="uid://b5medkvv4mfmd" path="res://scripts/game/die.gd" id="1_pm26o"]
+[ext_resource type="Script" uid="uid://dkvf0qkqe1teb" path="res://scripts/game/dice_bag.gd" id="2_7x6qd"]
+[ext_resource type="Script" uid="uid://bl0ywjwmfnk32" path="res://scripts/game/save_data.gd" id="3_lxe4j"]
+
+[sub_resource type="Resource" id="Resource_tbmy8"]
+script = ExtResource("1_pm26o")
+_type = 1
+metadata/_custom_type_script = "uid://b5medkvv4mfmd"
+
+[sub_resource type="Resource" id="Resource_jk1qb"]
+script = ExtResource("1_pm26o")
+_type = 1
+metadata/_custom_type_script = "uid://b5medkvv4mfmd"
+
+[sub_resource type="Resource" id="Resource_5dd4i"]
+script = ExtResource("1_pm26o")
+_type = 1
+metadata/_custom_type_script = "uid://b5medkvv4mfmd"
+
+[sub_resource type="Resource" id="Resource_lgwnu"]
+script = ExtResource("1_pm26o")
+_type = 1
+metadata/_custom_type_script = "uid://b5medkvv4mfmd"
+
+[sub_resource type="Resource" id="Resource_flqon"]
+script = ExtResource("1_pm26o")
+_type = 5
+metadata/_custom_type_script = "uid://b5medkvv4mfmd"
+
+[sub_resource type="Resource" id="Resource_rcqid"]
+script = ExtResource("1_pm26o")
+_type = 5
+metadata/_custom_type_script = "uid://b5medkvv4mfmd"
+
+[sub_resource type="Resource" id="Resource_1ajci"]
+script = ExtResource("1_pm26o")
+_type = 4
+metadata/_custom_type_script = "uid://b5medkvv4mfmd"
+
+[sub_resource type="Resource" id="Resource_7b55j"]
+script = ExtResource("1_pm26o")
+_type = 2
+metadata/_custom_type_script = "uid://b5medkvv4mfmd"
+
+[sub_resource type="Resource" id="Resource_5pajh"]
+script = ExtResource("1_pm26o")
+_type = 2
+metadata/_custom_type_script = "uid://b5medkvv4mfmd"
+
+[sub_resource type="Resource" id="Resource_j7ex8"]
+script = ExtResource("1_pm26o")
+_type = 3
+metadata/_custom_type_script = "uid://b5medkvv4mfmd"
+
+[sub_resource type="Resource" id="Resource_a8gd2"]
+script = ExtResource("1_pm26o")
+_type = 3
+metadata/_custom_type_script = "uid://b5medkvv4mfmd"
+
+[sub_resource type="Resource" id="Resource_oa1go"]
+script = ExtResource("1_pm26o")
+_type = 1
+quality = 100
+metadata/_custom_type_script = "uid://b5medkvv4mfmd"
+
+[sub_resource type="Resource" id="Resource_pm26o"]
+script = ExtResource("2_7x6qd")
+_total_dice_array = Array[ExtResource("1_pm26o")]([SubResource("Resource_tbmy8"), SubResource("Resource_jk1qb"), SubResource("Resource_5dd4i"), SubResource("Resource_lgwnu"), SubResource("Resource_flqon"), SubResource("Resource_rcqid"), SubResource("Resource_1ajci"), SubResource("Resource_7b55j"), SubResource("Resource_5pajh"), SubResource("Resource_j7ex8"), SubResource("Resource_a8gd2"), SubResource("Resource_oa1go")])
+metadata/_custom_type_script = "uid://dkvf0qkqe1teb"
+
+[resource]
+script = ExtResource("3_lxe4j")
+dice_bag = SubResource("Resource_pm26o")
+balance = 1000
+metadata/_custom_type_script = "uid://bl0ywjwmfnk32"

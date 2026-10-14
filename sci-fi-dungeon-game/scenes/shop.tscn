@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c5q77rop8mdo" path="res://assets/shop/shop_background_light.png" id="9_yuijs"]
 [ext_resource type="FontFile" uid="uid://cukfpuaoj7veg" path="res://assets/Doto/static/Doto-Black.ttf" id="10_aa4hd"]
 [ext_resource type="Texture2D" uid="uid://c2wapo1q2cnw6" path="res://assets/tools/file.png" id="10_gobkm"]
-[ext_resource type="Script" uid="uid://dmadj4q1x13pr" path="res://scripts/shop/inventory.gd" id="11_68utx"]
+[ext_resource type="Script" uid="uid://dmadj4q1x13pr" path="res://scripts/shop/inventory_display.gd" id="11_68utx"]
 [ext_resource type="Texture2D" uid="uid://crlv35ega58fd" path="res://assets/icons/shiv_status_icon_1.png" id="11_j14q8"]
 [ext_resource type="Script" uid="uid://b1r5lb80vu4jf" path="res://scripts/game/ui/balance_label.gd" id="12_7mqwv"]
 [ext_resource type="Script" uid="uid://corm1mf32fuwq" path="res://scripts/shop/shop_slot.gd" id="13_ru2r1"]
