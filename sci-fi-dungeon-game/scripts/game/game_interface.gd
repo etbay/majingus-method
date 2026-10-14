@@ -293,8 +293,8 @@ func reset_board() -> void:
 	board = Board.new()
 	player_score = 0
 	cpu_score = 0
-	_current_status = TurnStatus.ROLLING
 	_current_status = TurnStatus.NONE
+	_prev_status = TurnStatus.NONE
 	cpu_board_display.display_board(cpu_board)
 	board_display.display_board(board)
 	physics_die.match_current_die(Die.new(0))

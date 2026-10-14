@@ -12,8 +12,9 @@ func _ready() -> void:
 	game_display.game_over.connect(_game_over)
 
 func _on_status_changed(status: GameInterface.TurnStatus) -> void:
-	status_icon.visible = true
-	status_label.visible = true
+	if status != GameInterface.TurnStatus.NONE:
+		status_icon.visible = true
+		status_label.visible = true
 	if status == GameInterface.TurnStatus.ROLLING:
 		status_icon.texture = TextureDictionary.rolling_status_icon
 		status_label.text = "Rolling"
