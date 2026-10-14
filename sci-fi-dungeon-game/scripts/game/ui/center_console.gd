@@ -1,4 +1,4 @@
-extends Node3D
+class_name CenterConsole extends Node3D
 
 @export var player_gameboard: GameInterface
 @onready var status_icon: Sprite3D = $StatusIcon
@@ -32,9 +32,13 @@ func _on_status_changed(status: GameInterface.TurnStatus) -> void:
 		status_label.text = "Waiting for CPU"
 
 func _game_over(player_score: int, cpu_score: int) -> void:
-	status_icon.visible = false
-	status_label.visible = false
+	status_icon.visible = true
+	status_label.visible = true
 	if player_score >= cpu_score:
 		status_label.text = "YOU WON"
 	else:
 		status_label.text = "YOU LOST"
+
+func center_console_off() -> void:
+	status_icon.visible = false
+	status_label.visible = false

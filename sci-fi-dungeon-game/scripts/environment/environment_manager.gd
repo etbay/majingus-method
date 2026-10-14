@@ -38,6 +38,7 @@ func _ready() -> void:
 		game_ui.switch_to_environment()
 		if game_ended:
 			skarps_board.reset_board()
+			skarps_board.center_console.center_console_off()
 			game_ended = false
 		)
 	skarps_board.game_started.connect(_on_game_start)
