@@ -42,7 +42,8 @@ enum TurnStatus
 	WAITING_FOR_TURN,
 	ROLLING,
 	SELECTING,
-	USING_ITEM
+	USING_ITEM,
+	USING_LASER
 }
 
 var _current_status := TurnStatus.NONE:
@@ -50,6 +51,8 @@ var _current_status := TurnStatus.NONE:
 		if _current_status != value:
 			_current_status = value
 			status_changed.emit(_current_status)
+
+var _prev_status := TurnStatus.NONE
 
 func _ready() -> void:
 	board_display_wrapper.column_selected.connect(_on_column_selected)
@@ -141,21 +144,33 @@ func _on_column_selected(column: int, die: Die) -> void:
 	turn_finished.emit()
 
 func _on_shiv_selected() -> void:
-	if (_current_status != TurnStatus.WAITING_FOR_TURN and _current_status != TurnStatus.USING_ITEM and _current_status != TurnStatus.NONE and PlayerInventory.shivs > 0):
-		var prev_status = _current_status
+	# If structure: if the prev status is not empty, that means the current status is using, and you should cancel whatever use action
+	if (_prev_status != TurnStatus.NONE):
+		_current_status = _prev_status
+		_prev_status = TurnStatus.NONE
+		_enable_columns()
+		MusicMan.play_sound(AudioDictionary.sfx["Success"])
+		
+	elif ((_current_status == TurnStatus.ROLLING or _current_status == TurnStatus.SELECTING) and PlayerInventory.shivs > 0):
+		_prev_status = _current_status
 		_current_status = TurnStatus.USING_ITEM
-		MusicMan.play_sound(AudioDictionary.sfx["Slash"])
+		MusicMan.play_sound(AudioDictionary.sfx["Select"])
 		_enable_cells()
 		item_targeting.clickable = true
+		# wait for player to select enemy die
 		var pos = await item_targeting.selected
+		if (_current_status != TurnStatus.USING_ITEM):
+			return
 		var destroyed: Die
 		#print("Targeting: [%d, %d, %d]" % [pos[0], pos[1], pos[2]])
 		if pos[0] == 1:
 			#player board
 			destroyed = board.destroy_die(pos[1], pos[2])
 			if (destroyed == null):
-				_current_status = prev_status
+				_current_status = _prev_status
 				_enable_columns()
+				_prev_status = TurnStatus.NONE
+				MusicMan.play_sound(AudioDictionary.sfx["Fail"])
 				return
 			MusicMan.play_sound(AudioDictionary.sfx["Slash"])
 			player_score = board.calculate_score()
@@ -165,8 +180,10 @@ func _on_shiv_selected() -> void:
 			#cpu board
 			destroyed = cpu_board.destroy_die(pos[1], pos[2])
 			if (destroyed == null):
-				_current_status = prev_status
+				_current_status = _prev_status
 				_enable_columns()
+				_prev_status = TurnStatus.NONE
+				MusicMan.play_sound(AudioDictionary.sfx["Fail"])
 				return
 			MusicMan.play_sound(AudioDictionary.sfx["Slash"])
 			cpu_score = cpu_board.calculate_score()
@@ -178,28 +195,39 @@ func _on_shiv_selected() -> void:
 		item_targeting.clickable = false
 		cpu_board_display.enable_columns()
 		board_display.enable_columns()
-		_current_status = prev_status
+		_current_status = _prev_status
 		# spawn visual indicator / change display
-		# wait for player to select enemy die
 		_enable_columns()
+		_prev_status = TurnStatus.NONE
 	else:
 		MusicMan.play_sound(AudioDictionary.sfx["Fail"])
 
 func _on_laser_selected() -> void:
-	if (_current_status != TurnStatus.WAITING_FOR_TURN and _current_status != TurnStatus.USING_ITEM and _current_status != TurnStatus.NONE and PlayerInventory.has_laser_gun):
-		var prev_status = _current_status
-		_current_status = TurnStatus.USING_ITEM
+	if (_prev_status != TurnStatus.NONE):
+		_current_status = _prev_status
+		_prev_status = TurnStatus.NONE
+		_enable_columns()
 		MusicMan.play_sound(AudioDictionary.sfx["Success"])
+		
+	elif ((_current_status == TurnStatus.ROLLING or _current_status == TurnStatus.SELECTING) and PlayerInventory.has_laser_gun):
+		_prev_status = _current_status
+		_current_status = TurnStatus.USING_LASER
+		MusicMan.play_sound(AudioDictionary.sfx["Select"])
 		_enable_cells()
 		item_targeting.clickable = true
 		var pos = await item_targeting.selected
+		# If they cancel the function, this must be restored
+		if (_current_status != TurnStatus.USING_LASER):
+			return
 		var destroyed: Array[Die]
 		if pos[0] == 1:
 			#player board
 			destroyed = board.clear_row(pos[2])
-			if (destroyed == null):
-				_current_status = prev_status
+			if (destroyed == null or destroyed.size() == 0):
+				_current_status = _prev_status
 				_enable_columns()
+				_prev_status = TurnStatus.NONE
+				MusicMan.play_sound(AudioDictionary.sfx["Fail"])
 				return
 			MusicMan.play_sound(AudioDictionary.sfx["Laser"])
 			player_score = board.calculate_score()
@@ -208,9 +236,11 @@ func _on_laser_selected() -> void:
 		elif pos[0] == 0:
 			#cpu board
 			destroyed = cpu_board.clear_row(pos[2])
-			if (destroyed == null):
-				_current_status = prev_status
+			if (destroyed == null or destroyed.size() == 0):
+				_current_status = _prev_status
 				_enable_columns()
+				_prev_status = TurnStatus.NONE
+				MusicMan.play_sound(AudioDictionary.sfx["Fail"])
 				return
 			MusicMan.play_sound(AudioDictionary.sfx["Laser"])
 			cpu_score = cpu_board.calculate_score()
@@ -222,7 +252,8 @@ func _on_laser_selected() -> void:
 		item_targeting.clickable = false
 		cpu_board_display.enable_columns()
 		board_display.enable_columns()
-		_current_status = prev_status
+		_current_status = _prev_status
+		_prev_status = TurnStatus.NONE
 		# spawn visual indicator / change display
 		# wait for player to select enemy die
 		_enable_columns()

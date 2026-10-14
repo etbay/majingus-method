@@ -4,10 +4,17 @@ signal pressed
 
 @onready var click_area: MouseClickDetect = $MouseClickDetect
 @onready var label_3d: Label3D = $Label3D
-@onready var game_display: GameDisplay = $".."
+@onready var game_display: GameDisplay = $"../.."
 
 var _mouse_over: bool = false
-var enabled: bool = true
+var enabled: bool = true:
+	set(boolean):
+		if boolean:
+			label_3d.visible = true
+			click_area.visible = true
+		else:
+			label_3d.visible = false
+			click_area.visible = false
 
 func _ready() -> void:
 	click_area.mouse_entered.connect(_on_mouse_entered)

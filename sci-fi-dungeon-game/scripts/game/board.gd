@@ -83,7 +83,9 @@ func _get_column_matches(col: int, face: int) -> int:
 func clear_row(row: int) -> Array[Die]:
 	var destroyed: Array[Die] = []
 	for i in range(0, WIDTH):
-		destroyed.append(destroy_die(i, row))
+		var die: Die = destroy_die(i, row)
+		if die != null:
+			destroyed.append(die)
 	return destroyed
 
 func destroy_die(x: int, y: int) -> Die:
