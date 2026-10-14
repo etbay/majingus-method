@@ -12,7 +12,7 @@ var shivs: int = 3:
 			shivs = value
 			shiv_count_changed.emit(shivs)
 
-var has_laser_gun: bool = false:
+var has_laser_gun: bool = true:
 	set(boolean):
 		if has_laser_gun != boolean:
 			has_laser_gun = boolean

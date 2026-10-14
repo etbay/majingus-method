@@ -170,6 +170,7 @@ func _on_shiv_selected() -> void:
 				_current_status = _prev_status
 				_enable_columns()
 				_prev_status = TurnStatus.NONE
+				MusicMan.play_sound(AudioDictionary.sfx["Fail"])
 				return
 			MusicMan.play_sound(AudioDictionary.sfx["Slash"])
 			player_score = board.calculate_score()
@@ -182,6 +183,7 @@ func _on_shiv_selected() -> void:
 				_current_status = _prev_status
 				_enable_columns()
 				_prev_status = TurnStatus.NONE
+				MusicMan.play_sound(AudioDictionary.sfx["Fail"])
 				return
 			MusicMan.play_sound(AudioDictionary.sfx["Slash"])
 			cpu_score = cpu_board.calculate_score()
@@ -225,6 +227,7 @@ func _on_laser_selected() -> void:
 				_current_status = _prev_status
 				_enable_columns()
 				_prev_status = TurnStatus.NONE
+				MusicMan.play_sound(AudioDictionary.sfx["Fail"])
 				return
 			MusicMan.play_sound(AudioDictionary.sfx["Laser"])
 			player_score = board.calculate_score()
@@ -237,6 +240,7 @@ func _on_laser_selected() -> void:
 				_current_status = _prev_status
 				_enable_columns()
 				_prev_status = TurnStatus.NONE
+				MusicMan.play_sound(AudioDictionary.sfx["Fail"])
 				return
 			MusicMan.play_sound(AudioDictionary.sfx["Laser"])
 			cpu_score = cpu_board.calculate_score()
