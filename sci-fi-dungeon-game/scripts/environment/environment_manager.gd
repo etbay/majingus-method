@@ -62,6 +62,7 @@ func switch_camera(camera: Camera3D) -> void:
 
 func _on_game_start() -> void:
 	PlayerInventory.dice_bag.refresh_dice()
+	MusicMan.play_sound(AudioDictionary.sfx["Select"])
 	exit_to_environment.visible = false
 
 func _on_game_over(_x: int, _y: int) -> void:

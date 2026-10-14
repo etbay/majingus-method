@@ -144,7 +144,7 @@ func _on_shiv_selected() -> void:
 	if (_current_status != TurnStatus.WAITING_FOR_TURN and _current_status != TurnStatus.USING_ITEM and _current_status != TurnStatus.NONE and PlayerInventory.shivs > 0):
 		var prev_status = _current_status
 		_current_status = TurnStatus.USING_ITEM
-		MusicMan.play_sound(AudioDictionary.sfx["Slash"])
+		MusicMan.play_sound(AudioDictionary.sfx["Select"])
 		_enable_cells()
 		item_targeting.clickable = true
 		var pos = await item_targeting.selected
@@ -189,7 +189,7 @@ func _on_laser_selected() -> void:
 	if (_current_status != TurnStatus.WAITING_FOR_TURN and _current_status != TurnStatus.USING_ITEM and _current_status != TurnStatus.NONE and PlayerInventory.has_laser_gun):
 		var prev_status = _current_status
 		_current_status = TurnStatus.USING_ITEM
-		MusicMan.play_sound(AudioDictionary.sfx["Success"])
+		MusicMan.play_sound(AudioDictionary.sfx["Select"])
 		_enable_cells()
 		item_targeting.clickable = true
 		var pos = await item_targeting.selected

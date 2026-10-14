@@ -55,9 +55,8 @@ size = Vector3(0.011, 2.4570465, 0.85)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbsse"]
 size = Vector3(0.9, 0.01, 1)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_qi5dk"]
-height = 0.2
-radius = 0.3
+[sub_resource type="BoxShape3D" id="BoxShape3D_4pxeq"]
+size = Vector3(0.4, 0.1, 0.2)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1pvmy"]
 height = 0.08654785
@@ -914,6 +913,27 @@ horizontal_alignment = 0
 transform = Transform3D(0.355, 2.969553e-08, 2.2015605e-08, -2.9695535e-08, 0.103170745, 0.33967748, 2.2015598e-08, -0.33967748, 0.103170745, 0.50984246, -0.17279531, 0.019198596)
 texture = ExtResource("2_76fi4")
 
+[node name="StartButton" type="Node3D" parent="CenterConsole" unique_id=149010900]
+transform = Transform3D(1, 0, 0, 0, 0.3058805, 0.95206994, 0, -0.95206994, 0.3058805, 0.13043445, -0.06457806, 0.014741659)
+script = ExtResource("35_n0mid")
+metadata/_custom_type_script = "uid://uein033h4nwc"
+
+[node name="MouseClickDetect" type="Area3D" parent="CenterConsole/StartButton" unique_id=2015998493]
+transform = Transform3D(2.439024, 0, 0, 0, -1.0661312e-07, -2.4390244, 0, 2.439024, -1.0661314e-07, 0.40781194, -5.9604645e-08, 0)
+script = ExtResource("29_6ppqr")
+metadata/_custom_type_script = "uid://c4cw16k6ppo11"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CenterConsole/StartButton/MouseClickDetect" unique_id=2121307890]
+shape = SubResource("BoxShape3D_4pxeq")
+
+[node name="Label3D" type="Label3D" parent="CenterConsole/StartButton" unique_id=748917405]
+transform = Transform3D(0.02, 6.661338e-16, -5.551115e-17, -1.110223e-16, 0.020000009, 1.3969839e-09, 0, -1.3969839e-09, 0.020000009, 0.38574263, 0.02974242, 0.0388968)
+pixel_size = 0.05
+text = "Start Game"
+font = ExtResource("11_1rt75")
+font_size = 150
+outline_size = 20
+
 [node name="LeftConsole" type="Node3D" parent="." unique_id=591422906]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01, 1.1194682, 0.6666864)
 
@@ -1043,28 +1063,6 @@ text = "25"
 font = ExtResource("11_1rt75")
 font_size = 140
 outline_size = 20
-
-[node name="StartButton" type="Node3D" parent="RightConsole" unique_id=149010900]
-transform = Transform3D(1, 0, -3.9023007e-09, 5.820766e-11, 1, 0, 3.5472567e-09, 0, 0.99999994, -0.13033485, 0, 0.010689378)
-script = ExtResource("35_n0mid")
-metadata/_custom_type_script = "uid://uein033h4nwc"
-
-[node name="MouseClickDetect" type="Area3D" parent="RightConsole/StartButton" unique_id=2015998493]
-transform = Transform3D(2.4308627, 0.19935945, -0.0007490925, 2.9504116e-07, -0.009168129, -2.4390073, -0.19936085, 2.4308455, -0.009137495, 0, 0, 0)
-script = ExtResource("29_6ppqr")
-metadata/_custom_type_script = "uid://c4cw16k6ppo11"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RightConsole/StartButton/MouseClickDetect" unique_id=2121307890]
-shape = SubResource("CylinderShape3D_qi5dk")
-
-[node name="Label3D" type="Label3D" parent="RightConsole/StartButton" unique_id=1975343099]
-transform = Transform3D(1, 0, 3.54828e-09, 1.7462298e-10, 1, 6.9849193e-10, 3.5478251e-09, 0, 0.9999998, 0.02076006, -0.0009545088, 0.2531315)
-pixel_size = 0.004
-render_priority = 8
-text = "Start
-Match"
-font = ExtResource("4_2vras")
-font_size = 50
 
 [node name="LeftButton" type="Node3D" parent="." unique_id=1641349821]
 transform = Transform3D(1, 0, 0, 0, 0.48633534, 0.87377226, 0, -0.87377226, 0.48633534, -1.404, 0.888, 1.335)

@@ -13,7 +13,7 @@ const VENT_FISH = preload("uid://sjav46uc51qo")
 
 @onready var game_manager: GameManager = $GameManager
 @onready var game: GameInterface = $PlayerGameboard
-@onready var start_button_detect: StartButton = $RightConsole/StartButton
+@onready var start_button_detect: StartButton = $CenterConsole/StartButton
 @onready var character_sprite: Sprite3D = $LeftConsole/Portrait/CharacterSprite
 @export var door_character: Sprite3D
 @export var door_character_env: Sprite3D
