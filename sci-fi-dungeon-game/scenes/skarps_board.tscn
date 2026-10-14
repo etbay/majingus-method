@@ -33,8 +33,8 @@
 [ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scripts/game/mouse_click_detect.gd" id="29_6ppqr"]
 [ext_resource type="Script" uid="uid://c2c5mrywxkt46" path="res://scripts/game/ui/shiv_inventory.gd" id="30_clux5"]
 [ext_resource type="Script" uid="uid://d1yft7s42ku6g" path="res://scripts/game/ui/plasmagun_inventory.gd" id="31_4pxeq"]
+[ext_resource type="Texture2D" uid="uid://bs4iqvcfbaal3" path="res://assets/icons/plasmagun_status_icon_white.png" id="34_clux5"]
 [ext_resource type="Script" uid="uid://uein033h4nwc" path="res://scripts/game/ui/skarps_start_button.gd" id="35_n0mid"]
-[ext_resource type="FontFile" uid="uid://1ueiimeutkfn" path="res://assets/Source_Code_Pro/static/SourceCodePro-SemiBold.ttf" id="36_n0mid"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qs5on"]
 size = Vector3(2.3, 0.01, 0.8)
@@ -54,6 +54,9 @@ size = Vector3(0.011, 2.4570465, 0.85)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbsse"]
 size = Vector3(0.9, 0.01, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4pxeq"]
+size = Vector3(0.4, 0.1, 0.08)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1pvmy"]
 height = 0.08654785
@@ -897,7 +900,7 @@ transform = Transform3D(0.06, 5.018962e-09, 3.7209476e-09, -5.018964e-09, 0.0174
 texture = ExtResource("9_eh8qp")
 
 [node name="StatusLabel" type="Label3D" parent="CenterConsole" unique_id=730606847]
-transform = Transform3D(0.02, 0, 0, 0, 0.0061176084, 0.019041399, 0, -0.019041399, 0.0061176084, 0.13043445, -0.06457806, 0.014741659)
+transform = Transform3D(0.02, 0, 0, 0, 0.0061176084, 0.019041399, 0, -0.019041399, 0.0061176084, 0.195, -0.065, 0.015)
 pixel_size = 0.05
 modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
 outline_modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
@@ -909,6 +912,27 @@ horizontal_alignment = 0
 [node name="ConsoleBackground" type="Sprite3D" parent="CenterConsole" unique_id=536467810]
 transform = Transform3D(0.355, 2.969553e-08, 2.2015605e-08, -2.9695535e-08, 0.103170745, 0.33967748, 2.2015598e-08, -0.33967748, 0.103170745, 0.50984246, -0.17279531, 0.019198596)
 texture = ExtResource("2_76fi4")
+
+[node name="StartButton" type="Node3D" parent="CenterConsole" unique_id=149010900]
+transform = Transform3D(1, 0, 0, 0, 0.3058805, 0.95206994, 0, -0.95206994, 0.3058805, 0.13043445, -0.06457806, 0.014741659)
+script = ExtResource("35_n0mid")
+metadata/_custom_type_script = "uid://uein033h4nwc"
+
+[node name="MouseClickDetect" type="Area3D" parent="CenterConsole/StartButton" unique_id=2015998493]
+transform = Transform3D(2.439024, 0, 0, 0, -1.0661312e-07, -2.4390244, 0, 2.439024, -1.0661314e-07, 0.40781194, -5.9604645e-08, 0)
+script = ExtResource("29_6ppqr")
+metadata/_custom_type_script = "uid://c4cw16k6ppo11"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CenterConsole/StartButton/MouseClickDetect" unique_id=2121307890]
+shape = SubResource("BoxShape3D_4pxeq")
+
+[node name="Label3D" type="Label3D" parent="CenterConsole/StartButton" unique_id=748917405]
+transform = Transform3D(0.02, 6.661338e-16, -5.551115e-17, -1.110223e-16, 0.020000009, 1.3969839e-09, 0, -1.3969839e-09, 0.020000009, 0.38574263, 0.02974242, 0.0388968)
+pixel_size = 0.05
+text = "Start Game"
+font = ExtResource("11_1rt75")
+font_size = 150
+outline_size = 20
 
 [node name="LeftConsole" type="Node3D" parent="." unique_id=591422906]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01, 1.1194682, 0.6666864)
@@ -1059,13 +1083,11 @@ shape = SubResource("CylinderShape3D_1pvmy")
 
 [node name="RightButton" type="Node3D" parent="." unique_id=1591922940]
 transform = Transform3D(1, 0, 0, 0, 0.48633534, 0.87377226, 0, -0.87377226, 0.48633534, 1.3781599, 0.888, 1.335)
-script = ExtResource("35_n0mid")
+script = ExtResource("2_vasga")
 
-[node name="Label3D" type="Label3D" parent="RightButton" unique_id=743193855]
-pixel_size = 0.001
-text = "START"
-font = ExtResource("36_n0mid")
-font_size = 103
+[node name="IconSprite" type="Sprite3D" parent="RightButton" unique_id=591427427]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.004286886, 0.008442596, -7.676427e-09)
+texture = ExtResource("34_clux5")
 
 [node name="MouseClickDetect" type="Area3D" parent="RightButton" unique_id=1609806771]
 script = ExtResource("29_6ppqr")
