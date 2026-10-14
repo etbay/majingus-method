@@ -4,7 +4,7 @@ signal pressed
 
 @onready var click_area: MouseClickDetect = $MouseClickDetect
 @onready var label_3d: Label3D = $Label3D
-@onready var game_display: GameDisplay = $".."
+@onready var game_display: GameDisplay = $"../.."
 
 var _mouse_over: bool = false
 var enabled: bool = true

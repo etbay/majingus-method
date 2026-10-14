@@ -2,6 +2,7 @@ extends Node
 
 signal balance_changed(int)
 signal shiv_count_changed(int)
+signal laser_changed
 
 var dice_bag: DiceBag
 
@@ -11,7 +12,11 @@ var shivs: int = 3:
 			shivs = value
 			shiv_count_changed.emit(shivs)
 
-var has_laser_gun: bool = false
+var has_laser_gun: bool = false:
+	set(boolean):
+		if has_laser_gun != boolean:
+			has_laser_gun = boolean
+			laser_changed.emit()
 
 var balance: int = 0:
 	set(value):
