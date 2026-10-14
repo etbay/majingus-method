@@ -86,4 +86,6 @@ func _on_game_over(player_score: int, cpu_score: int) -> void:
 
 func reset_board() -> void:
 	game.reset_board()
+	game.player_die_details.display(Die.new(0))
+	game.cpu_die_details.display(Die.new(0))
 	start_button_detect.enabled = true

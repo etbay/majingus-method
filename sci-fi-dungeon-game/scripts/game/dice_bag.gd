@@ -16,6 +16,10 @@ func get_die() -> Die:
 func return_dice(die: Die) -> void:
 	_dice_array.append(die) 
 
+func return_dice_array(dice: Array[Die]) -> void:
+	for die in dice:
+		return_dice(die)
+
 func get_absolute_dice_array() -> Array[Die]:
 	return _total_dice_array
 
