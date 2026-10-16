@@ -4,3 +4,5 @@ class_name CPUCharacter extends Resource
 @export var character_name: String
 @export var characer_id: String
 @export_range(1, 12, 1.0) var difficulty: int
+@export_range(0, 3) var shiv_count: int
+@export var has_laser: bool

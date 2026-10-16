@@ -65,6 +65,8 @@ func _ready() -> void:
 
 func set_cpu(character: CPUCharacter) -> void:
 	cpu_ai = CPUAI.new(character.difficulty)
+	cpu_ai.shivs = character.shiv_count
+	cpu_ai.has_laser = character.has_laser
 	cpu_used_shiv.emit(cpu_ai.shivs)
 	cpu_used_laser.emit(cpu_ai.has_laser)
 
