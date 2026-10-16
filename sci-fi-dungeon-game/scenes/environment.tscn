@@ -34,6 +34,7 @@
 [ext_resource type="Script" uid="uid://ofdd1sfw738p" path="res://scripts/save_to_disk_button.gd" id="26_om7ee"]
 [ext_resource type="Texture2D" uid="uid://blh70jtiad28l" path="res://assets/alpha_mask_chromaticabberation.png" id="27_om7ee"]
 [ext_resource type="Script" uid="uid://ciw4042a2encs" path="res://scenes/tooltip.gd" id="31_ti3hv"]
+[ext_resource type="Script" uid="uid://23g1lj5u45ve" path="res://scripts/reset_save_data_button.gd" id="31_twl6x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
 size = Vector3(4.715515, 0.8117676, 1.211792)
@@ -463,6 +464,7 @@ script = ExtResource("26_om7ee")
 [node name="ResetSaveDataButton" type="Button" parent="CanvasLayer/PauseOverlay/VBoxContainer" unique_id=1808690966]
 layout_mode = 2
 text = "Reset Save Data"
+script = ExtResource("31_twl6x")
 
 [node name="FadeOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1910025015]
 visible = false

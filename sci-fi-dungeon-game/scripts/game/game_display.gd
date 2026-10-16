@@ -62,9 +62,16 @@ func game_over_func():
 	print("Game Over")
 	game_over.emit(game.board.calculate_score(), game.cpu_board.calculate_score()) # left = players score, right = cpu's
 	
-	current_cpu += 1
-	if current_cpu == cpu_characters.size():
-		current_cpu = 0
+	# If the player wins, advance to the next cpu
+	if game.board.calculate_score() >= game.cpu_board.calculate_score():
+		current_cpu += 1
+		if current_cpu == cpu_characters.size():
+			current_cpu = 0
+	# Otherwise, go back to the previous one
+	else:
+		current_cpu -= 1
+		if current_cpu < 0:
+			current_cpu = 0
 	PlayerInventory.current_cpu = current_cpu
 	_update_cpu()
 

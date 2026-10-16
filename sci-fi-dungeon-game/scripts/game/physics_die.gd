@@ -71,12 +71,12 @@ func roll() -> int:
 	MusicMan.play_sound(AudioDictionary.sfx["Dice"])
 	can_roll = false
 	roll_started.emit()
-	_move_timer.start(0.05)
+	_move_timer.start(0.2)
 	_rolling = true
 	_apply_random_force()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.05).timeout
 	_apply_random_force()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.05).timeout
 	_apply_random_force()
 	await roll_finished
 	global_position = reset_location.global_position
@@ -88,12 +88,12 @@ func force_roll():
 	MusicMan.play_sound(AudioDictionary.sfx["Dice"])
 	can_roll = false
 	roll_started.emit()
-	_move_timer.start(0.05)
+	_move_timer.start(0.2)
 	_rolling = true
 	_apply_random_force()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.05).timeout
 	_apply_random_force()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.05).timeout
 	_apply_random_force()
 	await roll_finished
 	global_position = reset_location.global_position
@@ -105,7 +105,7 @@ func _apply_random_force() -> void:
 	var z_force: float = randf_range(0, 5)
 	var x_offset: float = randf_range(-0.1, 0.1)
 	var z_offset: float = randf_range(-0.1, 0.1)
-	apply_force(Vector3(x_force, 15, z_force), Vector3(x_offset, -0.1, z_offset))
+	apply_force(Vector3(x_force, 20, z_force), Vector3(x_offset, -0.1, z_offset))
 	var x_rotation: float = randf_range(0, 360)
 	var y_rotation: float = randf_range(0, 360)
 	var z_rotation: float = randf_range(0, 360)
