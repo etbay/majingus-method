@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DieUpgrade" format=3 uid="uid://d4ki78hmu6tcg"]
+
+[ext_resource type="Script" uid="uid://dmu34n35hea3v" path="res://scripts/shop/die_upgrade.gd" id="1_eqlks"]
+
+[resource]
+script = ExtResource("1_eqlks")
+name = "Gilded"
+cost = 5
+type = 1

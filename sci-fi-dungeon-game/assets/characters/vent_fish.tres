@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CPUCharacter" format=3 uid="uid://sjav46uc51qo"]
+
+[ext_resource type="Script" uid="uid://b4jpjkgigxeln" path="res://scripts/game/cpu_character.gd" id="1_yya7q"]
+[ext_resource type="Texture2D" uid="uid://xcwvcsm6nr7o" path="res://assets/characters/ventfish.png" id="2_24ffb"]
+
+[resource]
+script = ExtResource("1_yya7q")
+texture = ExtResource("2_24ffb")
+difficulty = 12
+metadata/_custom_type_script = "uid://b4jpjkgigxeln"

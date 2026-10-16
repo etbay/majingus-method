@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://danv5yuir41kd"]
+
+[ext_resource type="Script" uid="uid://4q8cefygbslf" path="res://scripts/shop/shop_interface.gd" id="1_ccd21"]
+[ext_resource type="Script" uid="uid://dmu34n35hea3v" path="res://scripts/shop/die_upgrade.gd" id="2_2k26e"]
+[ext_resource type="Script" uid="uid://cve30cp0m6p5v" path="res://scripts/game/dice_select_wrapper.gd" id="2_vf6ka"]
+[ext_resource type="Resource" uid="uid://d4ki78hmu6tcg" path="res://resources/upgrade_resources/gilded_upgrade.tres" id="3_3n4o0"]
+[ext_resource type="Resource" uid="uid://brj7mcl0f2wyr" path="res://resources/upgrade_resources/hollow_upgrade.tres" id="4_xrvu4"]
+[ext_resource type="Resource" uid="uid://cwu8lld6iy5q5" path="res://resources/upgrade_resources/low_roller_upgrade.tres" id="5_vnjr0"]
+[ext_resource type="Resource" uid="uid://dapuxk7oiampo" path="res://resources/upgrade_resources/plasma_upgrade.tres" id="6_wl7vs"]
+[ext_resource type="Resource" uid="uid://cyc0ppyxa5ndb" path="res://resources/upgrade_resources/weighted_upgrade.tres" id="7_ga5t0"]
+
+[node name="TestSceneShop" type="Node3D" unique_id=704978451]
+
+[node name="ShopInterface" type="Node" parent="." unique_id=30387762 node_paths=PackedStringArray("buy_shiv", "upgrade_1", "upgrade_2", "up_quality", "reroll", "view_dice", "select_wrapper")]
+script = ExtResource("1_ccd21")
+buy_shiv = NodePath("../CanvasLayer/Control/Shiv")
+upgrade_1 = NodePath("../CanvasLayer/Control/Upgrade1")
+upgrade_2 = NodePath("../CanvasLayer/Control/Upgrade2")
+up_quality = NodePath("../CanvasLayer/Control/Quality")
+reroll = NodePath("../CanvasLayer/Control/Reroll")
+view_dice = NodePath("../CanvasLayer/Control/Bag")
+select_wrapper = NodePath("../CanvasLayer/Control/HBoxContainer/DiceSelectWrapper")
+possible_upgrades = Array[ExtResource("2_2k26e")]([ExtResource("3_3n4o0"), ExtResource("4_xrvu4"), ExtResource("5_vnjr0"), ExtResource("6_wl7vs"), ExtResource("7_ga5t0")])
+metadata/_custom_type_script = "uid://4q8cefygbslf"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=402875772]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1950953810]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reroll" type="Button" parent="CanvasLayer/Control" unique_id=1054947098]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 578.0
+offset_right = 173.0
+offset_bottom = 609.0
+text = "Reroll: $2"
+
+[node name="Shiv" type="Button" parent="CanvasLayer/Control" unique_id=506698251]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 37.0
+offset_right = 246.0
+offset_bottom = 217.0
+text = "(x2) Shiv
+$2"
+
+[node name="Upgrade1" type="Button" parent="CanvasLayer/Control" unique_id=1847530333]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 37.0
+offset_right = 481.0
+offset_bottom = 217.0
+text = "Dice Upgrade: _____
+$x"
+
+[node name="Upgrade2" type="Button" parent="CanvasLayer/Control" unique_id=576592208]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 36.0
+offset_right = 714.0
+offset_bottom = 216.0
+text = "Dice Upgrade: _____
+$x"
+
+[node name="Quality" type="Button" parent="CanvasLayer/Control" unique_id=1664723057]
+layout_mode = 0
+offset_left = 771.0
+offset_top = 39.0
+offset_right = 950.0
+offset_bottom = 218.0
+text = "Quality upgrade:
+$(2 x quality)"
+
+[node name="Bag" type="Button" parent="CanvasLayer/Control" unique_id=2043302669]
+layout_mode = 0
+offset_left = 1028.0
+offset_top = 523.0
+offset_right = 1164.0
+offset_bottom = 659.0
+text = "View Bag"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=658862645]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = -124.0
+offset_right = 166.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DiceSelectWrapper" type="Node" parent="CanvasLayer/Control/HBoxContainer" unique_id=254870227 node_paths=PackedStringArray("button_00", "button_10", "button_20", "button_30", "button_01", "button_11", "button_21", "button_31", "button_02", "button_12", "button_22", "button_32")]
+script = ExtResource("2_vf6ka")
+button_00 = NodePath("../VBoxContainer/Button")
+button_10 = NodePath("../VBoxContainer2/Button")
+button_20 = NodePath("../VBoxContainer3/Button")
+button_30 = NodePath("../VBoxContainer4/Button")
+button_01 = NodePath("../VBoxContainer/Button2")
+button_11 = NodePath("../VBoxContainer2/Button2")
+button_21 = NodePath("../VBoxContainer3/Button2")
+button_31 = NodePath("../VBoxContainer4/Button2")
+button_02 = NodePath("../VBoxContainer/Button3")
+button_12 = NodePath("../VBoxContainer2/Button3")
+button_22 = NodePath("../VBoxContainer3/Button3")
+button_32 = NodePath("../VBoxContainer4/Button3")
+metadata/_custom_type_script = "uid://cve30cp0m6p5v"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=1748827310]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=54364385]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=436682461]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=1759038156]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=627055932]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2" unique_id=571489430]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2" unique_id=612004726]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer2" unique_id=1233091411]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=1718754074]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3" unique_id=1589117224]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3" unique_id=834088502]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer3" unique_id=1971101149]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=862828714]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer4" unique_id=515701487]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer4" unique_id=1089192938]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer4" unique_id=306881030]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2

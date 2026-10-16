@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://dw0jydgqdw86s"]
-
-[ext_resource type="Script" uid="uid://ck2d6r688kh3d" path="res://pan_camera.gd" id="1_vd0iu"]
-
-[node name="PanCamera" type="Camera3D" unique_id=1444190908]
-current = true
-script = ExtResource("1_vd0iu")

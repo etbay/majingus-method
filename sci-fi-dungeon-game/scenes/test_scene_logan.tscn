@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfgn5vj7fmsnm"]
 
-[ext_resource type="Script" uid="uid://bph18tv2vdfig" path="res://scripts/game_manager.gd" id="1_2g0j8"]
-[ext_resource type="Script" uid="uid://dbcb7e3a1ebdt" path="res://scripts/board_signal_manager.gd" id="2_8sx4y"]
+[ext_resource type="Script" uid="uid://ddsm42pfpdpsn" path="res://scripts/game/test_game_manager.gd" id="1_8sx4y"]
+[ext_resource type="Script" uid="uid://dbcb7e3a1ebdt" path="res://scripts/game/board_signal_manager.gd" id="2_8sx4y"]
 
 [sub_resource type="Environment" id="Environment_8sx4y"]
 
@@ -18,14 +18,11 @@ size = Vector3(4, 0.3, 3.5)
 
 [node name="TestSceneLogan" type="Node3D" unique_id=363380781]
 
-[node name="GameManager" type="Node" parent="." unique_id=1697665535 node_paths=PackedStringArray("player_score", "CPU_score", "player_dice_roll", "CPU_dice_roll", "b")]
-script = ExtResource("1_2g0j8")
-player_score = NodePath("../CanvasLayer/Control/PlayerScore")
-CPU_score = NodePath("../CanvasLayer/Control/CPUScore")
-player_dice_roll = NodePath("../CanvasLayer/Control/PlayerDice")
-CPU_dice_roll = NodePath("../CanvasLayer/Control/CPUDice")
+[node name="TestGameManager" type="Node" parent="." unique_id=764895288 node_paths=PackedStringArray("b", "cb")]
+script = ExtResource("1_8sx4y")
 b = NodePath("../CanvasLayer/BoardSignalManager")
-metadata/_custom_type_script = "uid://bph18tv2vdfig"
+cb = NodePath("../CanvasLayer/CPUBoardSignalManager")
+metadata/_custom_type_script = "uid://ddsm42pfpdpsn"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1190733260]
 transform = Transform3D(1, 0, 0, 0, 0.43909645, 0.89843994, 0, -0.89843994, 0.43909645, 0, 2.0216336, 1.5877793)
@@ -42,9 +39,10 @@ transform = Transform3D(1, 0, 0, 0, 0.0059577627, 0.99998224, 0, -0.99998224, 0.
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1375700040]
 
-[node name="BoardSignalManager" type="Node" parent="CanvasLayer" unique_id=1243684422 node_paths=PackedStringArray("roll_button", "button_00", "button_10", "button_20", "button_30", "button_01", "button_11", "button_21", "button_31", "button_02", "button_12", "button_22", "button_32", "player_score_text", "column_1_score", "column_2_score", "column_3_score", "column_4_score")]
+[node name="BoardSignalManager" type="Node" parent="CanvasLayer" unique_id=1243684422 node_paths=PackedStringArray("roll_button", "roll_label", "button_00", "button_10", "button_20", "button_30", "button_01", "button_11", "button_21", "button_31", "button_02", "button_12", "button_22", "button_32", "player_score_text", "column_1_score", "column_2_score", "column_3_score", "column_4_score")]
 script = ExtResource("2_8sx4y")
 roll_button = NodePath("../Control/RollDie")
+roll_label = NodePath("../Control/PlayerDice")
 button_00 = NodePath("../Control/Player1/VBoxContainer/Button")
 button_10 = NodePath("../Control/Player1/VBoxContainer2/Button")
 button_20 = NodePath("../Control/Player1/VBoxContainer3/Button")
@@ -62,6 +60,28 @@ column_1_score = NodePath("../Control/ColumnScore")
 column_2_score = NodePath("../Control/ColumnScore2")
 column_3_score = NodePath("../Control/ColumnScore3")
 column_4_score = NodePath("../Control/ColumnScore4")
+metadata/_custom_type_script = "uid://dbcb7e3a1ebdt"
+
+[node name="CPUBoardSignalManager" type="Node" parent="CanvasLayer" unique_id=935651429 node_paths=PackedStringArray("roll_label", "button_00", "button_10", "button_20", "button_30", "button_01", "button_11", "button_21", "button_31", "button_02", "button_12", "button_22", "button_32", "player_score_text", "column_1_score", "column_2_score", "column_3_score", "column_4_score")]
+script = ExtResource("2_8sx4y")
+roll_label = NodePath("../Control/CPUDice")
+button_00 = NodePath("../Control/CPU/VBoxContainer/Button")
+button_10 = NodePath("../Control/CPU/VBoxContainer2/Button")
+button_20 = NodePath("../Control/CPU/VBoxContainer3/Button")
+button_30 = NodePath("../Control/CPU/VBoxContainer4/Button")
+button_01 = NodePath("../Control/CPU/VBoxContainer/Button2")
+button_11 = NodePath("../Control/CPU/VBoxContainer2/Button2")
+button_21 = NodePath("../Control/CPU/VBoxContainer3/Button2")
+button_31 = NodePath("../Control/CPU/VBoxContainer4/Button2")
+button_02 = NodePath("../Control/CPU/VBoxContainer/Button3")
+button_12 = NodePath("../Control/CPU/VBoxContainer2/Button3")
+button_22 = NodePath("../Control/CPU/VBoxContainer3/Button3")
+button_32 = NodePath("../Control/CPU/VBoxContainer4/Button3")
+player_score_text = NodePath("../Control/CPUScore")
+column_1_score = NodePath("../Control/ColumnScore5")
+column_2_score = NodePath("../Control/ColumnScore6")
+column_3_score = NodePath("../Control/ColumnScore7")
+column_4_score = NodePath("../Control/ColumnScore8")
 metadata/_custom_type_script = "uid://dbcb7e3a1ebdt"
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1805039991]
@@ -325,3 +345,31 @@ offset_left = 761.0
 offset_top = 370.0
 offset_right = 801.0
 offset_bottom = 393.0
+
+[node name="ColumnScore5" type="Label" parent="CanvasLayer/Control" unique_id=1818941211]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 323.0
+offset_right = 482.0
+offset_bottom = 346.0
+
+[node name="ColumnScore6" type="Label" parent="CanvasLayer/Control" unique_id=1582352970]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 322.0
+offset_right = 591.0
+offset_bottom = 345.0
+
+[node name="ColumnScore7" type="Label" parent="CanvasLayer/Control" unique_id=1756630920]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 321.0
+offset_right = 690.0
+offset_bottom = 344.0
+
+[node name="ColumnScore8" type="Label" parent="CanvasLayer/Control" unique_id=1783113201]
+layout_mode = 0
+offset_left = 763.0
+offset_top = 322.0
+offset_right = 803.0
+offset_bottom = 345.0

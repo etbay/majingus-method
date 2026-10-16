@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CPUCharacter" format=3 uid="uid://bah5qpk5yk67k"]
+
+[ext_resource type="Script" uid="uid://b4jpjkgigxeln" path="res://scripts/game/cpu_character.gd" id="1_civjb"]
+[ext_resource type="Texture2D" uid="uid://c2lh3sn532kw6" path="res://assets/characters/goop_head_lineart.png" id="2_wqg21"]
+
+[resource]
+script = ExtResource("1_civjb")
+texture = ExtResource("2_wqg21")
+character_name = "Dr. Goop"
+difficulty = 5
+metadata/_custom_type_script = "uid://b4jpjkgigxeln"

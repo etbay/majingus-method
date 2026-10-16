@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DieUpgrade" format=3 uid="uid://cwu8lld6iy5q5"]
+
+[ext_resource type="Script" uid="uid://dmu34n35hea3v" path="res://scripts/shop/die_upgrade.gd" id="1_3ra8b"]
+
+[resource]
+script = ExtResource("1_3ra8b")
+name = "Low Roller"
+cost = 5
+type = 2

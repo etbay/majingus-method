@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CPUCharacter" format=3 uid="uid://c7qh5olwjvibb"]
+
+[ext_resource type="Script" uid="uid://b4jpjkgigxeln" path="res://scripts/game/cpu_character.gd" id="1_snv2o"]
+[ext_resource type="Texture2D" uid="uid://dr5o84jekxinj" path="res://assets/characters/fish_head_lineart.png" id="2_de6qk"]
+
+[resource]
+script = ExtResource("1_snv2o")
+texture = ExtResource("2_de6qk")
+character_name = "Fish Guy"
+difficulty = 3
+metadata/_custom_type_script = "uid://b4jpjkgigxeln"

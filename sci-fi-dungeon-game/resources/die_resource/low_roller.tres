@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DieResource" format=3 uid="uid://bwvohheouw1c7"]
+
+[ext_resource type="Script" uid="uid://cer5pulyh2dl2" path="res://scripts/shop/die_resource.gd" id="1_u2mls"]
+
+[resource]
+script = ExtResource("1_u2mls")
+type = 3
+metadata/_custom_type_script = "uid://cer5pulyh2dl2"

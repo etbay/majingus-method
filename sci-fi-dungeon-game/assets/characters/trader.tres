@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CPUCharacter" format=3 uid="uid://btvwp5l2hy78j"]
+
+[ext_resource type="Script" uid="uid://b4jpjkgigxeln" path="res://scripts/game/cpu_character.gd" id="1_bpcc2"]
+[ext_resource type="Texture2D" uid="uid://7jll1on8nvs0" path="res://assets/characters/trader.png" id="2_m5w13"]
+
+[resource]
+script = ExtResource("1_bpcc2")
+texture = ExtResource("2_m5w13")
+character_name = "Trader"
+metadata/_custom_type_script = "uid://b4jpjkgigxeln"

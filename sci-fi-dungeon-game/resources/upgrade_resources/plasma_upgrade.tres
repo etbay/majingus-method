@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DieUpgrade" format=3 uid="uid://dapuxk7oiampo"]
+
+[ext_resource type="Script" uid="uid://dmu34n35hea3v" path="res://scripts/shop/die_upgrade.gd" id="1_j2bgn"]
+
+[resource]
+script = ExtResource("1_j2bgn")
+name = "Plasma"
+cost = 5
+type = 4

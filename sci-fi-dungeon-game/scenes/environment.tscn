@@ -1,0 +1,501 @@
+[gd_scene format=3 uid="uid://cdqqcb1m04v0w"]
+
+[ext_resource type="Script" uid="uid://c7lrcguml3n6o" path="res://scripts/environment/enviroment_pool.gd" id="1_oqxhg"]
+[ext_resource type="Script" uid="uid://csppoa81pmqdg" path="res://scripts/environment/environment_manager.gd" id="1_txl0x"]
+[ext_resource type="Texture2D" uid="uid://b7uvweshxjo4t" path="res://background-sketch.png" id="2_4sbom"]
+[ext_resource type="Texture2D" uid="uid://fwhckb6000mp" path="res://assets/repeating-background.png" id="3_2bfpd"]
+[ext_resource type="PackedScene" uid="uid://c4dfft6eqpbxe" path="res://assets/gameboard/UIjam_3Dgameboard.glb" id="3_4sbom"]
+[ext_resource type="Script" uid="uid://dqk0ncb4tyy4i" path="res://scripts/environment/environment_gameboard.gd" id="3_aai17"]
+[ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scripts/game/mouse_click_detect.gd" id="5_txl0x"]
+[ext_resource type="Script" uid="uid://cg2h6snrryap3" path="res://scripts/environment/pool_trigger.gd" id="6_7q7v2"]
+[ext_resource type="PackedScene" uid="uid://dw0jydgqdw86s" path="res://scenes/pan_camera.tscn" id="7_aai17"]
+[ext_resource type="Texture2D" uid="uid://qqo6xycga7pj" path="res://assets/bed_cropped.png" id="8_3gbvy"]
+[ext_resource type="Script" uid="uid://den6y6w7fw24w" path="res://scripts/environment/interactable_object.gd" id="8_7q7v2"]
+[ext_resource type="Texture2D" uid="uid://dqxmncpwok4ou" path="res://assets/pipes_unbroken.png" id="8_pgkm7"]
+[ext_resource type="Script" uid="uid://dtb5stktjubk4" path="res://scripts/environment/pan_camera_area.gd" id="8_txl0x"]
+[ext_resource type="PackedScene" uid="uid://gyka836qy4gv" path="res://scenes/inventory_hud.tscn" id="9_7px3q"]
+[ext_resource type="Texture2D" uid="uid://bd8eay6y4b3br" path="res://assets/vent_cropped.png" id="9_7q7v2"]
+[ext_resource type="PackedScene" uid="uid://cio6xt5lum3aq" path="res://scenes/skarps_board.tscn" id="10_mpsl3"]
+[ext_resource type="Texture2D" uid="uid://cw11iaumgqp0u" path="res://assets/characters/johnspace.png" id="11_pgkm7"]
+[ext_resource type="Texture2D" uid="uid://cqbvd2u4nxeds" path="res://assets/screen_cropped.png" id="12_w1st6"]
+[ext_resource type="Texture2D" uid="uid://c5q77rop8mdo" path="res://assets/shop/shop_background_light.png" id="13_rn5b3"]
+[ext_resource type="Texture2D" uid="uid://cuo0vdv2c4t21" path="res://assets/toilet_unbroken.png" id="14_4nqy1"]
+[ext_resource type="Script" uid="uid://dv7gy4kta7xw7" path="res://scripts/game/game_ui.gd" id="16_4qs8q"]
+[ext_resource type="Texture2D" uid="uid://cgnhwyy4rx2vl" path="res://assets/floor_texture.png" id="17_7px3q"]
+[ext_resource type="Script" uid="uid://715vwn2n5drg" path="res://scripts/npcs/dialogue_control.gd" id="17_mpsl3"]
+[ext_resource type="PackedScene" uid="uid://c6ctuuw46lpot" path="res://scenes/shop.tscn" id="17_txl0x"]
+[ext_resource type="Texture2D" uid="uid://cmotsqvfgyvu0" path="res://assets/dialogue_box.png" id="18_mbc85"]
+[ext_resource type="Texture2D" uid="uid://b2wnyyppwygwu" path="res://assets/icons/column_select_icon_1.png" id="19_4qs8q"]
+[ext_resource type="Script" uid="uid://c3hoylo0kia3t" path="res://scripts/environment/exit_to_environment.gd" id="20_rpk5l"]
+[ext_resource type="Script" uid="uid://qs1hrkxf551s" path="res://scripts/environment/tutorial_button.gd" id="25_454qq"]
+[ext_resource type="Shader" uid="uid://d3a8kiw1bvtyf" path="res://scenes/chromatic_aberration.gdshader" id="26_2vexs"]
+[ext_resource type="Script" uid="uid://cbdimcubpid6r" path="res://scenes/pause_menu.gd" id="26_6rpxt"]
+[ext_resource type="Script" uid="uid://ofdd1sfw738p" path="res://scenes/save_to_disk_button.gd" id="26_om7ee"]
+[ext_resource type="Texture2D" uid="uid://blh70jtiad28l" path="res://assets/alpha_mask_chromaticabberation.png" id="27_om7ee"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
+size = Vector3(4.715515, 0.8117676, 1.211792)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txl0x"]
+albedo_color = Color(0.99607843, 0.9529412, 0.7176471, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_txl0x"]
+material = SubResource("StandardMaterial3D_txl0x")
+size = Vector3(4.7523193, 0.75305176, 0.93310547)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4arys"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3gbvy"]
+size = Vector3(9.973022, 5.787842, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7q7v2"]
+size = Vector3(4.694977, 1.7345581, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1st6"]
+size = Vector3(4.6668243, 3.244896, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4nqy1"]
+size = Vector3(5.0216255, 7.5956144, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6iypd"]
+size = Vector3(0.06647021, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6rpxt"]
+shader = ExtResource("26_2vexs")
+shader_parameter/aberration_x = 0.02000004845000003
+shader_parameter/aberration_y = 0.02000004845000003
+
+[node name="EnvironmentSystem" type="Node3D" unique_id=67044161 node_paths=PackedStringArray("current_camera")]
+script = ExtResource("1_txl0x")
+current_camera = NodePath("EnvironmentCamera")
+
+[node name="EnviromentPool" type="Node" parent="." unique_id=659122170 node_paths=PackedStringArray("environment_spawn", "active_environment", "pan_camera")]
+script = ExtResource("1_oqxhg")
+background_image = ExtResource("2_4sbom")
+environment_spawn = NodePath("..")
+active_environment = NodePath("../Environment")
+pan_camera = NodePath("../EnvironmentCamera")
+
+[node name="Environment" type="Node3D" parent="." unique_id=1543069538]
+
+[node name="EnvironmentGameboard" type="Node3D" parent="Environment" unique_id=1321156996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.2, -2.135, -4.886)
+script = ExtResource("3_aai17")
+
+[node name="UIjam_3Dgameboard" parent="Environment/EnvironmentGameboard" unique_id=1466399746 instance=ExtResource("3_4sbom")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.075496286, 0, 0.25881904, 0.28175598, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Environment/EnvironmentGameboard" unique_id=52656741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7206056, 0)
+script = ExtResource("5_txl0x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/EnvironmentGameboard/Area3D" unique_id=395549529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029205322, -0.0008544922, 0.105895996)
+shape = SubResource("BoxShape3D_aai17")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/EnvironmentGameboard" unique_id=2130155186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017700195, 0.66556406, 0.19390154)
+transparency = 0.97
+mesh = SubResource("BoxMesh_txl0x")
+
+[node name="Background" type="Sprite3D" parent="Environment" unique_id=1735480180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003129959, 2.3841858e-07, -4.947579)
+texture = ExtResource("3_2bfpd")
+
+[node name="Pipes" type="Sprite3D" parent="Environment" unique_id=187053272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020671844, -0.11182904, -4.674667)
+texture = ExtResource("8_pgkm7")
+
+[node name="PoolTriggerLeft" type="Area3D" parent="Environment" unique_id=89222847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+script = ExtResource("6_7q7v2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PoolTriggerLeft" unique_id=1393381500]
+shape = SubResource("BoxShape3D_4arys")
+
+[node name="PoolTriggerRight" type="Area3D" parent="Environment" unique_id=1682219468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+script = ExtResource("6_7q7v2")
+trigger_direction = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PoolTriggerRight" unique_id=309458157]
+shape = SubResource("BoxShape3D_4arys")
+
+[node name="Bed" type="Sprite3D" parent="Environment" unique_id=564777308 node_paths=PackedStringArray("highlight_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.073869, -1.081708, -4.6946115)
+render_priority = 2
+texture = ExtResource("8_3gbvy")
+script = ExtResource("8_7q7v2")
+hover_highlight = Color(1, 1, 1, 1)
+highlight_target = NodePath(".")
+
+[node name="Area3D" type="Area3D" parent="Environment/Bed" unique_id=1980777520]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Bed/Area3D" unique_id=125297970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0005493164, 0.004760742, 0)
+shape = SubResource("BoxShape3D_3gbvy")
+
+[node name="Vent" type="Sprite3D" parent="Environment" unique_id=937361410 node_paths=PackedStringArray("highlight_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.120754, 2.4530675, -4.694611)
+render_priority = 2
+texture = ExtResource("9_7q7v2")
+script = ExtResource("8_7q7v2")
+hover_highlight = Color(1, 1, 1, 1)
+highlight_target = NodePath(".")
+
+[node name="Area3D" type="Area3D" parent="Environment/Vent" unique_id=1298523333]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Vent/Area3D" unique_id=289470176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014785767, 0.012664795, 0)
+shape = SubResource("BoxShape3D_7q7v2")
+
+[node name="Shop" type="Sprite3D" parent="Environment" unique_id=1071631409 node_paths=PackedStringArray("highlight_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.068584, 0.43816686, -4.8896947)
+render_priority = 2
+texture = ExtResource("12_w1st6")
+script = ExtResource("8_7q7v2")
+hover_highlight = Color(0.99416226, 0.95142263, 0.7193252, 1)
+highlight_target = NodePath(".")
+this_one_is_the_shop = true
+
+[node name="Area3D" type="Area3D" parent="Environment/Shop" unique_id=1321879679]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Shop/Area3D" unique_id=447422494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0007095337, -0.00888443, 0)
+shape = SubResource("BoxShape3D_w1st6")
+
+[node name="Sprite3D" type="Sprite3D" parent="Environment/Shop" unique_id=610711313]
+transform = Transform3D(0.315, 0, 0, 0, 0.315, 0, 0, 0, 0.315, 0, 0, 0.13040519)
+render_priority = 5
+texture = ExtResource("13_rn5b3")
+
+[node name="Toilet" type="Sprite3D" parent="Environment" unique_id=467108388 node_paths=PackedStringArray("highlight_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.785334, -0.056267023, -4.694611)
+render_priority = 2
+texture = ExtResource("14_4nqy1")
+script = ExtResource("8_7q7v2")
+hover_highlight = Color(1, 1, 1, 1)
+highlight_target = NodePath(".")
+
+[node name="Area3D" type="Area3D" parent="Environment/Toilet" unique_id=1377587915]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Toilet/Area3D" unique_id=1837350925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3241844, 0.03179896, 0)
+shape = SubResource("BoxShape3D_4nqy1")
+
+[node name="Character" type="Sprite3D" parent="Environment" unique_id=1824914348]
+transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, -29.007647, 1.351565, -5.683466)
+render_priority = -1
+texture = ExtResource("11_pgkm7")
+
+[node name="SpaceBackground" type="Sprite3D" parent="Environment" unique_id=495200399]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -8.971832)
+modulate = Color(0, 0, 0, 1)
+render_priority = -100
+texture = ExtResource("3_2bfpd")
+
+[node name="EnvironmentCamera" parent="." unique_id=1444190908 instance=ExtResource("7_aai17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.620289, 0, 0)
+fov = 87.6
+turn_threshold = 7.0
+turn_speed = 8.0
+
+[node name="PanCameraArea" type="Area3D" parent="EnvironmentCamera" unique_id=1164377640]
+script = ExtResource("8_txl0x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnvironmentCamera/PanCameraArea" unique_id=292160548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019328622, 0, 0)
+shape = SubResource("BoxShape3D_6iypd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1825473644]
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=2028378337]
+transform = Transform3D(1, 0, 0, 0, 0.27397493, 0.96173686, 0, -0.96173686, 0.27397493, 0, 0, 0)
+light_energy = 0.188
+sky_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1473294941]
+script = ExtResource("16_4qs8q")
+
+[node name="ShaderOverlay" type="TextureRect" parent="CanvasLayer" unique_id=644832903]
+material = SubResource("ShaderMaterial_6rpxt")
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("27_om7ee")
+
+[node name="InventoryHUD" parent="CanvasLayer" unique_id=1377702667 instance=ExtResource("9_7px3q")]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="Dialogue_Control" type="Control" parent="CanvasLayer" unique_id=452579939]
+visible = false
+layout_mode = 3
+anchor_left = 0.52500004
+anchor_top = 0.36100003
+anchor_right = 0.52500004
+anchor_bottom = 0.37800002
+offset_left = -414.00006
+offset_top = -113.92001
+offset_right = 373.99994
+offset_bottom = 20.839996
+script = ExtResource("17_mpsl3")
+
+[node name="Dialogue_Container" type="TextureRect" parent="CanvasLayer/Dialogue_Control" unique_id=558850767]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.014
+offset_right = -1.0
+offset_bottom = -0.058013916
+texture = ExtResource("18_mbc85")
+expand_mode = 1
+
+[node name="Character_Speech" type="RichTextLabel" parent="CanvasLayer/Dialogue_Control" unique_id=2129552842]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10300001
+anchor_top = 0.374
+anchor_right = 0.95300007
+anchor_bottom = 0.79600006
+offset_left = -0.1640091
+offset_top = 2.0219994
+offset_right = 0.035949707
+offset_bottom = 10.987991
+theme_override_font_sizes/normal_font_size = 20
+text = "Test Speech"
+
+[node name="Character_Name" type="RichTextLabel" parent="CanvasLayer/Dialogue_Control" unique_id=1336315785]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.029000001
+anchor_top = 0.082
+anchor_right = 0.21200001
+anchor_bottom = 0.31300002
+offset_left = 0.14799881
+offset_top = -0.0539999
+offset_right = -0.056015015
+offset_bottom = -0.011001587
+theme_override_font_sizes/normal_font_size = 25
+text = "Test Name"
+scroll_active = false
+
+[node name="Dialogue_Continue" type="TextureButton" parent="CanvasLayer/Dialogue_Control" unique_id=1806131733]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99500006
+anchor_bottom = 0.99300003
+offset_left = 3.0
+offset_top = -1.0
+offset_right = -0.060058594
+offset_bottom = 0.0289917
+
+[node name="LeftArrow" type="TextureRect" parent="CanvasLayer" unique_id=1212373161]
+custom_maximum_size = Vector2(100, 100)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 48.0
+offset_right = 100.0
+offset_bottom = 148.0
+grow_vertical = 2
+rotation = -1.5707964
+texture = ExtResource("19_4qs8q")
+
+[node name="DownArrow" type="TextureRect" parent="CanvasLayer" unique_id=1896707422]
+visible = false
+custom_maximum_size = Vector2(100, 100)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = 7.0
+offset_right = 153.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 3.1415927
+texture = ExtResource("19_4qs8q")
+script = ExtResource("20_rpk5l")
+
+[node name="RightArrow" type="TextureRect" parent="CanvasLayer" unique_id=1368258340]
+custom_maximum_size = Vector2(100, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5707964
+texture = ExtResource("19_4qs8q")
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=2104624576]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.5
+offset_right = 34.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Tutorial"
+script = ExtResource("25_454qq")
+
+[node name="TutorialText" type="ColorRect" parent="CanvasLayer" unique_id=1027573364]
+visible = false
+custom_maximum_size = Vector2(700, 600)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 299.0
+offset_top = 62.0
+offset_right = -281.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15487596, 0.154876, 0.15487596, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/TutorialText" unique_id=648621002]
+layout_mode = 0
+offset_right = 828.0
+offset_bottom = 751.0
+scale = Vector2(0.815, 0.8093359)
+text = "Objective:  
+The goal of Scarps is to earn the most points by strategically placing your holodice.
+
+Gameplay:
+Placement of Dice:
+Players take turns placing holodice on the game board. Dice can be placed in any open space on the board.
+
+Scoring Points:
+When a player places dice, they should aim to stack dice with the same number in the same column.
+Points are calculated based on the number of identical dice in a column:
+If there are two dice with the same number in a column, calculate the score as follows: 
+Example: Two 3's = [3 + 3] x 2 = 6 points.
+If there are three dice with the same number in a column, the score would be:
+Example: Three 3's = [3 + 3 + 3] x 3 = 9 points.
+  
+Attacking Opponent:
+Players can place dice on their opponent's side to \"attack.\"
+To do this, there must be an open space available for your die.
+Attacking allows you to destroy one of your opponent's dice in a selected column.
+
+Upgrading Dice:
+Players can upgrade their dice to enhance their score.
+If a die receives a +1 upgrade and is part of a scoring combination:
+Example: For the previous example with two 3's, if one of the dice is upgraded, the score will be:
+[3 + 3 + 1] x 2 = 7 points.
+
+Winning the Game: 
+The game ends when a player has all their columns filled. The player with the highest total score wins. "
+
+[node name="PauseOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1346878557]
+visible = false
+modulate = Color(1, 1, 1, 0.5294118)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.34906498, 0.34906504, 0.34906492, 1)
+script = ExtResource("26_6rpxt")
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseOverlay" unique_id=625358535]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PAUSED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseOverlay" unique_id=485795410]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -66.0
+offset_right = 74.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="SaveToDiskButton" type="CheckButton" parent="CanvasLayer/PauseOverlay/VBoxContainer" unique_id=333898208]
+layout_mode = 2
+text = "Save to Disk"
+script = ExtResource("26_om7ee")
+
+[node name="ResetSaveDataButton" type="Button" parent="CanvasLayer/PauseOverlay/VBoxContainer" unique_id=1808690966]
+layout_mode = 2
+text = "Reset Save Data"
+
+[node name="FadeOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1910025015]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Skarps" type="Node3D" parent="." unique_id=1098451559]
+
+[node name="SpaceBackground2" type="Sprite3D" parent="Skarps" unique_id=2080520856]
+transform = Transform3D(-1, 2.262668e-08, -8.444392e-08, 0, 0.9659258, 0.25881904, 8.742278e-08, 0.25881904, -0.9659258, -1.6799961e-06, -0.34185195, 10.417284)
+modulate = Color(0, 0, 0, 1)
+render_priority = -100
+texture = ExtResource("3_2bfpd")
+
+[node name="Character" type="Sprite3D" parent="Skarps" unique_id=1617087183]
+transform = Transform3D(0.56, 0, 0, 0, 0.54091847, -0.14493866, 0, 0.14493866, 0.54091847, 0.11430943, 0.114994645, 10.3272295)
+render_priority = -1
+texture = ExtResource("11_pgkm7")
+
+[node name="Background2" type="Sprite3D" parent="Skarps" unique_id=1908461041]
+transform = Transform3D(-1, 2.262668e-08, -8.444392e-08, 0, 0.9659258, 0.25881904, 8.742278e-08, 0.25881904, -0.9659258, -29.235304, -0.5546347, 8.912759)
+texture = ExtResource("3_2bfpd")
+
+[node name="Background3" type="Sprite3D" parent="Skarps" unique_id=1546477725]
+transform = Transform3D(-1, 0, 8.742278e-08, 2.314194e-08, 0.96432734, 0.26471293, -8.4304176e-08, 0.26471293, -0.96432734, 47.531773, -0.54790944, 8.921283)
+texture = ExtResource("3_2bfpd")
+
+[node name="GameCamera" type="Camera3D" parent="Skarps" unique_id=1262957634]
+transform = Transform3D(-1, 1.0578467e-15, -8.7422734e-08, -8.069971e-08, 0.38456595, 0.92309755, 3.3619806e-08, 0.92309755, -0.38456595, 1.0385886e-08, 0.59527045, 6.5416794)
+
+[node name="SkarpsBoard" parent="Skarps" unique_id=1549528452 node_paths=PackedStringArray("door_character", "door_character_env") instance=ExtResource("10_mpsl3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.00152421, -2.2413986, 7.606835)
+door_character = NodePath("../Character")
+door_character_env = NodePath("../../Environment/Character")
+
+[node name="Floor" type="Sprite3D" parent="Skarps" unique_id=866005600]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -5.672697, 3.923293)
+render_priority = -2
+texture = ExtResource("17_7px3q")
+
+[node name="Shop" parent="." unique_id=616363720 instance=ExtResource("17_txl0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7600746, 0.9951081, 7.097279)
+
+[connection signal="pressed" from="CanvasLayer/Dialogue_Control/Dialogue_Continue" to="CanvasLayer/Dialogue_Control" method="_on_next_pressed"]
+
+[editable path="Environment/EnvironmentGameboard/UIjam_3Dgameboard"]
+[editable path="CanvasLayer/InventoryHUD"]
+[editable path="Shop"]
+[editable path="Shop/ItemsForSale/ToolSlot"]
+[editable path="Shop/ItemsForSale/ItemSlot"]

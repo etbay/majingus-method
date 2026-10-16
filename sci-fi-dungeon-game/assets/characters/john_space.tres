@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CPUCharacter" format=3 uid="uid://mtff7wbo073p"]
+
+[ext_resource type="Script" uid="uid://b4jpjkgigxeln" path="res://scripts/game/cpu_character.gd" id="1_dxhg5"]
+[ext_resource type="Texture2D" uid="uid://cw11iaumgqp0u" path="res://assets/characters/johnspace.png" id="2_77y3o"]
+
+[resource]
+script = ExtResource("1_dxhg5")
+texture = ExtResource("2_77y3o")
+character_name = "John Space Senator of Space"
+difficulty = 10
+metadata/_custom_type_script = "uid://b4jpjkgigxeln"
