@@ -28,6 +28,12 @@ var balance: int = 0:
 			balance_changed.emit(balance)
 			save_inventory()
 
+var current_cpu: int = 0:
+	set(value):
+		if current_cpu != value:
+			current_cpu = value
+			save_inventory()
+
 var has_file: bool = false
 var has_wrench: bool = false
 var has_screwdriver: bool = false
@@ -59,6 +65,7 @@ func save_inventory() -> void:
 	save_data.shiv_count = shivs
 	save_data.has_laser_gun = has_laser_gun
 	save_data.balance = balance
+	save_data.current_cpu = current_cpu
 	var error: Error = ResourceSaver.save(save_data, "user://majingus_save.tres")
 	if error != OK:
 		push_error("Error saving resource")
@@ -78,6 +85,7 @@ func load_inventory(save_data: SaveDataResource = null) -> void:
 		shivs = loaded_save.shiv_count
 		has_laser_gun = loaded_save.has_laser_gun
 		balance = loaded_save.balance
+		current_cpu = loaded_save.current_cpu
 		dice_bag_changed.emit()
 
 func reset_save_data() -> void:
