@@ -95,7 +95,7 @@ func take_cpu_turn() -> void:
 		if ((cpu_score + (30 - cpu_ai._challenge_level) < (player_score) and cpu_board.get_count() < 11) and randi() % 2 == 0):
 			var target = cpu_ai.use_laser(cpu_die, board)
 			if (target != -1):
-				print("Target: col %d" % target)
+				#print("Target: col %d" % target)
 				cpu_ai.has_laser = false
 				cpu_used_laser.emit()
 				MusicMan.play_sound(AudioDictionary.sfx["Laser"])
@@ -108,7 +108,7 @@ func take_cpu_turn() -> void:
 		if ((cpu_score + (20 - cpu_ai._challenge_level) < (player_score) and cpu_board.get_count() < 11) and randi() % 10 > 3):
 			var target = cpu_ai.use_shiv(cpu_die, board, cpu_board)
 			if (target.size() > 0):
-				print("Target: [%d, %d, %d]" % target)
+				#print("Target: [%d, %d, %d]" % target)
 				cpu_ai.shivs -= 1
 				cpu_used_shiv.emit(cpu_ai.shivs)
 				MusicMan.play_sound(AudioDictionary.sfx["Slash"])

@@ -8,7 +8,7 @@ var shivs: int = 3:
 		shivs = min(max(0, value), 3)
 var has_laser: bool = true
 
-func _init(challenge_level: int = 1, bag: DiceBag = null, shiv_count: int = 3, laser: bool = true) -> void:
+func _init(challenge_level: int = 1, bag: DiceBag = null, shiv_count: int = 1, laser: bool = false) -> void:
 	clampi(challenge_level, 1, 12)
 	_challenge_level = challenge_level
 	_high_threshold = randi_range(4, 5)
