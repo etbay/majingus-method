@@ -16,7 +16,7 @@ signal done_transitioning
 
 @export var current_camera: Camera3D
 
-
+var transition_function: Callable
 var fading_black: bool = false
 var fading_in: bool = false
 var game_ended: bool = false
@@ -25,21 +25,23 @@ func _ready() -> void:
 	game_ui.switch_to_environment()
 	current_camera.current = true
 	GlobalSignals.switch_to_shop.connect(func(): 
+		transition_function = func():
+			game_ui.switch_to_shop()
 		switch_camera(shop_camera)
-		MusicMan.play_music(AudioDictionary.music["RatTheme"])
-		game_ui.switch_to_shop())
+		MusicMan.play_music(AudioDictionary.music["RatTheme"]))
 	GlobalSignals.switch_to_game.connect(func(): 
+		transition_function = func():
+			game_ui.switch_to_game()
 		switch_camera(game_camera)
-		MusicMan.play_music(AudioDictionary.music["DiceTheme"])
-		game_ui.switch_to_game())
+		MusicMan.play_music(AudioDictionary.music["DiceTheme"]))
 	exit_to_environment.mouse_clicked.connect(func():
+		transition_function = func():
+			game_ui.switch_to_environment()
+			if game_ended:
+				skarps_board.reset_board()
+				game_ended = false
 		switch_camera(env_camera)
-		MusicMan.play_music(AudioDictionary.music["MainTheme"])
-		game_ui.switch_to_environment()
-		if game_ended:
-			skarps_board.reset_board()
-			game_ended = false
-		)
+		MusicMan.play_music(AudioDictionary.music["MainTheme"]))
 	skarps_board.game_started.connect(_on_game_start)
 	skarps_board.game_over.connect(_on_game_over)
 
@@ -50,6 +52,8 @@ func switch_camera(camera: Camera3D) -> void:
 	tween.tween_property(fade_overlay, "color:a", 1.0, 0.5)
 	await tween.finished
 	
+	if transition_function != null:
+		transition_function.call()
 	current_camera.current = false
 	current_camera = camera
 	current_camera.current = true

@@ -21,7 +21,7 @@ func _ready() -> void:
 	click_area.mouse_exited.connect(_on_mouse_exited)
 	game_display.game_started.connect(func(): 
 		enabled = false
-		label_3d.modulate = Color.WHITE)
+		label_3d.modulate = Color.from_rgba8(196, 32, 33, 255))
 	game_display.game_over.connect(func(_player_score: int, _cpu_score: int): enabled = false)
 
 func _process(_delta: float) -> void:
@@ -36,4 +36,4 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	if enabled:
 		_mouse_over = false
-		label_3d.modulate = Color.WHITE
+		label_3d.modulate = Color.from_rgba8(196, 32, 33, 255)

@@ -17,6 +17,7 @@ const VENT_FISH = preload("uid://sjav46uc51qo")
 @onready var character_sprite: Sprite3D = $LeftConsole/Portrait/CharacterSprite
 @export var door_character: Sprite3D
 @export var door_character_env: Sprite3D
+@onready var center_console: CenterConsole = $CenterConsole
 
 var cpu_characters: Array[CPUCharacter]
 var current_cpu: CPUCharacter = null
@@ -73,7 +74,11 @@ func game_over_func():
 	game.set_cpu(current_cpu)
 	character_sprite.texture = current_cpu.texture
 	door_character.texture = current_cpu.texture
-	door_character_env.texture = current_cpu.texture
+	# TODO: Refactor panning camera so this shit doesn't happen
+	# This is caused by the deletion of the previous environment when a new one is spawned
+	# when the camera pans too far left or right
+	if is_instance_valid(door_character_env):
+		door_character_env.texture = current_cpu.texture
 	pass
 	# all necessary game over / cleanup steps
 
@@ -86,6 +91,7 @@ func _on_game_over(player_score: int, cpu_score: int) -> void:
 
 func reset_board() -> void:
 	game.reset_board()
+	center_console.hide_status()
 	game.player_die_details.display(Die.new(0))
 	game.cpu_die_details.display(Die.new(0))
 	start_button_detect.enabled = true

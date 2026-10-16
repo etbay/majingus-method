@@ -61,7 +61,7 @@ func _process(_delta: float) -> void:
 		_rolling = false
 	
 	if linear_velocity != Vector3.ZERO or angular_velocity != Vector3.ZERO:
-		_move_timer.start(0.05)
+		_move_timer.start(0.2)
 
 func roll() -> int:
 	await die_clicked

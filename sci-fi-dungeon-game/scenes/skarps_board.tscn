@@ -1120,6 +1120,8 @@ shape = SubResource("BoxShape3D_4pxeq")
 [node name="Label3D" type="Label3D" parent="CenterConsole/StartButton" unique_id=748917405]
 transform = Transform3D(0.02, 6.661338e-16, -5.551115e-17, -1.110223e-16, 0.020000009, 1.3969839e-09, 0, -1.3969839e-09, 0.020000009, 0.38574263, 0.02974242, 0.0388968)
 pixel_size = 0.05
+modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+outline_modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
 text = "Start Game"
 font = ExtResource("11_1rt75")
 font_size = 150
