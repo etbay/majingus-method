@@ -36,10 +36,12 @@ var _rolling: bool = false:
 				roll_finished.emit()
 
 var _move_timer: Timer = Timer.new()
+var _roll_timeout: Timer = Timer.new()
 
 func _ready() -> void:
 	_move_timer.one_shot = true
 	add_child(_move_timer)
+	add_child(_roll_timeout)
 	mouse_detect.mouse_clicked.connect(func(): die_clicked.emit())
 	match_current_die(Die.new(0))
 
@@ -57,13 +59,14 @@ func _process(_delta: float) -> void:
 	elif raycast_6.get_collider() is DieFaceDetect:
 		face_up = raycast_6.face_value
 	
-	if _rolling and _move_timer.is_stopped():
+	if _rolling and _move_timer.is_stopped() or _roll_timeout.is_stopped():
 		_rolling = false
 	
 	if linear_velocity != Vector3.ZERO or angular_velocity != Vector3.ZERO:
 		_move_timer.start(0.2)
 
 func roll() -> int:
+	_roll_timeout.start(10)
 	await die_clicked
 	MusicMan.play_sound(AudioDictionary.sfx["Dice"])
 	can_roll = false
@@ -81,6 +84,7 @@ func roll() -> int:
 	return face_up
 
 func force_roll():
+	_roll_timeout.start(10)
 	MusicMan.play_sound(AudioDictionary.sfx["Dice"])
 	can_roll = false
 	roll_started.emit()
