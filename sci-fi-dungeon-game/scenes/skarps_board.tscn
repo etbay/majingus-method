@@ -1164,15 +1164,6 @@ transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.311341
 render_priority = 1
 texture = ExtResource("20_nahi8")
 
-[node name="PlasmagunInventory" type="Node3D" parent="LeftConsole/Background" unique_id=1123416576]
-transform = Transform3D(2.037, 0, 0, 0, -8.904009e-08, 2.037, 0, -2.037, -8.904009e-08, -0.117565766, 0.20988193, 0.009700524)
-visible = false
-
-[node name="Sprite3D" type="Sprite3D" parent="LeftConsole/Background/PlasmagunInventory" unique_id=1618121569]
-transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, -0.048734296, -6.728677e-09, -0.15814483)
-render_priority = 1
-texture = ExtResource("24_aat4b")
-
 [node name="Score" type="Node3D" parent="LeftConsole/Background" unique_id=416706066]
 transform = Transform3D(0.9994348, -0.033616517, 0, 0.033616517, 0.9994348, 0, 0, 0, 1, 0, 0, 0)
 
@@ -1200,29 +1191,29 @@ font_size = 140
 outline_size = 20
 horizontal_alignment = 0
 
-[node name="ShivInventory" type="Node3D" parent="LeftConsole" unique_id=125123575]
+[node name="ItemInventory" type="Node3D" parent="LeftConsole" unique_id=125123575]
 transform = Transform3D(0.8, 0, 0, 0, -0.8, -1.2079664e-07, 0, 1.2079664e-07, -0.8, -0.1372354, -0.11432409, 0.21722502)
 script = ExtResource("30_n0mid")
 
-[node name="Sprite3D" type="Sprite3D" parent="LeftConsole/ShivInventory" unique_id=1922014036]
+[node name="Sprite3D" type="Sprite3D" parent="LeftConsole/ItemInventory" unique_id=1922014036]
 transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0, 0, 0)
 flip_h = true
 render_priority = 1
 texture = ExtResource("20_nahi8")
 
-[node name="Sprite3D2" type="Sprite3D" parent="LeftConsole/ShivInventory" unique_id=1754336020]
+[node name="Sprite3D2" type="Sprite3D" parent="LeftConsole/ItemInventory" unique_id=1754336020]
 transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0.15, 0, 0)
 flip_h = true
 render_priority = 1
 texture = ExtResource("20_nahi8")
 
-[node name="Sprite3D3" type="Sprite3D" parent="LeftConsole/ShivInventory" unique_id=890001743]
+[node name="Sprite3D3" type="Sprite3D" parent="LeftConsole/ItemInventory" unique_id=890001743]
 transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0.3, 0, 0)
 flip_h = true
 render_priority = 1
 texture = ExtResource("20_nahi8")
 
-[node name="Sprite3D4" type="Sprite3D" parent="LeftConsole/ShivInventory" unique_id=1353440308]
+[node name="Sprite3D4" type="Sprite3D" parent="LeftConsole/ItemInventory" unique_id=1353440308]
 transform = Transform3D(-0.033749998, 2.9505185e-09, -1.2897127e-16, -4.455159e-16, -3.6208485e-09, 0.033749998, 2.9505185e-09, 0.033749998, 3.620849e-09, 0.051273346, 0.004375577, 0.19720954)
 render_priority = 1
 texture = ExtResource("24_aat4b")
