@@ -71,6 +71,7 @@ metadata/_custom_type_script = "uid://dkvf0qkqe1teb"
 [resource]
 script = ExtResource("3_lxe4j")
 dice_bag = SubResource("Resource_pm26o")
+shiv_count = 3
 has_laser_gun = true
 balance = 1000
 metadata/_custom_type_script = "uid://bl0ywjwmfnk32"
