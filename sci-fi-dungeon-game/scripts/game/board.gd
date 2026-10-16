@@ -60,7 +60,7 @@ func calculate_column_score(column: int) -> int:
 				if type == Die.DieType.HOLLOW and _board_dict.get("empty") != null:
 					sum_values += _board_dict["empty"].size()
 				elif type == Die.DieType.PLASMA:
-					sum_values += _get_row_matches(die.y, die.get_value()) * max(die.quality, 1)
+					mult_bonus += _get_row_matches(die.y, die.get_value())
 				elif type == Die.DieType.LOW_ROLLER:
 					mult_bonus += _get_column_matches(die.x, die.get_value())
 			column_total += sum_values * (column_dict[entry].size() + mult_bonus)
@@ -146,6 +146,15 @@ func get_dice_on_board() -> Array[Die]:
 				dice_array.append(item)
 	return dice_array
 
+#function to return # of dice on the board
+func get_count() -> int:
+	var count: int = 0
+	for arr in _board_array:
+		for item in arr:
+			if (item != null and item.get_value() > 0):
+				count += 1
+	return count
+
 func get_board_values() -> Array[Array]:
 	return _board_array
 
@@ -154,6 +163,12 @@ func get_value_at(x: int, y: int) -> int:
 		return _board_array[x][y].get_value()
 	else:
 		return -1
+
+func is_column_full(col: int) -> bool:
+	for item in _board_array[col]:
+		if item == null or item.get_value() == 0:
+			return false
+	return true
 
 # function to return a dict of dice faces and their counts
 func fill_dict() -> void:

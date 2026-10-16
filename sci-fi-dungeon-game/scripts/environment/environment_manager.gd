@@ -41,7 +41,13 @@ func _ready() -> void:
 				skarps_board.reset_board()
 				game_ended = false
 		switch_camera(env_camera)
-		MusicMan.play_music(AudioDictionary.music["MainTheme"]))
+		MusicMan.play_music(AudioDictionary.music["MainTheme"])
+		game_ui.switch_to_environment()
+		if game_ended:
+			skarps_board.reset_board()
+			skarps_board.center_console.center_console_off()
+			game_ended = false
+		)
 	skarps_board.game_started.connect(_on_game_start)
 	skarps_board.game_over.connect(_on_game_over)
 

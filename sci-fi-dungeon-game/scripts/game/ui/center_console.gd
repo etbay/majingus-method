@@ -16,8 +16,9 @@ func hide_status() -> void:
 	status_label.visible = false
 
 func _on_status_changed(status: GameInterface.TurnStatus) -> void:
-	status_icon.visible = true
-	status_label.visible = true
+	if status != GameInterface.TurnStatus.NONE:
+		status_icon.visible = true
+		status_label.visible = true
 	if status == GameInterface.TurnStatus.ROLLING:
 		status_icon.texture = TextureDictionary.rolling_status_icon
 		status_label.text = "Rolling"
@@ -35,8 +36,13 @@ func _on_status_changed(status: GameInterface.TurnStatus) -> void:
 		status_label.text = "Waiting for CPU"
 
 func _game_over(player_score: int, cpu_score: int) -> void:
-	status_icon.visible = false
+	status_icon.visible = true
+	status_label.visible = true
 	if player_score >= cpu_score:
 		status_label.text = "YOU WON"
 	else:
 		status_label.text = "YOU LOST"
+
+func center_console_off() -> void:
+	status_icon.visible = false
+	status_label.visible = false
