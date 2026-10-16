@@ -3,11 +3,17 @@ class_name CPUAI extends Node
 var dice_bag: DiceBag
 var _challenge_level: int # int from 1 to 12
 var _high_threshold: int = 4
+var shivs: int = 3:
+	set (value):
+		shivs = min(max(0, value), 3)
+var has_laser: bool = true
 
-func _init(challenge_level: int = 1, bag: DiceBag = null) -> void:
+func _init(challenge_level: int = 1, bag: DiceBag = null, shiv_count: int = 0, laser: bool = false) -> void:
 	clampi(challenge_level, 1, 12)
 	_challenge_level = challenge_level
-	_high_threshold = randi_range(3, 5)
+	_high_threshold = randi_range(4, 5)
+	shivs = shiv_count
+	has_laser = laser
 	if (bag == null):
 		dice_bag = DiceBag.new()
 		var dice = dice_bag.get_absolute_dice_array()
@@ -32,8 +38,8 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 	var player_pts: int = player.calculate_score()
 	var cpu_pts: int = cpu.calculate_score()
 	var destructive: bool
-	destructive = ((player_pts - cpu_pts > 10 - _challenge_level && randi() % 2 == 0)
-	|| (randi() % 3 == 0 && player.get_dice_on_board().size() >= 6 - (_challenge_level / 2)))
+	destructive = ((player_pts - cpu_pts > 12 - _challenge_level && randi() % 2 == 0)
+	|| (randi() % 3 == 0 && player.get_dice_on_board().size() >= 6 - (_challenge_level / 2.0)))
 	
 	if (destructive):
 		var player_board_array = player.get_board_values()
@@ -89,42 +95,41 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 			target_column = get_weighted_choice(potential_targets)
 			
 		else:
-			# no potential targets
-			# if low value, prioritize putting it in an empty spot or with other low values
+			# no potential targets for attacking
+			# if low value, prioritize putting it with other low values
 			potential_targets.clear()
 			if roll_value < _high_threshold:
 				for i in range(0, Board.WIDTH):
 					var weight: int = 1
-					var dict = cpu.get_column_dict(i)
-					if dict.size() >= 3:
+					
+					if cpu.is_column_full(i):
 						continue
-					elif dict.size() == 0:
-						weight =+ 1
-					elif dict.get(str(roll_value)) != null:
-						weight += dict[str(roll_value)]
-					for j in range (0, _high_threshold):
-						if dict.get(str(j)) != null:
-							weight += dict[str(j)]
-					if dict.get(str(roll_value)) != null:
-						weight *= max(1, pow(_challenge_level, dict[str(roll_value)]))
+					else:
+						var dict = cpu.get_column_dict(i)
+						# ai doesnt want to put low values in open spots most of the time
+						if dict.size() == 0 and roll.get_type() == Die.DieType.LOW_ROLLER:
+							weight += 1
+						else:
+							for j in range (0, _high_threshold):
+								if dict.get(str(j)) != null:
+									weight += dict[str(j)]
+						if dict.get(str(roll_value)) != null:
+							weight *= max(1, pow(_challenge_level, dict[str(roll_value)]))
 					potential_targets.append([i, weight])
 			else:
-				#high value
+				#high value - prioritize empty spots or matching spots
 				for i in range(0, Board.WIDTH):
 					var weight: int = 1
-					var dict = cpu.get_column_dict(i)
-					if dict.size() >= 3:
+					if cpu.is_column_full(i):
 						continue
-					elif dict.size() == 0:
-						weight =+ 1
-					elif dict.get(str(roll_value)) != null:
-						weight += dict[str(roll_value)]
-					for j in range (_high_threshold, 6):
-						if dict.get(str(j)) != null:
-							weight += dict[str(j)]
-					if dict.get(str(roll_value)) != null:
-						weight *= max(1, pow(_challenge_level, dict[str(roll_value)]))
-					potential_targets.append([i, weight])
+					else:
+						var dict = cpu.get_column_dict(i)
+						if dict.size() == 0:
+							weight += 1
+						elif dict.get(str(roll_value)) != null:
+							weight += roll_value
+							weight *= max(1, pow(_challenge_level, dict[str(roll_value)]))
+						potential_targets.append([i, weight])
 			target_column = get_weighted_choice(potential_targets)
 	while target_column == -1 || (target_column < 4 && cpu.get_column_count(target_column) >= 3) || (target_column >= 4 && player.get_column_count(target_column - 4) >= 3):
 		#catch all incorrect spot errors with pure randomness
@@ -147,22 +152,67 @@ func get_weighted_choice(potential_targets: Array[Array]) -> int:
 	return target_column
 
 # calculates where the best possible spot for a shiv would be, or returns null if no great shiv spot exists
-func use_shiv(roll: Die, player: Board, cpu: Board) -> Array[int]:
+func use_shiv(die: Die, player: Board, cpu: Board) -> Array[int]:
 	# determine player score vs cpu score currently, if cpu is winning by x, return null / empty arr
-	# also return null if this is the last round of the game, we dont want the cpu to do some cheeky unreactable shit that the player can
 	var cpu_score: int = cpu.calculate_score()
 	var player_score: int = player.calculate_score()
-	if (cpu_score > player_score + (20 - _challenge_level) || cpu.get:
+	if (cpu_score > (player_score + 20 - _challenge_level) or cpu.get_count() < 11):
+		# also return null if this is the last round of the game, we dont want the cpu to do some cheeky unreactable shit that the player can
 		return []
+	
 	# determine greatest single point loss on player's board
+	var player_target: Array[int] = [0,0]
+	var player_target_worth = 0
+	for array in player.get_board_values():
+		for item: Die in array:
+			
+			if (item == null or item.get_value() == 0):
+				break
+			
+			var worth: float = item.get_value() + item.quality
+			if (item.get_type() != Die.DieType.NORMAL and item.get_type() != Die.DieType.GILDED):
+				# bonus worth for special dice that are non-standard scales with challenge (good ais will target non-standard dice more)
+				worth += _challenge_level / 4.0
+			
+			# mult worth by matches in column
+			var col_dict = player.get_column_dict(item.x)
+			worth *= col_dict[str(item.get_value())]
+			
+			if (col_dict[str(item.get_value())] == 3 and die.get_value() == item.get_value()):
+				# determine if they can destroy one item to make a column empty (greatest value column they can remove)
+				worth *= _challenge_level / 4.0
+			
+			if worth > player_target_worth:
+				player_target_worth = worth
+				player_target[0] = item.x
+				player_target[1] = item.y
 	
-	# determine if they can destroy one item to make a column empty (greatest value column they can remove)
-	
-	# determine if they can destroy one slot on own board to fill a perfect column (only for 5s and 6s or columns with low rollers)
-	
+	# can a shiv on self board be valuable with current die
+	var cpu_target_worth: int = 0
+	var cpu_target: Array[int] = [0,0]
+	for array in cpu.get_board_values():
+		for item: Die in array:
+			if (item == null or item.get_value() == 0):
+				break
+			var worth: float = 0
+			if (item.get_type() != Die.DieType.NORMAL and item.get_type() != Die.DieType.GILDED):
+				# do not target own special dice
+				worth -= _challenge_level
+			if cpu.is_column_full(item.x):
+				if cpu.get_column_dict(item.x).get(str(item.get_value())) == 2:
+					worth += die.get_value() + die.quality
+			if worth > cpu_target_worth:
+				cpu_target_worth = worth
+				cpu_target[0] = item.x
+				cpu_target[1] = item.y
+			
 	# find out which option is the most valuable play
-	
-	return []
+	if player_target_worth != 0 and player_target_worth >= cpu_target_worth:
+		return player_target
+	elif cpu_target_worth != 0:
+		return cpu_target
+	else:
+		return []
 
 func use_laser(roll: Die, player: Board) -> int:
 	return 0

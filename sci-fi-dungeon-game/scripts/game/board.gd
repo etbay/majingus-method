@@ -164,6 +164,12 @@ func get_value_at(x: int, y: int) -> int:
 	else:
 		return -1
 
+func is_column_full(col: int) -> bool:
+	for item in _board_array[col]:
+		if item == null or item.get_value() == 0:
+			return false
+	return true
+
 # function to return a dict of dice faces and their counts
 func fill_dict() -> void:
 	_board_dict = {} # string = die face, int = matching count
