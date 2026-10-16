@@ -18,27 +18,22 @@ const VENT_FISH = preload("uid://sjav46uc51qo")
 @onready var center_console: CenterConsole = $CenterConsole
 @export var door_character: Sprite3D
 @export var door_character_env: Sprite3D
+@onready var center_console: CenterConsole = $CenterConsole
 
 var cpu_characters: Array[CPUCharacter]
-var current_cpu: CPUCharacter = null
+var current_cpu: int = 0
 
 func _ready() -> void:
-	cpu_characters.append(FISH_HEAD)
-	cpu_characters.append(FROG_HEAD)
-	cpu_characters.append(GOOP_GUY)
-	cpu_characters.append(JOHN_SPACE)
-	cpu_characters.append(RAT_GUY)
-	cpu_characters.append(TRADER)
-	cpu_characters.append(VENT_FISH)
+	cpu_characters.append(TRADER)		#1
+	cpu_characters.append(FISH_HEAD)	#3
+	cpu_characters.append(GOOP_GUY)		#5
+	cpu_characters.append(RAT_GUY)		#7
+	cpu_characters.append(FROG_HEAD)	#8
+	cpu_characters.append(JOHN_SPACE)	#10
+	cpu_characters.append(VENT_FISH)	#12
 	
-	var new_cpu: CPUCharacter = cpu_characters.pick_random()
-	while new_cpu == current_cpu:
-		new_cpu = cpu_characters.pick_random()
-	current_cpu = new_cpu
-	game.set_cpu(current_cpu)
-	character_sprite.texture = current_cpu.texture
-	door_character.texture = current_cpu.texture
-	door_character_env.texture = current_cpu.texture
+	current_cpu = PlayerInventory.current_cpu
+	_update_cpu()
 	
 	start_button_detect.pressed.connect(start_game)
 	game_over.connect(_on_game_over)
@@ -67,16 +62,29 @@ func game_over_func():
 	game.cleanup_dice()
 	print("Game Over")
 	game_over.emit(game.board.calculate_score(), game.cpu_board.calculate_score()) # left = players score, right = cpu's
-	var new_cpu: CPUCharacter = cpu_characters.pick_random()
-	while new_cpu == current_cpu:
-		new_cpu = cpu_characters.pick_random()
-	current_cpu = new_cpu
-	game.set_cpu(current_cpu)
-	character_sprite.texture = current_cpu.texture
-	door_character.texture = current_cpu.texture
-	door_character_env.texture = current_cpu.texture
-	pass
-	# all necessary game over / cleanup steps
+	
+	# If the player wins, advance to the next cpu
+	if game.board.calculate_score() >= game.cpu_board.calculate_score():
+		current_cpu += 1
+		if current_cpu == cpu_characters.size():
+			current_cpu = 0
+	# Otherwise, go back to the previous one
+	else:
+		current_cpu -= 1
+		if current_cpu < 0:
+			current_cpu = 0
+	PlayerInventory.current_cpu = current_cpu
+	_update_cpu()
+
+func _update_cpu() -> void:
+	game.set_cpu(cpu_characters[current_cpu])
+	character_sprite.texture = cpu_characters[current_cpu].texture
+	door_character.texture = cpu_characters[current_cpu].texture
+	# TODO: Refactor environment pooling so this shit doesn't happen
+	# This is caused by the deletion of the previous environment when a new one is spawned
+	# when the camera pans too far left or right
+	if is_instance_valid(door_character_env):
+		door_character_env.texture = cpu_characters[current_cpu].texture
 
 func _on_game_over(player_score: int, cpu_score: int) -> void:
 	if player_score >= cpu_score:
@@ -87,6 +95,7 @@ func _on_game_over(player_score: int, cpu_score: int) -> void:
 
 func reset_board() -> void:
 	game.reset_board()
+	center_console.hide_status()
 	game.player_die_details.display(Die.new(0))
 	game.cpu_die_details.display(Die.new(0))
 	start_button_detect.enabled = true

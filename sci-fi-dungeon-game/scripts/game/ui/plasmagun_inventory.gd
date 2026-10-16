@@ -8,6 +8,8 @@ func _ready() -> void:
 
 func _on_change() -> void:
 	if PlayerInventory.has_laser_gun:
-		gun.visible = true
+		gun.texture = TextureDictionary.PLASMAGUN_STATUS_ICON_RED
+		gun.modulate = Color.WHITE
 	else:
-		gun.visible = false
+		gun.texture = TextureDictionary.PLASMAGUN_STATUS_ICON_WHITE
+		gun.modulate = Color.DIM_GRAY

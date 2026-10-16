@@ -11,6 +11,10 @@ func _ready() -> void:
 	player_gameboard.status_changed.connect(_on_status_changed)
 	game_display.game_over.connect(_game_over)
 
+func hide_status() -> void:
+	status_icon.visible = false
+	status_label.visible = false
+
 func _on_status_changed(status: GameInterface.TurnStatus) -> void:
 	if status != GameInterface.TurnStatus.NONE:
 		status_icon.visible = true
@@ -22,10 +26,10 @@ func _on_status_changed(status: GameInterface.TurnStatus) -> void:
 		status_icon.texture = TextureDictionary.selecting_status_icon
 		status_label.text = "Selecting"
 	elif status == GameInterface.TurnStatus.USING_ITEM:
-		status_icon.texture = TextureDictionary.shiv_icon
+		status_icon.texture = TextureDictionary.SHIV_STATUS_ICON_RED
 		status_label.text = "Using Shiv"
 	elif status == GameInterface.TurnStatus.USING_LASER:
-		status_icon.texture = TextureDictionary.plasmagun_icon
+		status_icon.texture = TextureDictionary.PLASMAGUN_STATUS_ICON_RED
 		status_label.text = "Using Laser"
 	elif status == GameInterface.TurnStatus.WAITING_FOR_TURN:
 		status_icon.texture = TextureDictionary.COLUMN_SELECT_ICON

@@ -5,6 +5,10 @@
 [ext_resource type="Script" uid="uid://cv7wue06aqk7a" path="res://scripts/game/die_face_raycast.gd" id="3_e5bsa"]
 [ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scripts/game/mouse_click_detect.gd" id="3_kw4wr"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_twl6x"]
+friction = 0.15
+bounce = 0.5
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_4xij6"]
 size = Vector3(0.15, 0.15, 0.15)
 
@@ -14,6 +18,8 @@ size = Vector3(0.15, 0.15, 0.15)
 [node name="Die" type="RigidBody3D" unique_id=1718489097 node_paths=PackedStringArray("mesh")]
 transform = Transform3D(0.9999997, 0, 0, 0, 0.99999976, 0, 0, 0, 0.9999998, 0, 0, 0)
 input_ray_pickable = false
+mass = 0.4
+physics_material_override = SubResource("PhysicsMaterial_twl6x")
 script = ExtResource("1_hvcds")
 mesh = NodePath("dicemodel/Cube")
 

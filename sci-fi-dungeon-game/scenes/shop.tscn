@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c5q77rop8mdo" path="res://assets/shop/shop_background_light.png" id="9_yuijs"]
 [ext_resource type="FontFile" uid="uid://cukfpuaoj7veg" path="res://assets/Doto/static/Doto-Black.ttf" id="10_aa4hd"]
 [ext_resource type="Texture2D" uid="uid://c2wapo1q2cnw6" path="res://assets/tools/file.png" id="10_gobkm"]
-[ext_resource type="Script" uid="uid://dmadj4q1x13pr" path="res://scripts/shop/inventory.gd" id="11_68utx"]
+[ext_resource type="Script" uid="uid://dmadj4q1x13pr" path="res://scripts/shop/inventory_display.gd" id="11_68utx"]
 [ext_resource type="Texture2D" uid="uid://crlv35ega58fd" path="res://assets/icons/shiv_status_icon_1.png" id="11_j14q8"]
 [ext_resource type="Script" uid="uid://b1r5lb80vu4jf" path="res://scripts/game/ui/balance_label.gd" id="12_7mqwv"]
 [ext_resource type="Script" uid="uid://corm1mf32fuwq" path="res://scripts/shop/shop_slot.gd" id="13_ru2r1"]
@@ -31,12 +31,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgkm7"]
 size = Vector3(1.0626221, 0.28790283, 0.5175781)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_lxs01"]
-size = Vector2(0.745, 0.545)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vfkcf"]
-size = Vector3(0.18243408, 0.089408875, 0.16064453)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbc85"]
 size = Vector3(0.37994385, 0.37872314, 0.0970459)
@@ -140,11 +134,12 @@ texture = ExtResource("11_j14q8")
 transform = Transform3D(-1.3, 5.080477e-08, -1.8960597e-07, 0, 1.2557036, 0.3364648, 1.9629454e-07, 0.3364648, -1.2557036, -1.4300001, 0.25114074, 0.06729318)
 script = ExtResource("13_ru2r1")
 
-[node name="SlotSprite" type="Sprite3D" parent="ItemsForSale/ShopSlot3" unique_id=591143567]
+[node name="SlotSprite" type="Sprite3D" parent="ItemsForSale/ShopSlot3" unique_id=591143567 node_paths=PackedStringArray("mouse_detect")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 render_priority = 1
 texture = ExtResource("14_lxs01")
 script = ExtResource("14_6nbx6")
+mouse_detect = NodePath("../MouseDetect")
 
 [node name="ItemSprite" type="Sprite3D" parent="ItemsForSale/ShopSlot3/SlotSprite" unique_id=1916585562]
 transform = Transform3D(0.40012506, 0, 7.1054274e-15, 0, 0.40012497, -7.450581e-09, -3.5527137e-15, 7.450581e-09, 0.40012497, -1.0960525e-14, 0.08212376, -0.01684039)
@@ -161,30 +156,6 @@ font = ExtResource("10_aa4hd")
 font_size = 150
 outline_size = 0
 horizontal_alignment = 0
-
-[node name="TooltipLabel" type="Label3D" parent="ItemsForSale/ShopSlot3/SlotSprite" unique_id=38893907]
-transform = Transform3D(7.2750006, 0, 1.1368684e-13, 0, 7.275, -1.1920929e-07, -1.1368684e-13, 1.1920929e-07, 7.275, 4.110995e-15, -1.1153159, 0.3018339)
-pixel_size = 0.001
-render_priority = 100
-text = "The pattern reminds you of a bug’s carapace. Gives Points for every empty spot on your board."
-font = ExtResource("14_5u241")
-font_size = 64
-outline_size = 31
-vertical_alignment = 0
-autowrap_mode = 2
-width = 700.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ItemsForSale/ShopSlot3/SlotSprite/TooltipLabel" unique_id=1358504793]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.25259924, -0.0021955771)
-mesh = SubResource("PlaneMesh_lxs01")
-
-[node name="Area3D" type="Area3D" parent="ItemsForSale/ShopSlot3/SlotSprite" unique_id=1974415308]
-transform = Transform3D(7.2750006, 1.1368684e-13, 0, 0, -4.7683716e-07, -7.275, -1.1368684e-13, 7.275, -4.7683716e-07, 0, 0.08212376, 0)
-script = ExtResource("5_gobkm")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ItemsForSale/ShopSlot3/SlotSprite/Area3D" unique_id=505182183]
-transform = Transform3D(1, 2.842171e-13, 3.5527137e-15, 4.121148e-13, 0.99999624, -3.5762787e-07, -2.1316282e-14, 3.5762787e-07, 0.99999624, 0.00045776367, 0.011714816, 0.0021972656)
-shape = SubResource("BoxShape3D_vfkcf")
 
 [node name="MouseDetect" type="Area3D" parent="ItemsForSale/ShopSlot3" unique_id=2079640093]
 script = ExtResource("5_gobkm")
@@ -222,7 +193,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.965
 texture = ExtResource("8_pqync")
 
 [node name="Highlight" type="Sprite3D" parent="Background" unique_id=693260226]
-transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 0, -6.3329936e-10, -0.037205845)
+transform = Transform3D(0.31, 0, 0, 0, 0.31000006, 0, 0, 0, 0.31000006, -0.0031439066, 2.861023e-05, -0.03709936)
 texture = ExtResource("9_yuijs")
 
 [node name="ShopLabel" type="Label3D" parent="Background" unique_id=403300876]

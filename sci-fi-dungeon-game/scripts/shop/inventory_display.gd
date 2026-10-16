@@ -9,6 +9,7 @@ var test_array: Array[Die]
 func _ready() -> void:
 	for slot in inventory_slots:
 		slot.slot_selected.connect(_on_selected)
+	PlayerInventory.dice_bag_changed.connect(initialize_inventory)
 	initialize_inventory()
 
 func initialize_inventory() -> void:
