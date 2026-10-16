@@ -4,3 +4,4 @@ signal switch_to_game
 signal switch_to_shop
 signal open_tooltip(Vector2, String)
 signal close_tooltip
+signal start_dialogue(id: String, trigger: String)

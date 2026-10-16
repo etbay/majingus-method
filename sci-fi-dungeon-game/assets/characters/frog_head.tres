@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("1_cj4rg")
 texture = ExtResource("2_iwcqp")
-character_name = "Frog Lady"
+character_name = "Madame Illwater"
+character_id = "Frog"
 difficulty = 8
 shiv_count = 3
 metadata/_custom_type_script = "uid://b4jpjkgigxeln"

@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_yya7q")
 texture = ExtResource("2_24ffb")
+character_name = "Xygas the Forever Fish"
 difficulty = 12
 shiv_count = 3
 has_laser = true

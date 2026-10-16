@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_dxhg5")
 texture = ExtResource("2_77y3o")
-character_name = "John Space Senator of Space"
+character_name = "Sen. John P."
 difficulty = 10
 shiv_count = 2
 has_laser = true

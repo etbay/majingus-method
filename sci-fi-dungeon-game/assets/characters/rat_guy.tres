@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_cww44")
 texture = ExtResource("2_3ppo2")
-character_name = "Rat guy"
+character_name = "Ratthew"
 difficulty = 7
 shiv_count = 1
 has_laser = true

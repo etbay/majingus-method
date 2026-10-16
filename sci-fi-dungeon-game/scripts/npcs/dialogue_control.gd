@@ -1,9 +1,9 @@
 extends Control
 
-@onready var dialogue_speech = $Character_Speech
+@onready var dialogue_speech: RichTextLabel = $Dialogue_Container/Character_Speech
 @onready var dialogue_container = $Dialogue_Container
-@onready var dialogue_character_name = $Character_Name
-@onready var dialogue_continue = $Dialogue_Continue
+@onready var dialogue_continue: TextureButton = $Dialogue_Continue
+@onready var dialogue_character_name: RichTextLabel = $Dialogue_Container/Character_Name
 
 var dialogue_data = {}
 
@@ -40,9 +40,8 @@ func _ready():
 	#output.store_string(json_text)
 	#output.close()
 	dialogue_data = load_dialogue_json("res://resources/dialogue_resources/dialogue_data.json")
-	#TEST START DIALOGUE
-	start_dialogue("NPC_12", "start_game")
-	
+	dialogue_continue.pressed.connect(_on_next_pressed)
+	GlobalSignals.start_dialogue.connect(start_dialogue)
 
 
 
@@ -123,8 +122,9 @@ func parse_raw_dialogue(path: String) -> Dictionary:
 
 
 func start_dialogue(id: String, condition: String) -> void:
+	visible = true
 	current_index = 0
-	current_lines.clear()
+	current_lines = []
 
 	if not dialogue_data.has(id):
 		push_warning("Dialogue ID '%s' not found." % id)
@@ -146,7 +146,6 @@ func start_dialogue(id: String, condition: String) -> void:
 		return
 
 	character_name = id
-	dialogue_continue.disabled = false
 	_show_current_line()
 
 
@@ -167,9 +166,7 @@ func _on_next_pressed() -> void:
 	current_index += 1
 
 	if current_index >= current_lines.size():
-		dialogue_continue.disabled = true
-		#Connect something to turn control visibility off?
-		#dialogue_container.visible = false
+		visible = false
 		current_index = 0
 	else:
 		_show_current_line()

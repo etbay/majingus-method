@@ -5,6 +5,7 @@ class_name SaveDataResource extends Resource
 @export var has_laser_gun: bool = false
 @export var balance: int = 0
 @export_range(0, 6, 1.0) var current_cpu: int = 0
+@export_range(-1, 6, 1.0) var highest_cpu: int = -1
 
 func _init() -> void:
 	dice_bag = DiceBag.new()
