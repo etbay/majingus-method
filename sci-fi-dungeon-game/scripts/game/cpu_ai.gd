@@ -215,4 +215,18 @@ func use_shiv(die: Die, player: Board, cpu: Board) -> Array[int]:
 		return []
 
 func use_laser(roll: Die, player: Board) -> int:
-	return 0
+	# determine which column contains the highest value
+	var highest_value: int = -1
+	var target_row: int = -1
+	var player_cells = player.get_board_values()
+	for y in range(0, Board.HEIGHT):
+		var value: int = -1
+		for x in range(0, Board.WIDTH):
+			if (player_cells[x][y] != null):
+				value += player_cells[x][y].get_value() + player_cells[x][y].quality
+				if player_cells[x][y].get_type() != Die.DieType.NORMAL and player_cells[x][y].get_type() != Die.DieType.GILDED:
+					value += _challenge_level
+		if value > highest_value:
+			highest_value = value
+			target_row = y
+	return target_row
