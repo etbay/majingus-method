@@ -3,6 +3,8 @@ class_name GameInterface extends Node
 signal turn_finished
 signal die_rolled(Die)
 signal status_changed(new_status: TurnStatus)
+signal cpu_used_shiv
+signal cpu_used_laser
 
 @export var physics_die: PhysicsDie
 @onready var board_display: BoardDisplay = $Board
@@ -84,8 +86,41 @@ func take_cpu_turn() -> void:
 	cpu_die_details.display(cpu_die)
 	cpu_physics_die.match_current_die(cpu_die)
 	var value = await cpu_physics_die.force_roll()
-	await get_tree().create_timer(0).timeout
 	cpu_die.set_value(value)
+	
+	# item logic
+	if cpu_ai.has_laser:
+		print("deciding laser")
+		if ((cpu_score + (30 - cpu_ai._challenge_level) < (player_score) and cpu_board.get_count() < 11) and randi() % 2 == 0):
+			print("decided yes on laser")
+			var target = cpu_ai.use_laser(cpu_die, board)
+			if (target != -1):
+				cpu_used_laser.emit()
+				print("Target: col %d" % target)
+				cpu_ai.has_laser = false
+				MusicMan.play_sound(AudioDictionary.sfx["Laser"])
+				PlayerInventory.dice_bag.return_dice_array(board.clear_row(target))
+				board_display.display_board(board)
+				await get_tree().create_timer(1).timeout
+	
+	if cpu_ai.shivs > 0:
+		print("deciding shivs")
+		# stop if cpu score not higher than player or if this is the last round of the game, we dont want the cpu to do some cheeky unreactable shit
+		if ((cpu_score + (20 - cpu_ai._challenge_level) < (player_score) and cpu_board.get_count() < 11) and randi() % 10 > 3):
+			print("decided yes on shivs")
+			var target = cpu_ai.use_shiv(cpu_die, board, cpu_board)
+			if (target.size() > 0):
+				cpu_used_shiv.emit()
+				print("Target: [%d, %d, %d]" % target)
+				cpu_ai.shivs -= 1
+				MusicMan.play_sound(AudioDictionary.sfx["Slash"])
+				if target[0] == 0:
+					PlayerInventory.dice_bag.return_dice(board.destroy_die(target[1], target[2]))
+					board_display.display_board(board)
+				else:
+					cpu_ai.dice_bag.return_dice(cpu_board.destroy_die(target[1], target[2]))
+					cpu_board_display.display_board(cpu_board)
+				await get_tree().create_timer(1).timeout
 	
 	var cpu_col = cpu_ai.choose_column(cpu_die, board, cpu_board)
 	
@@ -190,7 +225,6 @@ func _on_shiv_selected() -> void:
 			cpu_board_display.display_board(cpu_board)
 			cpu_ai.dice_bag.return_dice(destroyed)
 			
-		#else: cancel strike
 		PlayerInventory.shivs -= 1
 		item_targeting.clickable = false
 		cpu_board_display.enable_columns()
@@ -247,7 +281,6 @@ func _on_laser_selected() -> void:
 			cpu_board_display.display_board(cpu_board)
 			cpu_ai.dice_bag.return_dice_array(destroyed)
 			
-		#else: cancel strike
 		PlayerInventory.has_laser_gun = false
 		item_targeting.clickable = false
 		cpu_board_display.enable_columns()

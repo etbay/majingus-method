@@ -8,7 +8,7 @@ var shivs: int = 3:
 		shivs = min(max(0, value), 3)
 var has_laser: bool = true
 
-func _init(challenge_level: int = 1, bag: DiceBag = null, shiv_count: int = 0, laser: bool = false) -> void:
+func _init(challenge_level: int = 1, bag: DiceBag = null, shiv_count: int = 3, laser: bool = true) -> void:
 	clampi(challenge_level, 1, 12)
 	_challenge_level = challenge_level
 	_high_threshold = randi_range(4, 5)
@@ -152,16 +152,10 @@ func get_weighted_choice(potential_targets: Array[Array]) -> int:
 	return target_column
 
 # calculates where the best possible spot for a shiv would be, or returns null if no great shiv spot exists
-func use_shiv(die: Die, player: Board, cpu: Board) -> Array[int]:
-	# determine player score vs cpu score currently, if cpu is winning by x, return null / empty arr
-	var cpu_score: int = cpu.calculate_score()
-	var player_score: int = player.calculate_score()
-	if (cpu_score > (player_score + 20 - _challenge_level) or cpu.get_count() < 11):
-		# also return null if this is the last round of the game, we dont want the cpu to do some cheeky unreactable shit that the player can
-		return []
-	
+# output: [player board or cpu board, x position, y position]
+func use_shiv(die: Die, player: Board, cpu: Board) -> Array[int]:	
 	# determine greatest single point loss on player's board
-	var player_target: Array[int] = [0,0]
+	var player_target: Array[int] = [0,0,0]
 	var player_target_worth = 0
 	for array in player.get_board_values():
 		for item: Die in array:
@@ -184,12 +178,12 @@ func use_shiv(die: Die, player: Board, cpu: Board) -> Array[int]:
 			
 			if worth > player_target_worth:
 				player_target_worth = worth
-				player_target[0] = item.x
-				player_target[1] = item.y
+				player_target[1] = item.x
+				player_target[2] = item.y
 	
 	# can a shiv on self board be valuable with current die
 	var cpu_target_worth: int = 0
-	var cpu_target: Array[int] = [0,0]
+	var cpu_target: Array[int] = [1,0,0]
 	for array in cpu.get_board_values():
 		for item: Die in array:
 			if (item == null or item.get_value() == 0):
@@ -203,8 +197,8 @@ func use_shiv(die: Die, player: Board, cpu: Board) -> Array[int]:
 					worth += die.get_value() + die.quality
 			if worth > cpu_target_worth:
 				cpu_target_worth = worth
-				cpu_target[0] = item.x
-				cpu_target[1] = item.y
+				cpu_target[1] = item.x
+				cpu_target[2] = item.y
 			
 	# find out which option is the most valuable play
 	if player_target_worth != 0 and player_target_worth >= cpu_target_worth:
