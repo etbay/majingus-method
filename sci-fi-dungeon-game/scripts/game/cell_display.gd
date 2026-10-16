@@ -2,9 +2,13 @@ class_name CellDisplay extends MouseClickDetect
 
 signal cell_clicked (pos: Array[int])
 
+@export var player_gameboard: GameInterface
+@export var row_select_sprite: Sprite3D
 @onready var die_cell: Sprite3D = $DieCell
 @onready var die_quality: Label3D = $DieQuality
 @onready var collision: CollisionShape3D = $CollisionShape3D
+
+
 var value: int = 0
 
 @export var coords: Array[int] = []
@@ -16,6 +20,17 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if mouse_hovered and Input.is_action_just_pressed("skarps_interact"):
 		cell_clicked.emit(coords)
+		row_select_sprite.visible = false
+
+func _on_mouse_entered() -> void:
+	mouse_hovered = true
+	if player_gameboard._current_status == player_gameboard.TurnStatus.USING_LASER:
+		row_select_sprite.visible = true
+
+func _on_mouse_exited() -> void:
+	mouse_hovered = false
+	if player_gameboard._current_status == player_gameboard.TurnStatus.USING_LASER:
+		row_select_sprite.visible = false
 
 func set_value(die: Die) -> void:
 	value = die.get_value()

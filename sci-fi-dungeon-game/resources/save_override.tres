@@ -6,38 +6,47 @@
 
 [sub_resource type="Resource" id="Resource_tbmy8"]
 script = ExtResource("1_pm26o")
+_type = 1
 metadata/_custom_type_script = "uid://b5medkvv4mfmd"
 
 [sub_resource type="Resource" id="Resource_jk1qb"]
 script = ExtResource("1_pm26o")
+_type = 1
 metadata/_custom_type_script = "uid://b5medkvv4mfmd"
 
 [sub_resource type="Resource" id="Resource_5dd4i"]
 script = ExtResource("1_pm26o")
+_type = 1
 metadata/_custom_type_script = "uid://b5medkvv4mfmd"
 
 [sub_resource type="Resource" id="Resource_lgwnu"]
 script = ExtResource("1_pm26o")
+_type = 1
 metadata/_custom_type_script = "uid://b5medkvv4mfmd"
 
 [sub_resource type="Resource" id="Resource_flqon"]
 script = ExtResource("1_pm26o")
+_type = 5
 metadata/_custom_type_script = "uid://b5medkvv4mfmd"
 
 [sub_resource type="Resource" id="Resource_rcqid"]
 script = ExtResource("1_pm26o")
+_type = 5
 metadata/_custom_type_script = "uid://b5medkvv4mfmd"
 
 [sub_resource type="Resource" id="Resource_1ajci"]
 script = ExtResource("1_pm26o")
+_type = 4
 metadata/_custom_type_script = "uid://b5medkvv4mfmd"
 
 [sub_resource type="Resource" id="Resource_7b55j"]
 script = ExtResource("1_pm26o")
+_type = 2
 metadata/_custom_type_script = "uid://b5medkvv4mfmd"
 
 [sub_resource type="Resource" id="Resource_5pajh"]
 script = ExtResource("1_pm26o")
+_type = 2
 metadata/_custom_type_script = "uid://b5medkvv4mfmd"
 
 [sub_resource type="Resource" id="Resource_j7ex8"]
@@ -46,10 +55,12 @@ metadata/_custom_type_script = "uid://b5medkvv4mfmd"
 
 [sub_resource type="Resource" id="Resource_a8gd2"]
 script = ExtResource("1_pm26o")
+_type = 3
 metadata/_custom_type_script = "uid://b5medkvv4mfmd"
 
 [sub_resource type="Resource" id="Resource_oa1go"]
 script = ExtResource("1_pm26o")
+quality = 100
 metadata/_custom_type_script = "uid://b5medkvv4mfmd"
 
 [sub_resource type="Resource" id="Resource_pm26o"]
@@ -60,5 +71,6 @@ metadata/_custom_type_script = "uid://dkvf0qkqe1teb"
 [resource]
 script = ExtResource("3_lxe4j")
 dice_bag = SubResource("Resource_pm26o")
+has_laser_gun = true
 balance = 1000
 metadata/_custom_type_script = "uid://bl0ywjwmfnk32"

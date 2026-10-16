@@ -10,7 +10,7 @@ signal hit_trigger(dir: PoolTrigger.TriggerDirection)
 
 @onready var area_trigger: PanCameraArea = $PanCameraArea
 @onready var _screen_width: float = get_tree().root.content_scale_size.x
-@onready var pause_overlay: PauseMenu = $"../CanvasLayer/PauseOverlay"
+@onready var pause_overlay: PauseMenuCustom = $"../CanvasLayer/PauseOverlay"
 
 var enabled: bool = true
 
