@@ -35,6 +35,8 @@
 [ext_resource type="Texture2D" uid="uid://blh70jtiad28l" path="res://assets/alpha_mask_chromaticabberation.png" id="27_om7ee"]
 [ext_resource type="Script" uid="uid://ciw4042a2encs" path="res://scenes/tooltip.gd" id="31_ti3hv"]
 [ext_resource type="Script" uid="uid://23g1lj5u45ve" path="res://scripts/reset_save_data_button.gd" id="31_twl6x"]
+[ext_resource type="FontFile" uid="uid://b6yfr2clhuqwj" path="res://assets/Source_Code_Pro/static/SourceCodePro-Medium.ttf" id="33_12bcd"]
+[ext_resource type="FontFile" uid="uid://1ueiimeutkfn" path="res://assets/Source_Code_Pro/static/SourceCodePro-SemiBold.ttf" id="33_sjwfk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
 size = Vector3(4.715515, 0.8117676, 1.211792)
@@ -250,63 +252,6 @@ anchor_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 1
 
-[node name="Dialogue_Control" type="Control" parent="CanvasLayer" unique_id=452579939]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("17_mpsl3")
-
-[node name="Dialogue_Continue" type="TextureButton" parent="CanvasLayer/Dialogue_Control" unique_id=1806131733]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Dialogue_Container" type="TextureRect" parent="CanvasLayer/Dialogue_Control" unique_id=558850767]
-custom_minimum_size = Vector2(600, 100)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -300.0
-offset_top = 35.0
-offset_right = 300.0
-offset_bottom = 135.0
-grow_horizontal = 2
-texture = ExtResource("18_mbc85")
-expand_mode = 1
-
-[node name="Character_Speech" type="RichTextLabel" parent="CanvasLayer/Dialogue_Control/Dialogue_Container" unique_id=2129552842]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -0.5
-offset_right = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 20
-text = "Test Speech"
-
-[node name="Character_Name" type="RichTextLabel" parent="CanvasLayer/Dialogue_Control/Dialogue_Container" unique_id=1336315785]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 25
-text = "Test Name"
-scroll_active = false
-
 [node name="LeftArrow" type="TextureRect" parent="CanvasLayer" unique_id=1212373161]
 custom_maximum_size = Vector2(100, 100)
 anchors_preset = 4
@@ -504,6 +449,91 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ti3hv")
 text = "Hello "
 autowrap_mode = 3
 
+[node name="Dialogue_Control" type="Control" parent="CanvasLayer" unique_id=452579939]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_mpsl3")
+
+[node name="TextureRect" type="ColorRect" parent="CanvasLayer/Dialogue_Control" unique_id=1014738558]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 297.0
+offset_top = 41.0
+offset_right = -295.0
+offset_bottom = -539.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5764706)
+
+[node name="Dialogue_Container" type="TextureRect" parent="CanvasLayer/Dialogue_Control" unique_id=558850767]
+custom_minimum_size = Vector2(700, 150)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 35.0
+offset_right = 300.0
+offset_bottom = 135.0
+grow_horizontal = 2
+texture = ExtResource("18_mbc85")
+expand_mode = 1
+
+[node name="Character_Speech" type="RichTextLabel" parent="CanvasLayer/Dialogue_Control/Dialogue_Container" unique_id=2129552842]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -34.0
+offset_right = 324.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("33_12bcd")
+theme_override_font_sizes/normal_font_size = 22
+text = "Test Speech"
+
+[node name="Character_Name" type="RichTextLabel" parent="CanvasLayer/Dialogue_Control/Dialogue_Container" unique_id=1336315785]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 12.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("33_sjwfk")
+theme_override_font_sizes/normal_font_size = 24
+text = "Test Name"
+scroll_active = false
+
+[node name="Dialogue_Continue" type="TextureButton" parent="CanvasLayer/Dialogue_Control" unique_id=1806131733]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+
 [node name="Skarps" type="Node3D" parent="." unique_id=1098451559]
 
 [node name="SpaceBackground2" type="Sprite3D" parent="Skarps" unique_id=2080520856]
@@ -540,8 +570,6 @@ texture = ExtResource("17_7px3q")
 
 [node name="Shop" parent="." unique_id=616363720 instance=ExtResource("17_txl0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7600746, 0.9951081, 7.097279)
-
-[connection signal="pressed" from="CanvasLayer/Dialogue_Control/Dialogue_Continue" to="CanvasLayer/Dialogue_Control" method="_on_next_pressed"]
 
 [editable path="Environment/EnvironmentGameboard/UIjam_3Dgameboard"]
 [editable path="CanvasLayer/InventoryHUD"]

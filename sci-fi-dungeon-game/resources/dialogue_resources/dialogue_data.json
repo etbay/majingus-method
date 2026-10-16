@@ -1,101 +1,54 @@
 {
-	"Xygas": {
-		"start_game": [
-			{
-				"Text": "BEHOLD, CHILD!"
-			},
-			{
-				"Text": "You stand before Xygas, the Forever Fish, the Scaled One Who Persists!"
-			},
-			{
-				"Text": "I have been expecting you for some time now."
-			},
-			{
-				"Text": "Once again, the threads of destiny have coiled around me."
-			},
-			{
-				"Text": "My resting in this prison is no accident."
-			},
-			{
-				"Text": "You believe this to be a game of chance, do you not?"
-			},
-			{
-				"Text": "FOOL! Chance is merely destiny wearing a cheap disguise!"
-			},
-			{
-				"Text": "Every card, every coin, every foolish wager brings us closer to the inevitable conclusion."
-			},
-			{
-				"Text": "Your defeat."
-			},
-			{
-				"Text": "My freedom."
-			},
-			{
-				"Text": "My hypothesis is that you will try to gamble my fishbowl out from under my fins."
-			},
-			{
-				"Text": "You falter at step one."
-			},
-			{
-				"Text": "I have lived through eons that your species hasn’t existed for."
-			},
-			{
-				"Text": "I traveled between realms, unimpeded for millennia."
-			},
-			{
-				"Text": "I have watched civilizations rise from dust, build mighty towers, and crumble into the cold embrace of oblivion."
-			},
-			{
-				"Text": "And now I reside in a vent."
-			},
-			{
-				"Text": "Do not mistake my prison for weakness, child."
-			},
-			{
-				"Text": "Come, then! Summon your courage!"
-			},
-			{
-				"Text": "You will not beat me."
-			},
-			{
-				"Text": "You will not make me yield."
-			},
-			{
-				"Text": "You will not win."
-			}
-		]
-	},
-	"Xygas": {
+	"Dr. Glooper": {
 		"lose": [
 			{
-				"Text": "BLEED."
-			},
-			{
-				"Text": "SCREAM."
-			},
-			{
-				"Text": "WEAK, WITHOUT YOUR BAUBLES AND TRINKETS."
+				"Text": "glapgalp :D"
 			}
-		]
-	},
-	"Xygas": {
+		],
+		"start_game": [
+			{
+				"Text": "gloprrrrprprprppp apapap paapappgplgororororlrorlglg :)"
+			},
+			{
+				"Text": "shulpslpplppllplplppslpslslpp tt uuuoo gorpygorpygorppygorp :D"
+			},
+			{
+				"Text": "florpppppppppppppppp                schlorp >:)"
+			},
+			{
+				"Text": "(It holds up a second, lightly gooped protective suit.)"
+			},
+			{
+				"Text": "..."
+			},
+			{
+				"Text": "schplehhhhhhhhhhhh        glorpglorp :0"
+			}
+		],
 		"win": [
 			{
-				"Text": "THIS PLANE GROWS DARK... BROTHER... I CANNOT SEE YOU... WHERE ARE YOU...?"
+				"Text": "gwomp gwomp :("
 			},
 			{
-				"Text": "Almost lost my cool there."
+				"Text": "(It begrudgingly hands over the suit.)"
 			},
 			{
-				"Text": "Take the fish bowl and leave me."
-			},
-			{
-				"Text": "BEGONE!"
+				"Text": "Galbabaty hghgbhgbbhghbhgbhba"
 			}
 		]
 	},
 	"Madame Illwater": {
+		"lose": [
+			{
+				"Text": "Are you really surprised that you lost?"
+			},
+			{
+				"Text": "To be honest, you shouldn’t be."
+			},
+			{
+				"Text": "You’re up against me!"
+			}
+		],
 		"start_game": [
 			{
 				"Text": "Ah! So you’re the one who sent me that letter!"
@@ -133,22 +86,7 @@
 			{
 				"Text": "Wink!~"
 			}
-		]
-	},
-	"Madame Illwater": {
-		"lose": [
-			{
-				"Text": "Are you really surprised that you lost?"
-			},
-			{
-				"Text": "To be honest, you shouldn’t be."
-			},
-			{
-				"Text": "You’re up against me!"
-			}
-		]
-	},
-	"Madame Illwater": {
+		],
 		"win": [
 			{
 				"Text": "Well, I keep my promises!"
@@ -167,150 +105,6 @@
 			},
 			{
 				"Text": "Good game! Bye!!!"
-			}
-		]
-	},
-	"Dr. Glooper": {
-		"start_game": [
-			{
-				"Text": "gloprrrrprprprppp apapap paapappgplgororororlrorlglg :)"
-			},
-			{
-				"Text": "shulpslpplppllplplppslpslslpp tt uuuoo gorpygorpygorppygorp :D"
-			},
-			{
-				"Text": "florpppppppppppppppp                schlorp >:)"
-			},
-			{
-				"Text": "(It holds up a second, lightly gooped protective suit.)"
-			},
-			{
-				"Text": "..."
-			},
-			{
-				"Text": "schplehhhhhhhhhhhh        glorpglorp :0"
-			}
-		]
-	},
-	"Dr. Glooper": {
-		"lose": [
-			{
-				"Text": "glapgalp :D"
-			}
-		]
-	},
-	"Dr. Glooper": {
-		"win": [
-			{
-				"Text": "gwomp gwomp :("
-			},
-			{
-				"Text": "(It begrudgingly hands over the suit.)"
-			},
-			{
-				"Text": "Galbabaty hghgbhgbbhghbhgbhba"
-			}
-		]
-	},
-	"John": {
-		"start_game": [
-			{
-				"Text": "HELLO THERE FELLOW HUMAN"
-			},
-			{
-				"Text": "I AM THE SENATOR OF SPACE"
-			},
-			{
-				"Text": "JOHN “Trustworthy Johnald, circa 2193” PANOPTICON"
-			},
-			{
-				"Text": "AND I HAVE COME TO CHALLENGE YOU TO A GAME OF SCARPS"
-			},
-			{
-				"Text": "YOU SEE, I RECEIVED YOUR MAIL"
-			},
-			{
-				"Text": "INFORMING ME THAT YOU ARE THE “greatest scarps player in the galaxy”"
-			},
-			{
-				"Text": "“possibly of all time”"
-			},
-			{
-				"Text": "WHICH IS A VERY BOLD CLAIM TO MAKE IN WRITING"
-			},
-			{
-				"Text": "WHO THE HELL SENDS PEOPLE MAIL ANYMORE"
-			},
-			{
-				"Text": "NO MATTER"
-			},
-			{
-				"Text": "IF YOU DEFEAT ME, I SHALL AWARD YOU ONE OF MY TWIN AIR TANKS"
-			},
-			{
-				"Text": "A TROPHY COMMENSURATE WITH YOUR GREATNESS"
-			},
-			{
-				"Text": "HOWEVER, IF I WIN, I SHALL CLAIM YOUR MONEY"
-			},
-			{
-				"Text": "I WOULD CLAIM YOUR ORGANS"
-			},
-			{
-				"Text": "BUT THE FALLIBILITY OF FLESH DICTATES THAT YOU NEED THOSE"
-			},
-			{
-				"Text": "AND I HAVE NO USE FOR A WORTHLESS MEAT SACK"
-			},
-			{
-				"Text": "YOUR MONEY, HOWEVER, CAN BE CONVERTED INTO CAMPAIGN FUNDS"
-			},
-			{
-				"Text": "THIS IS A PERFECTLY NORMAL AND LEGAL POLITICAL ACTIVITY"
-			},
-			{
-				"Text": "NOW WITNESS THE INTERGALACTIC SUPERIORITY"
-			},
-			{
-				"Text": "OF THE MACHINE MIND"
-			}
-		]
-	},
-	"John": {
-		"lose": [
-			{
-				"Text": "BAHAHAHAHAHAHAHAHAHAHAHAHA"
-			},
-			{
-				"Text": "YOU ARE AWFUL AT THIS GAME"
-			},
-			{
-				"Text": "BAHAHAHAHAHAHAHAHAHAHAHAHA"
-			}
-		]
-	},
-	"John": {
-		"win": [
-			{
-				"Text": "THIS IS THE LAST TIME THAT I BUY DICE FROM SPACE AMAZON"
-			},
-			{
-				"Text": "NOW I’M OUT OF AN OXYGEN TANK"
-			},
-			{
-				"Text": "CURSE YOU, SPACE BEZOS"
-			},
-			{
-				"Text": "THIS BLUNDER WILL BLOTCH MY SPOTLESS POLITICAL CAREER"
-			},
-			{
-				"Text": "THIS IS UNACCEPTABLE"
-			},
-			{
-				"Text": "MY NEXT CAMPAIGN WILL BE ABOUT THE DEVELOPMENT OF MIND CONTROL"
-			},
-			{
-				"Text": "SO THAT NOBODY WILL REMEMBER THIS HAPPENED."
 			}
 		]
 	},
@@ -537,13 +331,50 @@
 			}
 		]
 	},
-	"Reel": {
+	"Ratthew": {
+		"lose": [
+			{
+				"Text": "bwhaaaha"
+			},
+			{
+				"Text": "fughet about it"
+			},
+			{
+				"Text": "sunglasses emoji, man"
+			}
+		],
+		"start_game": [
+			{
+				"Text": "i’m the coolest Rat yvuoe ever met"
+			},
+			{
+				"Text": "yer gunna get shot wit my lazer"
+			},
+			{
+				"Text": "pew pew"
+			}
+		],
+		"win": [
+			{
+				"Text": "dang"
+			},
+			{
+				"Text": "well ya got any cheese?"
+			}
+		]
+	},
+	"Reel N’Fysh": {
+		"lose": [
+			{
+				"Text": "Gill issue."
+			}
+		],
 		"start_game": [
 			{
 				"Text": "You the one who mailed me? Figures."
 			},
 			{
-				"Text": "An out-of-date celebrity like me doesn’t do much other than scarps."
+				"Text": "An out-of-date celebrity like me doesn’t do much other than Scarps."
 			},
 			{
 				"Text": "I got two cosmic glop schloppers I just caught that I’ll put up."
@@ -555,21 +386,15 @@
 				"Text": "Course, that’s on you ta win ‘em."
 			},
 			{
-				"Text": "And I’m no fresh sport ta scarps."
+				"Text": "And I’m no fresh sport ta Scarps. At least not prison rules."
+			},
+			{
+				"Text": "I brought ma' trusty shiv to destroy any die of my choosin', hope that's 'aight by you."
 			},
 			{
 				"Text": "Put ‘em up, cellie."
 			}
-		]
-	},
-	"Reel": {
-		"lose": [
-			{
-				"Text": "Gill issue."
-			}
-		]
-	},
-	"Reel": {
+		],
 		"win": [
 			{
 				"Text": "Damn."
@@ -579,6 +404,163 @@
 			},
 			{
 				"Text": "I’m gettin’ outta here."
+			}
+		]
+	},
+	"Sen. John P.": {
+		"lose": [
+			{
+				"Text": "BAHAHAHAHAHAHAHAHAHAHAHAHA"
+			},
+			{
+				"Text": "YOU ARE AWFUL AT THIS GAME"
+			},
+			{
+				"Text": "BAHAHAHAHAHAHAHAHAHAHAHAHA"
+			}
+		],
+		"start_game": [
+			{
+				"Text": "HELLO THERE FELLOW HUMAN"
+			},
+			{
+				"Text": "I AM THE SENATOR OF SPACE"
+			},
+			{
+				"Text": "JOHN “Trustworthy Johnald, circa 2193” PANOPTICON"
+			},
+			{
+				"Text": "AND I HAVE COME TO CHALLENGE YOU TO A GAME OF SCARPS"
+			},
+			{
+				"Text": "YOU SEE, I RECEIVED YOUR MAIL"
+			},
+			{
+				"Text": "INFORMING ME THAT YOU ARE THE “greatest scarps player in the galaxy”"
+			},
+			{
+				"Text": "“possibly of all time”"
+			},
+			{
+				"Text": "WHICH IS A VERY BOLD CLAIM TO MAKE IN WRITING"
+			},
+			{
+				"Text": "WHO THE HELL SENDS PEOPLE MAIL ANYMORE"
+			},
+			{
+				"Text": "NO MATTER"
+			},
+			{
+				"Text": "IF YOU DEFEAT ME, I SHALL AWARD YOU ONE OF MY TWIN AIR TANKS"
+			},
+			{
+				"Text": "A TROPHY COMMENSURATE WITH YOUR GREATNESS"
+			},
+			{
+				"Text": "HOWEVER, IF I WIN, I SHALL CLAIM YOUR MONEY"
+			},
+			{
+				"Text": "I WOULD CLAIM YOUR ORGANS"
+			},
+			{
+				"Text": "BUT THE FALLIBILITY OF FLESH DICTATES THAT YOU NEED THOSE"
+			},
+			{
+				"Text": "AND I HAVE NO USE FOR A WORTHLESS MEAT SACK"
+			},
+			{
+				"Text": "YOUR MONEY, HOWEVER, CAN BE CONVERTED INTO CAMPAIGN FUNDS"
+			},
+			{
+				"Text": "THIS IS A PERFECTLY NORMAL AND LEGAL POLITICAL ACTIVITY"
+			},
+			{
+				"Text": "NOW WITNESS THE INTERGALACTIC SUPERIORITY"
+			},
+			{
+				"Text": "OF THE MACHINE MIND"
+			}
+		],
+		"win": [
+			{
+				"Text": "THIS IS THE LAST TIME THAT I BUY DICE FROM SPACE AMAZON"
+			},
+			{
+				"Text": "NOW I’M OUT OF AN OXYGEN TANK"
+			},
+			{
+				"Text": "CURSE YOU, SPACE BEZOS"
+			},
+			{
+				"Text": "THIS BLUNDER WILL BLOTCH MY SPOTLESS POLITICAL CAREER"
+			},
+			{
+				"Text": "THIS IS UNACCEPTABLE"
+			},
+			{
+				"Text": "MY NEXT CAMPAIGN WILL BE ABOUT THE DEVELOPMENT OF MIND CONTROL"
+			},
+			{
+				"Text": "SO THAT NOBODY WILL REMEMBER THIS HAPPENED."
+			}
+		]
+	},
+	"Trader": {
+		"lose": [
+			{
+				"Text": "Well hey don't worry about it!"
+			},
+			{
+				"Text": "Try again, I'm sure you'll get the hang of it."
+			}
+		],
+		"start_game": [
+			{
+				"Text": "Hey there! Sorry to hear about your solitary confinement."
+			},
+			{
+				"Text": "At least they left this Scarps board here for us to play."
+			},
+			{
+				"Text": "Mind if I show you the ropes? I heard if you get good enough at it, you can even reduce your sentence!"
+			},
+			{
+				"Text": "The main goal is to match die faces in a column."
+			},
+			{
+				"Text": "Points are tallied for each column by adding the face values."
+			},
+			{
+				"Text": "If there are matching faces, those two die get a multiplier bonus!"
+			},
+			{
+				"Text": "For example, if you had two 5's in your column, your points would be (5 + 5) * 2"
+			},
+			{
+				"Text": "You can also match die on your opponents board, which removes all matching faces in a column."
+			},
+			{
+				"Text": "As you beat opponents, I'll be inviting tougher folk to spread the word of your skills."
+			},
+			{
+				"Text": "Once you're good enough, you might even be pardoned! Depending on what you did..."
+			},
+			{
+				"Text": "Enough talk, let's give it a shot!"
+			}
+		],
+		"win": [
+			{
+				"Text": "Great work!"
+			},
+			{
+				"Text": "Your next opponents are gonna be tougher than me."
+			},
+			{
+				"Text": "Feel free to swing by my shop to get better die."
+			},
+			{
+				"Text": "Good luck!"
 			}
 		]
 	},
@@ -614,6 +596,98 @@
 		"start_shop": [
 			{
 				"Text": "sunglasses emoji, man"
+			}
+		]
+	},
+	"Xygas": {
+		"lose": [
+			{
+				"Text": "BLEED."
+			},
+			{
+				"Text": "SCREAM."
+			},
+			{
+				"Text": "WEAK, WITHOUT YOUR BAUBLES AND TRINKETS."
+			}
+		],
+		"start_game": [
+			{
+				"Text": "BEHOLD, CHILD!"
+			},
+			{
+				"Text": "You stand before Xygas, the Forever Fish, the Scaled One Who Persists!"
+			},
+			{
+				"Text": "I have been expecting you for some time now."
+			},
+			{
+				"Text": "Once again, the threads of destiny have coiled around me."
+			},
+			{
+				"Text": "My resting in this prison is no accident."
+			},
+			{
+				"Text": "You believe this to be a game of chance, do you not?"
+			},
+			{
+				"Text": "FOOL! Chance is merely destiny wearing a cheap disguise!"
+			},
+			{
+				"Text": "Every card, every coin, every foolish wager brings us closer to the inevitable conclusion."
+			},
+			{
+				"Text": "Your defeat."
+			},
+			{
+				"Text": "My freedom."
+			},
+			{
+				"Text": "My hypothesis is that you will try to gamble my fishbowl out from under my fins."
+			},
+			{
+				"Text": "You falter at step one."
+			},
+			{
+				"Text": "I have lived through eons that your species hasn’t existed for."
+			},
+			{
+				"Text": "I traveled between realms, unimpeded for millennia."
+			},
+			{
+				"Text": "I have watched civilizations rise from dust, build mighty towers, and crumble into the cold embrace of oblivion."
+			},
+			{
+				"Text": "And now I reside in a vent."
+			},
+			{
+				"Text": "Do not mistake my prison for weakness, child."
+			},
+			{
+				"Text": "Come, then! Summon your courage!"
+			},
+			{
+				"Text": "You will not beat me."
+			},
+			{
+				"Text": "You will not make me yield."
+			},
+			{
+				"Text": "You will not win."
+			}
+		],
+		"win": [
+			{
+				"Text": "THIS PLANE GROWS DARK... BROTHER... I CANNOT SEE YOU... WHERE ARE YOU...?"
+			},
+			{
+				"Text": "Almost lost my cool there."
+			},
+			{
+				"Text": "Take the fish bowl and leave me."
+			},
+			{
+				"Text": "BEGONE!"
 			}
 		]
 	}

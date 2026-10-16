@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_dxhg5")
 texture = ExtResource("2_77y3o")
-character_name = "John Space Senator of Space"
+character_name = "Sen. John P."
 difficulty = 10
 metadata/_custom_type_script = "uid://b4jpjkgigxeln"

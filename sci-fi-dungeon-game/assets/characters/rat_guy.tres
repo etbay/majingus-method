@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_cww44")
 texture = ExtResource("2_3ppo2")
-character_name = "Rat guy"
+character_name = "Ratthew"
 difficulty = 7
 metadata/_custom_type_script = "uid://b4jpjkgigxeln"

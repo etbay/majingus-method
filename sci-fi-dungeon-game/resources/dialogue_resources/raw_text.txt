@@ -110,7 +110,8 @@ Character: Prisoner
 Text: You’re telling me that you’re in some sort of space dungeon?
 Character: Prisoner
 Text: I would hate to see only the one scene over and over.
-ID: Frog_1
+
+ID: Madame Illwater
 Condition: start_game
 Character: Madame Illwater
 Text: Ah! So you’re the one who sent me that letter!
@@ -137,7 +138,7 @@ Text: because anything that I don’t win immediately shouldn’t exist!
 Character: Madame Illwater
 Text: Wink!~
 
-ID: Frog_2
+ID: Madame Illwater
 Condition: lose
 Character: Madame Illwater
 Text: Are you really surprised that you lost?
@@ -146,7 +147,7 @@ Text: To be honest, you shouldn’t be.
 Character: Madame Illwater
 Text: You’re up against me!
 
-ID: Frog_3
+ID: Madame Illwater
 Condition: win
 Character: Madame Illwater
 Text: Well, I keep my promises!
@@ -160,37 +161,8 @@ Character: Madame Illwater
 Text: Uhhhh
 Character: Madame Illwater
 Text: Good game! Bye!!!
-ID: Reel_1
-Condition: start_game
-Character: Reel N’Fysh
-Text: You the one who mailed me? Figures.
-Character: Reel N’Fysh
-Text: An out-of-date celebrity like me doesn’t do much other than scarps.
-Character: Reel N’Fysh
-Text: I got two cosmic glop schloppers I just caught that I’ll put up.
-Character: Reel N’Fysh
-Text: Folks back home used ta use ‘em as shoes. Reckon you might as well. 
-Character: Reel N’Fysh
-Text: Course, that’s on you ta win ‘em.
-Character: Reel N’Fysh
-Text: And I’m no fresh sport ta scarps.
-Character: Reel N’Fysh
-Text: Put ‘em up, cellie.
 
-ID: Reel_2
-Condition: lose
-Character: Reel N’Fysh
-Text: Gill issue.
-
-ID: Reel_3
-Condition: win
-Character: Reel N’Fysh
-Text: Damn.
-Character: Reel N’Fysh
-Text: Here’s yer fish.
-Character: Reel N’Fysh
-Text: I’m gettin’ outta here.
-ID: Gloop_1
+ID: Dr. Glooper
 Condition: start_game
 Character: Dr. Glooper
 Text: gloprrrrprprprppp apapap paapappgplgororororlrorlglg :)
@@ -205,12 +177,12 @@ Text: ...
 Character: Dr. Glooper
 Text: schplehhhhhhhhhhhh        glorpglorp :0
 
-ID: Gloop_2
+ID: Dr. Glooper
 Condition: lose
 Character: Dr. Glooper
 Text: glapgalp :D
 
-ID: Gloop_3
+ID: Dr. Glooper
 Condition: win
 Character: Dr. Glooper
 Text: gwomp gwomp :(
@@ -218,7 +190,8 @@ Character: Dr. Glooper
 Text: (It begrudgingly hands over the suit.)
 Character: Dr. Glooper
 Text: Galbabaty hghgbhgbbhghbhgbhba
-ID: John_1
+
+ID: Sen. John P.
 Condition: start_game
 Character: Sen. John P.
 Text: HELLO THERE FELLOW HUMAN
@@ -261,7 +234,7 @@ Text: NOW WITNESS THE INTERGALACTIC SUPERIORITY
 Character: Sen. John P.
 Text: OF THE MACHINE MIND
 
-ID: John_2
+ID: Sen. John P.
 Condition: lose
 Character: Sen. John P.
 Text: BAHAHAHAHAHAHAHAHAHAHAHAHA
@@ -271,7 +244,7 @@ Character: Sen. John P.
 Text: BAHAHAHAHAHAHAHAHAHAHAHAHA
 
 
-ID: John_3
+ID: Sen. John P.
 Condition: win
 Character: Sen. John P.
 Text: THIS IS THE LAST TIME THAT I BUY DICE FROM SPACE AMAZON
@@ -288,7 +261,7 @@ Text: MY NEXT CAMPAIGN WILL BE ABOUT THE DEVELOPMENT OF MIND CONTROL
 Character: Sen. John P.
 Text: SO THAT NOBODY WILL REMEMBER THIS HAPPENED.
 
-ID: Fish_1
+ID: Xygas
 Condition: start_game
 Character: Xygas the Forever Fish
 Text: BEHOLD, CHILD!
@@ -335,7 +308,7 @@ Text: You will not make me yield.
 Character: Xygas the Forever Fish
 Text: You will not win.
 
-ID: Fish_2
+ID: Xygas
 Condition: lose
 Character: Xygas the Forever Fish
 Text: BLEED.
@@ -344,7 +317,7 @@ Text: SCREAM.
 Character: Xygas the Forever Fish
 Text: WEAK, WITHOUT YOUR BAUBLES AND TRINKETS.
 
-ID: Fish_3
+ID: Xygas
 Condition: win
 Character: Xygas the Forever Fish
 Text: THIS PLANE GROWS DARK... BROTHER... I CANNOT SEE YOU... WHERE ARE YOU...? 
@@ -354,6 +327,7 @@ Character: Xygas the Forever Fish
 Text: Take the fish bowl and leave me.
 Character: Xygas the Forever Fish
 Text: BEGONE!
+
 ID: Trader_1
 Condition: start_shop
 Character: ratthew
@@ -378,3 +352,104 @@ ID: Trader_5
 Condition: start_shop
 Character: ratthew
 Text: sunglasses emoji, man
+
+ID: Reel N’Fysh
+Condition: start_game
+Character: Reel N’Fysh
+Text: You the one who mailed me? Figures.
+Character: Reel N’Fysh
+Text: An out-of-date celebrity like me doesn’t do much other than Scarps.
+Character: Reel N’Fysh
+Text: I got two cosmic glop schloppers I just caught that I’ll put up.
+Character: Reel N’Fysh
+Text: Folks back home used ta use ‘em as shoes. Reckon you might as well. 
+Character: Reel N’Fysh
+Text: Course, that’s on you ta win ‘em.
+Character: Reel N’Fysh
+Text: And I’m no fresh sport ta Scarps. At least not prison rules.
+Character: Reel N’Fysh
+Text: I brought ma' trusty shiv to destroy any die of my choosin', hope that's 'aight by you.
+Character: Reel N’Fysh
+Text: Put ‘em up, cellie.
+
+ID: Reel N’Fysh
+Condition: lose
+Character: Reel N’Fysh
+Text: Gill issue.
+
+ID: Reel N’Fysh
+Condition: win
+Character: Reel N’Fysh
+Text: Damn.
+Character: Reel N’Fysh
+Text: Here’s yer fish.
+Character: Reel N’Fysh
+Text: I’m gettin’ outta here.
+
+ID: Trader
+Condition: start_game
+Character: Trader
+Text: Hey there! Sorry to hear about your solitary confinement.
+Character: Trader
+Text: At least they left this Scarps board here for us to play.
+Character: Trader
+Text: Mind if I show you the ropes? I heard if you get good enough at it, you can even reduce your sentence!
+Character: Trader
+Text: The main goal is to match die faces in a column.
+Character: Trader
+Text: Points are tallied for each column by adding the face values.
+Character: Trader
+Text: If there are matching faces, those two die get a multiplier bonus!
+Character: Trader
+Text: For example, if you had two 5's in your column, your points would be (5 + 5) * 2
+Character: Trader
+Text: You can also match die on your opponents board, which removes all matching faces in a column.
+Character: Trader
+Text: As you beat opponents, I'll be inviting tougher folk to spread the word of your skills.
+Character: Trader
+Text: Once you're good enough, you might even be pardoned! Depending on what you did...
+Character: Trader
+Text: Enough talk, let's give it a shot!
+
+ID: Trader
+Condition: lose
+Character: Trader
+Text: Well hey don't worry about it!
+Character: Trader
+Text: Try again, I'm sure you'll get the hang of it.
+
+ID: Trader
+Condition: win
+Character: Trader
+Text: Great work!
+Character: Trader
+Text: Your next opponents are gonna be tougher than me.
+Character: Trader
+Text: Feel free to swing by my shop to get better die.
+Character: Trader
+Text: Good luck!
+
+ID: Ratthew
+Condition: start_game
+Character: Ratthew
+Text: i’m the coolest Rat yvuoe ever met
+Character: Ratthew
+Text: yer gunna get shot wit my lazer
+Character: Ratthew
+Text: pew pew
+
+ID: Ratthew
+Condition: lose
+Character: Ratthew
+Text: bwhaaaha
+Character: Ratthew
+Text: fughet about it
+Character: Ratthew
+Text: sunglasses emoji, man
+
+ID: Ratthew
+Condition: win
+Character: Ratthew
+Text: dang
+Character: Ratthew
+Text: well ya got any cheese?

@@ -37,8 +37,13 @@ func _ready() -> void:
 	start_button_detect.pressed.connect(start_game)
 	game_over.connect(_on_game_over)
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("end_game"):
+		game_over_func()
+
 func start_game() -> void:
 	if game._current_status == game.TurnStatus.NONE:
+		GlobalSignals.start_dialogue.emit(cpu_characters[current_cpu].character_name, "start_game")
 		game_manager.start_game()
 		game_started.emit()
 
@@ -64,16 +69,17 @@ func game_over_func():
 	
 	# If the player wins, advance to the next cpu
 	if game.board.calculate_score() >= game.cpu_board.calculate_score():
+		GlobalSignals.start_dialogue.emit(cpu_characters[current_cpu].character_name, "win")
 		current_cpu += 1
 		if current_cpu == cpu_characters.size():
 			current_cpu = 0
 	# Otherwise, go back to the previous one
 	else:
+		GlobalSignals.start_dialogue.emit(cpu_characters[current_cpu].character_name, "lose")
 		current_cpu -= 1
 		if current_cpu < 0:
 			current_cpu = 0
 	PlayerInventory.current_cpu = current_cpu
-	_update_cpu()
 
 func _update_cpu() -> void:
 	game.set_cpu(cpu_characters[current_cpu])
@@ -93,6 +99,7 @@ func _on_game_over(player_score: int, cpu_score: int) -> void:
 	PlayerInventory.balance += game.board.calculate_gilded()
 
 func reset_board() -> void:
+	_update_cpu()
 	game.reset_board()
 	center_console.hide_status()
 	game.player_die_details.display(Die.new(0))

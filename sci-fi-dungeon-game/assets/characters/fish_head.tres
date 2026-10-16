@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_snv2o")
 texture = ExtResource("2_de6qk")
-character_name = "Fish Guy"
+character_name = "Reel N’Fysh"
 difficulty = 3
 metadata/_custom_type_script = "uid://b4jpjkgigxeln"

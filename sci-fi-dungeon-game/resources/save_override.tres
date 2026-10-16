@@ -76,4 +76,5 @@ dice_bag = SubResource("Resource_pm26o")
 shiv_count = 3
 has_laser_gun = true
 balance = 1000
+current_cpu = 6
 metadata/_custom_type_script = "uid://bl0ywjwmfnk32"
