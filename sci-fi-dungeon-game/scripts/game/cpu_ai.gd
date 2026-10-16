@@ -131,12 +131,6 @@ func choose_column(roll: Die, player: Board, cpu: Board) -> int:
 		target_column = randi_range(0, Board.WIDTH - 1)
 	return target_column
 
-func use_shiv(roll: Die, player: Board, cpu: Board) -> Array[int]:
-	return []
-
-func use_laser(roll: Die, player: Board) -> int:
-	return 0
-
 func get_weighted_choice(potential_targets: Array[Array]) -> int:
 	var target_column = 3 # default to last column in case somethign breaks
 	var total_weight = 0
@@ -151,3 +145,24 @@ func get_weighted_choice(potential_targets: Array[Array]) -> int:
 			target_column = arr[0]
 			break
 	return target_column
+
+# calculates where the best possible spot for a shiv would be, or returns null if no great shiv spot exists
+func use_shiv(roll: Die, player: Board, cpu: Board) -> Array[int]:
+	# determine player score vs cpu score currently, if cpu is winning by x, return null / empty arr
+	# also return null if this is the last round of the game, we dont want the cpu to do some cheeky unreactable shit that the player can
+	var cpu_score: int = cpu.calculate_score()
+	var player_score: int = player.calculate_score()
+	if (cpu_score > player_score + (20 - _challenge_level) || cpu.get:
+		return []
+	# determine greatest single point loss on player's board
+	
+	# determine if they can destroy one item to make a column empty (greatest value column they can remove)
+	
+	# determine if they can destroy one slot on own board to fill a perfect column (only for 5s and 6s or columns with low rollers)
+	
+	# find out which option is the most valuable play
+	
+	return []
+
+func use_laser(roll: Die, player: Board) -> int:
+	return 0
