@@ -8,7 +8,7 @@ signal done_transitioning
 @onready var game_ui: GameUI = $CanvasLayer
 @onready var exit_to_environment: MouseClickDetectUI = $CanvasLayer/DownArrow
 
-@onready var fade_overlay: ColorRect = $CanvasLayer/ColorRect
+@onready var fade_overlay: ColorRect = $CanvasLayer/FadeOverlay
 @onready var environment_gameboard: EnvironmentGameboard = $Environment/EnvironmentGameboard
 @onready var shop_interactable: InteractableObject = $Environment/Shop
 @onready var skarps_board: GameDisplay = $Skarps/SkarpsBoard
