@@ -6,6 +6,9 @@ signal column_selected(int, Die)
 @onready var col_1: DisplayColumn = $Column1
 @onready var col_2: DisplayColumn = $Column2
 @onready var col_3: DisplayColumn = $Column3
+@onready var row_select_sprite_0: Sprite3D = $RowSelectSprite0
+@onready var row_select_sprite_1: Sprite3D = $RowSelectSprite1
+@onready var row_select_sprite_2: Sprite3D = $RowSelectSprite2
 
 func _ready() -> void:
 	col_0.selected.connect(func(die: Die): column_selected.emit(0, die))

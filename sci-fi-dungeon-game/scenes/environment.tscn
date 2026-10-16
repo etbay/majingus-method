@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cqbvd2u4nxeds" path="res://assets/screen_cropped.png" id="12_w1st6"]
 [ext_resource type="Texture2D" uid="uid://c5q77rop8mdo" path="res://assets/shop/shop_background_light.png" id="13_rn5b3"]
 [ext_resource type="Texture2D" uid="uid://cuo0vdv2c4t21" path="res://assets/toilet_unbroken.png" id="14_4nqy1"]
+[ext_resource type="FontFile" uid="uid://cukfpuaoj7veg" path="res://assets/Doto/static/Doto-Black.ttf" id="15_mymnt"]
 [ext_resource type="Script" uid="uid://dv7gy4kta7xw7" path="res://scripts/game/game_ui.gd" id="16_4qs8q"]
 [ext_resource type="Texture2D" uid="uid://cgnhwyy4rx2vl" path="res://assets/floor_texture.png" id="17_7px3q"]
 [ext_resource type="Script" uid="uid://715vwn2n5drg" path="res://scripts/npcs/dialogue_control.gd" id="17_mpsl3"]
@@ -28,9 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://b2wnyyppwygwu" path="res://assets/icons/column_select_icon_1.png" id="19_4qs8q"]
 [ext_resource type="Script" uid="uid://c3hoylo0kia3t" path="res://scripts/environment/exit_to_environment.gd" id="20_rpk5l"]
 [ext_resource type="Script" uid="uid://qs1hrkxf551s" path="res://scripts/environment/tutorial_button.gd" id="25_454qq"]
-[ext_resource type="Shader" uid="uid://d3a8kiw1bvtyf" path="res://scenes/chromatic_aberration.gdshader" id="26_2vexs"]
-[ext_resource type="Script" uid="uid://cbdimcubpid6r" path="res://scenes/pause_menu.gd" id="26_6rpxt"]
-[ext_resource type="Script" uid="uid://ofdd1sfw738p" path="res://scenes/save_to_disk_button.gd" id="26_om7ee"]
+[ext_resource type="Shader" uid="uid://d3a8kiw1bvtyf" path="res://scripts/chromatic_aberration.gdshader" id="26_2vexs"]
+[ext_resource type="Script" uid="uid://cbdimcubpid6r" path="res://scripts/pause_menu.gd" id="26_6rpxt"]
+[ext_resource type="Script" uid="uid://ofdd1sfw738p" path="res://scripts/save_to_disk_button.gd" id="26_om7ee"]
 [ext_resource type="Texture2D" uid="uid://blh70jtiad28l" path="res://assets/alpha_mask_chromaticabberation.png" id="27_om7ee"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
@@ -168,6 +169,16 @@ shape = SubResource("BoxShape3D_w1st6")
 transform = Transform3D(0.315, 0, 0, 0, 0.315, 0, 0, 0, 0.315, 0, 0, 0.13040519)
 render_priority = 5
 texture = ExtResource("13_rn5b3")
+
+[node name="ShopLabel" type="Label3D" parent="Environment/Shop/Sprite3D" unique_id=1670342192]
+transform = Transform3D(0.04938271, 0, 8.634345e-09, 0, 0.049382713, 0, -8.6343475e-09, 0, 0.049382694, 0.022984292, 3.5870852, -0.01577334)
+pixel_size = 0.05
+render_priority = 6
+modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+outline_modulate = Color(0.76862746, 0.1254902, 0.12941177, 1)
+text = "SHOP"
+font = ExtResource("15_mymnt")
+font_size = 600
 
 [node name="Toilet" type="Sprite3D" parent="Environment" unique_id=467108388 node_paths=PackedStringArray("highlight_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.785334, -0.056267023, -4.694611)
