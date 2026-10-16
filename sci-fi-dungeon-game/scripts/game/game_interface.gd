@@ -3,7 +3,7 @@ class_name GameInterface extends Node
 signal turn_finished
 signal die_rolled(Die)
 signal status_changed(new_status: TurnStatus)
-signal cpu_used_shiv
+signal cpu_used_shiv(_count: int)
 signal cpu_used_laser
 
 @export var physics_die: PhysicsDie
@@ -65,6 +65,8 @@ func _ready() -> void:
 
 func set_cpu(character: CPUCharacter) -> void:
 	cpu_ai = CPUAI.new(character.difficulty)
+	cpu_used_shiv.emit(cpu_ai.shivs)
+	cpu_used_laser.emit(cpu_ai.has_laser)
 
 func start_game() -> void:
 	player_score = 0
@@ -90,29 +92,25 @@ func take_cpu_turn() -> void:
 	
 	# item logic
 	if cpu_ai.has_laser:
-		print("deciding laser")
 		if ((cpu_score + (30 - cpu_ai._challenge_level) < (player_score) and cpu_board.get_count() < 11) and randi() % 2 == 0):
-			print("decided yes on laser")
 			var target = cpu_ai.use_laser(cpu_die, board)
 			if (target != -1):
-				cpu_used_laser.emit()
 				print("Target: col %d" % target)
 				cpu_ai.has_laser = false
+				cpu_used_laser.emit()
 				MusicMan.play_sound(AudioDictionary.sfx["Laser"])
 				PlayerInventory.dice_bag.return_dice_array(board.clear_row(target))
 				board_display.display_board(board)
 				await get_tree().create_timer(1).timeout
 	
 	if cpu_ai.shivs > 0:
-		print("deciding shivs")
 		# stop if cpu score not higher than player or if this is the last round of the game, we dont want the cpu to do some cheeky unreactable shit
 		if ((cpu_score + (20 - cpu_ai._challenge_level) < (player_score) and cpu_board.get_count() < 11) and randi() % 10 > 3):
-			print("decided yes on shivs")
 			var target = cpu_ai.use_shiv(cpu_die, board, cpu_board)
 			if (target.size() > 0):
-				cpu_used_shiv.emit()
 				print("Target: [%d, %d, %d]" % target)
 				cpu_ai.shivs -= 1
+				cpu_used_shiv.emit(cpu_ai.shivs)
 				MusicMan.play_sound(AudioDictionary.sfx["Slash"])
 				if target[0] == 0:
 					PlayerInventory.dice_bag.return_dice(board.destroy_die(target[1], target[2]))

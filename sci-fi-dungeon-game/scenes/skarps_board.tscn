@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://ro30cs8h5mvq" path="res://assets/icons/shiv_status_icon_white.png" id="27_aat4b"]
 [ext_resource type="Script" uid="uid://c4cw16k6ppo11" path="res://scripts/game/mouse_click_detect.gd" id="29_6ppqr"]
 [ext_resource type="Script" uid="uid://c2c5mrywxkt46" path="res://scripts/game/ui/shiv_inventory.gd" id="30_clux5"]
+[ext_resource type="Script" uid="uid://b064qrj65p4v5" path="res://scripts/game/ui/cpu_item_inventory.gd" id="30_n0mid"]
 [ext_resource type="Script" uid="uid://d1yft7s42ku6g" path="res://scripts/game/ui/plasmagun_inventory.gd" id="31_4pxeq"]
 [ext_resource type="Texture2D" uid="uid://bs4iqvcfbaal3" path="res://assets/icons/plasmagun_status_icon_white.png" id="34_clux5"]
 [ext_resource type="Script" uid="uid://uein033h4nwc" path="res://scripts/game/ui/skarps_start_button.gd" id="35_n0mid"]
@@ -1005,6 +1006,33 @@ font = ExtResource("11_1rt75")
 font_size = 140
 outline_size = 20
 horizontal_alignment = 0
+
+[node name="ShivInventory" type="Node3D" parent="LeftConsole" unique_id=125123575]
+transform = Transform3D(0.8, 0, 0, 0, -0.8, -1.2079664e-07, 0, 1.2079664e-07, -0.8, -0.1372354, -0.11432409, 0.21722502)
+script = ExtResource("30_n0mid")
+
+[node name="Sprite3D" type="Sprite3D" parent="LeftConsole/ShivInventory" unique_id=1922014036]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0, 0, 0)
+flip_h = true
+render_priority = 1
+texture = ExtResource("20_nahi8")
+
+[node name="Sprite3D2" type="Sprite3D" parent="LeftConsole/ShivInventory" unique_id=1754336020]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0.15, 0, 0)
+flip_h = true
+render_priority = 1
+texture = ExtResource("20_nahi8")
+
+[node name="Sprite3D3" type="Sprite3D" parent="LeftConsole/ShivInventory" unique_id=890001743]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, -0.03, 0, 0.03, -1.3113416e-09, 0.3, 0, 0)
+flip_h = true
+render_priority = 1
+texture = ExtResource("20_nahi8")
+
+[node name="Sprite3D4" type="Sprite3D" parent="LeftConsole/ShivInventory" unique_id=1353440308]
+transform = Transform3D(-0.033749998, 2.9505185e-09, -1.2897127e-16, -4.455159e-16, -3.6208485e-09, 0.033749998, 2.9505185e-09, 0.033749998, 3.620849e-09, 0.051273346, 0.004375577, 0.19720954)
+render_priority = 1
+texture = ExtResource("24_aat4b")
 
 [node name="RightConsole" type="Sprite3D" parent="." unique_id=486928073]
 transform = Transform3D(0.4086281, 4.946276e-08, -0.033512566, 0.03351233, -0.0015411659, 0.40862522, -0.00012592207, -0.40999705, -0.0015360097, 2.0373824, 0.9912533, 0.6788798)
