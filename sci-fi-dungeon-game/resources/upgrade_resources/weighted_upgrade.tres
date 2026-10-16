@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_tn6g3")
 name = "Weighted"
-cost = 10
+cost = 5
 type = 5

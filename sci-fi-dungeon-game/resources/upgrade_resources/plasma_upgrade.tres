@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_j2bgn")
 name = "Plasma"
-cost = 5
+cost = 6
 type = 4
