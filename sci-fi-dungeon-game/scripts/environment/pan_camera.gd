@@ -12,8 +12,6 @@ signal hit_trigger(dir: PoolTrigger.TriggerDirection)
 @onready var _screen_width: float = get_tree().root.content_scale_size.x
 @onready var pause_overlay: PauseMenuCustom = $"../CanvasLayer/PauseOverlay"
 
-var enabled: bool = true
-
 var _mouse_pos_x: float 
 var pan_enabled: bool = true
 var panning: bool = false

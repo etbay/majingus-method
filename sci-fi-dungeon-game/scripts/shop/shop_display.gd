@@ -47,13 +47,13 @@ func refresh_shop() -> void:
 	
 	if not PlayerInventory.has_laser_gun and randi_range(0,100) < 30:
 		is_item_slot_a_shiv = false
-		item_slot.set_data(5, "Laser Gun", TextureDictionary.plasmagun_icon)
+		item_slot.set_data(5, "Laser Gun", TextureDictionary.PLASMAGUN_STATUS_ICON_RED)
 	else:
 		is_item_slot_a_shiv = true
-		item_slot.set_data(3, "Shiv", TextureDictionary.shiv_icon)
+		item_slot.set_data(3, "Shiv", TextureDictionary.SHIV_STATUS_ICON_RED)
 	
 	if selected_inventory_slot == null:
-		quality_upgrade_slot.set_data(2, "Quality Upgrade", TextureDictionary.normal_die_icon, 1)
+		quality_upgrade_slot.set_data(4, "Quality Upgrade", TextureDictionary.normal_die_icon, 1)
 	else:
 		_populate_quality_slot(selected_inventory_slot)
 	
@@ -135,7 +135,7 @@ func _on_inventory_slot_selected(selected_slot: InventorySlot) -> void:
 
 func _populate_quality_slot(slot: InventorySlot) -> void:
 	is_quality_slot_empty = false
-	var price: int = 2
+	var price: int = 4
 	if slot.die.quality != 0:
-		price = (slot.die.quality + 1)**2
+		price = (slot.die.quality + 2)**2
 	quality_upgrade_slot.set_data(price, "Quality Upgrade", slot.die_type_sprite.texture, slot.die.quality + 1)

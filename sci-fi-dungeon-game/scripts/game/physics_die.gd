@@ -36,10 +36,12 @@ var _rolling: bool = false:
 				roll_finished.emit()
 
 var _move_timer: Timer = Timer.new()
+var _roll_timeout: Timer = Timer.new()
 
 func _ready() -> void:
 	_move_timer.one_shot = true
 	add_child(_move_timer)
+	add_child(_roll_timeout)
 	mouse_detect.mouse_clicked.connect(func(): die_clicked.emit())
 	match_current_die(Die.new(0))
 
@@ -57,23 +59,24 @@ func _process(_delta: float) -> void:
 	elif raycast_6.get_collider() is DieFaceDetect:
 		face_up = raycast_6.face_value
 	
-	if _rolling and _move_timer.is_stopped():
+	if _rolling and _move_timer.is_stopped() or _roll_timeout.is_stopped():
 		_rolling = false
 	
 	if linear_velocity != Vector3.ZERO or angular_velocity != Vector3.ZERO:
-		_move_timer.start(0.05)
+		_move_timer.start(0.2)
 
 func roll() -> int:
+	_roll_timeout.start(10)
 	await die_clicked
 	MusicMan.play_sound(AudioDictionary.sfx["Dice"])
 	can_roll = false
 	roll_started.emit()
-	_move_timer.start(0.05)
+	_move_timer.start(0.2)
 	_rolling = true
 	_apply_random_force()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.05).timeout
 	_apply_random_force()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.05).timeout
 	_apply_random_force()
 	await roll_finished
 	global_position = reset_location.global_position
@@ -81,15 +84,16 @@ func roll() -> int:
 	return face_up
 
 func force_roll():
+	_roll_timeout.start(10)
 	MusicMan.play_sound(AudioDictionary.sfx["Dice"])
 	can_roll = false
 	roll_started.emit()
-	_move_timer.start(0.05)
+	_move_timer.start(0.2)
 	_rolling = true
 	_apply_random_force()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.05).timeout
 	_apply_random_force()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.05).timeout
 	_apply_random_force()
 	await roll_finished
 	global_position = reset_location.global_position
@@ -101,7 +105,7 @@ func _apply_random_force() -> void:
 	var z_force: float = randf_range(0, 5)
 	var x_offset: float = randf_range(-0.1, 0.1)
 	var z_offset: float = randf_range(-0.1, 0.1)
-	apply_force(Vector3(x_force, 15, z_force), Vector3(x_offset, -0.1, z_offset))
+	apply_force(Vector3(x_force, 20, z_force), Vector3(x_offset, -0.1, z_offset))
 	var x_rotation: float = randf_range(0, 360)
 	var y_rotation: float = randf_range(0, 360)
 	var z_rotation: float = randf_range(0, 360)
