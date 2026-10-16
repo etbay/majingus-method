@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_3ra8b")
 name = "Low Roller"
-cost = 5
+cost = 6
 type = 2
