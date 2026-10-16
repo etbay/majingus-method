@@ -12,9 +12,11 @@ const COLUMN_SELECT_ICON = preload("uid://c6tth8a4sopmb")
 
 
 var rolling_status_icon: CompressedTexture2D = preload("res://assets/icons/diceroll_status_icon.png")
-var plasmagun_icon: CompressedTexture2D = preload("res://assets/icons/plasmagun_status_icon.png")
+const PLASMAGUN_STATUS_ICON_RED = preload("uid://do4h81bjgy15s")
+const PLASMAGUN_STATUS_ICON_WHITE = preload("uid://bs4iqvcfbaal3")
 var selecting_status_icon: CompressedTexture2D = preload("res://assets/icons/columnselect_status_icon.png")
-var shiv_icon: CompressedTexture2D = preload("res://assets/icons/shiv_status_icon_1.png")
+const SHIV_STATUS_ICON_RED = preload("uid://crlv35ega58fd")
+const SHIV_STATUS_ICON_WHITE = preload("uid://ro30cs8h5mvq")
 
 var normal_die_icon: CompressedTexture2D = preload("res://assets/icons/die_types/normal_icon.png")
 var gilded_die_icon: CompressedTexture2D = preload("res://assets/icons/die_types/gilded_icon.png")

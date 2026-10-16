@@ -47,10 +47,10 @@ func refresh_shop() -> void:
 	
 	if not PlayerInventory.has_laser_gun and randi_range(0,100) < 30:
 		is_item_slot_a_shiv = false
-		item_slot.set_data(5, "Laser Gun", TextureDictionary.plasmagun_icon)
+		item_slot.set_data(5, "Laser Gun", TextureDictionary.PLASMAGUN_STATUS_ICON_RED)
 	else:
 		is_item_slot_a_shiv = true
-		item_slot.set_data(3, "Shiv", TextureDictionary.shiv_icon)
+		item_slot.set_data(3, "Shiv", TextureDictionary.SHIV_STATUS_ICON_RED)
 	
 	if selected_inventory_slot == null:
 		quality_upgrade_slot.set_data(2, "Quality Upgrade", TextureDictionary.normal_die_icon, 1)

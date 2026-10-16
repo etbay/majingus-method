@@ -25,10 +25,10 @@ func _on_status_changed(status: GameInterface.TurnStatus) -> void:
 		status_icon.texture = TextureDictionary.selecting_status_icon
 		status_label.text = "Selecting"
 	elif status == GameInterface.TurnStatus.USING_ITEM:
-		status_icon.texture = TextureDictionary.shiv_icon
+		status_icon.texture = TextureDictionary.SHIV_STATUS_ICON_RED
 		status_label.text = "Using Shiv"
 	elif status == GameInterface.TurnStatus.USING_LASER:
-		status_icon.texture = TextureDictionary.plasmagun_icon
+		status_icon.texture = TextureDictionary.PLASMAGUN_STATUS_ICON_RED
 		status_label.text = "Using Laser"
 	elif status == GameInterface.TurnStatus.WAITING_FOR_TURN:
 		status_icon.texture = TextureDictionary.COLUMN_SELECT_ICON
