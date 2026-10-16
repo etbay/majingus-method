@@ -25,6 +25,14 @@
 				"Text": "schplehhhhhhhhhhhh        glorpglorp :0"
 			}
 		],
+		"start_game_second": [
+			{
+				"Text": "glopslipabb?"
+			},
+			{
+				"Text": "begoorreetoo! glabshat."
+			}
+		],
 		"win": [
 			{
 				"Text": "gwomp gwomp :("
@@ -85,6 +93,14 @@
 			},
 			{
 				"Text": "Wink!~"
+			}
+		],
+		"start_game_second": [
+			{
+				"Text": "Haven't you Scarped your last already?"
+			},
+			{
+				"Text": "No matter, I'll put you to rest for good."
 			}
 		],
 		"win": [
@@ -354,6 +370,14 @@
 				"Text": "pew pew"
 			}
 		],
+		"start_game_second": [
+			{
+				"Text": "ohey i know you, couldn' get this Rat off ya mind?"
+			},
+			{
+				"Text": "i'm playin fo keeps now"
+			}
+		],
 		"win": [
 			{
 				"Text": "dang"
@@ -395,6 +419,14 @@
 				"Text": "Put ‘em up, cellie."
 			}
 		],
+		"start_game_second": [
+			{
+				"Text": "Bad gam you don't know when to quit, do ya?"
+			},
+			{
+				"Text": "I'm gonna give you hell, cellie."
+			}
+		],
 		"win": [
 			{
 				"Text": "Damn."
@@ -404,6 +436,73 @@
 			},
 			{
 				"Text": "I’m gettin’ outta here."
+			}
+		]
+	},
+	"Sammy": {
+		"lose": [
+			{
+				"Text": "Well hey don't worry about it!"
+			},
+			{
+				"Text": "Try again, I'm sure you'll get the hang of it."
+			}
+		],
+		"start_game": [
+			{
+				"Text": "Hey there! Sorry to hear about your solitary confinement."
+			},
+			{
+				"Text": "At least they left this Scarps board here for us to play."
+			},
+			{
+				"Text": "Mind if I show you the ropes? I heard if you get good enough at it, you can even reduce your sentence!"
+			},
+			{
+				"Text": "The main goal is to match die faces in a column."
+			},
+			{
+				"Text": "Points are tallied for each column by adding the face values."
+			},
+			{
+				"Text": "If there are matching faces, those two die get a multiplier bonus!"
+			},
+			{
+				"Text": "For example, if you had two 5's in your column, your points would be (5 + 5) * 2"
+			},
+			{
+				"Text": "You can also match die on your opponents board, which removes all matching faces in a column."
+			},
+			{
+				"Text": "As you beat opponents, I'll be inviting tougher folk to spread the word of your skills."
+			},
+			{
+				"Text": "Once you're good enough, you might even be pardoned! Depending on what you did..."
+			},
+			{
+				"Text": "Enough talk, let's give it a shot!"
+			}
+		],
+		"start_game_second": [
+			{
+				"Text": "Hey sport! Ready for some tussling?"
+			},
+			{
+				"Text": "I won't go easy on you this time!"
+			}
+		],
+		"win": [
+			{
+				"Text": "Great work!"
+			},
+			{
+				"Text": "Your next opponents are gonna be tougher than me."
+			},
+			{
+				"Text": "Feel free to swing by my shop to get better die."
+			},
+			{
+				"Text": "Good luck!"
 			}
 		]
 	},
@@ -481,6 +580,14 @@
 				"Text": "OF THE MACHINE MIND"
 			}
 		],
+		"start_game_second": [
+			{
+				"Text": "AH THE INSIGNIFIGANT WORM"
+			},
+			{
+				"Text": "HAVE A TASTE OF METAL"
+			}
+		],
 		"win": [
 			{
 				"Text": "THIS IS THE LAST TIME THAT I BUY DICE FROM SPACE AMAZON"
@@ -502,65 +609,6 @@
 			},
 			{
 				"Text": "SO THAT NOBODY WILL REMEMBER THIS HAPPENED."
-			}
-		]
-	},
-	"Trader": {
-		"lose": [
-			{
-				"Text": "Well hey don't worry about it!"
-			},
-			{
-				"Text": "Try again, I'm sure you'll get the hang of it."
-			}
-		],
-		"start_game": [
-			{
-				"Text": "Hey there! Sorry to hear about your solitary confinement."
-			},
-			{
-				"Text": "At least they left this Scarps board here for us to play."
-			},
-			{
-				"Text": "Mind if I show you the ropes? I heard if you get good enough at it, you can even reduce your sentence!"
-			},
-			{
-				"Text": "The main goal is to match die faces in a column."
-			},
-			{
-				"Text": "Points are tallied for each column by adding the face values."
-			},
-			{
-				"Text": "If there are matching faces, those two die get a multiplier bonus!"
-			},
-			{
-				"Text": "For example, if you had two 5's in your column, your points would be (5 + 5) * 2"
-			},
-			{
-				"Text": "You can also match die on your opponents board, which removes all matching faces in a column."
-			},
-			{
-				"Text": "As you beat opponents, I'll be inviting tougher folk to spread the word of your skills."
-			},
-			{
-				"Text": "Once you're good enough, you might even be pardoned! Depending on what you did..."
-			},
-			{
-				"Text": "Enough talk, let's give it a shot!"
-			}
-		],
-		"win": [
-			{
-				"Text": "Great work!"
-			},
-			{
-				"Text": "Your next opponents are gonna be tougher than me."
-			},
-			{
-				"Text": "Feel free to swing by my shop to get better die."
-			},
-			{
-				"Text": "Good luck!"
 			}
 		]
 	},
@@ -599,7 +647,7 @@
 			}
 		]
 	},
-	"Xygas": {
+	"Xygas the Forever Fish": {
 		"lose": [
 			{
 				"Text": "BLEED."
@@ -674,6 +722,14 @@
 			},
 			{
 				"Text": "You will not win."
+			}
+		],
+		"start_game_second": [
+			{
+				"Text": "Oh? The prisoner who escaped, come to lose?"
+			},
+			{
+				"Text": "I won't be caught looking at this horse in the mouth."
 			}
 		],
 		"win": [

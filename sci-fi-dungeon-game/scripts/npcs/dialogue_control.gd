@@ -34,11 +34,11 @@ func load_dialogue_json(path: String) -> Dictionary:
 		return {}
 
 func _ready():
-	dialogue_data = parse_raw_dialogue("res://resources/dialogue_resources/raw_text.txt")
-	var json_text = JSON.stringify(dialogue_data, "\t")
-	var output = FileAccess.open("res://resources/dialogue_resources/dialogue_data.json", FileAccess.WRITE)
-	output.store_string(json_text)
-	output.close()
+	#dialogue_data = parse_raw_dialogue("res://resources/dialogue_resources/raw_text.txt")
+	#var json_text = JSON.stringify(dialogue_data, "\t")
+	#var output = FileAccess.open("res://resources/dialogue_resources/dialogue_data.json", FileAccess.WRITE)
+	#output.store_string(json_text)
+	#output.close()
 	dialogue_data = load_dialogue_json("res://resources/dialogue_resources/dialogue_data.json")
 	dialogue_continue.pressed.connect(_on_next_pressed)
 	GlobalSignals.start_dialogue.connect(start_dialogue)
@@ -124,7 +124,7 @@ func parse_raw_dialogue(path: String) -> Dictionary:
 func start_dialogue(id: String, condition: String) -> void:
 	visible = true
 	current_index = 0
-	current_lines.clear()
+	current_lines = []
 
 	if not dialogue_data.has(id):
 		push_warning("Dialogue ID '%s' not found." % id)

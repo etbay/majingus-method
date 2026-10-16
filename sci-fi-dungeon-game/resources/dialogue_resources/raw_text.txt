@@ -162,6 +162,13 @@ Text: Uhhhh
 Character: Madame Illwater
 Text: Good game! Bye!!!
 
+ID: Madame Illwater
+Condition: start_game_second
+Character: Madame Illwater
+Text: Haven't you Scarped your last already?
+Character: Madame Illwater
+Text: No matter, I'll put you to rest for good.
+
 ID: Dr. Glooper
 Condition: start_game
 Character: Dr. Glooper
@@ -190,6 +197,13 @@ Character: Dr. Glooper
 Text: (It begrudgingly hands over the suit.)
 Character: Dr. Glooper
 Text: Galbabaty hghgbhgbbhghbhgbhba
+
+ID: Dr. Glooper
+Condition: start_game_second
+Character: Dr. Glooper
+Text: glopslipabb?
+Character: Dr. Glooper
+Text: begoorreetoo! glabshat.
 
 ID: Sen. John P.
 Condition: start_game
@@ -261,7 +275,14 @@ Text: MY NEXT CAMPAIGN WILL BE ABOUT THE DEVELOPMENT OF MIND CONTROL
 Character: Sen. John P.
 Text: SO THAT NOBODY WILL REMEMBER THIS HAPPENED.
 
-ID: Xygas
+ID: Sen. John P.
+Condition: start_game_second
+Character: Sen. John P.
+Text: AH THE INSIGNIFIGANT WORM
+Character: Sen. John P.
+Text: HAVE A TASTE OF METAL
+
+ID: Xygas the Forever Fish
 Condition: start_game
 Character: Xygas the Forever Fish
 Text: BEHOLD, CHILD!
@@ -308,7 +329,7 @@ Text: You will not make me yield.
 Character: Xygas the Forever Fish
 Text: You will not win.
 
-ID: Xygas
+ID: Xygas the Forever Fish
 Condition: lose
 Character: Xygas the Forever Fish
 Text: BLEED.
@@ -317,7 +338,7 @@ Text: SCREAM.
 Character: Xygas the Forever Fish
 Text: WEAK, WITHOUT YOUR BAUBLES AND TRINKETS.
 
-ID: Xygas
+ID: Xygas the Forever Fish
 Condition: win
 Character: Xygas the Forever Fish
 Text: THIS PLANE GROWS DARK... BROTHER... I CANNOT SEE YOU... WHERE ARE YOU...? 
@@ -327,6 +348,13 @@ Character: Xygas the Forever Fish
 Text: Take the fish bowl and leave me.
 Character: Xygas the Forever Fish
 Text: BEGONE!
+
+ID: Xygas the Forever Fish
+Condition: start_game_second
+Character: Xygas the Forever Fish
+Text: Oh? The prisoner who escaped, come to lose?
+Character: Xygas the Forever Fish
+Text: I won't be caught looking at this horse in the mouth.
 
 ID: Trader_1
 Condition: start_shop
@@ -386,48 +414,62 @@ Text: Here’s yer fish.
 Character: Reel N’Fysh
 Text: I’m gettin’ outta here.
 
-ID: Trader
+ID: Reel N’Fysh
+Condition: start_game_second
+Character: Reel N’Fysh
+Text: Bad gam you don't know when to quit, do ya?
+Character: Reel N’Fysh
+Text: I'm gonna give you hell, cellie.
+
+ID: Sammy
 Condition: start_game
-Character: Trader
+Character: Sammy
 Text: Hey there! Sorry to hear about your solitary confinement.
-Character: Trader
+Character: Sammy
 Text: At least they left this Scarps board here for us to play.
-Character: Trader
+Character: Sammy
 Text: Mind if I show you the ropes? I heard if you get good enough at it, you can even reduce your sentence!
-Character: Trader
+Character: Sammy
 Text: The main goal is to match die faces in a column.
-Character: Trader
+Character: Sammy
 Text: Points are tallied for each column by adding the face values.
-Character: Trader
+Character: Sammy
 Text: If there are matching faces, those two die get a multiplier bonus!
-Character: Trader
+Character: Sammy
 Text: For example, if you had two 5's in your column, your points would be (5 + 5) * 2
-Character: Trader
+Character: Sammy
 Text: You can also match die on your opponents board, which removes all matching faces in a column.
-Character: Trader
+Character: Sammy
 Text: As you beat opponents, I'll be inviting tougher folk to spread the word of your skills.
-Character: Trader
+Character: Sammy
 Text: Once you're good enough, you might even be pardoned! Depending on what you did...
-Character: Trader
+Character: Sammy
 Text: Enough talk, let's give it a shot!
 
-ID: Trader
+ID: Sammy
 Condition: lose
-Character: Trader
+Character: Sammy
 Text: Well hey don't worry about it!
-Character: Trader
+Character: Sammy
 Text: Try again, I'm sure you'll get the hang of it.
 
-ID: Trader
+ID: Sammy
 Condition: win
-Character: Trader
+Character: Sammy
 Text: Great work!
-Character: Trader
+Character: Sammy
 Text: Your next opponents are gonna be tougher than me.
-Character: Trader
+Character: Sammy
 Text: Feel free to swing by my shop to get better die.
-Character: Trader
+Character: Sammy
 Text: Good luck!
+
+ID: Sammy
+Condition: start_game_second
+Character: Sammy
+Text: Hey sport! Ready for some tussling?
+Character: Sammy
+Text: I won't go easy on you this time!
 
 ID: Ratthew
 Condition: start_game
@@ -453,3 +495,10 @@ Character: Ratthew
 Text: dang
 Character: Ratthew
 Text: well ya got any cheese?
+
+ID: Ratthew
+Condition: start_game_second
+Character: Ratthew
+Text: ohey i know you, couldn' get this Rat off ya mind?
+Character: Ratthew
+Text: i'm playin fo keeps now

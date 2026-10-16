@@ -43,7 +43,11 @@ func _process(_delta: float) -> void:
 
 func start_game() -> void:
 	if game._current_status == game.TurnStatus.NONE:
-		GlobalSignals.start_dialogue.emit(cpu_characters[current_cpu].character_name, "start_game")
+		# If we've already seen this character, play different dialogue
+		if PlayerInventory.highest_cpu >= current_cpu:
+			GlobalSignals.start_dialogue.emit(cpu_characters[current_cpu].character_name, "start_game_second")
+		else:
+			GlobalSignals.start_dialogue.emit(cpu_characters[current_cpu].character_name, "start_game")
 		game_manager.start_game()
 		game_started.emit()
 

@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_yya7q")
 texture = ExtResource("2_24ffb")
-character_name = "Xygas"
+character_name = "Xygas the Forever Fish"
 difficulty = 12
 metadata/_custom_type_script = "uid://b4jpjkgigxeln"
