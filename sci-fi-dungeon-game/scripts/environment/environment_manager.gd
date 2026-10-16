@@ -2,7 +2,7 @@ class_name EnvironmentManager extends Node3D
 
 signal done_transitioning
 
-@onready var env_camera: Camera3D = $EnvironmentCamera
+@onready var env_camera: PanCamera = $EnvironmentCamera
 @onready var game_camera: Camera3D = $Skarps/GameCamera
 @onready var shop_camera: Camera3D = $Shop/ShopCamera
 @onready var game_ui: GameUI = $CanvasLayer
