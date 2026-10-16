@@ -104,16 +104,15 @@ func _on_purchase_pressed() -> void:
 			new_die.set_type(selected_item.die.get_type())
 			PlayerInventory.set_die(selected_inventory_slot.index, new_die)
 			inventory.initialize_inventory()
-			_populate_quality_slot(selected_inventory_slot)
 	
-	selected_item.deselect()
 	PlayerInventory.balance -= selected_item.price
-	if (selected_item != quality_upgrade_slot):
+	if selected_item != quality_upgrade_slot:
+		selected_item.deselect()
 		selected_item.empty_data()
 		selected_item.selectable = false
 		selected_item = null
-	if selected_inventory_slot != null:
-		selected_inventory_slot.deselect()
+	else:
+		_populate_quality_slot(selected_inventory_slot)
 
 func fail_purchase(message: String) -> void:
 	error_message_label.visible = true

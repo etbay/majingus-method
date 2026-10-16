@@ -1,7 +1,7 @@
-class_name DiceBag extends Node
+class_name DiceBag extends Resource
 
 var _dice_array: Array[Die] = []# Contains the current list of dice
-var _total_dice_array: Array[Die] = []# Contains the absolute list of dice
+@export var _total_dice_array: Array[Die] = []# Contains the absolute list of dice
 
 func _init() -> void:
 	for i in range(0, 12):
@@ -36,3 +36,12 @@ func set_die(index: int, die: Die) -> void:
 # function to update the current dice list with the absolute dice list
 func refresh_dice() -> void:
 	_dice_array.assign(_total_dice_array)
+
+func to_dictionary() -> Dictionary:
+	var bag_dict: Dictionary
+	for i in range(0, len(_total_dice_array)):
+		var die_dict: Dictionary
+		die_dict["type"] = _total_dice_array[i].get_type()
+		die_dict["quality"] = _total_dice_array[i].quality
+		bag_dict["Die %d" % i] = die_dict
+	return bag_dict

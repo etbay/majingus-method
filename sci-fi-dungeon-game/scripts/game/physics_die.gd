@@ -103,8 +103,9 @@ func _apply_random_force() -> void:
 	var z_offset: float = randf_range(-0.1, 0.1)
 	apply_force(Vector3(x_force, 15, z_force), Vector3(x_offset, -0.1, z_offset))
 	var x_rotation: float = randf_range(0, 360)
+	var y_rotation: float = randf_range(0, 360)
 	var z_rotation: float = randf_range(0, 360)
-	apply_torque(Vector3(x_rotation, 0, z_rotation))
+	apply_torque(Vector3(x_rotation, y_rotation, z_rotation))
 
 func match_current_die(die: Die) -> void:
 	var mat = StandardMaterial3D.new()

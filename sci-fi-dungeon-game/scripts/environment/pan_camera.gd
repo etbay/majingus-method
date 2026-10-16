@@ -10,7 +10,7 @@ signal hit_trigger(dir: PoolTrigger.TriggerDirection)
 
 @onready var area_trigger: PanCameraArea = $PanCameraArea
 @onready var _screen_width: float = get_tree().root.content_scale_size.x
-@onready var pause_overlay: ColorRect = $"../CanvasLayer/PauseOverlay"
+@onready var pause_overlay: PauseMenu = $"../CanvasLayer/PauseOverlay"
 
 var enabled: bool = true
 
@@ -25,7 +25,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pan_enabled = not pan_enabled
-		pause_overlay.visible = not pause_overlay.visible
+		pause_overlay.pause()
 	
 	if pan_enabled and within_right_percent_of_screen(_mouse_pos_x):
 		position.x += turn_speed * delta

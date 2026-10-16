@@ -1,4 +1,4 @@
-class_name Die extends Node
+class_name Die extends Resource
 
 enum DieType {
 	NORMAL,
@@ -15,8 +15,8 @@ var x: int = 0
 var y: int = 0
 
 # Modifications
-var _type: DieType
-var quality: int = 0
+@export var _type: DieType
+@export var quality: int = 0
 
 func _init(value: int = 0, type: DieType = DieType.NORMAL, qual: int = 0):
 	_value = value

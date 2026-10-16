@@ -29,6 +29,8 @@
 [ext_resource type="Script" uid="uid://c3hoylo0kia3t" path="res://scripts/environment/exit_to_environment.gd" id="20_rpk5l"]
 [ext_resource type="Script" uid="uid://qs1hrkxf551s" path="res://scripts/environment/tutorial_button.gd" id="25_454qq"]
 [ext_resource type="Shader" uid="uid://d3a8kiw1bvtyf" path="res://scenes/chromatic_aberration.gdshader" id="26_2vexs"]
+[ext_resource type="Script" uid="uid://cbdimcubpid6r" path="res://scenes/pause_menu.gd" id="26_6rpxt"]
+[ext_resource type="Script" uid="uid://ofdd1sfw738p" path="res://scenes/save_to_disk_button.gd" id="26_om7ee"]
 [ext_resource type="Texture2D" uid="uid://blh70jtiad28l" path="res://assets/alpha_mask_chromaticabberation.png" id="27_om7ee"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
@@ -148,7 +150,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014785767, 0.012664795, 0)
 shape = SubResource("BoxShape3D_7q7v2")
 
 [node name="Shop" type="Sprite3D" parent="Environment" unique_id=1071631409 node_paths=PackedStringArray("highlight_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.068584, 0.43816686, -4.694611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.068584, 0.43816686, -4.8896947)
 render_priority = 2
 texture = ExtResource("12_w1st6")
 script = ExtResource("8_7q7v2")
@@ -163,7 +165,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0007095337, -0.00888443, 0
 shape = SubResource("BoxShape3D_w1st6")
 
 [node name="Sprite3D" type="Sprite3D" parent="Environment/Shop" unique_id=610711313]
-transform = Transform3D(0.315, 0, 0, 0, 0.315, 0, 0, 0, 0.315, 0, 0, 0.02617073)
+transform = Transform3D(0.315, 0, 0, 0, 0.315, 0, 0, 0, 0.315, 0, 0, 0.13040519)
 render_priority = 5
 texture = ExtResource("13_rn5b3")
 
@@ -193,6 +195,7 @@ render_priority = -100
 texture = ExtResource("3_2bfpd")
 
 [node name="EnvironmentCamera" parent="." unique_id=1444190908 instance=ExtResource("7_aai17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.620289, 0, 0)
 fov = 87.6
 turn_threshold = 7.0
 turn_speed = 8.0
@@ -403,6 +406,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.34906498, 0.34906504, 0.34906492, 1)
+script = ExtResource("26_6rpxt")
 
 [node name="Label" type="Label" parent="CanvasLayer/PauseOverlay" unique_id=625358535]
 layout_mode = 1
@@ -418,6 +422,29 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "PAUSED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseOverlay" unique_id=485795410]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -66.0
+offset_right = 74.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="SaveToDiskButton" type="CheckButton" parent="CanvasLayer/PauseOverlay/VBoxContainer" unique_id=333898208]
+layout_mode = 2
+text = "Save to Disk"
+script = ExtResource("26_om7ee")
+
+[node name="ResetSaveDataButton" type="Button" parent="CanvasLayer/PauseOverlay/VBoxContainer" unique_id=1808690966]
+layout_mode = 2
+text = "Reset Save Data"
 
 [node name="FadeOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1910025015]
 visible = false
