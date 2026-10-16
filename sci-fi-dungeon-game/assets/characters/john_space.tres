@@ -8,4 +8,6 @@ script = ExtResource("1_dxhg5")
 texture = ExtResource("2_77y3o")
 character_name = "Sen. John P."
 difficulty = 10
+shiv_count = 2
+has_laser = true
 metadata/_custom_type_script = "uid://b4jpjkgigxeln"

@@ -9,4 +9,5 @@ texture = ExtResource("2_wqg21")
 character_name = "Dr. Glooper"
 character_id = "Gloop"
 difficulty = 5
+shiv_count = 2
 metadata/_custom_type_script = "uid://b4jpjkgigxeln"
