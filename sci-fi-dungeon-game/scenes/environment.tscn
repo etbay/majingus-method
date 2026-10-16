@@ -23,7 +23,6 @@
 [ext_resource type="FontFile" uid="uid://cukfpuaoj7veg" path="res://assets/Doto/static/Doto-Black.ttf" id="15_mymnt"]
 [ext_resource type="Script" uid="uid://dv7gy4kta7xw7" path="res://scripts/game/game_ui.gd" id="16_4qs8q"]
 [ext_resource type="Texture2D" uid="uid://cgnhwyy4rx2vl" path="res://assets/floor_texture.png" id="17_7px3q"]
-[ext_resource type="Script" uid="uid://715vwn2n5drg" path="res://scripts/npcs/dialogue_control.gd" id="17_mpsl3"]
 [ext_resource type="PackedScene" uid="uid://c6ctuuw46lpot" path="res://scenes/shop.tscn" id="17_txl0x"]
 [ext_resource type="Texture2D" uid="uid://cmotsqvfgyvu0" path="res://assets/dialogue_box.png" id="18_mbc85"]
 [ext_resource type="Texture2D" uid="uid://b2wnyyppwygwu" path="res://assets/icons/column_select_icon_1.png" id="19_4qs8q"]
@@ -251,13 +250,13 @@ grow_horizontal = 0
 grow_vertical = 1
 
 [node name="Dialogue_Control" type="Control" parent="CanvasLayer" unique_id=452579939]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("17_mpsl3")
 
 [node name="Dialogue_Continue" type="TextureButton" parent="CanvasLayer/Dialogue_Control" unique_id=1806131733]
 layout_mode = 1
