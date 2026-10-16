@@ -28,6 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://b2wnyyppwygwu" path="res://assets/icons/column_select_icon_1.png" id="19_4qs8q"]
 [ext_resource type="Script" uid="uid://c3hoylo0kia3t" path="res://scripts/environment/exit_to_environment.gd" id="20_rpk5l"]
 [ext_resource type="Script" uid="uid://qs1hrkxf551s" path="res://scripts/environment/tutorial_button.gd" id="25_454qq"]
+[ext_resource type="Shader" uid="uid://d3a8kiw1bvtyf" path="res://scenes/chromatic_aberration.gdshader" id="26_2vexs"]
+[ext_resource type="Texture2D" uid="uid://blh70jtiad28l" path="res://assets/alpha_mask_chromaticabberation.png" id="27_om7ee"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
 size = Vector3(4.715515, 0.8117676, 1.211792)
@@ -55,6 +57,11 @@ size = Vector3(5.0216255, 7.5956144, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6iypd"]
 size = Vector3(0.06647021, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6rpxt"]
+shader = ExtResource("26_2vexs")
+shader_parameter/aberration_x = 0.02000004845000003
+shader_parameter/aberration_y = 0.02000004845000003
 
 [node name="EnvironmentSystem" type="Node3D" unique_id=67044161 node_paths=PackedStringArray("current_camera")]
 script = ExtResource("1_txl0x")
@@ -207,6 +214,12 @@ sky_mode = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1473294941]
 script = ExtResource("16_4qs8q")
 
+[node name="ShaderOverlay" type="TextureRect" parent="CanvasLayer" unique_id=644832903]
+material = SubResource("ShaderMaterial_6rpxt")
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("27_om7ee")
+
 [node name="InventoryHUD" parent="CanvasLayer" unique_id=1377702667 instance=ExtResource("9_7px3q")]
 visible = false
 anchors_preset = 1
@@ -214,15 +227,6 @@ anchor_left = 1.0
 anchor_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 1
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2007199979]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0)
 
 [node name="Dialogue_Control" type="Control" parent="CanvasLayer" unique_id=452579939]
 visible = false
@@ -342,7 +346,7 @@ grow_horizontal = 2
 text = "Tutorial"
 script = ExtResource("25_454qq")
 
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1027573364]
+[node name="TutorialText" type="ColorRect" parent="CanvasLayer" unique_id=1027573364]
 visible = false
 custom_maximum_size = Vector2(700, 600)
 anchors_preset = 15
@@ -356,7 +360,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.15487596, 0.154876, 0.15487596, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer/ColorRect2" unique_id=648621002]
+[node name="Label" type="Label" parent="CanvasLayer/TutorialText" unique_id=648621002]
 layout_mode = 0
 offset_right = 828.0
 offset_bottom = 751.0
@@ -414,6 +418,15 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "PAUSED"
+
+[node name="FadeOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1910025015]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [node name="Skarps" type="Node3D" parent="." unique_id=1098451559]
 
