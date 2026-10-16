@@ -18,7 +18,6 @@ const VENT_FISH = preload("uid://sjav46uc51qo")
 @onready var center_console: CenterConsole = $CenterConsole
 @export var door_character: Sprite3D
 @export var door_character_env: Sprite3D
-@onready var center_console: CenterConsole = $CenterConsole
 
 var cpu_characters: Array[CPUCharacter]
 var current_cpu: int = 0
