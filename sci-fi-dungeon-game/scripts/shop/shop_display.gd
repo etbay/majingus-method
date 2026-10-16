@@ -40,17 +40,18 @@ func _ready() -> void:
 	refresh_shop()
 
 func refresh_shop() -> void:
-	if not PlayerInventory.has_wrench:
-		tool_slot.set_data(5, "Wrench", TextureDictionary.WRENCH)
-	elif not PlayerInventory.has_screwdriver:
-		tool_slot.set_data(10, "Screwdriver", TextureDictionary.SCREWDRIVER)
+	#if not PlayerInventory.has_wrench:
+	#	tool_slot.set_data(5, "Wrench", TextureDictionary.WRENCH)
+	#elif not PlayerInventory.has_screwdriver:
+	#	tool_slot.set_data(10, "Screwdriver", TextureDictionary.SCREWDRIVER)
+	tool_slot.set_data(8, "Laser Gun", TextureDictionary.PLASMAGUN_STATUS_ICON_RED)
 	
-	if not PlayerInventory.has_laser_gun and randi_range(0,100) < 30:
-		is_item_slot_a_shiv = false
-		item_slot.set_data(5, "Laser Gun", TextureDictionary.PLASMAGUN_STATUS_ICON_RED)
-	else:
-		is_item_slot_a_shiv = true
-		item_slot.set_data(3, "Shiv", TextureDictionary.SHIV_STATUS_ICON_RED)
+	#if not PlayerInventory.has_laser_gun and randi_range(0,100) < 30:
+	#	is_item_slot_a_shiv = false
+	#	item_slot.set_data(8, "Laser Gun", TextureDictionary.PLASMAGUN_STATUS_ICON_RED)
+	#else:
+	#	is_item_slot_a_shiv = true
+	item_slot.set_data(4, "Shiv", TextureDictionary.SHIV_STATUS_ICON_RED)
 	
 	if selected_inventory_slot == null:
 		quality_upgrade_slot.set_data(4, "Quality Upgrade", TextureDictionary.normal_die_icon, 1)
@@ -62,7 +63,7 @@ func refresh_shop() -> void:
 
 func _on_purchase_pressed() -> void:
 	if selected_item == null:
-		fail_purchase("Select a shop item")
+		fail_purchase("No shop item selected")
 		return
 	
 	var can_purchase = PlayerInventory.balance >= selected_item.price
@@ -72,16 +73,17 @@ func _on_purchase_pressed() -> void:
 		return
 	
 	if selected_item == tool_slot:
-		PlayerInventory.add_next_tool()
-	elif selected_item == item_slot:
-		if is_item_slot_a_shiv:
-			if PlayerInventory.shivs >= 3:
-				fail_purchase("Max shivs reached")
-				return
-			else:
-				PlayerInventory.shivs += 1
+		if PlayerInventory.has_laser_gun:
+			fail_purchase("Max laser guns reached")
+			return
 		else:
 			PlayerInventory.has_laser_gun = true
+	elif selected_item == item_slot:
+		if PlayerInventory.shivs >= 3:
+			fail_purchase("Max shivs reached")
+			return
+		else:
+			PlayerInventory.shivs += 1
 	
 	if selected_item == quality_upgrade_slot:
 		if selected_inventory_slot == null:

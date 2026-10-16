@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_eqlks")
 name = "Gilded"
-cost = 5
+cost = 8
 type = 1

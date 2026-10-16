@@ -53,11 +53,11 @@ var die_val_dict: Dictionary[int, CompressedTexture2D] = {
 
 var die_type_tooltip: Dictionary[Die.DieType, String] = {
 	Die.DieType.NORMAL : "A regular six-sided die.",
-	Die.DieType.GILDED : "Gold-plated holodice. +1 Gold per matching number on your board.",
-	Die.DieType.LOW_ROLLER : "Acrylic-looking holodice of old-world Casinos. Can only roll 1’s, 2’s, and 3’s.",
-	Die.DieType.HOLLOW : "The pattern reminds you of a bug’s carapace. Gives Points for every empty spot on your board.",
-	Die.DieType.PLASMA : "Burning, cube-shaped motes of light. Gains Points equal to matches in its row.",
-	Die.DieType.WEIGHTED : "Expensive, inlaid iron holodice. Can only roll 4’s, 5’s, and 6’s."
+	Die.DieType.GILDED : "Gold-plated holodice. Earn (quality + 1) Gold for each matching face on your board.",
+	Die.DieType.LOW_ROLLER : "Acrylic-looking holodice of old-world Casinos. Rolls only 1, 2, or 3. Adds +1 to its group’s multiplier for each matching face in the column.",
+	Die.DieType.HOLLOW : "The pattern reminds you of a bug’s carapace. Adds the number of empty spaces on the board to its face value before the group multiplier.",
+	Die.DieType.PLASMA : "Burning, cube-shaped motes of light. Adds +1 to its group’s multiplier for each matching face in the row.",
+	Die.DieType.WEIGHTED : "Expensive, inlaid iron holodice. Rolls only 4, 5, or 6."
 }
 
 var type_color_dict: Dictionary[Die.DieType, Color] = {
