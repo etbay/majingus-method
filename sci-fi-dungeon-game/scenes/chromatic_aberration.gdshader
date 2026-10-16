@@ -11,7 +11,7 @@ void fragment() {
 	
 	vec3 final_color;
 	final_color.r = texture(SCREEN_TEXTURE, SCREEN_UV + offset).r;
-	final_color.g = texture(SCREEN_TEXTURE, SCREEN_UV + offset).g;
+	final_color.g = texture(SCREEN_TEXTURE, SCREEN_UV).g;
 	final_color.b = texture(SCREEN_TEXTURE, SCREEN_UV - offset).b;
 	COLOR.rgb = final_color;
 }

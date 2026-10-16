@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://c3hoylo0kia3t" path="res://scripts/environment/exit_to_environment.gd" id="20_rpk5l"]
 [ext_resource type="Script" uid="uid://qs1hrkxf551s" path="res://scripts/environment/tutorial_button.gd" id="25_454qq"]
 [ext_resource type="Shader" uid="uid://d3a8kiw1bvtyf" path="res://scenes/chromatic_aberration.gdshader" id="26_2vexs"]
+[ext_resource type="Texture2D" uid="uid://blh70jtiad28l" path="res://assets/alpha_mask_chromaticabberation.png" id="27_om7ee"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
 size = Vector3(4.715515, 0.8117676, 1.211792)
@@ -57,7 +58,7 @@ size = Vector3(5.0216255, 7.5956144, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6iypd"]
 size = Vector3(0.06647021, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqnwj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6rpxt"]
 shader = ExtResource("26_2vexs")
 shader_parameter/aberration_x = 0.02000004845000003
 shader_parameter/aberration_y = 0.02000004845000003
@@ -213,14 +214,11 @@ sky_mode = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1473294941]
 script = ExtResource("16_4qs8q")
 
-[node name="Shader" type="ColorRect" parent="CanvasLayer" unique_id=2007199979]
-material = SubResource("ShaderMaterial_oqnwj")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+[node name="ShaderOverlay" type="TextureRect" parent="CanvasLayer" unique_id=644832903]
+material = SubResource("ShaderMaterial_6rpxt")
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("27_om7ee")
 
 [node name="InventoryHUD" parent="CanvasLayer" unique_id=1377702667 instance=ExtResource("9_7px3q")]
 visible = false
